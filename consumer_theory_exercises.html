@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MICRO — Exercises Part 2-1 · Consumer Theory</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+<style>
+/* =====================================================
+   DESIGN SYSTEM — MICRO (Dark Red Premium)
+   ===================================================== */
+:root {
+  --sidebar-bg: #13020A;
+  --sidebar-width: 280px;
+  --bg: #0f1117;
+  --bg-card: #161922;
+  --red: #e11d48;
+  --red-bright: #ff2d55;
+  --red-muted: rgba(225,29,72,0.1);
+  --red-border: rgba(225,29,72,0.3);
+  --red-glow: rgba(225,29,72,0.15);
+  --red-gradient: linear-gradient(135deg, #e11d48 0%, #9f1239 100%);
+  --blue-bright: #60a5fa;
+  --blue-muted: rgba(59,130,246,0.1);
+  --blue-border: rgba(59,130,246,0.3);
+  --green-bright: #34d399;
+  --green-muted: rgba(16,185,129,0.08);
+  --green-border: rgba(16,185,129,0.3);
+  --purple-bright: #c084fc;
+  --purple-muted: rgba(168,85,247,0.1);
+  --purple-border: rgba(168,85,247,0.3);
+  --amber-bright: #fbbf24;
+  --amber-muted: rgba(245,158,11,0.09);
+  --amber-border: rgba(245,158,11,0.3);
+  --text: #f8fafc;
+  --text-2: #cbd5e1;
+  --text-3: #94a3b8;
+  --text-muted: #64748b;
+  --border: rgba(255,255,255,0.07);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --font: 'Outfit', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  position: fixed; top:0; left:0; bottom:0;
+  z-index: 200; transition: transform .3s ease; overflow: hidden;
+}
+.sidebar-brand {
+  padding: 22px 20px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sidebar-brand h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: 1px; }
+.sidebar-brand h1 span { color: var(--red); }
+.sidebar-close { background:none; border:none; color:var(--text-3); font-size:1.4rem; cursor:pointer; }
+.sidebar-close:hover { color: var(--red); }
+.sidebar-nav { flex:1; overflow-y:auto; padding:12px 0; }
+
+.sidebar-link {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 22px;
+  color: var(--text-3); text-decoration: none;
+  font-size: 0.88rem; font-weight: 700;
+  transition: all .2s; border-left: 3px solid transparent;
+}
+.sidebar-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.sidebar-link.active { color: var(--red-bright); border-left-color: var(--red); background: var(--red-muted); }
+
+.sidebar-group { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.sidebar-group-title {
+  padding: 10px 22px 4px;
+  font-size: 0.82rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.6px; color: var(--text-3);
+}
+.sidebar-sublink {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 22px 9px 36px;
+  color: var(--text-3); text-decoration: none;
+  font-size: 0.85rem; font-weight: 600;
+  transition: all .2s; border-left: 3px solid transparent;
+}
+.sidebar-sublink:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.sidebar-sublink.active { color: var(--red-bright); border-left-color: var(--red); background: var(--red-muted); }
+
+.sidebar-footer {
+  padding: 14px 16px; border-top: 1px solid var(--border);
+}
+.sidebar-user { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px; }
+.user-avatar { width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; }
+.user-dot { width:8px; height:8px; background:#10b981; border-radius:50%; border:2px solid var(--sidebar-bg); position:absolute; bottom:-2px; right:-2px; }
+.user-info { overflow:hidden; }
+.user-name { font-size:0.82rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.user-role { font-size:0.7rem; color:var(--text-muted); }
+
+/* ── TOPBAR ── */
+.topbar {
+  height: 64px; background: rgba(15,17,23,0.9); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px); position:sticky; top:0; z-index:100;
+  display:flex; align-items:center; padding:0 28px; gap:16px;
+}
+.topbar-toggle { background:rgba(255,255,255,0.06); border:1px solid var(--border); color:var(--text); width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.1rem; flex-shrink:0; transition:.2s; }
+.topbar-toggle:hover { border-color: var(--red-border); color: var(--red); }
+.topbar-breadcrumb { color:var(--text-3); font-size:0.88rem; display:flex; align-items:center; gap:6px; }
+.topbar-breadcrumb .sep { opacity:.4; }
+.topbar-breadcrumb strong { color:var(--text); font-weight:700; }
+.topbar-pill { margin-left:auto; background:var(--red-muted); border:1px solid var(--red-border); color:var(--red); padding:5px 14px; border-radius:999px; font-size:0.78rem; font-weight:700; display:flex; align-items:center; gap:7px; }
+.topbar-dot { width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 7px var(--red); }
+
+/* ── LAYOUT ── */
+.main-wrap { margin-left: var(--sidebar-width); flex:1; display:flex; flex-direction:column; transition:margin-left .3s; min-width:0; }
+.main-wrap.expanded { margin-left:0; }
+.main-content { padding:40px 44px 70px; max-width:920px; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:44px; }
+
+/* ── PAGE TITLE ── */
+.page-title-block { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+.page-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--red); margin-bottom:8px; }
+.page-title-block h1 { font-size:2.1rem; font-weight:800; letter-spacing:-0.5px; line-height:1.2; }
+.page-title-block p { color:var(--text-3); font-size:0.95rem; margin-top:8px; }
+
+/* ── PART BANNER ── */
+.part-banner {
+  display: flex; align-items: center; gap: 14px; margin-top: 6px;
+}
+.part-pill {
+  font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.8px; padding: 6px 15px; border-radius: 999px; white-space: nowrap;
+}
+.part-pill.green { background: rgba(16,185,129,0.12); color: var(--green-bright); border: 1px solid var(--green-border); }
+.part-pill.blue  { background: var(--blue-muted); color: var(--blue-bright); border: 1px solid var(--blue-border); }
+.part-pill.purple{ background: var(--purple-muted); color: var(--purple-bright); border: 1px solid var(--purple-border); }
+.part-pill.amber { background: var(--amber-muted); color: var(--amber-bright); border: 1px solid var(--amber-border); }
+.part-pill.red   { background: var(--red-muted); color: var(--red-bright); border: 1px solid var(--red-border); }
+.part-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── SUBSECTIONS ── */
+.subsection { display:flex; flex-direction:column; gap:22px; }
+
+/* ── KEY NOTE ── */
+.key-note {
+  font-size:0.93rem; color:var(--text-2); line-height:1.68;
+  border-left: 3px solid var(--red); padding: 14px 18px;
+  background: var(--red-muted); border-radius: 0 var(--radius) var(--radius) 0;
+}
+.key-note.green  { border-left-color: #10b981; background: var(--green-muted); }
+.key-note.blue   { border-left-color: #3b82f6; background: var(--blue-muted); }
+.key-note.purple { border-left-color: #a855f7; background: var(--purple-muted); }
+.key-note.amber  { border-left-color: #f59e0b; background: var(--amber-muted); }
+.key-note strong { color:var(--text); font-weight:800; }
+
+/* ── MATH DISPLAY ── */
+.math-display {
+  background: var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:14px 20px;
+  text-align:center; margin: 8px 0; overflow-x:visible; min-width:0;
+}
+.math-display.boxed        { border-color:var(--red-border);    background:var(--red-muted); }
+.math-display.boxed-blue   { border-color:var(--blue-border);   background:var(--blue-muted); }
+.math-display.boxed-green  { border-color:var(--green-border);  background:var(--green-muted); }
+.math-display.boxed-purple { border-color:var(--purple-border); background:var(--purple-muted); }
+.math-display.boxed-amber  { border-color:var(--amber-border);  background:var(--amber-muted); }
+
+/* ── PROPERTY ITEM ── */
+.property-item {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:20px 24px; display:flex; flex-direction:column; gap:10px;
+}
+.property-item.red    { border-left:4px solid var(--red); }
+.property-item.blue   { border-left:4px solid #3b82f6; }
+.property-item.green  { border-left:4px solid #10b981; }
+.property-item.purple { border-left:4px solid #a855f7; }
+.property-item.amber  { border-left:4px solid #f59e0b; }
+.property-name { font-size:0.82rem; font-weight:800; text-transform:uppercase; letter-spacing:0.6px; }
+.property-item.red    .property-name { color:var(--red); }
+.property-item.blue   .property-name { color:#60a5fa; }
+.property-item.green  .property-name { color:#34d399; }
+.property-item.purple .property-name { color:#c084fc; }
+.property-item.amber  .property-name { color:#fbbf24; }
+.property-body { font-size:0.92rem; color:var(--text-2); line-height:1.68; }
+.property-body .intuition { font-style:italic; color:var(--text-3); font-size:0.86rem; margin-top:8px; display:block; }
+
+/* ── BULLETS ── */
+.bullet-list { list-style:none; display:flex; flex-direction:column; gap:10px; padding:0; }
+.bullet-list li { font-size:0.91rem; color:var(--text-2); line-height:1.65; display:block; }
+.bullet-list li::before { content:"—"; color:var(--red); font-weight:800; margin-right:8px; }
+.bullet-list.blue   li::before { color:#60a5fa; }
+.bullet-list.green  li::before { color:#34d399; }
+.bullet-list.purple li::before { color:#c084fc; }
+.bullet-list.amber  li::before { color:#fbbf24; }
+
+/* ── DEDICATED EXAMPLE CARD (NEW STRUCTURED DESIGN) ── */
+.example-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: linear-gradient(180deg, rgba(245,158,11,0.04) 0%, rgba(22,25,34,1) 100%);
+}
+.example-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.example-badge {
+  font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.8px; padding: 4px 10px; border-radius: 999px;
+  background: var(--amber-muted); color: var(--amber-bright);
+  border: 1px solid var(--amber-border);
+}
+.example-statement {
+  font-size: 1.05rem; font-weight: 700; color: var(--text);
+  line-height: 1.5;
+}
+.example-setup {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px;
+  margin-top: 2px;
+}
+.setup-box {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.setup-title {
+  font-size: 0.78rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--amber-bright);
+}
+.setup-desc { font-size: 0.87rem; color: var(--text-2); line-height: 1.5; }
+
+.proof-duo-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px;
+  margin-top: 4px;
+}
+.proof-duo-card {
+  background: rgba(10,11,16,0.65);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.proof-duo-card.pass { border-top: 3px solid #10b981; }
+.proof-duo-card.fail { border-top: 3px solid var(--red); }
+.proof-duo-head {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.proof-duo-title { font-size: 0.95rem; font-weight: 800; color: var(--text); }
+.status-tag {
+  font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px;
+}
+.status-tag.green { background: rgba(16,185,129,0.15); color: var(--green-bright); }
+.status-tag.red   { background: rgba(225,29,72,0.15); color: var(--red-bright); }
+
+/* ── TOGGLE & COLLAPSIBLE ── */
+.toggle-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.03); border:1px solid var(--border);
+  color:var(--text-2); font-family:var(--font);
+  font-size:0.84rem; font-weight:700;
+  padding:8px 18px; border-radius:999px;
+  cursor:pointer; transition:all .2s; width:fit-content; margin-top:4px;
+}
+.toggle-btn:hover { border-color:var(--red-border); color:var(--red); background:var(--red-muted); }
+.toggle-btn.blue:hover   { border-color:var(--blue-border); color:var(--blue-bright); background:var(--blue-muted); }
+.toggle-btn.green:hover  { border-color:var(--green-border); color:var(--green-bright); background:var(--green-muted); }
+.toggle-btn.purple:hover { border-color:var(--purple-border); color:var(--purple-bright); background:var(--purple-muted); }
+.toggle-btn .arrow { font-size:0.65rem; transition:transform .25s; display:inline-block; }
+.toggle-btn.open .arrow { transform:rotate(180deg); }
+.collapsible {
+  display:none; margin-top:12px;
+  background:rgba(10,11,16,0.85); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:22px 24px;
+  font-size:0.9rem; color:var(--text-2); line-height:1.7;
+}
+.collapsible.open { display:block; animation: fadeDown .2s ease; }
+.collapsible strong { color:var(--text); font-weight:700; }
+@keyframes fadeDown { from {opacity:0;transform:translateY(-6px);} to {opacity:1;transform:translateY(0);} }
+.collapsible .math-display { background: rgba(255,255,255,0.03); }
+
+/* ── DEMO STEPS ── */
+.demo-step {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+}
+.demo-step:last-child { border-bottom: none; }
+.step-num {
+  min-width: 28px; height: 28px; border-radius: 50%;
+  background: var(--red-gradient); color: #fff;
+  font-size: 0.78rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-num.blue   { background: linear-gradient(135deg,#3b82f6,#1d4ed8); }
+.step-num.green  { background: linear-gradient(135deg,#10b981,#065f46); }
+.step-num.purple { background: linear-gradient(135deg,#a855f7,#6b21a8); }
+.step-body { font-size: 0.9rem; color: var(--text-2); line-height: 1.68; flex: 1; min-width:0; }
+.step-body strong { color: var(--text); font-weight: 700; }
+
+/* ── IMPLICATION CHAIN ── */
+.impl-chain {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding: 14px 18px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.impl-box {
+  background: var(--red-muted); border: 1px solid var(--red-border);
+  color: var(--text); font-size: 0.85rem; font-weight: 700;
+  padding: 6px 14px; border-radius: 6px;
+}
+.impl-box.green  { background: var(--green-muted); border-color: var(--green-border); }
+.impl-box.blue   { background: var(--blue-muted);  border-color: var(--blue-border); }
+.impl-box.purple { background: var(--purple-muted);border-color: var(--purple-border); }
+.impl-arrow { color: var(--text-3); font-size: 1rem; font-weight: 700; }
+
+/* ── COMPARISON TABLE ── */
+.comparison-table { width:100%; border-collapse:collapse; font-size:0.88rem; margin-top:8px; }
+.comparison-table th { background:rgba(255,255,255,0.03); color:var(--text-3); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; padding:12px 16px; border-bottom:1px solid var(--border); text-align:left; }
+.comparison-table td { padding:12px 16px; border-bottom:1px solid var(--border); color:var(--text-2); line-height:1.55; vertical-align:top; }
+.comparison-table tr:last-child td { border-bottom:none; }
+.comparison-table tr:hover td { background:rgba(255,255,255,0.02); }
+
+/* ── COURSE FIGURE CARD ── */
+.course-figure-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.figure-img-frame {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+.figure-img-frame img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.figure-caption-box {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.figure-caption-box strong { color: var(--text); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:10px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .sidebar { transform:translateX(-100%); }
+  .sidebar.open { transform:translateX(0); }
+  .main-wrap { margin-left:0 !important; }
+  .main-content { padding:24px 20px 40px; }
+  .example-setup, .proof-duo-grid { grid-template-columns: 1fr; }
+}
+
+/* Reading layout: keep prose and formulas within their cards. */
+.course-text { font-size:0.92rem; color:var(--text-2); line-height:1.68; }
+.property-body p + p, .key-note p + p { margin-top:10px; }
+.sidebar.collapsed { transform:translateX(-100%); }
+.toggle-btn { max-width:100%; text-align:left; }
+.toggle-btn .arrow { flex-shrink:0; }
+.part-pill { white-space:normal; }
+.part-line { min-width:16px; }
+.proof-duo-head, .example-header { flex-wrap:wrap; gap:8px; }
+.property-item, .collapsible, .proof-duo-card, .distinction-card { min-width:0; }
+.figures-gallery { grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); }
+@media (min-width:901px) and (max-width:1150px) {
+  .example-setup, .proof-duo-grid, .distinction-grid { grid-template-columns:1fr; }
+}
+@media (max-width:600px) {
+  .main-content { padding:24px 14px 40px; gap:32px; }
+  .topbar { padding:0 14px; gap:10px; }
+  .topbar-breadcrumb { display:block; font-size:0.75rem; min-width:0; }
+  .topbar-pill { display:none; }
+  .page-title-block h1 { font-size:1.65rem; }
+  .property-item, .example-card, .distinction-card { padding:16px; }
+  .proof-duo-card, .collapsible { padding:14px; }
+  .math-display { padding:10px 8px; font-size:0.82rem; }
+  .demo-step { gap:8px; }
+  .step-num { min-width:24px; height:24px; }
+  .step-body .math-display { font-size:0.76rem; }
+  .comparison-table, .comparison-table tbody, .comparison-table tr,
+  .comparison-table td { display:block; width:100%; }
+  .comparison-table thead { display:none; }
+  .comparison-table tr { padding:10px 0; border-bottom:1px solid var(--border); }
+  .comparison-table td { border:0; padding:6px 0; }
+  .comparison-table td::before {
+    content:attr(data-label); display:block; color:var(--text-3);
+    font-size:0.7rem; font-weight:800; text-transform:uppercase; margin-bottom:4px;
+  }
+}
+
+/* ── SEGMENTED CHAPTER PROGRESS BAR ── */
+.chapter-progress-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  margin: 0 20px;
+  padding: 0 2px;
+}
+.progress-segment {
+  flex: 1;
+  height: 7px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.progress-segment:hover {
+  transform: scaleY(1.35);
+  filter: brightness(1.25);
+}
+.progress-segment.completed {
+  background: linear-gradient(90deg, #9f1239, #e11d48);
+  border-color: rgba(244, 63, 94, 0.5);
+  box-shadow: 0 0 8px rgba(225, 29, 72, 0.35);
+}
+.progress-segment.active {
+  background: linear-gradient(90deg, #e11d48, #ff2d55);
+  border-color: rgba(255, 45, 85, 0.9);
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.6), 0 0 4px rgba(255, 45, 85, 0.4);
+}
+@media(max-width:900px){
+  .chapter-progress-bar { margin: 0 10px; gap: 4px; }
+  .progress-segment { height: 5px; }
+}
+@media(max-width:640px){
+  .chapter-progress-bar { display: none; }
+}
+
+
+/* ── CONSUMER THEORY EXERCISES ── */
+.exercise-question h2 { font-size:1.03rem; line-height:1.5; margin-bottom:10px; }
+.exercise-questions, .exercise-points {
+  margin:12px 0 12px 22px; display:flex; flex-direction:column; gap:12px;
+}
+.exercise-solution p + p { margin-top:10px; }
+.solution-step { margin-top:18px; padding-top:18px; border-top:1px solid var(--border); }
+.solution-step h3 { color:var(--text); font-size:0.96rem; margin-bottom:10px; }
+.solution-step > .key-note, .solution-step > .proof-duo-grid { margin:12px 0; }
+.exercise-figure {
+  margin-top:16px; padding:12px; border:1px solid var(--border);
+  border-radius:var(--radius); background:var(--bg-card);
+}
+.indifference-sketch { display:block; width:100%; height:auto; }
+.exercise-figure figcaption { color:var(--text-3); font-size:0.84rem; line-height:1.6; }
+.observation-table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:0.86rem; }
+.observation-table th, .observation-table td {
+  text-align:center; padding:9px 8px; border-bottom:1px solid var(--border);
+}
+.observation-table th { color:var(--text); }
+.observation-table thead { background:rgba(255,255,255,0.03); }
+.observation-table caption, .expenditure-table caption {
+  text-align:left; color:var(--text-3); font-size:0.8rem; line-height:1.6; margin-bottom:10px;
+}
+.expenditure-table td, .expenditure-table th { padding:10px 8px; }
+.expenditure-table { font-size:0.79rem; }
+.expenditure-table .chosen-cost { background:var(--amber-muted); color:var(--amber-bright); }
+.toggle-btn.amber:hover { border-color:var(--amber-border); color:var(--amber-bright); background:var(--amber-muted); }
+.subsection { scroll-margin-top:84px; }
+@media (max-width:600px) {
+  .exercise-solution .math-display { padding:10px 6px; font-size:0.76rem; }
+  .expenditure-table caption { display:block; }
+  .exercise-figure { padding:8px; }
+}
+
+/* Presentation scoped to the mixture substitution in Exercise 1, Step 2. */
+#mixture-utility-step .math-display { margin:10px 0; padding:12px 8px; }
+#mixture-utility-step .coordinate-first { color:#60a5fa; }
+#mixture-utility-step .coordinate-second { color:#fbbf24; }
+#mixture-utility-step .mixture-attention { margin:12px 0; padding:12px 16px; }
+#mixture-utility-step .mixture-attention .math-display {
+  background:transparent; border:0; padding:0;
+}
+#mixture-utility-step .mixture-attention ul {
+  margin:8px 0 10px 20px; display:flex; flex-direction:column; gap:4px;
+}
+
+/* Presentation scoped to the inequality comparison in Exercise 1, Step 4. */
+#mixture-comparison-step .inequality-substeps { margin:12px 0 0; padding-left:24px; }
+#mixture-comparison-step .inequality-substeps > li { padding:0 0 12px 6px; }
+#mixture-comparison-step .inequality-substeps > li + li {
+  padding-top:12px; border-top:1px solid var(--border);
+}
+#mixture-comparison-step .inequality-substeps > li::marker {
+  color:var(--amber-bright); font-weight:800;
+}
+#mixture-comparison-step .inequality-substeps > li > strong { color:var(--text); }
+#mixture-comparison-step .math-display { margin:8px 0; padding:10px 8px; }
+
+/* Keep complete formulas on roomy screens; wrap only at logical boundaries. */
+#solution-convexity mjx-container[display="true"] { margin:0.4em 0; }
+#solution-convexity .equation-reflow { container:exercise-equation / inline-size; }
+#solution-convexity .equation-wide { display:none; }
+@container exercise-equation (min-width:22em) {
+  #solution-convexity .equation-short .equation-wide { display:block; }
+  #solution-convexity .equation-short .equation-stacked { display:none; }
+}
+@container exercise-equation (min-width:24em) {
+  #solution-convexity .equation-chain .equation-wide { display:block; }
+  #solution-convexity .equation-chain .equation-stacked { display:none; }
+}
+@container exercise-equation (min-width:28em) {
+  #solution-convexity .equation-reflow:not(.equation-long) .equation-wide { display:block; }
+  #solution-convexity .equation-reflow:not(.equation-long) .equation-stacked { display:none; }
+}
+@container exercise-equation (min-width:30em) {
+  #solution-convexity .equation-long .equation-wide { display:block; }
+  #solution-convexity .equation-long .equation-stacked { display:none; }
+}
+
+
+/* Exercise solutions share the course typography and use one disclosure each. */
+.exercise-solution { font-size:.94rem; line-height:1.75; }
+.exercise-solution h3 { margin:32px 0 16px; color:var(--text); font-size:1.22rem; border-top:1px solid var(--border); padding-top:22px; }
+.exercise-solution h4 { margin:26px 0 12px; font-size:1.05rem; color:var(--amber-bright); }
+.exercise-solution h5 { margin:20px 0 10px; font-size:.94rem; color:var(--blue-bright); }
+.exercise-statement h4 { color:var(--text); font-size:1.15rem; margin-bottom:16px; }
+.exercise-solution .math-display { padding:12px 8px; margin:14px 0; }
+.exercise-solution .method-note { border-left:2px solid var(--blue); padding-left:14px; color:var(--text-2); }
+.exercise-solution .exercise-figure { max-width:520px; margin:20px auto; }
+.exercise-figure svg { width:100%; display:block; fill:#cbd5e1; font:15px var(--font); }
+.math-display { overflow:visible; }
+@media(max-width:600px){.exercise-solution{padding:14px 10px}.exercise-solution .math-display{font-size:.82rem;padding:10px 2px;}}
+
+.exercise-solution .math-display { background:transparent; border-color:transparent; }
+.equation-adaptive { container:adaptive / inline-size; }
+.equation-desktop { display:none; }
+@container adaptive (min-width:30em){.equation-desktop{display:block}.equation-mobile{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <h1>MICRO<span>.</span></h1>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">📂 1 — Choice Theory</div>
+      <a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a>
+      <a href="utility.html" class="sidebar-sublink">2 · Utility</a>
+      <a href="choice.html" class="sidebar-sublink">3 · Choice</a>
+      <a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-1</a>
+      <a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a>
+      <a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a>
+      <a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-2</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">📂 Consumer Theory</div>
+      <a href="consumer_theory.html" class="sidebar-sublink">Consumer Theory</a>
+      <a href="consumer_theory_exercises.html" class="sidebar-sublink active" style="color:#f59e0b;" aria-current="page">✦ Exercises Part 2-1</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar" style="background: transparent;">
+        <img src="images/avatar.png" alt="STAR NOVA" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+        <span class="user-dot"></span>
+      </div>
+      <div class="user-info">
+        <div class="user-name">STAR NOVA</div>
+        <div class="user-role">endlessleep.github.io/starr-market</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main-wrap" id="main-wrap">
+
+  <div class="topbar">
+    <button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+    <div class="topbar-breadcrumb">
+      MICRO <span class="sep">›</span> Consumer Theory <span class="sep">›</span> <strong>Exercises Part 2-1</strong>
+    </div>
+    <div class="chapter-progress-bar" id="chapterProgressBar" role="progressbar" aria-label="Chapter progress"></div>
+    <div class="topbar-pill"><span class="topbar-dot"></span>Part II</div>
+  </div>
+
+  <div class="main-content">
+<header class="page-title-block"><div class="page-label">Part II — Consumer Theory</div><h1>Exercises Part 2-1</h1><p>Duality of the consumer problem, uniqueness, and a demand system.</p></header>
+<section class="subsection" id="exercise-1"><div class="part-banner"><span class="part-pill amber">Exercise 1</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 1. Duality of the consumer problem</h4>
+<p>For each of the following utility functions, draw the indifference curves and compute the Marshallian demand, Hicksian demand, indirect utility function and expenditure function.</p>
+<p>1.</p>
+<div class="math-display">$$u(x,y)=x^\alpha y^{1-\alpha},
+\qquad 0&lt;\alpha&lt;1.$$</div>
+<p>2.</p>
+<div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\max(\alpha x,\alpha y)+\min(x,y),
+\qquad 0&lt;\alpha&lt;1$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\max(\alpha x,\alpha y)+\min(x,y)\\0&lt;\alpha&lt;1\end{gathered}$$</div></div>
+<p>and</p>
+<div class="math-display">$$\frac{p_x}{p_y}\neq\alpha
+\qquad\text{and}\qquad
+\frac{p_x}{p_y}\neq\frac1\alpha.$$</div>
+<p>3.</p>
+<div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y,
+\qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div>
+<p><strong>Hint:</strong> There is a trick.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="1" onclick="toggle(this, 'solution-1')" aria-controls="solution-1" aria-expanded="false">Show solution — Exercise 1 ▾</button><div class="collapsible exercise-solution" id="solution-1"><p><strong>Starting point.</strong> Prices are positive. We use $m&gt;0$ for income so that it is not confused with the good $y$. For Questions 1 and 2 the utility target is nonnegative; the calculations below use $\bar u&gt;0$ (at $\bar u=0$, minimum expenditure and Hicksian quantities are zero). For Question 3 the target may be any real number.</p><p><strong>Goal.</strong> For each utility function, identify its indifference curves, its two demand functions, and the associated value functions.</p><h3 class="question-heading">Question 1</h3>
+<div class="math-display">$$u(x,y)=x^\alpha y^{1-\alpha},
+\qquad 0&lt;\alpha&lt;1.$$</div>
+<h4>Indifference curves</h4>
+<p>Fix utility at $\bar u$:</p>
+<div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
+<p>Solve for $y$:</p>
+<div class="math-display">$$y^{1-\alpha}
+=
+\frac{\bar u}{x^\alpha}.$$</div>
+<p>Therefore:</p>
+<div class="math-display">$$\boxed{
+y=
+\bar u^{\frac1{1-\alpha}}
+x^{-\frac{\alpha}{1-\alpha}}
+}$$</div>
+<figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-1"><title id="curve-title-1">Downward-sloping indifference curves; higher curves give higher utility</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><polyline points="95.10,45.80 97.80,57.95 100.50,68.86 103.20,78.70 105.90,87.62 108.60,95.74 111.30,103.18 114.00,110.00 116.70,116.29 119.40,122.10 122.10,127.49 124.80,132.50 127.50,137.17 130.20,141.53 132.90,145.62 135.60,149.45 138.30,153.06 141.00,156.45 143.70,159.66 146.40,162.68 149.10,165.55 151.80,168.27 154.50,170.85 157.20,173.30 159.90,175.63 162.60,177.85 165.30,179.97 168.00,182.00 170.70,183.94 173.40,185.79 176.10,187.56 178.80,189.27 181.50,190.90 184.20,192.47 186.90,193.97 189.60,195.42 192.30,196.82 195.00,198.16 197.70,199.46 200.40,200.71 203.10,201.91 205.80,203.08 208.50,204.21 211.20,205.29 213.90,206.35 216.60,207.37 219.30,208.35 222.00,209.31 224.70,210.24 227.40,211.14 230.10,212.01 232.80,212.86 235.50,213.68 238.20,214.48 240.90,215.26 243.60,216.01 246.30,216.75 249.00,217.46 251.70,218.16 254.40,218.84 257.10,219.50 259.80,220.14 262.50,220.77 265.20,221.38 267.90,221.98 270.60,222.56 273.30,223.13 276.00,223.68 278.70,224.23 281.40,224.76 284.10,225.27 286.80,225.78 289.50,226.27 292.20,226.76 294.90,227.23 297.60,227.69 300.30,228.15 303.00,228.59 305.70,229.02 308.40,229.45 311.10,229.86 313.80,230.27 316.50,230.67 319.20,231.06 321.90,231.45 324.60,231.82 327.30,232.19 330.00,232.55 332.70,232.91 335.40,233.26 338.10,233.60 340.80,233.93 343.50,234.26 346.20,234.59 348.90,234.91 351.60,235.22 354.30,235.52 357.00,235.83 359.70,236.12 362.40,236.41" fill="none" stroke="#60a5fa" stroke-width="2.5"/><polyline points="132.90,36.78 135.60,43.97 138.30,50.73 141.00,57.10 143.70,63.10 146.40,68.78 149.10,74.15 151.80,79.25 154.50,84.08 157.20,88.68 159.90,93.06 162.60,97.23 165.30,101.20 168.00,105.00 170.70,108.63 173.40,112.11 176.10,115.43 178.80,118.62 181.50,121.69 184.20,124.63 186.90,127.45 189.60,130.17 192.30,132.79 195.00,135.31 197.70,137.74 200.40,140.08 203.10,142.34 205.80,144.52 208.50,146.64 211.20,148.68 213.90,150.65 216.60,152.56 219.30,154.41 222.00,156.21 224.70,157.95 227.40,159.63 230.10,161.27 232.80,162.86 235.50,164.40 238.20,165.90 240.90,167.36 243.60,168.77 246.30,170.15 249.00,171.49 251.70,172.80 254.40,174.07 257.10,175.31 259.80,176.52 262.50,177.69 265.20,178.84 267.90,179.96 270.60,181.05 273.30,182.12 276.00,183.16 278.70,184.17 281.40,185.17 284.10,186.14 286.80,187.09 289.50,188.01 292.20,188.92 294.90,189.81 297.60,190.67 300.30,191.52 303.00,192.35 305.70,193.17 308.40,193.96 311.10,194.74 313.80,195.51 316.50,196.26 319.20,196.99 321.90,197.71 324.60,198.42 327.30,199.11 330.00,199.79 332.70,200.45 335.40,201.11 338.10,201.75 340.80,202.38 343.50,202.99 346.20,203.60 348.90,204.20 351.60,204.78 354.30,205.36 357.00,205.92 359.70,206.48 362.40,207.02" fill="none" stroke="#34d399" stroke-width="2.5"/><polyline points="181.50,32.70 184.20,37.40 186.90,41.92 189.60,46.27 192.30,50.46 195.00,54.49 197.70,58.38 200.40,62.13 203.10,65.74 205.80,69.24 208.50,72.62 211.20,75.88 213.90,79.04 216.60,82.10 219.30,85.06 222.00,87.93 224.70,90.71 227.40,93.41 230.10,96.03 232.80,98.57 235.50,101.04 238.20,103.44 240.90,105.77 243.60,108.04 246.30,110.24 249.00,112.39 251.70,114.48 254.40,116.51 257.10,118.49 259.80,120.42 262.50,122.31 265.20,124.14 267.90,125.93 270.60,127.68 273.30,129.39 276.00,131.05 278.70,132.68 281.40,134.27 284.10,135.82 286.80,137.34 289.50,138.82 292.20,140.27 294.90,141.69 297.60,143.08 300.30,144.44 303.00,145.76 305.70,147.07 308.40,148.34 311.10,149.59 313.80,150.81 316.50,152.01 319.20,153.19 321.90,154.34 324.60,155.47 327.30,156.57 330.00,157.66 332.70,158.72 335.40,159.77 338.10,160.80 340.80,161.80 343.50,162.79 346.20,163.76 348.90,164.72 351.60,165.65 354.30,166.57 357.00,167.48 359.70,168.36 362.40,169.24" fill="none" stroke="#fbbf24" stroke-width="2.5"/><path d="M242 105L282 60m-10 2 10-2-1 10" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="246" y="42">Higher utility</text></svg><figcaption>Shape illustrated for $\alpha=1/2$. Each curve holds utility fixed; curves farther from the origin represent higher utility.</figcaption></figure>
+<h4>Marshallian demand</h4><p>For $m&gt;0$, a bundle with both goods positive gives positive utility, whereas either zero quantity gives zero utility. The optimum is therefore interior.</p>
+<p>The UMP is:</p>
+<div class="math-display">$$\max_{x,y\ge0}
+x^\alpha y^{1-\alpha}$$</div>
+<p>subject to:</p>
+<div class="math-display">$$p_xx+p_yy=m.$$</div>
+<p>Because utility is increasing, use the binding budget constraint.</p>
+<h5>Method 1 — Lagrangian</h5>
+<div class="math-display">$$\mathcal L
+=
+x^\alpha y^{1-\alpha}
++
+\lambda(m-p_xx-p_yy).$$</div>
+<p>FOCs:</p>
+<div class="math-display">$$\alpha x^{\alpha-1}y^{1-\alpha}
+=
+\lambda p_x$$</div>
+
+<div class="math-display">$$(1-\alpha)x^\alpha y^{-\alpha}
+=
+\lambda p_y$$</div>
+
+<div class="math-display">$$p_xx+p_yy=m.$$</div>
+<p>Divide the first FOC by the second:</p>
+<div class="math-display">$$\frac{\alpha}{1-\alpha}\frac{y}{x}
+=
+\frac{p_x}{p_y}.$$</div>
+<p>Hence:</p>
+<div class="math-display">$$y
+=
+\frac{1-\alpha}{\alpha}
+\frac{p_x}{p_y}x.$$</div>
+<p>Substitute into the budget constraint:</p>
+<div class="math-display">$$p_xx
++
+p_y
+\left(
+\frac{1-\alpha}{\alpha}
+\frac{p_x}{p_y}x
+\right)
+=
+m.$$</div>
+<p>So:</p>
+<div class="math-display">$$p_xx
+\left(
+1+\frac{1-\alpha}{\alpha}
+\right)
+=
+m.$$</div>
+<p>Therefore:</p>
+<div class="math-display">$$\boxed{
+x^M(p,m)=\frac{\alpha m}{p_x}
+}$$</div>
+<p>and</p>
+<div class="math-display">$$\boxed{
+y^M(p,m)=\frac{(1-\alpha)m}{p_y}.
+}$$</div>
+<h5>Method 2 — Optimality condition</h5>
+<p>For an interior solution:</p>
+<div class="math-display">$$MRS_{xy}
+=
+\frac{MU_x}{MU_y}
+=
+\frac{p_x}{p_y}.$$</div>
+<p>Here:</p>
+<div class="math-display">$$MU_x
+=
+\alpha x^{\alpha-1}y^{1-\alpha}$$</div>
+<p>and</p>
+<div class="math-display">$$MU_y
+=
+(1-\alpha)x^\alpha y^{-\alpha}.$$</div>
+<p>Thus:</p>
+<div class="math-display">$$MRS_{xy}
+=
+\frac{\alpha}{1-\alpha}\frac{y}{x}.$$</div>
+<p>So:</p>
+<div class="math-display">$$\frac{\alpha}{1-\alpha}\frac{y}{x}
+=
+\frac{p_x}{p_y}.$$</div>
+<p>Combine this equation with:</p>
+<div class="math-display">$$p_xx+p_yy=m.$$</div>
+<p>This gives again:</p>
+<div class="math-display">$$\boxed{
+x^M=\frac{\alpha m}{p_x},
+\qquad
+y^M=\frac{(1-\alpha)m}{p_y}.
+}$$</div>
+<p class="method-note">This second method uses directly the optimality condition obtained by dividing the two Lagrangian FOCs.</p>
+<h4>Indirect utility function</h4>
+<p>By definition:</p>
+<div class="math-display">$$v(p,m)
+=
+u(x^M,y^M).$$</div>
+<p>Substitute the Marshallian demands:</p>
+<div class="math-display">$$v(p,m)
+=
+\left(
+\frac{\alpha m}{p_x}
+\right)^\alpha
+\left(
+\frac{(1-\alpha)m}{p_y}
+\right)^{1-\alpha}.$$</div>
+<p>Therefore:</p>
+<div class="math-display">$$\boxed{
+v(p,m)
+=
+\alpha^\alpha(1-\alpha)^{1-\alpha}
+\frac{m}
+{p_x^\alpha p_y^{1-\alpha}}
+}$$</div>
+<h4>Hicksian demand</h4>
+<p>The EmP is:</p>
+<div class="math-display">$$\min_{x,y\ge0}
+p_xx+p_yy$$</div>
+<p>subject to:</p>
+<div class="math-display">$$x^\alpha y^{1-\alpha}\ge\bar u.$$</div>
+<p>At the optimum:</p>
+<div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
+<h5>Method 1 — Lagrangian</h5>
+<div class="math-display">$$\mathcal L
+=
+p_xx+p_yy
++
+\lambda
+\left[
+\bar u-x^\alpha y^{1-\alpha}
+\right].$$</div>
+<p>The first-order conditions are:</p>
+<div class="math-display">$$p_x=\lambda\alpha x^{\alpha-1}y^{1-\alpha},$$</div>
+<div class="math-display">$$p_y=\lambda(1-\alpha)x^\alpha y^{-\alpha}.$$</div>
+<p>Divide the first condition by the second to cancel $\lambda$:</p>
+<div class="math-display">$$\frac{MU_x}{MU_y}
+=
+\frac{p_x}{p_y}.$$</div>
+<p>Thus:</p>
+<div class="math-display">$$\frac{\alpha}{1-\alpha}\frac{y}{x}
+=
+\frac{p_x}{p_y}.$$</div>
+<p>Hence:</p>
+<div class="math-display">$$y
+=
+\frac{1-\alpha}{\alpha}
+\frac{p_x}{p_y}x.$$</div>
+<p>Substitute this into:</p>
+<div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
+<p>Substitution and $\alpha+(1-\alpha)=1$ give:</p>
+<div class="math-display">$$x^\alpha\left(\frac{(1-\alpha)p_x}{\alpha p_y}x\right)^{1-\alpha}=\bar u,$$</div>
+<div class="math-display">$$x\left(\frac{(1-\alpha)p_x}{\alpha p_y}\right)^{1-\alpha}=\bar u.$$</div>
+<p>Divide by the positive price factor to find $x^H$, then substitute into the expression for $y$:</p>
+<div class="math-display">$$\boxed{
+x^H(p,\bar u)
+=
+\bar u
+\left(
+\frac{\alpha p_y}
+{(1-\alpha)p_x}
+\right)^{1-\alpha}
+}$$</div>
+<p>and</p>
+<div class="math-display">$$\boxed{
+y^H(p,\bar u)
+=
+\bar u
+\left(
+\frac{(1-\alpha)p_x}
+{\alpha p_y}
+\right)^\alpha.
+}$$</div>
+<h5>Method 2 — Optimality condition</h5>
+<p>Use directly:</p>
+<div class="math-display">$$MRS_{xy}
+=
+\frac{p_x}{p_y}$$</div>
+<p>together with:</p>
+<div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
+<p>This gives the same Hicksian demands.</p>
+<h4>Expenditure function</h4>
+<p>By definition:</p>
+<div class="math-display">$$e(p,\bar u)
+=
+p_xx^H+p_yy^H.$$</div>
+<p>The optimal ratio implies $p_yy^H=\frac{1-\alpha}{\alpha}p_xx^H$. Therefore:</p>
+<div class="math-display">$$e(p,\bar u)=p_xx^H\left(1+\frac{1-\alpha}{\alpha}\right)=\frac{p_xx^H}{\alpha}.$$</div>
+<p>Substitute $x^H$ and collect the powers of $\alpha$, $1-\alpha$, $p_x$, and $p_y$:</p>
+<div class="math-display">$$\boxed{
+e(p,\bar u)
+=
+\frac{
+\bar u p_x^\alpha p_y^{1-\alpha}
+}{
+\alpha^\alpha(1-\alpha)^{1-\alpha}
+}
+}$$</div>
+<h3 class="question-heading">Question 2</h3>
+<div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)
+=
+\max(\alpha x,\alpha y)+\min(x,y),
+\qquad
+0&lt;\alpha&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)
+=
+\max(\alpha x,\alpha y)+\min(x,y)\\0&lt;\alpha&lt;1.\end{gathered}$$</div></div>
+<p>First write the utility function piecewise.</p>
+<p>If $x\ge y$, then:</p>
+<div class="math-display">$$u(x,y)=\alpha x+y.$$</div>
+<p>If $y\ge x$, then:</p>
+<div class="math-display">$$u(x,y)=x+\alpha y.$$</div>
+<h4>Indifference curves</h4>
+<p>Fix utility at $\bar u$.</p>
+<p>If $x\ge y$:</p>
+<div class="math-display">$$\alpha x+y=\bar u$$</div>
+<p>so:</p>
+<div class="math-display">$$\boxed{
+y=\bar u-\alpha x.
+}$$</div>
+<p>If $y\ge x$:</p>
+<div class="math-display">$$x+\alpha y=\bar u$$</div>
+<p>so:</p>
+<div class="math-display">$$\boxed{
+y=\frac{\bar u-x}{\alpha}.
+}$$</div>
+<p>The two pieces meet when:</p>
+<div class="math-display">$$x=y.$$</div>
+<p>Hence:</p>
+<div class="math-display">$$(1+\alpha)x=\bar u$$</div>
+<p>and therefore the kink is:</p>
+<div class="math-display">$$\boxed{
+x=y=\frac{\bar u}{1+\alpha}.
+}$$</div>
+<figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-2"><title id="curve-title-2">Two linear pieces meeting on the line x equals y</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><path d="M48 270L283 35" fill="none" stroke="#64748b" stroke-dasharray="5 5"/><text x="279" y="30">x = y</text><path d="M48 150L88 230L168 270" fill="none" stroke="#60a5fa" stroke-width="2.5"/><path d="M48 90L108 210L228 270" fill="none" stroke="#34d399" stroke-width="2.5"/><path d="M48 30L128 190L288 270" fill="none" stroke="#fbbf24" stroke-width="2.5"/></svg><figcaption>Shape illustrated for $\alpha=1/2$. The slope is $-1/\alpha$ above $x=y$ and $-\alpha$ below it. The meeting point is the kink.</figcaption></figure>
+<h4>Marshallian demand</h4>
+<p>Compare the relevant choices.</p>
+<h5>Only $x$</h5>
+<p>If all income is spent on $x$:</p>
+<div class="math-display">$$x=\frac{m}{p_x},
+\qquad
+y=0.$$</div>
+<p>Utility is:</p>
+<div class="math-display">$$u=
+\frac{\alpha m}{p_x}.$$</div>
+<h5>Only $y$</h5>
+<p>If all income is spent on $y$:</p>
+<div class="math-display">$$x=0,
+\qquad
+y=\frac{m}{p_y}.$$</div>
+<p>Utility is:</p>
+<div class="math-display">$$u=
+\frac{\alpha m}{p_y}.$$</div>
+<h5>Kink</h5>
+<p>At the kink:</p>
+<div class="math-display">$$x=y=q.$$</div>
+<p>The budget constraint becomes:</p>
+<div class="math-display">$$(p_x+p_y)q=m.$$</div>
+<p>Therefore:</p>
+<div class="math-display">$$q=\frac{m}{p_x+p_y}.$$</div>
+<p>Utility is:</p>
+<div class="math-display">$$u
+=
+(1+\alpha)q
+=
+\frac{(1+\alpha)m}{p_x+p_y}.$$</div>
+<p>Utility is linear on each of the two segments of the budget line, so its maximum is at a segment endpoint: one of the two corners or the kink. Compare only these three candidates. The excluded price ratios rule out ties along a segment.</p>
+<p>Only $x$ beats the kink precisely when:</p><div class="math-display">$$\frac{\alpha m}{p_x}&gt;\frac{(1+\alpha)m}{p_x+p_y}
+ \iff \alpha p_y&gt;p_x.$$</div><p>Only $y$ beats the kink precisely when:</p><div class="math-display">$$\frac{\alpha m}{p_y}&gt;\frac{(1+\alpha)m}{p_x+p_y}
+ \iff \alpha p_x&gt;p_y.$$</div><p>These comparisons give the three price regions below. Between the two thresholds, the kink beats both corners. We do not use the smooth MRS condition at the kink.</p><div class="price-results">
+ <p><strong>If $p_x/p_y&lt;\alpha$:</strong></p>
+ <div class="math-display">$$\boxed{(x^M,y^M)=\left(\frac{m}{p_x},0\right).}$$</div>
+ <p><strong>If $\alpha&lt;p_x/p_y&lt;1/\alpha$:</strong></p>
+ <div class="math-display">$$x^M=y^M=\frac{m}{p_x+p_y}.$$</div>
+ <p><strong>If $p_x/p_y&gt;1/\alpha$:</strong></p>
+ <div class="math-display">$$\boxed{(x^M,y^M)=\left(0,\frac{m}{p_y}\right).}$$</div>
+ </div>
+<h4>Indirect utility function</h4>
+<p>Substitute the Marshallian demand in each price region:</p>
+<div class="math-display">$$\boxed{
+v(p,m)
+=
+\begin{cases}
+\displaystyle
+\frac{\alpha m}{p_x},
+&amp;
+\frac{p_x}{p_y}&lt;\alpha,
+\\[1em]
+\displaystyle
+\frac{(1+\alpha)m}{p_x+p_y},
+&amp;
+\alpha&lt;
+\frac{p_x}{p_y}
+&lt;
+\frac1\alpha,
+\\[1em]
+\displaystyle
+\frac{\alpha m}{p_y},
+&amp;
+\frac{p_x}{p_y}&gt;
+\frac1\alpha.
+\end{cases}
+}$$</div>
+<h4>Hicksian demand</h4>
+<p>If $\frac{p_x}{p_y}&lt;\alpha,$$</div> <p>the expenditure-minimizing choice uses only $x$.</p> <p>Since:</p> <div class="math-display">$$\alpha x=\bar u,$$</div> <p>we obtain:</p> <div class="math-display">$$\boxed{ x^H=\frac{\bar u}{\alpha}, \qquad y^H=0. }$$</div> <p>If:</p> <div class="math-display">$$\alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha,$$</div> <p>the optimal bundle is at the kink:</p> <div class="math-display">$$x=y.$$</div> <p>Since:</p> <div class="math-display">$$(1+\alpha)x=\bar u,$$</div> <p>we obtain:</p> <div class="math-display">$$\boxed{ x^H=y^H= \frac{\bar u}{1+\alpha}. }$$</div> <p>If:</p> <div class="math-display">$$\frac{p_x}{p_y}&gt; \frac1\alpha,$$</div> <p>the choice uses only $y$:</p> <div class="math-display">$$\boxed{ x^H=0, \qquad y^H=\frac{\bar u}{\alpha}. }$$</div> <p>Thus:</p> <h4>Expenditure function</h4> <p>Substitute the Hicksian demand into expenditure:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = \begin{cases} \displaystyle \frac{p_x\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&lt;\alpha, \\[1em] \displaystyle \frac{(p_x+p_y)\bar u}{1+\alpha}, &amp; \alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha, \\[1em] \displaystyle \frac{p_y\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&gt; \frac1\alpha. \end{cases} }$$</div> <h3 class="question-heading">Question 3</h3> <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y, \qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div> <h4>Hint — the trick</h4> <p>Use:</p> <div class="math-display">$$\log x+\beta\log y = \log(xy^\beta).$$</div> <p>Since the logarithm is strictly increasing, maximizing:</p> <div class="math-display">$$\log(xy^\beta)$$</div> <p>gives the same choice as maximizing:</p> <div class="math-display">$$xy^\beta.$$</div> <h4>Indifference curves</h4> <p>Fix utility at $\bar u$:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <p>Thus:</p> <div class="math-display">$$\log(xy^\beta)=\bar u.$$</div> <p>Exponentiating:</p> <div class="math-display">$$xy^\beta=e^{\bar u}.$$</div> <p>Therefore:</p> <div class="math-display">$$\boxed{ y= e^{\bar u/\beta}x^{-1/\beta}. }$$</div> <figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-3"><title id="curve-title-3">Logarithmic utility indifference curves on the positive consumption set</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><polyline points="95.10,41.51 97.80,65.62 100.50,86.10 103.20,103.65 105.90,118.80 108.60,131.97 111.30,143.50 114.00,153.64 116.70,162.60 119.40,170.57 122.10,177.69 124.80,184.06 127.50,189.80 130.20,194.98 132.90,199.68 135.60,203.95 138.30,207.84 141.00,211.39 143.70,214.65 146.40,217.65 149.10,220.41 151.80,222.96 154.50,225.31 157.20,227.49 159.90,229.52 162.60,231.40 165.30,233.16 168.00,234.80 170.70,236.33 173.40,237.77 176.10,239.11 178.80,240.37 181.50,241.56 184.20,242.68 186.90,243.73 189.60,244.72 192.30,245.66 195.00,246.54 197.70,247.38 200.40,248.18 203.10,248.93 205.80,249.64 208.50,250.32 211.20,250.97 213.90,251.58 216.60,252.17 219.30,252.73 222.00,253.26 224.70,253.77 227.40,254.25 230.10,254.71 232.80,255.16 235.50,255.58 238.20,255.99 240.90,256.38 243.60,256.75 246.30,257.11 249.00,257.45 251.70,257.78 254.40,258.10 257.10,258.41 259.80,258.70 262.50,258.98 265.20,259.26 267.90,259.52 270.60,259.77 273.30,260.01 276.00,260.25 278.70,260.48 281.40,260.70 284.10,260.91 286.80,261.11 289.50,261.31 292.20,261.50 294.90,261.68 297.60,261.86 300.30,262.04 303.00,262.20 305.70,262.37 308.40,262.52 311.10,262.68 313.80,262.83 316.50,262.97 319.20,263.11 321.90,263.24 324.60,263.37 327.30,263.50 330.00,263.63 332.70,263.75 335.40,263.86 338.10,263.98 340.80,264.09 343.50,264.20 346.20,264.30 348.90,264.40 351.60,264.50 354.30,264.60 357.00,264.69 359.70,264.78 362.40,264.87" fill="none" stroke="#60a5fa" stroke-width="2.5"/><polyline points="135.60,37.78 138.30,51.46 141.00,63.96 143.70,75.43 146.40,85.96 149.10,95.66 151.80,104.61 154.50,112.89 157.20,120.56 159.90,127.69 162.60,134.31 165.30,140.49 168.00,146.25 170.70,151.64 173.40,156.68 176.10,161.41 178.80,165.84 181.50,170.01 184.20,173.94 186.90,177.64 189.60,181.12 192.30,184.42 195.00,187.53 197.70,190.48 200.40,193.27 203.10,195.92 205.80,198.44 208.50,200.82 211.20,203.09 213.90,205.25 216.60,207.31 219.30,209.27 222.00,211.14 224.70,212.93 227.40,214.63 230.10,216.26 232.80,217.82 235.50,219.31 238.20,220.74 240.90,222.11 243.60,223.42 246.30,224.68 249.00,225.89 251.70,227.05 254.40,228.17 257.10,229.24 259.80,230.28 262.50,231.27 265.20,232.23 267.90,233.15 270.60,234.04 273.30,234.89 276.00,235.72 278.70,236.52 281.40,237.29 284.10,238.03 286.80,238.75 289.50,239.45 292.20,240.12 294.90,240.77 297.60,241.40 300.30,242.01 303.00,242.60 305.70,243.17 308.40,243.72 311.10,244.26 313.80,244.78 316.50,245.28 319.20,245.77 321.90,246.25 324.60,246.71 327.30,247.16 330.00,247.59 332.70,248.01 335.40,248.43 338.10,248.83 340.80,249.21 343.50,249.59 346.20,249.96 348.90,250.32 351.60,250.67 354.30,251.01 357.00,251.34 359.70,251.66 362.40,251.97" fill="none" stroke="#34d399" stroke-width="2.5"/><polyline points="186.90,33.55 189.60,42.48 192.30,50.91 195.00,58.89 197.70,66.43 200.40,73.58 203.10,80.36 205.80,86.80 208.50,92.91 211.20,98.72 213.90,104.25 216.60,109.52 219.30,114.53 222.00,119.32 224.70,123.89 227.40,128.26 230.10,132.43 232.80,136.42 235.50,140.24 238.20,143.90 240.90,147.40 243.60,150.76 246.30,153.99 249.00,157.08 251.70,160.06 254.40,162.92 257.10,165.66 259.80,168.31 262.50,170.85 265.20,173.30 267.90,175.66 270.60,177.93 273.30,180.13 276.00,182.24 278.70,184.29 281.40,186.26 284.10,188.16 286.80,190.00 289.50,191.78 292.20,193.50 294.90,195.16 297.60,196.78 300.30,198.33 303.00,199.84 305.70,201.31 308.40,202.72 311.10,204.10 313.80,205.43 316.50,206.72 319.20,207.97 321.90,209.19 324.60,210.37 327.30,211.52 330.00,212.63 332.70,213.72 335.40,214.77 338.10,215.79 340.80,216.79 343.50,217.76 346.20,218.70 348.90,219.61 351.60,220.51 354.30,221.38 357.00,222.22 359.70,223.05 362.40,223.85" fill="none" stroke="#fbbf24" stroke-width="2.5"/><path d="M242 105L282 60m-10 2 10-2-1 10" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="246" y="42">Higher utility</text></svg><figcaption>Shape illustrated for $\beta=1/2$, with $x&gt;0$ and $y&gt;0$. Higher curves represent higher utility.</figcaption></figure><h4>Marshallian demand</h4> <p>The UMP is:</p> <div class="math-display">$$\max_{x,y&gt;0} \log x+\beta\log y$$</div> <p>subject to:</p> <div class="math-display">$$p_xx+p_yy=m.$$</div> <h5>Method 1 — Lagrangian</h5> <div class="math-display">$$\mathcal L = \log x+\beta\log y + \lambda(m-p_xx-p_yy).$$</div> <p>FOCs:</p> <div class="math-display">$$\frac1x = \lambda p_x$$</div> <div class="math-display">$$\frac{\beta}{y} = \lambda p_y$$</div> <div class="math-display">$$p_xx+p_yy=m.$$</div> <p>Divide the first FOC by the second:</p> <div class="math-display">$$\frac{y}{\beta x} = \frac{p_x}{p_y}.$$</div> <p>Therefore:</p> <div class="math-display">$$y = \beta \frac{p_x}{p_y}x.$$</div> <p>Substitute into the budget constraint:</p> <div class="math-display">$$p_xx + p_y \left( \beta \frac{p_x}{p_y}x \right) = m.$$</div> <p>Thus:</p> <div class="math-display">$$(1+\beta)p_xx=m.$$</div> <p>Hence:</p> <div class="math-display">$$\boxed{ x^M(p,m) = \frac{m}{(1+\beta)p_x} }$$</div> <p>and:</p> <div class="math-display">$$\boxed{ y^M(p,m) = \frac{\beta m}{(1+\beta)p_y}. }$$</div> <h5>Method 2 — Optimality condition</h5> <p>Marginal utilities are:</p> <div class="math-display">$$MU_x=\frac1x$$</div> <p>and:</p> <div class="math-display">$$MU_y=\frac{\beta}{y}.$$</div> <p>Therefore:</p> <div class="math-display">$$MRS_{xy} = \frac{MU_x}{MU_y} = \frac{y}{\beta x}.$$</div> <p>At an interior optimum:</p> <div class="math-display">$$\frac{y}{\beta x} = \frac{p_x}{p_y}.$$</div> <p>Combine this with:</p> <div class="math-display">$$p_xx+p_yy=m.$$</div> <p>This gives again:</p> <div class="math-display">$$\boxed{ x^M= \frac{m}{(1+\beta)p_x}, \qquad y^M= \frac{\beta m}{(1+\beta)p_y}. }$$</div> <h4>Indirect utility function</h4> <p>Substitute the Marshallian demand:</p> <div class="math-display equation-adaptive"><div class="equation-desktop">$$v(p,m) = \log \left( \frac{m}{(1+\beta)p_x} \right) + \beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right).$$</div><div class="equation-mobile">$$\begin{aligned}v(p,m)&= \log \left( \frac{m}{(1+\beta)p_x} \right)\\&+\beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right).\end{aligned}$$</div></div> <p>Therefore:</p> <div class="math-display equation-adaptive"><div class="equation-desktop">$$\boxed{ v(p,m) = \log \left( \frac{m}{(1+\beta)p_x} \right) + \beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right) }$$</div><div class="equation-mobile">$$\begin{aligned}v(p,m)&= \log \left( \frac{m}{(1+\beta)p_x} \right)\\&+\beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right)\end{aligned}$$</div></div> <h4>Hicksian demand</h4> <p>The EmP is:</p> <div class="math-display">$$\min_{x,y&gt;0} p_xx+p_yy$$</div> <p>subject to:</p> <div class="math-display">$$\log x+\beta\log y\ge\bar u.$$</div> <p>At the optimum:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <h5>Method 1 — Lagrangian</h5> <div class="math-display">$$\mathcal L=p_xx+p_yy+\lambda[\bar u-\log x-\beta\log y].$$</div> <p>Differentiating with respect to each quantity gives:</p> <div class="math-display">$$p_x=\frac{\lambda}{x},\qquad p_y=\frac{\lambda\beta}{y}.$$</div> <p>Divide these conditions to cancel $\lambda$:</p> <div class="math-display">$$\frac{MU_x}{MU_y} = \frac{p_x}{p_y}.$$</div> <p>Hence:</p> <div class="math-display">$$\frac{y}{\beta x} = \frac{p_x}{p_y},$$</div> <p>so:</p> <div class="math-display">$$y = \beta \frac{p_x}{p_y}x.$$</div> <p>Using:</p> <div class="math-display">$$xy^\beta=e^{\bar u},$$</div> <p>substitute the expression for $y$:</p> <div class="math-display">$$x\left(\beta\frac{p_x}{p_y}x\right)^\beta=e^{\bar u}.$$</div> <p>Collect the powers of $x$, then isolate $x^{1+\beta}$:</p> <div class="math-display">$$x^{1+\beta}=e^{\bar u}\left(\frac{p_y}{\beta p_x}\right)^\beta.$$</div> <p>Raise both sides to the power $1/(1+\beta)$ to obtain $x^H$. Substitute it into $y=\beta(p_x/p_y)x$ to obtain $y^H$:</p> <div class="math-display">$$\boxed{ x^H(p,\bar u) = e^{\frac{\bar u}{1+\beta}} \left( \frac{p_y}{\beta p_x} \right)^{\frac{\beta}{1+\beta}} }$$</div> <p>and:</p> <div class="math-display">$$\boxed{ y^H(p,\bar u) = e^{\frac{\bar u}{1+\beta}} \left( \frac{\beta p_x}{p_y} \right)^{\frac1{1+\beta}}. }$$</div> <h5>Method 2 — Optimality condition</h5> <p>Use:</p> <div class="math-display">$$MRS_{xy} = \frac{p_x}{p_y}$$</div> <p>together with:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <p>This gives the same Hicksian demand.</p> <h4>Expenditure function</h4> <p>Substitute the Hicksian demands into:</p> <div class="math-display">$$e(p,\bar u) = p_xx^H+p_yy^H.$$</div> <p>Since $p_yy^H=\beta p_xx^H$, combine the expenditure terms:</p> <div class="math-display">$$e(p,\bar u)=(1+\beta)p_xx^H.$$</div> <p>Substitute $x^H$. The power of $p_x$ becomes $1-\beta/(1+\beta)=1/(1+\beta)$:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = (1+\beta) \beta^{-\frac{\beta}{1+\beta}} e^{\frac{\bar u}{1+\beta}} p_x^{\frac1{1+\beta}} p_y^{\frac{\beta}{1+\beta}} }$$</div> </div></section> <section class="subsection" id="exercise-2"><div class="part-banner"><span class="part-pill amber">Exercise 2</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 2. Uniqueness</h4> <p>A consumer has utility</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2,$$</div> <p>income $y&gt;0$, and faces prices $p_1,p_2&gt;0$.</p> <p>1. Find the Marshallian demand for each of the following cases:</p> <div class="math-display">$$\frac{p_1}{p_2}&lt;2, \qquad \frac{p_1}{p_2}&gt;2, \qquad \frac{p_1}{p_2}=2.$$</div> <p>2. Using a counter-example show that these preferences are not strictly convex. Relate your answer to the uniqueness (or non-uniqueness) of Marshallian demand.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="2" onclick="toggle(this, 'solution-2')" aria-controls="solution-2" aria-expanded="false">Show solution — Exercise 2 ▾</button><div class="collapsible exercise-solution" id="solution-2"><p><strong>Starting point.</strong> Utility is linear, income is positive, and both prices are positive. <strong>Goal.</strong> Find the optimal bundle in each price case, then test strict convexity using the requested counterexample.</p><h4>Question 1 — Marshallian demand</h4> <p>Utility is:</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2.$$</div> <p>The marginal utilities are:</p> <div class="math-display">$$MU_1=2, \qquad MU_2=1.$$</div> <p>Compare marginal utility per unit of expenditure:</p> <div class="math-display">$$\frac{MU_1}{p_1} = \frac2{p_1}, \qquad \frac{MU_2}{p_2} = \frac1{p_2}.$$</div> <h5>Case 1</h5> <p>If:</p> <div class="math-display">$$\frac{p_1}{p_2}&lt;2$, then:</p>
+<div class="math-display">$$\frac2{p_1}
+&gt;
+\frac1{p_2}.$$</div>
+<p>Good 1 gives more utility per unit of expenditure.</p>
+<p>The consumer spends all income on good 1:</p>
+<div class="math-display">$$\boxed{
+x_1^M=\frac{y}{p_1},
+\qquad
+x_2^M=0.
+}$$</div>
+<h5>Case 2</h5>
+<p>If $\frac{p_1}{p_2}&gt;2$, then:</p>
+<div class="math-display">$$\frac2{p_1}
+&lt;
+\frac1{p_2}.$$</div>
+<p>The consumer spends all income on good 2:</p>
+<div class="math-display">$$\boxed{
+x_1^M=0,
+\qquad
+x_2^M=\frac{y}{p_2}.
+}$$</div>
+<h5>Case 3</h5>
+<p>If $\frac{p_1}{p_2}=2$, then:</p>
+<div class="math-display">$$\frac2{p_1}
+=
+\frac1{p_2}.$$</div>
+<p>Every bundle on the budget line gives the same utility per unit of expenditure.</p>
+<p>Therefore all bundles satisfying:</p>
+<div class="math-display">$$p_1x_1+p_2x_2=y$$</div>
+<p>are optimal.</p>
+<p>Thus:</p>
+<p><strong>Final result.</strong> Marshallian demand is the entire set of nonnegative bundles on the budget line:</p><div class="math-display">$$p_1x_1+p_2x_2=y,\qquad x_1,x_2\geq0.$$</div>
+
+<div class="math-display">$$\mathcal L
+=
+2x_1+x_2
++
+\lambda(y-p_1x_1-p_2x_2).$$</div>
+<p>For an interior solution:</p>
+<div class="math-display">$$2=\lambda p_1$$</div>
+<p>and:</p>
+<div class="math-display">$$1=\lambda p_2.$$</div>
+<p>Dividing gives:</p>
+<div class="math-display">$$\frac{p_1}{p_2}=2.$$</div>
+<p>Therefore the equality case is precisely the case in which an interior combination can satisfy both FOCs.</p>
+<p>For the other price ratios, the optimum is a corner.</p>
+<h4>Question 2 — Strict convexity and uniqueness</h4>
+<p>Take:</p>
+<div class="math-display">$$a=(1,0)$$</div>
+<p>and:</p>
+<div class="math-display">$$b=(0,2).$$</div>
+<p>Their utilities are:</p>
+<div class="math-display">$$u(a)=2$$</div>
+<p>and:</p>
+<div class="math-display">$$u(b)=2.$$</div>
+<p>Therefore:</p>
+<div class="math-display">$$a\sim b.$$</div>
+<p>Their equal-weight mixture is:</p>
+<div class="math-display">$$\frac12a+\frac12b
+=
+\left(\frac12,1\right).$$</div>
+<p>Its utility is:</p>
+<div class="math-display">$$u\left(\frac12,1\right)
+=
+2\left(\frac12\right)+1
+=
+2.$$</div>
+<p>Therefore:</p>
+<div class="math-display">$$u\left(\frac12a+\frac12b\right)
+=
+u(a)
+=
+u(b).$$</div>
+<p>But strict convexity would require the true mixture of two distinct indifferent bundles to be strictly preferred to them.</p>
+<p>That does not happen here.</p>
+<p>Hence:</p>
+<div class="math-display">$$\boxed{
+\text{preferences are not strictly convex.}
+}$$</div>
+<p>When:</p>
+<div class="math-display">$$\frac{p_1}{p_2}=2,$$</div>
+<p>there are multiple optimal bundles on the budget line, so Marshallian demand is not single-valued.</p></div></section>
+<section class="subsection" id="exercise-3"><div class="part-banner"><span class="part-pill amber">Exercise 3</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 3. Example of a demand system</h4>
+<p>Consider the demand system $x(p,y)$ defined by</p>
+<div class="math-display">$$x_1(p,y)
+=
+\frac{p_2}{p_1+p_2+p_3}
+\frac{y}{p_1}
+\tag{1}$$</div>
+
+<div class="math-display">$$x_2(p,y)
+=
+\frac{p_3}{p_1+p_2+p_3}
+\frac{y}{p_2}
+\tag{2}$$</div>
+
+<div class="math-display">$$x_3(p,y)
+=
+\frac{\beta p_1}{p_1+p_2+p_3}
+\frac{y}{p_3}
+\tag{3}$$</div>
+<p>1. Does this demand function satisfy homogeneity of degree zero?</p>
+<p>2. Does this demand function satisfy Walras Law?</p></div></article><button type="button" class="toggle-btn amber" data-exercise="3" onclick="toggle(this, 'solution-3')" aria-controls="solution-3" aria-expanded="false">Show solution — Exercise 3 ▾</button><div class="collapsible exercise-solution" id="solution-3"><p><strong>Starting point.</strong> Keep $\beta$ fixed and use positive prices, as in the chapter. <strong>Goal.</strong> Test the two stated identities. For Walras’ Law, check positive income; at zero income both expenditure and income are zero.</p><h4>Question 1 — Homogeneity of degree zero</h4>
+<p>The course defines homogeneity of degree zero by:</p>
+<div class="math-display">$$x(\lambda p,\lambda y)=x(p,y)$$</div>
+<p>for every:</p>
+<div class="math-display">$$\lambda&gt;0.$$</div>
+<p>Check the first demand:</p>
+<div class="math-display">$$x_1(\lambda p,\lambda y)
+=
+\frac{\lambda p_2}
+{\lambda p_1+\lambda p_2+\lambda p_3}
+\frac{\lambda y}{\lambda p_1}.$$</div>
+<p>Factor and cancel $\lambda$:</p>
+<div class="math-display">$$x_1(\lambda p,\lambda y)
+=
+\frac{p_2}
+{p_1+p_2+p_3}
+\frac{y}{p_1}.$$</div>
+<p>Thus:</p>
+<div class="math-display">$$x_1(\lambda p,\lambda y)=x_1(p,y).$$</div>
+<p>The same cancellation applies to $x_2$ and $x_3$.</p>
+<p>Therefore:</p>
+<div class="math-display">$$\boxed{
+x(\lambda p,\lambda y)=x(p,y)
+}$$</div>
+<p>and the demand system satisfies:</p>
+<div class="math-display">$$\boxed{\text{homogeneity of degree zero}.}$$</div>
+<h4>Question 2 — Walras’ Law</h4>
+<p>The course defines Walras’ Law by:</p>
+<div class="math-display">$$p\cdot x=y.$$</div>
+<p>Compute total expenditure:</p>
+<div class="math-display">$$p_1x_1+p_2x_2+p_3x_3.$$</div>
+<p>First:</p>
+<div class="math-display">$$p_1x_1
+=
+\frac{p_2}{p_1+p_2+p_3}y.$$</div>
+<p>Second:</p>
+<div class="math-display">$$p_2x_2
+=
+\frac{p_3}{p_1+p_2+p_3}y.$$</div>
+<p>Third:</p>
+<div class="math-display">$$p_3x_3
+=
+\frac{\beta p_1}{p_1+p_2+p_3}y.$$</div>
+<p>Add them:</p>
+<div class="math-display">$$p\cdot x
+=
+\frac{
+p_2+p_3+\beta p_1
+}{
+p_1+p_2+p_3
+}y.$$</div>
+<p>For Walras’ Law to hold, this must equal $y$.</p>
+<p>Hence:</p>
+<div class="math-display">$$p_2+p_3+\beta p_1
+=
+p_1+p_2+p_3.$$</div>
+<p>Therefore:</p>
+<div class="math-display">$$\beta p_1=p_1.$$</div>
+<p>Since $p_1&gt;0$, division by $p_1$ gives:</p>
+<div class="math-display">$$\beta=1.$$</div>
+<p>Thus:</p>
+<p><strong>Final result.</strong> The system satisfies Walras’ Law if and only if $\beta=1$: this value makes the numerator equal to the denominator, so total expenditure equals income.</p><div class="math-display">$$\boxed{\beta=1.}$$</div>
+</div></section>
+
+  </div><!-- /main-content -->
+</div><!-- /main-wrap -->
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('main-wrap');
+  if (window.matchMedia('(max-width: 900px)').matches) {
+    sidebar.classList.toggle('open');
+  } else {
+    const collapsed = sidebar.classList.toggle('collapsed');
+    main.classList.toggle('expanded', collapsed);
+  }
+}
+
+function toggle(btn, id) {
+  const box = document.getElementById(id);
+  const isOpen = box.classList.contains('open');
+  box.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', String(!isOpen));
+  btn.textContent = (isOpen ? 'Show' : 'Hide') + ' solution — Exercise ' + btn.dataset.exercise + (isOpen ? ' ▾' : ' ▴');
+  if (!isOpen && window.MathJax?.typesetPromise) {
+    MathJax.typesetPromise([box]).catch(console.error);
+  }
+}
+
+/* ── CHAPTER PROGRESS BAR LOGIC ── */
+function initChapterProgress(){
+  const container = document.getElementById('chapterProgressBar');
+  if(!container) return;
+
+  let targets = Array.from(document.querySelectorAll('.subsection'));
+  if(targets.length === 0){
+    targets = Array.from(document.querySelectorAll('.part-banner'));
+  }
+  if(targets.length === 0){
+    targets = Array.from(document.querySelectorAll('.concept-card, .exercise-statement-card'));
+  }
+  if(targets.length === 0) return;
+
+  container.innerHTML = '';
+  const segments = targets.map((sec, idx) => {
+    const seg = document.createElement('div');
+    seg.className = 'progress-segment' + (idx === 0 ? ' active' : '');
+    seg.setAttribute('role', 'button');
+    seg.setAttribute('tabindex', '0');
+    const titleEl = sec.querySelector('.subsection-title, .part-pill, .statement-title, h3, h2');
+    const titleText = titleEl ? titleEl.innerText.replace(/\s+/g, ' ').trim() : `Section ${idx + 1}`;
+    seg.setAttribute('title', titleText);
+    seg.setAttribute('aria-label', titleText);
+    const jump = () => { sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+    seg.addEventListener('click', jump);
+    seg.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(); } });
+    container.appendChild(seg);
+    return seg;
+  });
+
+  function updateProgress(){
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowH = window.innerHeight;
+    const totalH = document.documentElement.scrollHeight;
+    const isAtBottom = (windowH + scrollY) >= (totalH - 50);
+
+    if(isAtBottom){
+      segments.forEach(seg => { seg.className = 'progress-segment completed'; });
+      return;
+    }
+
+    let activeIdx = 0;
+    for(let i = 0; i < targets.length; i++){
+      const rect = targets[i].getBoundingClientRect();
+      if(rect.top <= 160){
+        activeIdx = i;
+      }
+    }
+
+    segments.forEach((seg, idx) => {
+      if(idx < activeIdx){
+        seg.className = 'progress-segment completed';
+      } else if(idx === activeIdx){
+        seg.className = 'progress-segment active';
+      } else {
+        seg.className = 'progress-segment';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initChapterProgress);
+} else {
+  initChapterProgress();
+}
+
+</script>
+</body>
+</html>

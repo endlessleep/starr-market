@@ -510,10 +510,7 @@ body {
 /* Reading layout for Consumer Theory. */
 .main-content { container:course / inline-size; }
 .subsection { scroll-margin-top:86px; }
-.chapter-map { display:flex; flex-wrap:wrap; gap:10px 24px; margin-top:-20px; padding-bottom:20px; border-bottom:1px solid var(--border); }
-.chapter-map a { color:var(--text-2); font-size:.88rem; text-decoration:underline; text-underline-offset:5px; }
 .course-part { margin-top:24px; padding-top:24px; border-top:1px solid var(--border); font-size:1.55rem; color:var(--text); scroll-margin-top:86px; }
-.chapter-map a:hover { border-color:var(--blue-border); color:var(--blue-bright); }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2px solid var(--blue-bright); outline-offset:4px; }
 .assumption-grid, .definition-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
 .mini-card { padding:18px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-card); }
@@ -565,7 +562,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   .course-figure { padding:14px; }
   .collapsible { padding:14px 10px; }
   .math-display { padding:10px 5px; font-size:.82rem; }
-  .chapter-map { margin-top:-12px; }
 }
 @media(max-width:360px) {
   #proof-roy .math-display { font-size:.76rem; }
@@ -592,14 +588,15 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a>
       <a href="utility.html" class="sidebar-sublink">2 · Utility</a>
       <a href="choice.html" class="sidebar-sublink">3 · Choice</a>
-      <a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1</a>
+      <a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-1</a>
       <a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a>
       <a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a>
-      <a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2</a>
+      <a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-2</a>
     </div>
     <div class="sidebar-group">
       <div class="sidebar-group-title">📂 Consumer Theory</div>
       <a href="consumer_theory.html" class="sidebar-sublink active" aria-current="page">Consumer Theory</a>
+      <a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2-1</a>
     </div>
   </nav>
   <div class="sidebar-footer">
@@ -635,17 +632,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <h1>Consumer Theory</h1>
       <p>Consumer’s preferences, utility maximization, and expenditure minimization</p>
     </header>
-
-    <nav class="chapter-map" aria-label="Consumer Theory sections">
-      <a href="#consumer-preferences">Consumer’s preferences</a>
-      <a href="#mrs">Marginal rate of substitution</a>
-      <a href="#ump">Setting up the UMP</a>
-      <a href="#marshallian-demand">Marshallian demand</a>
-      <a href="#solving-ump">Solving the UMP</a>
-      <a href="#indirect-utility">Indirect utility</a>
-      <a href="#expenditure-minimization">The EmP</a>
-      <a href="#duality">Duality</a>
-    </nav>
 
     <h2 class="course-part" id="consumer-preferences">1. Consumer’s Preferences</h2>
     <section class="subsection" id="utility-function">
