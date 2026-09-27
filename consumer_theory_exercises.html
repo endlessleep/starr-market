@@ -576,6 +576,30 @@ body {
 .equation-adaptive { container:adaptive / inline-size; }
 .equation-desktop { display:none; }
 @container adaptive (min-width:30em){.equation-desktop{display:block}.equation-mobile{display:none}}
+/* Match the question and worked-step rhythm of Exercises Part 1-2. */
+.exercise-solution { line-height:1.7; font-size:.92rem; }
+.exercise-solution .question-heading {
+  margin:30px 0 14px; padding:20px 0 0; border-top:1px solid var(--border);
+  font-size:1.08rem; color:var(--text);
+}
+.exercise-solution .solution-step { margin-top:18px; padding-top:18px; border-top:1px solid var(--border); }
+.exercise-solution .solution-step > h4 { margin:0 0 12px; color:var(--text); font-size:.97rem; }
+.exercise-solution .method-heading { margin:20px 0 10px; font-size:.9rem; color:var(--amber-bright); }
+.exercise-solution .math-display {
+  margin:10px 0; padding:12px 8px; background:var(--bg-card); border:1px solid var(--border);
+}
+.exercise-solution mjx-container[display="true"] { margin:.45em 0; }
+.exercise-solution .exercise-figure { max-width:440px; margin:16px auto; padding:12px; }
+.utility-questions { gap:16px; }
+.utility-questions > li { padding-left:4px; }
+.utility-questions > li::marker { color:var(--amber-bright); font-weight:700; }
+.utility-questions .math-display { background:transparent; border:0; padding:8px 0; margin:4px 0; }
+.utility-questions > li > p { margin:4px 0; }
+@media(max-width:600px){
+  .exercise-solution .math-display { padding:10px 2px; }
+  .utility-questions { margin-left:16px; }
+  .exercise-statement .math-display { font-size:.82rem; }
+}
 </style>
 </head>
 <body>
@@ -635,70 +659,78 @@ body {
 <header class="page-title-block"><div class="page-label">Part II — Consumer Theory</div><h1>Exercises Part 2-1</h1><p>Duality of the consumer problem, uniqueness, and a demand system.</p></header>
 <section class="subsection" id="exercise-1"><div class="part-banner"><span class="part-pill amber">Exercise 1</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 1. Duality of the consumer problem</h4>
 <p>For each of the following utility functions, draw the indifference curves and compute the Marshallian demand, Hicksian demand, indirect utility function and expenditure function.</p>
-<p>1.</p>
+<ol class="exercise-questions utility-questions"><li>
 <div class="math-display">$$u(x,y)=x^\alpha y^{1-\alpha},
 \qquad 0&lt;\alpha&lt;1.$$</div>
-<p>2.</p>
+</li><li>
 <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\max(\alpha x,\alpha y)+\min(x,y),
 \qquad 0&lt;\alpha&lt;1$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\max(\alpha x,\alpha y)+\min(x,y)\\0&lt;\alpha&lt;1\end{gathered}$$</div></div>
 <p>and</p>
 <div class="math-display">$$\frac{p_x}{p_y}\neq\alpha
 \qquad\text{and}\qquad
 \frac{p_x}{p_y}\neq\frac1\alpha.$$</div>
-<p>3.</p>
+</li><li>
 <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y,
 \qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div>
-<p><strong>Hint:</strong> There is a trick.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="1" onclick="toggle(this, 'solution-1')" aria-controls="solution-1" aria-expanded="false">Show solution — Exercise 1 ▾</button><div class="collapsible exercise-solution" id="solution-1"><p><strong>Starting point.</strong> Prices are positive. We use $m&gt;0$ for income so that it is not confused with the good $y$. For Questions 1 and 2 the utility target is nonnegative; the calculations below use $\bar u&gt;0$ (at $\bar u=0$, minimum expenditure and Hicksian quantities are zero). For Question 3 the target may be any real number.</p><p><strong>Goal.</strong> For each utility function, identify its indifference curves, its two demand functions, and the associated value functions.</p><h3 class="question-heading">Question 1</h3>
+</li></ol><p><strong>Hint:</strong> There is a trick.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="1" onclick="toggle(this, 'solution-1')" aria-controls="solution-1" aria-expanded="false">Show solution — Exercise 1 ▾</button><div class="collapsible exercise-solution" id="solution-1"><p><strong>Starting point.</strong> Prices are positive. We use $m&gt;0$ for income so that it is not confused with the good $y$. For Questions 1 and 2 the utility target is nonnegative; the calculations below use $\bar u&gt;0$ (at $\bar u=0$, minimum expenditure and Hicksian quantities are zero). For Question 3 the target may be any real number.</p><p><strong>Goal.</strong> For each utility function, identify its indifference curves, its two demand functions, and the associated value functions.</p>
+<h3 class="question-heading">1. Utility representation</h3>
+
 <div class="math-display">$$u(x,y)=x^\alpha y^{1-\alpha},
 \qquad 0&lt;\alpha&lt;1.$$</div>
-<h4>Indifference curves</h4>
+
+<div class="solution-step">
+<h4>Step 1 — Indifference curves</h4>
 <p>Fix utility at $\bar u$:</p>
 <div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
 <p>Solve for $y$:</p>
-<div class="math-display">$$y^{1-\alpha}
+<div class="math-display calculation-group">$$\begin{gathered}
+y^{1-\alpha}
 =
-\frac{\bar u}{x^\alpha}.$$</div>
-<p>Therefore:</p>
-<div class="math-display">$$\boxed{
+\frac{\bar u}{x^\alpha}.\\[0.65em]
+\boxed{
 y=
 \bar u^{\frac1{1-\alpha}}
 x^{-\frac{\alpha}{1-\alpha}}
-}$$</div>
+}
+\end{gathered}$$</div>
 <figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-1"><title id="curve-title-1">Downward-sloping indifference curves; higher curves give higher utility</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><polyline points="95.10,45.80 97.80,57.95 100.50,68.86 103.20,78.70 105.90,87.62 108.60,95.74 111.30,103.18 114.00,110.00 116.70,116.29 119.40,122.10 122.10,127.49 124.80,132.50 127.50,137.17 130.20,141.53 132.90,145.62 135.60,149.45 138.30,153.06 141.00,156.45 143.70,159.66 146.40,162.68 149.10,165.55 151.80,168.27 154.50,170.85 157.20,173.30 159.90,175.63 162.60,177.85 165.30,179.97 168.00,182.00 170.70,183.94 173.40,185.79 176.10,187.56 178.80,189.27 181.50,190.90 184.20,192.47 186.90,193.97 189.60,195.42 192.30,196.82 195.00,198.16 197.70,199.46 200.40,200.71 203.10,201.91 205.80,203.08 208.50,204.21 211.20,205.29 213.90,206.35 216.60,207.37 219.30,208.35 222.00,209.31 224.70,210.24 227.40,211.14 230.10,212.01 232.80,212.86 235.50,213.68 238.20,214.48 240.90,215.26 243.60,216.01 246.30,216.75 249.00,217.46 251.70,218.16 254.40,218.84 257.10,219.50 259.80,220.14 262.50,220.77 265.20,221.38 267.90,221.98 270.60,222.56 273.30,223.13 276.00,223.68 278.70,224.23 281.40,224.76 284.10,225.27 286.80,225.78 289.50,226.27 292.20,226.76 294.90,227.23 297.60,227.69 300.30,228.15 303.00,228.59 305.70,229.02 308.40,229.45 311.10,229.86 313.80,230.27 316.50,230.67 319.20,231.06 321.90,231.45 324.60,231.82 327.30,232.19 330.00,232.55 332.70,232.91 335.40,233.26 338.10,233.60 340.80,233.93 343.50,234.26 346.20,234.59 348.90,234.91 351.60,235.22 354.30,235.52 357.00,235.83 359.70,236.12 362.40,236.41" fill="none" stroke="#60a5fa" stroke-width="2.5"/><polyline points="132.90,36.78 135.60,43.97 138.30,50.73 141.00,57.10 143.70,63.10 146.40,68.78 149.10,74.15 151.80,79.25 154.50,84.08 157.20,88.68 159.90,93.06 162.60,97.23 165.30,101.20 168.00,105.00 170.70,108.63 173.40,112.11 176.10,115.43 178.80,118.62 181.50,121.69 184.20,124.63 186.90,127.45 189.60,130.17 192.30,132.79 195.00,135.31 197.70,137.74 200.40,140.08 203.10,142.34 205.80,144.52 208.50,146.64 211.20,148.68 213.90,150.65 216.60,152.56 219.30,154.41 222.00,156.21 224.70,157.95 227.40,159.63 230.10,161.27 232.80,162.86 235.50,164.40 238.20,165.90 240.90,167.36 243.60,168.77 246.30,170.15 249.00,171.49 251.70,172.80 254.40,174.07 257.10,175.31 259.80,176.52 262.50,177.69 265.20,178.84 267.90,179.96 270.60,181.05 273.30,182.12 276.00,183.16 278.70,184.17 281.40,185.17 284.10,186.14 286.80,187.09 289.50,188.01 292.20,188.92 294.90,189.81 297.60,190.67 300.30,191.52 303.00,192.35 305.70,193.17 308.40,193.96 311.10,194.74 313.80,195.51 316.50,196.26 319.20,196.99 321.90,197.71 324.60,198.42 327.30,199.11 330.00,199.79 332.70,200.45 335.40,201.11 338.10,201.75 340.80,202.38 343.50,202.99 346.20,203.60 348.90,204.20 351.60,204.78 354.30,205.36 357.00,205.92 359.70,206.48 362.40,207.02" fill="none" stroke="#34d399" stroke-width="2.5"/><polyline points="181.50,32.70 184.20,37.40 186.90,41.92 189.60,46.27 192.30,50.46 195.00,54.49 197.70,58.38 200.40,62.13 203.10,65.74 205.80,69.24 208.50,72.62 211.20,75.88 213.90,79.04 216.60,82.10 219.30,85.06 222.00,87.93 224.70,90.71 227.40,93.41 230.10,96.03 232.80,98.57 235.50,101.04 238.20,103.44 240.90,105.77 243.60,108.04 246.30,110.24 249.00,112.39 251.70,114.48 254.40,116.51 257.10,118.49 259.80,120.42 262.50,122.31 265.20,124.14 267.90,125.93 270.60,127.68 273.30,129.39 276.00,131.05 278.70,132.68 281.40,134.27 284.10,135.82 286.80,137.34 289.50,138.82 292.20,140.27 294.90,141.69 297.60,143.08 300.30,144.44 303.00,145.76 305.70,147.07 308.40,148.34 311.10,149.59 313.80,150.81 316.50,152.01 319.20,153.19 321.90,154.34 324.60,155.47 327.30,156.57 330.00,157.66 332.70,158.72 335.40,159.77 338.10,160.80 340.80,161.80 343.50,162.79 346.20,163.76 348.90,164.72 351.60,165.65 354.30,166.57 357.00,167.48 359.70,168.36 362.40,169.24" fill="none" stroke="#fbbf24" stroke-width="2.5"/><path d="M242 105L282 60m-10 2 10-2-1 10" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="246" y="42">Higher utility</text></svg><figcaption>Shape illustrated for $\alpha=1/2$. Each curve holds utility fixed; curves farther from the origin represent higher utility.</figcaption></figure>
-<h4>Marshallian demand</h4><p>For $m&gt;0$, a bundle with both goods positive gives positive utility, whereas either zero quantity gives zero utility. The optimum is therefore interior.</p>
+
+</div>
+<div class="solution-step">
+<h4>Step 2 — Marshallian demand</h4><p>For $m&gt;0$, a bundle with both goods positive gives positive utility, whereas either zero quantity gives zero utility. The optimum is therefore interior.</p>
 <p>The UMP is:</p>
-<div class="math-display">$$\max_{x,y\ge0}
-x^\alpha y^{1-\alpha}$$</div>
-<p>subject to:</p>
-<div class="math-display">$$p_xx+p_yy=m.$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}\max_{x,y\ge0}
+x^\alpha y^{1-\alpha}\\[.4em]\text{subject to }p_xx+p_yy=m.\end{gathered}$$</div>
 <p>Because utility is increasing, use the binding budget constraint.</p>
-<h5>Method 1 — Lagrangian</h5>
+<h5 class="method-heading">Method 1 — Lagrangian</h5>
 <div class="math-display">$$\mathcal L
 =
 x^\alpha y^{1-\alpha}
 +
 \lambda(m-p_xx-p_yy).$$</div>
 <p>FOCs:</p>
-<div class="math-display">$$\alpha x^{\alpha-1}y^{1-\alpha}
+<div class="math-display calculation-group">$$\begin{gathered}
+\alpha x^{\alpha-1}y^{1-\alpha}
 =
-\lambda p_x$$</div>
-
-<div class="math-display">$$(1-\alpha)x^\alpha y^{-\alpha}
+\lambda p_x\\[0.65em]
+(1-\alpha)x^\alpha y^{-\alpha}
 =
-\lambda p_y$$</div>
-
-<div class="math-display">$$p_xx+p_yy=m.$$</div>
+\lambda p_y\\[0.65em]
+p_xx+p_yy=m.
+\end{gathered}$$</div>
 <p>Divide the first FOC by the second:</p>
-<div class="math-display">$$\frac{\alpha}{1-\alpha}\frac{y}{x}
+<div class="math-display calculation-group">$$\begin{gathered}
+\frac{\alpha}{1-\alpha}\frac{y}{x}
 =
-\frac{p_x}{p_y}.$$</div>
-<p>Hence:</p>
-<div class="math-display">$$y
+\frac{p_x}{p_y}.\\[0.65em]
+y
 =
 \frac{1-\alpha}{\alpha}
-\frac{p_x}{p_y}x.$$</div>
+\frac{p_x}{p_y}x.
+\end{gathered}$$</div>
 <p>Substitute into the budget constraint:</p>
-<div class="math-display">$$p_xx
+<div class="math-display calculation-group">$$\begin{gathered}
+p_xx
 +
 p_y
 \left(
@@ -706,23 +738,22 @@ p_y
 \frac{p_x}{p_y}x
 \right)
 =
-m.$$</div>
-<p>So:</p>
-<div class="math-display">$$p_xx
+m.\\[0.65em]
+p_xx
 \left(
 1+\frac{1-\alpha}{\alpha}
 \right)
 =
-m.$$</div>
-<p>Therefore:</p>
-<div class="math-display">$$\boxed{
+m.\\[0.65em]
+\boxed{
 x^M(p,m)=\frac{\alpha m}{p_x}
-}$$</div>
+}
+\end{gathered}$$</div>
 <p>and</p>
 <div class="math-display">$$\boxed{
 y^M(p,m)=\frac{(1-\alpha)m}{p_y}.
 }$$</div>
-<h5>Method 2 — Optimality condition</h5>
+<h5 class="method-heading">Method 2 — Optimality condition</h5>
 <p>For an interior solution:</p>
 <div class="math-display">$$MRS_{xy}
 =
@@ -730,17 +761,17 @@ y^M(p,m)=\frac{(1-\alpha)m}{p_y}.
 =
 \frac{p_x}{p_y}.$$</div>
 <p>Here:</p>
-<div class="math-display">$$MU_x
+<div class="math-display calculation-group">$$\begin{gathered}
+MU_x
 =
-\alpha x^{\alpha-1}y^{1-\alpha}$$</div>
-<p>and</p>
-<div class="math-display">$$MU_y
+\alpha x^{\alpha-1}y^{1-\alpha}\\[0.65em]
+MU_y
 =
-(1-\alpha)x^\alpha y^{-\alpha}.$$</div>
-<p>Thus:</p>
-<div class="math-display">$$MRS_{xy}
+(1-\alpha)x^\alpha y^{-\alpha}.\\[0.65em]
+MRS_{xy}
 =
-\frac{\alpha}{1-\alpha}\frac{y}{x}.$$</div>
+\frac{\alpha}{1-\alpha}\frac{y}{x}.
+\end{gathered}$$</div>
 <p>So:</p>
 <div class="math-display">$$\frac{\alpha}{1-\alpha}\frac{y}{x}
 =
@@ -754,37 +785,42 @@ x^M=\frac{\alpha m}{p_x},
 y^M=\frac{(1-\alpha)m}{p_y}.
 }$$</div>
 <p class="method-note">This second method uses directly the optimality condition obtained by dividing the two Lagrangian FOCs.</p>
-<h4>Indirect utility function</h4>
+
+</div>
+<div class="solution-step">
+<h4>Step 3 — Indirect utility function</h4>
 <p>By definition:</p>
 <div class="math-display">$$v(p,m)
 =
 u(x^M,y^M).$$</div>
 <p>Substitute the Marshallian demands:</p>
-<div class="math-display">$$v(p,m)
+<div class="math-display calculation-group">$$\begin{gathered}
+v(p,m)
 =
 \left(
 \frac{\alpha m}{p_x}
 \right)^\alpha
 \left(
 \frac{(1-\alpha)m}{p_y}
-\right)^{1-\alpha}.$$</div>
-<p>Therefore:</p>
-<div class="math-display">$$\boxed{
+\right)^{1-\alpha}.\\[0.65em]
+\boxed{
 v(p,m)
 =
 \alpha^\alpha(1-\alpha)^{1-\alpha}
 \frac{m}
 {p_x^\alpha p_y^{1-\alpha}}
-}$$</div>
-<h4>Hicksian demand</h4>
+}
+\end{gathered}$$</div>
+
+</div>
+<div class="solution-step">
+<h4>Step 4 — Hicksian demand</h4>
 <p>The EmP is:</p>
-<div class="math-display">$$\min_{x,y\ge0}
-p_xx+p_yy$$</div>
-<p>subject to:</p>
-<div class="math-display">$$x^\alpha y^{1-\alpha}\ge\bar u.$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}\min_{x,y\ge0}
+p_xx+p_yy\\[.4em]\text{subject to }x^\alpha y^{1-\alpha}\ge\bar u.\end{gathered}$$</div>
 <p>At the optimum:</p>
 <div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
-<h5>Method 1 — Lagrangian</h5>
+<h5 class="method-heading">Method 1 — Lagrangian</h5>
 <div class="math-display">$$\mathcal L
 =
 p_xx+p_yy
@@ -794,28 +830,33 @@ p_xx+p_yy
 \bar u-x^\alpha y^{1-\alpha}
 \right].$$</div>
 <p>The first-order conditions are:</p>
-<div class="math-display">$$p_x=\lambda\alpha x^{\alpha-1}y^{1-\alpha},$$</div>
-<div class="math-display">$$p_y=\lambda(1-\alpha)x^\alpha y^{-\alpha}.$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}
+p_x=\lambda\alpha x^{\alpha-1}y^{1-\alpha},\\[0.65em]
+p_y=\lambda(1-\alpha)x^\alpha y^{-\alpha}.
+\end{gathered}$$</div>
 <p>Divide the first condition by the second to cancel $\lambda$:</p>
-<div class="math-display">$$\frac{MU_x}{MU_y}
+<div class="math-display calculation-group">$$\begin{gathered}
+\frac{MU_x}{MU_y}
 =
-\frac{p_x}{p_y}.$$</div>
-<p>Thus:</p>
-<div class="math-display">$$\frac{\alpha}{1-\alpha}\frac{y}{x}
+\frac{p_x}{p_y}.\\[0.65em]
+\frac{\alpha}{1-\alpha}\frac{y}{x}
 =
-\frac{p_x}{p_y}.$$</div>
-<p>Hence:</p>
-<div class="math-display">$$y
+\frac{p_x}{p_y}.\\[0.65em]
+y
 =
 \frac{1-\alpha}{\alpha}
-\frac{p_x}{p_y}x.$$</div>
+\frac{p_x}{p_y}x.
+\end{gathered}$$</div>
 <p>Substitute this into:</p>
 <div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
 <p>Substitution and $\alpha+(1-\alpha)=1$ give:</p>
-<div class="math-display">$$x^\alpha\left(\frac{(1-\alpha)p_x}{\alpha p_y}x\right)^{1-\alpha}=\bar u,$$</div>
-<div class="math-display">$$x\left(\frac{(1-\alpha)p_x}{\alpha p_y}\right)^{1-\alpha}=\bar u.$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}
+x^\alpha\left(\frac{(1-\alpha)p_x}{\alpha p_y}x\right)^{1-\alpha}=\bar u,\\[0.65em]
+x\left(\frac{(1-\alpha)p_x}{\alpha p_y}\right)^{1-\alpha}=\bar u.
+\end{gathered}$$</div>
 <p>Divide by the positive price factor to find $x^H$, then substitute into the expression for $y$:</p>
-<div class="math-display">$$\boxed{
+<div class="math-display calculation-group">$$\begin{gathered}
+\boxed{
 x^H(p,\bar u)
 =
 \bar u
@@ -823,9 +864,8 @@ x^H(p,\bar u)
 \frac{\alpha p_y}
 {(1-\alpha)p_x}
 \right)^{1-\alpha}
-}$$</div>
-<p>and</p>
-<div class="math-display">$$\boxed{
+}\\[0.65em]
+\boxed{
 y^H(p,\bar u)
 =
 \bar u
@@ -833,8 +873,9 @@ y^H(p,\bar u)
 \frac{(1-\alpha)p_x}
 {\alpha p_y}
 \right)^\alpha.
-}$$</div>
-<h5>Method 2 — Optimality condition</h5>
+}
+\end{gathered}$$</div>
+<h5 class="method-heading">Method 2 — Optimality condition</h5>
 <p>Use directly:</p>
 <div class="math-display">$$MRS_{xy}
 =
@@ -842,7 +883,10 @@ y^H(p,\bar u)
 <p>together with:</p>
 <div class="math-display">$$x^\alpha y^{1-\alpha}=\bar u.$$</div>
 <p>This gives the same Hicksian demands.</p>
-<h4>Expenditure function</h4>
+
+</div>
+<div class="solution-step">
+<h4>Step 5 — Expenditure function</h4>
 <p>By definition:</p>
 <div class="math-display">$$e(p,\bar u)
 =
@@ -859,7 +903,10 @@ e(p,\bar u)
 \alpha^\alpha(1-\alpha)^{1-\alpha}
 }
 }$$</div>
-<h3 class="question-heading">Question 2</h3>
+
+</div>
+<h3 class="question-heading">2. A utility function with a kink</h3>
+
 <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)
 =
 \max(\alpha x,\alpha y)+\min(x,y),
@@ -872,7 +919,9 @@ e(p,\bar u)
 <div class="math-display">$$u(x,y)=\alpha x+y.$$</div>
 <p>If $y\ge x$, then:</p>
 <div class="math-display">$$u(x,y)=x+\alpha y.$$</div>
-<h4>Indifference curves</h4>
+
+<div class="solution-step">
+<h4>Step 1 — Indifference curves</h4>
 <p>Fix utility at $\bar u$.</p>
 <p>If $x\ge y$:</p>
 <div class="math-display">$$\alpha x+y=\bar u$$</div>
@@ -887,15 +936,19 @@ y=\bar u-\alpha x.
 y=\frac{\bar u-x}{\alpha}.
 }$$</div>
 <p>The two pieces meet when:</p>
-<div class="math-display">$$x=y.$$</div>
-<p>Hence:</p>
-<div class="math-display">$$(1+\alpha)x=\bar u$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}
+x=y.\\[0.65em]
+(1+\alpha)x=\bar u
+\end{gathered}$$</div>
 <p>and therefore the kink is:</p>
 <div class="math-display">$$\boxed{
 x=y=\frac{\bar u}{1+\alpha}.
 }$$</div>
 <figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-2"><title id="curve-title-2">Two linear pieces meeting on the line x equals y</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><path d="M48 270L283 35" fill="none" stroke="#64748b" stroke-dasharray="5 5"/><text x="279" y="30">x = y</text><path d="M48 150L88 230L168 270" fill="none" stroke="#60a5fa" stroke-width="2.5"/><path d="M48 90L108 210L228 270" fill="none" stroke="#34d399" stroke-width="2.5"/><path d="M48 30L128 190L288 270" fill="none" stroke="#fbbf24" stroke-width="2.5"/></svg><figcaption>Shape illustrated for $\alpha=1/2$. The slope is $-1/\alpha$ above $x=y$ and $-\alpha$ below it. The meeting point is the kink.</figcaption></figure>
-<h4>Marshallian demand</h4>
+
+</div>
+<div class="solution-step">
+<h4>Step 2 — Marshallian demand</h4>
 <p>Compare the relevant choices.</p>
 <h5>Only $x$</h5>
 <p>If all income is spent on $x$:</p>
@@ -917,9 +970,10 @@ y=\frac{m}{p_y}.$$</div>
 <p>At the kink:</p>
 <div class="math-display">$$x=y=q.$$</div>
 <p>The budget constraint becomes:</p>
-<div class="math-display">$$(p_x+p_y)q=m.$$</div>
-<p>Therefore:</p>
-<div class="math-display">$$q=\frac{m}{p_x+p_y}.$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}
+(p_x+p_y)q=m.\\[0.65em]
+q=\frac{m}{p_x+p_y}.
+\end{gathered}$$</div>
 <p>Utility is:</p>
 <div class="math-display">$$u
 =
@@ -937,7 +991,10 @@ y=\frac{m}{p_y}.$$</div>
  <p><strong>If $p_x/p_y&gt;1/\alpha$:</strong></p>
  <div class="math-display">$$\boxed{(x^M,y^M)=\left(0,\frac{m}{p_y}\right).}$$</div>
  </div>
-<h4>Indirect utility function</h4>
+
+</div>
+<div class="solution-step">
+<h4>Step 3 — Indirect utility function</h4>
 <p>Substitute the Marshallian demand in each price region:</p>
 <div class="math-display">$$\boxed{
 v(p,m)
@@ -963,8 +1020,70 @@ v(p,m)
 \frac1\alpha.
 \end{cases}
 }$$</div>
-<h4>Hicksian demand</h4>
-<p>If $\frac{p_x}{p_y}&lt;\alpha,$$</div> <p>the expenditure-minimizing choice uses only $x$.</p> <p>Since:</p> <div class="math-display">$$\alpha x=\bar u,$$</div> <p>we obtain:</p> <div class="math-display">$$\boxed{ x^H=\frac{\bar u}{\alpha}, \qquad y^H=0. }$$</div> <p>If:</p> <div class="math-display">$$\alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha,$$</div> <p>the optimal bundle is at the kink:</p> <div class="math-display">$$x=y.$$</div> <p>Since:</p> <div class="math-display">$$(1+\alpha)x=\bar u,$$</div> <p>we obtain:</p> <div class="math-display">$$\boxed{ x^H=y^H= \frac{\bar u}{1+\alpha}. }$$</div> <p>If:</p> <div class="math-display">$$\frac{p_x}{p_y}&gt; \frac1\alpha,$$</div> <p>the choice uses only $y$:</p> <div class="math-display">$$\boxed{ x^H=0, \qquad y^H=\frac{\bar u}{\alpha}. }$$</div> <p>Thus:</p> <h4>Expenditure function</h4> <p>Substitute the Hicksian demand into expenditure:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = \begin{cases} \displaystyle \frac{p_x\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&lt;\alpha, \\[1em] \displaystyle \frac{(p_x+p_y)\bar u}{1+\alpha}, &amp; \alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha, \\[1em] \displaystyle \frac{p_y\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&gt; \frac1\alpha. \end{cases} }$$</div> <h3 class="question-heading">Question 3</h3> <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y, \qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div> <h4>Hint — the trick</h4> <p>Use:</p> <div class="math-display">$$\log x+\beta\log y = \log(xy^\beta).$$</div> <p>Since the logarithm is strictly increasing, maximizing:</p> <div class="math-display">$$\log(xy^\beta)$$</div> <p>gives the same choice as maximizing:</p> <div class="math-display">$$xy^\beta.$$</div> <h4>Indifference curves</h4> <p>Fix utility at $\bar u$:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <p>Thus:</p> <div class="math-display">$$\log(xy^\beta)=\bar u.$$</div> <p>Exponentiating:</p> <div class="math-display">$$xy^\beta=e^{\bar u}.$$</div> <p>Therefore:</p> <div class="math-display">$$\boxed{ y= e^{\bar u/\beta}x^{-1/\beta}. }$$</div> <figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-3"><title id="curve-title-3">Logarithmic utility indifference curves on the positive consumption set</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><polyline points="95.10,41.51 97.80,65.62 100.50,86.10 103.20,103.65 105.90,118.80 108.60,131.97 111.30,143.50 114.00,153.64 116.70,162.60 119.40,170.57 122.10,177.69 124.80,184.06 127.50,189.80 130.20,194.98 132.90,199.68 135.60,203.95 138.30,207.84 141.00,211.39 143.70,214.65 146.40,217.65 149.10,220.41 151.80,222.96 154.50,225.31 157.20,227.49 159.90,229.52 162.60,231.40 165.30,233.16 168.00,234.80 170.70,236.33 173.40,237.77 176.10,239.11 178.80,240.37 181.50,241.56 184.20,242.68 186.90,243.73 189.60,244.72 192.30,245.66 195.00,246.54 197.70,247.38 200.40,248.18 203.10,248.93 205.80,249.64 208.50,250.32 211.20,250.97 213.90,251.58 216.60,252.17 219.30,252.73 222.00,253.26 224.70,253.77 227.40,254.25 230.10,254.71 232.80,255.16 235.50,255.58 238.20,255.99 240.90,256.38 243.60,256.75 246.30,257.11 249.00,257.45 251.70,257.78 254.40,258.10 257.10,258.41 259.80,258.70 262.50,258.98 265.20,259.26 267.90,259.52 270.60,259.77 273.30,260.01 276.00,260.25 278.70,260.48 281.40,260.70 284.10,260.91 286.80,261.11 289.50,261.31 292.20,261.50 294.90,261.68 297.60,261.86 300.30,262.04 303.00,262.20 305.70,262.37 308.40,262.52 311.10,262.68 313.80,262.83 316.50,262.97 319.20,263.11 321.90,263.24 324.60,263.37 327.30,263.50 330.00,263.63 332.70,263.75 335.40,263.86 338.10,263.98 340.80,264.09 343.50,264.20 346.20,264.30 348.90,264.40 351.60,264.50 354.30,264.60 357.00,264.69 359.70,264.78 362.40,264.87" fill="none" stroke="#60a5fa" stroke-width="2.5"/><polyline points="135.60,37.78 138.30,51.46 141.00,63.96 143.70,75.43 146.40,85.96 149.10,95.66 151.80,104.61 154.50,112.89 157.20,120.56 159.90,127.69 162.60,134.31 165.30,140.49 168.00,146.25 170.70,151.64 173.40,156.68 176.10,161.41 178.80,165.84 181.50,170.01 184.20,173.94 186.90,177.64 189.60,181.12 192.30,184.42 195.00,187.53 197.70,190.48 200.40,193.27 203.10,195.92 205.80,198.44 208.50,200.82 211.20,203.09 213.90,205.25 216.60,207.31 219.30,209.27 222.00,211.14 224.70,212.93 227.40,214.63 230.10,216.26 232.80,217.82 235.50,219.31 238.20,220.74 240.90,222.11 243.60,223.42 246.30,224.68 249.00,225.89 251.70,227.05 254.40,228.17 257.10,229.24 259.80,230.28 262.50,231.27 265.20,232.23 267.90,233.15 270.60,234.04 273.30,234.89 276.00,235.72 278.70,236.52 281.40,237.29 284.10,238.03 286.80,238.75 289.50,239.45 292.20,240.12 294.90,240.77 297.60,241.40 300.30,242.01 303.00,242.60 305.70,243.17 308.40,243.72 311.10,244.26 313.80,244.78 316.50,245.28 319.20,245.77 321.90,246.25 324.60,246.71 327.30,247.16 330.00,247.59 332.70,248.01 335.40,248.43 338.10,248.83 340.80,249.21 343.50,249.59 346.20,249.96 348.90,250.32 351.60,250.67 354.30,251.01 357.00,251.34 359.70,251.66 362.40,251.97" fill="none" stroke="#34d399" stroke-width="2.5"/><polyline points="186.90,33.55 189.60,42.48 192.30,50.91 195.00,58.89 197.70,66.43 200.40,73.58 203.10,80.36 205.80,86.80 208.50,92.91 211.20,98.72 213.90,104.25 216.60,109.52 219.30,114.53 222.00,119.32 224.70,123.89 227.40,128.26 230.10,132.43 232.80,136.42 235.50,140.24 238.20,143.90 240.90,147.40 243.60,150.76 246.30,153.99 249.00,157.08 251.70,160.06 254.40,162.92 257.10,165.66 259.80,168.31 262.50,170.85 265.20,173.30 267.90,175.66 270.60,177.93 273.30,180.13 276.00,182.24 278.70,184.29 281.40,186.26 284.10,188.16 286.80,190.00 289.50,191.78 292.20,193.50 294.90,195.16 297.60,196.78 300.30,198.33 303.00,199.84 305.70,201.31 308.40,202.72 311.10,204.10 313.80,205.43 316.50,206.72 319.20,207.97 321.90,209.19 324.60,210.37 327.30,211.52 330.00,212.63 332.70,213.72 335.40,214.77 338.10,215.79 340.80,216.79 343.50,217.76 346.20,218.70 348.90,219.61 351.60,220.51 354.30,221.38 357.00,222.22 359.70,223.05 362.40,223.85" fill="none" stroke="#fbbf24" stroke-width="2.5"/><path d="M242 105L282 60m-10 2 10-2-1 10" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="246" y="42">Higher utility</text></svg><figcaption>Shape illustrated for $\beta=1/2$, with $x&gt;0$ and $y&gt;0$. Higher curves represent higher utility.</figcaption></figure><h4>Marshallian demand</h4> <p>The UMP is:</p> <div class="math-display">$$\max_{x,y&gt;0} \log x+\beta\log y$$</div> <p>subject to:</p> <div class="math-display">$$p_xx+p_yy=m.$$</div> <h5>Method 1 — Lagrangian</h5> <div class="math-display">$$\mathcal L = \log x+\beta\log y + \lambda(m-p_xx-p_yy).$$</div> <p>FOCs:</p> <div class="math-display">$$\frac1x = \lambda p_x$$</div> <div class="math-display">$$\frac{\beta}{y} = \lambda p_y$$</div> <div class="math-display">$$p_xx+p_yy=m.$$</div> <p>Divide the first FOC by the second:</p> <div class="math-display">$$\frac{y}{\beta x} = \frac{p_x}{p_y}.$$</div> <p>Therefore:</p> <div class="math-display">$$y = \beta \frac{p_x}{p_y}x.$$</div> <p>Substitute into the budget constraint:</p> <div class="math-display">$$p_xx + p_y \left( \beta \frac{p_x}{p_y}x \right) = m.$$</div> <p>Thus:</p> <div class="math-display">$$(1+\beta)p_xx=m.$$</div> <p>Hence:</p> <div class="math-display">$$\boxed{ x^M(p,m) = \frac{m}{(1+\beta)p_x} }$$</div> <p>and:</p> <div class="math-display">$$\boxed{ y^M(p,m) = \frac{\beta m}{(1+\beta)p_y}. }$$</div> <h5>Method 2 — Optimality condition</h5> <p>Marginal utilities are:</p> <div class="math-display">$$MU_x=\frac1x$$</div> <p>and:</p> <div class="math-display">$$MU_y=\frac{\beta}{y}.$$</div> <p>Therefore:</p> <div class="math-display">$$MRS_{xy} = \frac{MU_x}{MU_y} = \frac{y}{\beta x}.$$</div> <p>At an interior optimum:</p> <div class="math-display">$$\frac{y}{\beta x} = \frac{p_x}{p_y}.$$</div> <p>Combine this with:</p> <div class="math-display">$$p_xx+p_yy=m.$$</div> <p>This gives again:</p> <div class="math-display">$$\boxed{ x^M= \frac{m}{(1+\beta)p_x}, \qquad y^M= \frac{\beta m}{(1+\beta)p_y}. }$$</div> <h4>Indirect utility function</h4> <p>Substitute the Marshallian demand:</p> <div class="math-display equation-adaptive"><div class="equation-desktop">$$v(p,m) = \log \left( \frac{m}{(1+\beta)p_x} \right) + \beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right).$$</div><div class="equation-mobile">$$\begin{aligned}v(p,m)&= \log \left( \frac{m}{(1+\beta)p_x} \right)\\&+\beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right).\end{aligned}$$</div></div> <p>Therefore:</p> <div class="math-display equation-adaptive"><div class="equation-desktop">$$\boxed{ v(p,m) = \log \left( \frac{m}{(1+\beta)p_x} \right) + \beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right) }$$</div><div class="equation-mobile">$$\begin{aligned}v(p,m)&= \log \left( \frac{m}{(1+\beta)p_x} \right)\\&+\beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right)\end{aligned}$$</div></div> <h4>Hicksian demand</h4> <p>The EmP is:</p> <div class="math-display">$$\min_{x,y&gt;0} p_xx+p_yy$$</div> <p>subject to:</p> <div class="math-display">$$\log x+\beta\log y\ge\bar u.$$</div> <p>At the optimum:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <h5>Method 1 — Lagrangian</h5> <div class="math-display">$$\mathcal L=p_xx+p_yy+\lambda[\bar u-\log x-\beta\log y].$$</div> <p>Differentiating with respect to each quantity gives:</p> <div class="math-display">$$p_x=\frac{\lambda}{x},\qquad p_y=\frac{\lambda\beta}{y}.$$</div> <p>Divide these conditions to cancel $\lambda$:</p> <div class="math-display">$$\frac{MU_x}{MU_y} = \frac{p_x}{p_y}.$$</div> <p>Hence:</p> <div class="math-display">$$\frac{y}{\beta x} = \frac{p_x}{p_y},$$</div> <p>so:</p> <div class="math-display">$$y = \beta \frac{p_x}{p_y}x.$$</div> <p>Using:</p> <div class="math-display">$$xy^\beta=e^{\bar u},$$</div> <p>substitute the expression for $y$:</p> <div class="math-display">$$x\left(\beta\frac{p_x}{p_y}x\right)^\beta=e^{\bar u}.$$</div> <p>Collect the powers of $x$, then isolate $x^{1+\beta}$:</p> <div class="math-display">$$x^{1+\beta}=e^{\bar u}\left(\frac{p_y}{\beta p_x}\right)^\beta.$$</div> <p>Raise both sides to the power $1/(1+\beta)$ to obtain $x^H$. Substitute it into $y=\beta(p_x/p_y)x$ to obtain $y^H$:</p> <div class="math-display">$$\boxed{ x^H(p,\bar u) = e^{\frac{\bar u}{1+\beta}} \left( \frac{p_y}{\beta p_x} \right)^{\frac{\beta}{1+\beta}} }$$</div> <p>and:</p> <div class="math-display">$$\boxed{ y^H(p,\bar u) = e^{\frac{\bar u}{1+\beta}} \left( \frac{\beta p_x}{p_y} \right)^{\frac1{1+\beta}}. }$$</div> <h5>Method 2 — Optimality condition</h5> <p>Use:</p> <div class="math-display">$$MRS_{xy} = \frac{p_x}{p_y}$$</div> <p>together with:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <p>This gives the same Hicksian demand.</p> <h4>Expenditure function</h4> <p>Substitute the Hicksian demands into:</p> <div class="math-display">$$e(p,\bar u) = p_xx^H+p_yy^H.$$</div> <p>Since $p_yy^H=\beta p_xx^H$, combine the expenditure terms:</p> <div class="math-display">$$e(p,\bar u)=(1+\beta)p_xx^H.$$</div> <p>Substitute $x^H$. The power of $p_x$ becomes $1-\beta/(1+\beta)=1/(1+\beta)$:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = (1+\beta) \beta^{-\frac{\beta}{1+\beta}} e^{\frac{\bar u}{1+\beta}} p_x^{\frac1{1+\beta}} p_y^{\frac{\beta}{1+\beta}} }$$</div> </div></section> <section class="subsection" id="exercise-2"><div class="part-banner"><span class="part-pill amber">Exercise 2</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 2. Uniqueness</h4> <p>A consumer has utility</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2,$$</div> <p>income $y&gt;0$, and faces prices $p_1,p_2&gt;0$.</p> <p>1. Find the Marshallian demand for each of the following cases:</p> <div class="math-display">$$\frac{p_1}{p_2}&lt;2, \qquad \frac{p_1}{p_2}&gt;2, \qquad \frac{p_1}{p_2}=2.$$</div> <p>2. Using a counter-example show that these preferences are not strictly convex. Relate your answer to the uniqueness (or non-uniqueness) of Marshallian demand.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="2" onclick="toggle(this, 'solution-2')" aria-controls="solution-2" aria-expanded="false">Show solution — Exercise 2 ▾</button><div class="collapsible exercise-solution" id="solution-2"><p><strong>Starting point.</strong> Utility is linear, income is positive, and both prices are positive. <strong>Goal.</strong> Find the optimal bundle in each price case, then test strict convexity using the requested counterexample.</p><h4>Question 1 — Marshallian demand</h4> <p>Utility is:</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2.$$</div> <p>The marginal utilities are:</p> <div class="math-display">$$MU_1=2, \qquad MU_2=1.$$</div> <p>Compare marginal utility per unit of expenditure:</p> <div class="math-display">$$\frac{MU_1}{p_1} = \frac2{p_1}, \qquad \frac{MU_2}{p_2} = \frac1{p_2}.$$</div> <h5>Case 1</h5> <p>If:</p> <div class="math-display">$$\frac{p_1}{p_2}&lt;2$, then:</p>
+
+</div>
+<div class="solution-step">
+<h4>Step 4 — Hicksian demand</h4>
+<p>If $p_x/p_y&lt;\alpha$, the expenditure-minimizing choice uses only $x$.</p> <p>Since:</p> <div class="math-display calculation-group">$$\begin{gathered}
+\alpha x=\bar u,\\[0.65em]
+\boxed{ x^H=\frac{\bar u}{\alpha}, \qquad y^H=0. }
+\end{gathered}$$</div> <p>If:</p> <div class="math-display">$$\alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha,$$</div> <p>the optimal bundle is at the kink:</p> <div class="math-display">$$x=y.$$</div> <p>Since:</p> <div class="math-display calculation-group">$$\begin{gathered}
+(1+\alpha)x=\bar u,\\[0.65em]
+\boxed{ x^H=y^H= \frac{\bar u}{1+\alpha}. }
+\end{gathered}$$</div> <p>If:</p> <div class="math-display">$$\frac{p_x}{p_y}&gt; \frac1\alpha,$$</div> <p>the choice uses only $y$:</p> <div class="math-display">$$\boxed{ x^H=0, \qquad y^H=\frac{\bar u}{\alpha}. }$$</div> <p>Thus:</p>
+</div>
+<div class="solution-step">
+<h4>Step 5 — Expenditure function</h4> <p>Substitute the Hicksian demand into expenditure:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = \begin{cases} \displaystyle \frac{p_x\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&lt;\alpha, \\[1em] \displaystyle \frac{(p_x+p_y)\bar u}{1+\alpha}, &amp; \alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha, \\[1em] \displaystyle \frac{p_y\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&gt; \frac1\alpha. \end{cases} }$$</div>
+</div>
+<h3 class="question-heading">3. Logarithmic utility</h3>
+ <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y, \qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div>
+<div class="solution-step">
+<h4>Step 1 — Hint — the trick</h4> <p>Use:</p> <div class="math-display">$$\log x+\beta\log y = \log(xy^\beta).$$</div> <p>Since the logarithm is strictly increasing, maximizing:</p> <div class="math-display">$$\log(xy^\beta)$$</div> <p>gives the same choice as maximizing:</p> <div class="math-display">$$xy^\beta.$$</div>
+</div>
+<div class="solution-step">
+<h4>Step 2 — Indifference curves</h4> <p>Fix utility at $\bar u$:</p> <div class="math-display calculation-group">$$\begin{gathered}
+\log x+\beta\log y=\bar u.\\[0.65em]
+\log(xy^\beta)=\bar u.
+\end{gathered}$$</div> <p>Exponentiating:</p> <div class="math-display calculation-group">$$\begin{gathered}
+xy^\beta=e^{\bar u}.\\[0.65em]
+\boxed{ y= e^{\bar u/\beta}x^{-1/\beta}. }
+\end{gathered}$$</div> <figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-3"><title id="curve-title-3">Logarithmic utility indifference curves on the positive consumption set</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><polyline points="95.10,41.51 97.80,65.62 100.50,86.10 103.20,103.65 105.90,118.80 108.60,131.97 111.30,143.50 114.00,153.64 116.70,162.60 119.40,170.57 122.10,177.69 124.80,184.06 127.50,189.80 130.20,194.98 132.90,199.68 135.60,203.95 138.30,207.84 141.00,211.39 143.70,214.65 146.40,217.65 149.10,220.41 151.80,222.96 154.50,225.31 157.20,227.49 159.90,229.52 162.60,231.40 165.30,233.16 168.00,234.80 170.70,236.33 173.40,237.77 176.10,239.11 178.80,240.37 181.50,241.56 184.20,242.68 186.90,243.73 189.60,244.72 192.30,245.66 195.00,246.54 197.70,247.38 200.40,248.18 203.10,248.93 205.80,249.64 208.50,250.32 211.20,250.97 213.90,251.58 216.60,252.17 219.30,252.73 222.00,253.26 224.70,253.77 227.40,254.25 230.10,254.71 232.80,255.16 235.50,255.58 238.20,255.99 240.90,256.38 243.60,256.75 246.30,257.11 249.00,257.45 251.70,257.78 254.40,258.10 257.10,258.41 259.80,258.70 262.50,258.98 265.20,259.26 267.90,259.52 270.60,259.77 273.30,260.01 276.00,260.25 278.70,260.48 281.40,260.70 284.10,260.91 286.80,261.11 289.50,261.31 292.20,261.50 294.90,261.68 297.60,261.86 300.30,262.04 303.00,262.20 305.70,262.37 308.40,262.52 311.10,262.68 313.80,262.83 316.50,262.97 319.20,263.11 321.90,263.24 324.60,263.37 327.30,263.50 330.00,263.63 332.70,263.75 335.40,263.86 338.10,263.98 340.80,264.09 343.50,264.20 346.20,264.30 348.90,264.40 351.60,264.50 354.30,264.60 357.00,264.69 359.70,264.78 362.40,264.87" fill="none" stroke="#60a5fa" stroke-width="2.5"/><polyline points="135.60,37.78 138.30,51.46 141.00,63.96 143.70,75.43 146.40,85.96 149.10,95.66 151.80,104.61 154.50,112.89 157.20,120.56 159.90,127.69 162.60,134.31 165.30,140.49 168.00,146.25 170.70,151.64 173.40,156.68 176.10,161.41 178.80,165.84 181.50,170.01 184.20,173.94 186.90,177.64 189.60,181.12 192.30,184.42 195.00,187.53 197.70,190.48 200.40,193.27 203.10,195.92 205.80,198.44 208.50,200.82 211.20,203.09 213.90,205.25 216.60,207.31 219.30,209.27 222.00,211.14 224.70,212.93 227.40,214.63 230.10,216.26 232.80,217.82 235.50,219.31 238.20,220.74 240.90,222.11 243.60,223.42 246.30,224.68 249.00,225.89 251.70,227.05 254.40,228.17 257.10,229.24 259.80,230.28 262.50,231.27 265.20,232.23 267.90,233.15 270.60,234.04 273.30,234.89 276.00,235.72 278.70,236.52 281.40,237.29 284.10,238.03 286.80,238.75 289.50,239.45 292.20,240.12 294.90,240.77 297.60,241.40 300.30,242.01 303.00,242.60 305.70,243.17 308.40,243.72 311.10,244.26 313.80,244.78 316.50,245.28 319.20,245.77 321.90,246.25 324.60,246.71 327.30,247.16 330.00,247.59 332.70,248.01 335.40,248.43 338.10,248.83 340.80,249.21 343.50,249.59 346.20,249.96 348.90,250.32 351.60,250.67 354.30,251.01 357.00,251.34 359.70,251.66 362.40,251.97" fill="none" stroke="#34d399" stroke-width="2.5"/><polyline points="186.90,33.55 189.60,42.48 192.30,50.91 195.00,58.89 197.70,66.43 200.40,73.58 203.10,80.36 205.80,86.80 208.50,92.91 211.20,98.72 213.90,104.25 216.60,109.52 219.30,114.53 222.00,119.32 224.70,123.89 227.40,128.26 230.10,132.43 232.80,136.42 235.50,140.24 238.20,143.90 240.90,147.40 243.60,150.76 246.30,153.99 249.00,157.08 251.70,160.06 254.40,162.92 257.10,165.66 259.80,168.31 262.50,170.85 265.20,173.30 267.90,175.66 270.60,177.93 273.30,180.13 276.00,182.24 278.70,184.29 281.40,186.26 284.10,188.16 286.80,190.00 289.50,191.78 292.20,193.50 294.90,195.16 297.60,196.78 300.30,198.33 303.00,199.84 305.70,201.31 308.40,202.72 311.10,204.10 313.80,205.43 316.50,206.72 319.20,207.97 321.90,209.19 324.60,210.37 327.30,211.52 330.00,212.63 332.70,213.72 335.40,214.77 338.10,215.79 340.80,216.79 343.50,217.76 346.20,218.70 348.90,219.61 351.60,220.51 354.30,221.38 357.00,222.22 359.70,223.05 362.40,223.85" fill="none" stroke="#fbbf24" stroke-width="2.5"/><path d="M242 105L282 60m-10 2 10-2-1 10" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="246" y="42">Higher utility</text></svg><figcaption>Shape illustrated for $\beta=1/2$, with $x&gt;0$ and $y&gt;0$. Higher curves represent higher utility.</figcaption></figure>
+</div>
+<div class="solution-step">
+<h4>Step 3 — Marshallian demand</h4> <p>The UMP is:</p> <div class="math-display calculation-group">$$\begin{gathered}\max_{x,y&gt;0} \log x+\beta\log y\\[.4em]\text{subject to }p_xx+p_yy=m.\end{gathered}$$</div> <h5 class="method-heading">Method 1 — Lagrangian</h5> <div class="math-display">$$\mathcal L = \log x+\beta\log y + \lambda(m-p_xx-p_yy).$$</div> <p>FOCs:</p> <div class="math-display calculation-group">$$\begin{gathered}
+\frac1x = \lambda p_x\\[0.65em]
+\frac{\beta}{y} = \lambda p_y\\[0.65em]
+p_xx+p_yy=m.
+\end{gathered}$$</div> <p>Divide the first FOC by the second:</p> <div class="math-display calculation-group">$$\begin{gathered}
+\frac{y}{\beta x} = \frac{p_x}{p_y}.\\[0.65em]
+y = \beta \frac{p_x}{p_y}x.
+\end{gathered}$$</div> <p>Substitute into the budget constraint:</p> <div class="math-display calculation-group">$$\begin{gathered}
+p_xx + p_y \left( \beta \frac{p_x}{p_y}x \right) = m.\\[0.65em]
+(1+\beta)p_xx=m.\\[0.65em]
+\boxed{ x^M(p,m) = \frac{m}{(1+\beta)p_x} }
+\end{gathered}$$</div> <p>and:</p> <div class="math-display">$$\boxed{ y^M(p,m) = \frac{\beta m}{(1+\beta)p_y}. }$$</div> <h5 class="method-heading">Method 2 — Optimality condition</h5> <p>Marginal utilities are:</p> <div class="math-display calculation-group">$$\begin{gathered}
+MU_x=\frac1x\\[0.65em]
+MU_y=\frac{\beta}{y}.\\[0.65em]
+MRS_{xy} = \frac{MU_x}{MU_y} = \frac{y}{\beta x}.
+\end{gathered}$$</div> <p>At an interior optimum:</p> <div class="math-display">$$\frac{y}{\beta x} = \frac{p_x}{p_y}.$$</div> <p>Combine this with:</p> <div class="math-display">$$p_xx+p_yy=m.$$</div> <p>This gives again:</p> <div class="math-display">$$\boxed{ x^M= \frac{m}{(1+\beta)p_x}, \qquad y^M= \frac{\beta m}{(1+\beta)p_y}. }$$</div>
+</div>
+<div class="solution-step">
+<h4>Step 4 — Indirect utility function</h4> <p>Substitute the Marshallian demand:</p> <div class="math-display equation-adaptive"><div class="equation-desktop">$$v(p,m) = \log \left( \frac{m}{(1+\beta)p_x} \right) + \beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right).$$</div><div class="equation-mobile">$$\begin{aligned}v(p,m)&= \log \left( \frac{m}{(1+\beta)p_x} \right)\\&+\beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right).\end{aligned}$$</div></div> <p>Therefore:</p> <div class="math-display equation-adaptive"><div class="equation-desktop">$$\boxed{ v(p,m) = \log \left( \frac{m}{(1+\beta)p_x} \right) + \beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right) }$$</div><div class="equation-mobile">$$\begin{aligned}v(p,m)&= \log \left( \frac{m}{(1+\beta)p_x} \right)\\&+\beta \log \left( \frac{\beta m}{(1+\beta)p_y} \right)\end{aligned}$$</div></div>
+</div>
+<div class="solution-step">
+<h4>Step 5 — Hicksian demand</h4> <p>The EmP is:</p> <div class="math-display calculation-group">$$\begin{gathered}\min_{x,y&gt;0}p_xx+p_yy\\ \text{subject to }\log x+\beta\log y\geq\bar u.\end{gathered}$$</div> <p>At the optimum:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <h5 class="method-heading">Method 1 — Lagrangian</h5> <div class="math-display">$$\mathcal L=p_xx+p_yy+\lambda[\bar u-\log x-\beta\log y].$$</div> <p>Differentiating with respect to each quantity gives:</p> <div class="math-display">$$p_x=\frac{\lambda}{x},\qquad p_y=\frac{\lambda\beta}{y}.$$</div> <p>Divide these conditions to cancel $\lambda$:</p> <div class="math-display calculation-group">$$\begin{gathered}
+\frac{MU_x}{MU_y} = \frac{p_x}{p_y}.\\[0.65em]
+\frac{y}{\beta x} = \frac{p_x}{p_y},
+\end{gathered}$$</div> <p>so:</p> <div class="math-display">$$y = \beta \frac{p_x}{p_y}x.$$</div> <p>Using:</p> <div class="math-display">$$xy^\beta=e^{\bar u},$$</div> <p>substitute the expression for $y$:</p> <div class="math-display">$$x\left(\beta\frac{p_x}{p_y}x\right)^\beta=e^{\bar u}.$$</div> <p>Collect the powers of $x$, then isolate $x^{1+\beta}$:</p> <div class="math-display">$$x^{1+\beta}=e^{\bar u}\left(\frac{p_y}{\beta p_x}\right)^\beta.$$</div> <p>Raise both sides to the power $1/(1+\beta)$ to obtain $x^H$. Substitute it into $y=\beta(p_x/p_y)x$ to obtain $y^H$:</p> <div class="math-display calculation-group">$$\begin{gathered}
+\boxed{ x^H(p,\bar u) = e^{\frac{\bar u}{1+\beta}} \left( \frac{p_y}{\beta p_x} \right)^{\frac{\beta}{1+\beta}} }\\[0.65em]
+\boxed{ y^H(p,\bar u) = e^{\frac{\bar u}{1+\beta}} \left( \frac{\beta p_x}{p_y} \right)^{\frac1{1+\beta}}. }
+\end{gathered}$$</div> <h5 class="method-heading">Method 2 — Optimality condition</h5> <p>Use:</p> <div class="math-display">$$MRS_{xy} = \frac{p_x}{p_y}$$</div> <p>together with:</p> <div class="math-display">$$\log x+\beta\log y=\bar u.$$</div> <p>This gives the same Hicksian demand.</p>
+</div>
+<div class="solution-step">
+<h4>Step 6 — Expenditure function</h4> <p>Substitute the Hicksian demands into:</p> <div class="math-display">$$e(p,\bar u) = p_xx^H+p_yy^H.$$</div> <p>Since $p_yy^H=\beta p_xx^H$, combine the expenditure terms:</p> <div class="math-display">$$e(p,\bar u)=(1+\beta)p_xx^H.$$</div> <p>Substitute $x^H$. The power of $p_x$ becomes $1-\beta/(1+\beta)=1/(1+\beta)$:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = (1+\beta) \beta^{-\frac{\beta}{1+\beta}} e^{\frac{\bar u}{1+\beta}} p_x^{\frac1{1+\beta}} p_y^{\frac{\beta}{1+\beta}} }$$</div>
+</div></div></section> <section class="subsection" id="exercise-2"><div class="part-banner"><span class="part-pill amber">Exercise 2</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 2. Uniqueness</h4> <p>A consumer has utility</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2,$$</div> <p>income $y&gt;0$, and faces prices $p_1,p_2&gt;0$.</p> <p>1. Find the Marshallian demand for each of the following cases:</p> <div class="math-display">$$\frac{p_1}{p_2}&lt;2, \qquad \frac{p_1}{p_2}&gt;2, \qquad \frac{p_1}{p_2}=2.$$</div> <p>2. Using a counter-example show that these preferences are not strictly convex. Relate your answer to the uniqueness (or non-uniqueness) of Marshallian demand.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="2" onclick="toggle(this, 'solution-2')" aria-controls="solution-2" aria-expanded="false">Show solution — Exercise 2 ▾</button><div class="collapsible exercise-solution" id="solution-2"><p><strong>Starting point.</strong> Utility is linear, income is positive, and both prices are positive. <strong>Goal.</strong> Find the optimal bundle in each price case, then test strict convexity using the requested counterexample.</p>
+<h3 class="question-heading">Question 1 — Marshallian demand</h3>
+ <p>Utility is:</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2.$$</div> <p>The marginal utilities are:</p> <div class="math-display">$$MU_1=2, \qquad MU_2=1.$$</div> <p>Compare marginal utility per unit of expenditure:</p> <div class="math-display">$$\frac{MU_1}{p_1} = \frac2{p_1}, \qquad \frac{MU_2}{p_2} = \frac1{p_2}.$$</div> <h5>Case 1</h5> <p>If $p_1/p_2&lt;2$, then:</p>
 <div class="math-display">$$\frac2{p_1}
 &gt;
 \frac1{p_2}.$$</div>
@@ -996,48 +1115,54 @@ x_2^M=\frac{y}{p_2}.
 <div class="math-display">$$p_1x_1+p_2x_2=y$$</div>
 <p>are optimal.</p>
 <p>Thus:</p>
-<p><strong>Final result.</strong> Marshallian demand is the entire set of nonnegative bundles on the budget line:</p><div class="math-display">$$p_1x_1+p_2x_2=y,\qquad x_1,x_2\geq0.$$</div>
-
-<div class="math-display">$$\mathcal L
+<p><strong>Final result.</strong> Marshallian demand is the entire set of nonnegative bundles on the budget line:</p><div class="math-display calculation-group">$$\begin{gathered}
+p_1x_1+p_2x_2=y,\qquad x_1,x_2\geq0.\\[0.65em]
+\mathcal L
 =
 2x_1+x_2
 +
-\lambda(y-p_1x_1-p_2x_2).$$</div>
+\lambda(y-p_1x_1-p_2x_2).
+\end{gathered}$$</div>
 <p>For an interior solution:</p>
-<div class="math-display">$$2=\lambda p_1$$</div>
-<p>and:</p>
-<div class="math-display">$$1=\lambda p_2.$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}
+2=\lambda p_1\\[0.65em]
+1=\lambda p_2.
+\end{gathered}$$</div>
 <p>Dividing gives:</p>
 <div class="math-display">$$\frac{p_1}{p_2}=2.$$</div>
 <p>Therefore the equality case is precisely the case in which an interior combination can satisfy both FOCs.</p>
 <p>For the other price ratios, the optimum is a corner.</p>
-<h4>Question 2 — Strict convexity and uniqueness</h4>
+
+<h3 class="question-heading">Question 2 — Strict convexity and uniqueness</h3>
+
 <p>Take:</p>
-<div class="math-display">$$a=(1,0)$$</div>
-<p>and:</p>
-<div class="math-display">$$b=(0,2).$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}
+a=(1,0)\\[0.65em]
+b=(0,2).
+\end{gathered}$$</div>
 <p>Their utilities are:</p>
-<div class="math-display">$$u(a)=2$$</div>
-<p>and:</p>
-<div class="math-display">$$u(b)=2.$$</div>
-<p>Therefore:</p>
-<div class="math-display">$$a\sim b.$$</div>
+<div class="math-display calculation-group">$$\begin{gathered}
+u(a)=2\\[0.65em]
+u(b)=2.\\[0.65em]
+a\sim b.
+\end{gathered}$$</div>
 <p>Their equal-weight mixture is:</p>
 <div class="math-display">$$\frac12a+\frac12b
 =
 \left(\frac12,1\right).$$</div>
 <p>Its utility is:</p>
-<div class="math-display">$$u\left(\frac12,1\right)
+<div class="math-display calculation-group">$$\begin{gathered}
+u\left(\frac12,1\right)
 =
 2\left(\frac12\right)+1
 =
-2.$$</div>
-<p>Therefore:</p>
-<div class="math-display">$$u\left(\frac12a+\frac12b\right)
+2.\\[0.65em]
+u\left(\frac12a+\frac12b\right)
 =
 u(a)
 =
-u(b).$$</div>
+u(b).
+\end{gathered}$$</div>
 <p>But strict convexity would require the true mixture of two distinct indifferent bundles to be strictly preferred to them.</p>
 <p>That does not happen here.</p>
 <p>Hence:</p>
@@ -1067,7 +1192,9 @@ u(b).$$</div>
 \frac{y}{p_3}
 \tag{3}$$</div>
 <p>1. Does this demand function satisfy homogeneity of degree zero?</p>
-<p>2. Does this demand function satisfy Walras Law?</p></div></article><button type="button" class="toggle-btn amber" data-exercise="3" onclick="toggle(this, 'solution-3')" aria-controls="solution-3" aria-expanded="false">Show solution — Exercise 3 ▾</button><div class="collapsible exercise-solution" id="solution-3"><p><strong>Starting point.</strong> Keep $\beta$ fixed and use positive prices, as in the chapter. <strong>Goal.</strong> Test the two stated identities. For Walras’ Law, check positive income; at zero income both expenditure and income are zero.</p><h4>Question 1 — Homogeneity of degree zero</h4>
+<p>2. Does this demand function satisfy Walras Law?</p></div></article><button type="button" class="toggle-btn amber" data-exercise="3" onclick="toggle(this, 'solution-3')" aria-controls="solution-3" aria-expanded="false">Show solution — Exercise 3 ▾</button><div class="collapsible exercise-solution" id="solution-3"><p><strong>Starting point.</strong> Keep $\beta$ fixed and use positive prices, as in the chapter. <strong>Goal.</strong> Test the two stated identities. For Walras’ Law, check positive income; at zero income both expenditure and income are zero.</p>
+<h3 class="question-heading">Question 1 — Homogeneity of degree zero</h3>
+
 <p>The course defines homogeneity of degree zero by:</p>
 <div class="math-display">$$x(\lambda p,\lambda y)=x(p,y)$$</div>
 <p>for every:</p>
@@ -1079,13 +1206,14 @@ u(b).$$</div>
 {\lambda p_1+\lambda p_2+\lambda p_3}
 \frac{\lambda y}{\lambda p_1}.$$</div>
 <p>Factor and cancel $\lambda$:</p>
-<div class="math-display">$$x_1(\lambda p,\lambda y)
+<div class="math-display calculation-group">$$\begin{gathered}
+x_1(\lambda p,\lambda y)
 =
 \frac{p_2}
 {p_1+p_2+p_3}
-\frac{y}{p_1}.$$</div>
-<p>Thus:</p>
-<div class="math-display">$$x_1(\lambda p,\lambda y)=x_1(p,y).$$</div>
+\frac{y}{p_1}.\\[0.65em]
+x_1(\lambda p,\lambda y)=x_1(p,y).
+\end{gathered}$$</div>
 <p>The same cancellation applies to $x_2$ and $x_3$.</p>
 <p>Therefore:</p>
 <div class="math-display">$$\boxed{
@@ -1093,7 +1221,9 @@ x(\lambda p,\lambda y)=x(p,y)
 }$$</div>
 <p>and the demand system satisfies:</p>
 <div class="math-display">$$\boxed{\text{homogeneity of degree zero}.}$$</div>
-<h4>Question 2 — Walras’ Law</h4>
+
+<h3 class="question-heading">Question 2 — Walras’ Law</h3>
+
 <p>The course defines Walras’ Law by:</p>
 <div class="math-display">$$p\cdot x=y.$$</div>
 <p>Compute total expenditure:</p>
@@ -1120,11 +1250,12 @@ p_1+p_2+p_3
 }y.$$</div>
 <p>For Walras’ Law to hold, this must equal $y$.</p>
 <p>Hence:</p>
-<div class="math-display">$$p_2+p_3+\beta p_1
+<div class="math-display calculation-group">$$\begin{gathered}
+p_2+p_3+\beta p_1
 =
-p_1+p_2+p_3.$$</div>
-<p>Therefore:</p>
-<div class="math-display">$$\beta p_1=p_1.$$</div>
+p_1+p_2+p_3.\\[0.65em]
+\beta p_1=p_1.
+\end{gathered}$$</div>
 <p>Since $p_1&gt;0$, division by $p_1$ gives:</p>
 <div class="math-display">$$\beta=1.$$</div>
 <p>Thus:</p>
