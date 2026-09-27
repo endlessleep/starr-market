@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MICRO — Consumer Theory · Consumer’s Behavior</title>
+<title>MICRO — Consumer Theory</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script>
@@ -507,7 +507,7 @@ body {
 }
 
 
-/* Reading layout for Consumer’s Behavior. */
+/* Reading layout for Consumer Theory. */
 .main-content { container:course / inline-size; }
 .subsection { scroll-margin-top:86px; }
 .chapter-map { display:flex; flex-wrap:wrap; gap:8px; margin-top:-20px; }
@@ -533,7 +533,14 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
 .foc-list > div + div, .proof-step + .proof-step { border-top:1px solid var(--border); padding-top:16px; }
 .proof-step { margin-top:18px; }
 .collapsible p + p { margin-top:12px; }
-.collapsible { padding:18px 16px; }
+.collapsible {
+  display:block;
+  margin-top:16px;
+  padding:18px 16px;
+  background:rgba(10,11,16,0.85);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+}
 .math-display { margin:12px 0; padding:12px 10px; }
 .math-display mjx-container[display="true"] { margin:.4em 0; }
 .responsive-math { container:formula / inline-size; }
@@ -555,6 +562,9 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   .collapsible { padding:14px 10px; }
   .math-display { padding:10px 5px; font-size:.82rem; }
   .chapter-map { margin-top:-12px; }
+}
+@media(max-width:360px) {
+  #proof-roy .math-display { font-size:.76rem; }
 }
 @media(prefers-reduced-motion:reduce) {
   *, *::before, *::after { scroll-behavior:auto!important; animation:none!important; transition:none!important; }
@@ -584,8 +594,8 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2</a>
     </div>
     <div class="sidebar-group">
-      <div class="sidebar-group-title">📂 2 — Consumer Theory</div>
-      <a href="consumer_behavior.html" class="sidebar-sublink active" aria-current="page">2 · Consumer’s Behavior</a>
+      <div class="sidebar-group-title">📂 Consumer Theory</div>
+      <a href="consumer_theory.html" class="sidebar-sublink active" aria-current="page">Consumer Theory</a>
     </div>
   </nav>
   <div class="sidebar-footer">
@@ -608,7 +618,7 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   <div class="topbar">
     <button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
     <div class="topbar-breadcrumb">
-      MICRO <span class="sep">›</span> 2 — Consumer Theory <span class="sep">›</span> <strong>Consumer’s Behavior</strong>
+      MICRO <span class="sep">›</span> <strong>Consumer Theory</strong>
     </div>
     <div class="chapter-progress-bar" id="chapterProgressBar" role="navigation" aria-label="Chapter sections"></div>
     <div class="topbar-pill"><span class="topbar-dot"></span>Part II</div>
@@ -617,14 +627,14 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   <div class="main-content">
 
     <header class="page-title-block">
-      <div class="page-label">Part II — Consumer Theory</div>
-      <h1>2. Consumer’s Behavior</h1>
+      <div class="page-label">Consumer Theory</div>
+      <h1>Consumer Theory</h1>
       <p>Utility Maximization (UMP) and Expenditure Minimization (EmP)</p>
     </header>
 
-    <nav class="chapter-map" aria-label="On this page">
+    <nav class="chapter-map" aria-label="Consumer Theory sections">
       <a href="#preamble">Preamble</a>
-      <a href="#ump">Setting up the UMP</a>
+      <a href="#ump">2 · UMP and EmP</a>
       <a href="#marshallian-demand">Marshallian demand</a>
       <a href="#solving-ump">Solving the UMP</a>
       <a href="#indirect-utility">Indirect utility</a>
@@ -709,7 +719,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
           <div class="math-display">$$p\gg0,\quad y\geq0\quad\Longrightarrow\quad x(p,y)\neq\varnothing.$$</div>
           <p>The notation $p\gg0$ means $p_i&gt;0$ for every good. The conclusion $x(p,y)\neq\varnothing$ means that there is at least one utility-maximizing affordable bundle.</p>
           <p>A compact set is <strong>closed</strong>, so it includes its boundary points, and <strong>bounded</strong>, so it does not extend indefinitely in any direction.</p>
-          <button class="toggle-btn blue" type="button" onclick="toggle(this,'proof-existence')" aria-controls="proof-existence" aria-expanded="false"><span class="toggle-label" data-label="proof sketch">Show proof sketch</span><span class="arrow" aria-hidden="true">▾</span></button>
           <div class="collapsible" id="proof-existence">
             <h4>Proof sketch</h4>
             <p><strong>The feasible set is nonempty and compact.</strong> The zero bundle is affordable because it costs zero and $y\geq0$. Thus the budget set contains at least one bundle.</p>
@@ -724,7 +733,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
         <div class="property-body">
           <p>If preferences are <strong>strictly convex</strong> and the budget set is <strong>convex</strong>, the optimum is unique, provided it exists. Marshallian demand is then <strong>single-valued</strong>: a given pair $(p,y)$ determines one bundle.</p>
           <p>The budget set is convex: if two bundles are affordable, any mixture of them is affordable as well. Strict convexity of preferences rules out two distinct bundles both being optimal.</p>
-          <button class="toggle-btn purple" type="button" onclick="toggle(this,'proof-uniqueness')" aria-controls="proof-uniqueness" aria-expanded="false"><span class="toggle-label" data-label="proof">Show proof</span><span class="arrow" aria-hidden="true">▾</span></button>
           <div class="collapsible" id="proof-uniqueness">
             <h4>Proof by contradiction</h4>
             <p><strong>Suppose two distinct bundles are optimal.</strong> Let $x$ and $x'$ both maximize preferences over $B(p,y)$, with $x\neq x'$. Neither can be strictly better than the other, since both are optimal. Hence $x\sim x'$.</p>
@@ -756,7 +764,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
           <p>If preferences are <strong>locally non-satiated</strong>, an optimal bundle uses the whole income. For every $p\gg0$, $y\geq0$, and $x\in x(p,y)$:</p>
           <div class="math-display boxed-green">$$p\cdot x=y.$$</div>
           <p>This is <strong>Walras’ Law</strong>. At the optimum, expenditure equals income: the budget constraint holds with equality. Recall that strict monotonicity, commonly assumed in consumer theory, implies local non-satiation.</p>
-          <button class="toggle-btn green" type="button" onclick="toggle(this,'proof-walras')" aria-controls="proof-walras" aria-expanded="false"><span class="toggle-label" data-label="proof">Show proof</span><span class="arrow" aria-hidden="true">▾</span></button>
           <div class="collapsible" id="proof-walras">
             <h4>Proof by contradiction</h4>
             <p><strong>Suppose an optimum leaves money unspent.</strong> Take $x\in x(p,y)$ and assume $p\cdot x&lt;y$.</p>
@@ -773,7 +780,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
           <p>Scaling <strong>all prices and income by the same positive factor</strong> leaves Marshallian demand unchanged. For $\lambda&gt;0$:</p>
           <div class="math-display boxed-blue">$$x(\lambda p,\lambda y)=x(p,y).$$</div>
           <p>If every price rises by the factor $\lambda$ while income rises by exactly the same factor, affordability is unchanged. The consumer faces the same choices and therefore has the same demand. This also means that the currency used to express prices and income does not affect demand.</p>
-          <button class="toggle-btn blue" type="button" onclick="toggle(this,'proof-homogeneity')" aria-controls="proof-homogeneity" aria-expanded="false"><span class="toggle-label" data-label="proof">Show proof</span><span class="arrow" aria-hidden="true">▾</span></button>
           <div class="collapsible" id="proof-homogeneity">
             <h4>The budget set is unchanged</h4>
             <p>At the scaled prices and income, affordability requires $(\lambda p)\cdot x\leq\lambda y$. Since $\lambda&gt;0$, division by $\lambda$ preserves the inequality:</p>
@@ -876,7 +882,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
           <p>The numerator $\partial v/\partial p_i$ measures how optimized utility changes when the price of good $i$ rises. The denominator $\partial v/\partial y$ measures how optimized utility changes when income rises.</p>
           <p>The minus sign and division express the utility loss from a price increase in <strong>income terms</strong>: how much additional income is needed per unit of a small increase in $p_i$ to offset that loss? The identity says that this rate equals the chosen quantity $x_i(p,y)$.</p>
           <p>Knowing how indirect utility responds to prices and income therefore allows us to recover the consumer’s chosen consumption.</p>
-          <button class="toggle-btn green" type="button" onclick="toggle(this,'proof-roy')" aria-controls="proof-roy" aria-expanded="false"><span class="toggle-label" data-label="proof">Show proof</span><span class="arrow" aria-hidden="true">▾</span></button>
           <div class="collapsible" id="proof-roy">
             <h4>Proof using the Lagrangian and the Envelope Theorem</h4>
             <p><strong>Starting point.</strong> For the calculation, assume an interior, differentiable solution $x^*$ and positive marginal utilities at that solution. These are the conditions used in the argument below to obtain $\lambda^*&gt;0$.</p>
@@ -957,7 +962,6 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
           <div class="math-display boxed-green">$$h_i(p,u)=\frac{\partial e(p,u)}{\partial p_i}.$$</div>
           <p>The derivative measures how minimum expenditure changes when the price of good $i$ changes, <strong>holding the required utility fixed</strong>. Shephard’s lemma identifies this rate with the Hicksian quantity of that good.</p>
           <p>As prices change, the consumer adjusts consumption to minimize the cost of maintaining the same utility. The connection with <strong>compensating variation</strong> is this compensation idea: the expenditure needed to preserve a given utility level changes with prices.</p>
-          <button class="toggle-btn green" type="button" onclick="toggle(this,'proof-shephard')" aria-controls="proof-shephard" aria-expanded="false"><span class="toggle-label" data-label="proof">Show proof</span><span class="arrow" aria-hidden="true">▾</span></button>
           <div class="collapsible" id="proof-shephard">
             <h4>Proof using the expenditure identity and the EmP conditions</h4>
             <p><strong>Starting point.</strong> Keep $\bar u$ fixed. The calculation uses differentiable Hicksian demand and the interior first-order conditions of the EmP. All quantities and utility derivatives below are evaluated at the minimizing bundle $h(p,\bar u)$.</p>
