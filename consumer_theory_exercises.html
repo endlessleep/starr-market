@@ -600,6 +600,31 @@ body {
   .utility-questions { margin-left:16px; }
   .exercise-statement .math-display { font-size:.82rem; }
 }
+
+/* Exercise statements: data and tasks are deliberately separated before the solution button. */
+.exercise-statement { padding:24px 26px; }
+.exercise-statement .property-body { display:block; }
+.exercise-statement h4 { margin:0 0 10px; font-size:1.08rem; color:var(--text); }
+.statement-intro { margin:0 0 18px; color:var(--text-2); line-height:1.65; }
+.statement-options { display:grid; gap:10px; }
+.statement-option { display:grid; grid-template-columns:30px minmax(0,1fr); gap:12px; padding:14px 16px; border:1px solid var(--border); border-radius:var(--radius); background:rgba(255,255,255,.018); }
+.statement-number { color:var(--amber-bright); font-weight:800; font-size:1rem; line-height:1.45; }
+.statement-label { margin:0 0 4px; color:var(--text-3); font-size:.75rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+.statement-formula { margin:4px 0; text-align:center; }
+.statement-formula mjx-container[display="true"] { margin:.45em 0; }
+.statement-condition { margin:7px 0 0; color:var(--text-2); font-size:.9rem; }
+.statement-questions { margin:16px 0 0 20px; padding:0; display:grid; gap:14px; }
+.statement-questions li { padding-left:5px; line-height:1.65; }
+.statement-questions li::marker { color:var(--amber-bright); font-weight:800; }
+.demand-system { max-width:540px; margin:12px auto 0; padding:10px 14px; border:1px solid var(--border); border-radius:var(--radius); background:rgba(255,255,255,.018); }
+@media(max-width:600px) {
+  .statement-formula .equation-mobile { display:block; }
+  .statement-formula .equation-desktop { display:none; }
+  .exercise-statement { padding:18px 16px; }
+  .statement-option { padding:12px; grid-template-columns:24px minmax(0,1fr); gap:8px; }
+  .statement-formula { font-size:.85rem; }
+  .demand-system { padding:8px 2px; }
+}
 </style>
 </head>
 <body>
@@ -657,22 +682,26 @@ body {
 
   <div class="main-content">
 <header class="page-title-block"><div class="page-label">Part II — Consumer Theory</div><h1>Exercises Part 2-1</h1><p>Duality of the consumer problem, uniqueness, and a demand system.</p></header>
-<section class="subsection" id="exercise-1"><div class="part-banner"><span class="part-pill amber">Exercise 1</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 1. Duality of the consumer problem</h4>
-<p>For each of the following utility functions, draw the indifference curves and compute the Marshallian demand, Hicksian demand, indirect utility function and expenditure function.</p>
-<ol class="exercise-questions utility-questions"><li>
-<div class="math-display">$$u(x,y)=x^\alpha y^{1-\alpha},
-\qquad 0&lt;\alpha&lt;1.$$</div>
-</li><li>
-<div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\max(\alpha x,\alpha y)+\min(x,y),
-\qquad 0&lt;\alpha&lt;1$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\max(\alpha x,\alpha y)+\min(x,y)\\0&lt;\alpha&lt;1\end{gathered}$$</div></div>
-<p>and</p>
-<div class="math-display">$$\frac{p_x}{p_y}\neq\alpha
-\qquad\text{and}\qquad
-\frac{p_x}{p_y}\neq\frac1\alpha.$$</div>
-</li><li>
-<div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y,
-\qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div>
-</li></ol><p><strong>Hint:</strong> There is a trick.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="1" onclick="toggle(this, 'solution-1')" aria-controls="solution-1" aria-expanded="false">Show solution — Exercise 1 ▾</button><div class="collapsible exercise-solution" id="solution-1"><p><strong>Starting point.</strong> Prices are positive. We use $m&gt;0$ for income so that it is not confused with the good $y$. For Questions 1 and 2 the utility target is nonnegative; the calculations below use $\bar u&gt;0$ (at $\bar u=0$, minimum expenditure and Hicksian quantities are zero). For Question 3 the target may be any real number.</p><p><strong>Goal.</strong> For each utility function, identify its indifference curves, its two demand functions, and the associated value functions.</p>
+<section class="subsection" id="exercise-1"><div class="part-banner"><span class="part-pill amber">Exercise 1</span><div class="part-line"></div></div><article class="property-item amber exercise-statement">
+  <div class="property-body">
+    <h4>Exercise 1. Duality of the consumer problem</h4>
+    <p class="statement-intro">For each utility function below, draw the indifference curves and compute the Marshallian demand, Hicksian demand, indirect utility function, and expenditure function.</p>
+    <div class="statement-options">
+      <div class="statement-option">
+        <div class="statement-number">1</div>
+        <div><p class="statement-label">Utility function</p><div class="statement-formula">$$u(x,y)=x^\alpha y^{1-\alpha},\qquad 0<\alpha<1.$$</div></div>
+      </div>
+      <div class="statement-option">
+        <div class="statement-number">2</div>
+        <div><p class="statement-label">Utility function</p><div class="statement-formula equation-adaptive"><div class="equation-desktop">$u(x,y)=\max(\alpha x,\alpha y)+\min(x,y),\qquad 0<\alpha<1.$</div><div class="equation-mobile">$\begin{gathered}u(x,y)=\max(\alpha x,\alpha y)\\+\min(x,y),\qquad 0<\alpha<1.\end{gathered}$</div></div><p class="statement-condition">Assume $\dfrac{p_x}{p_y}\neq\alpha$ and $\dfrac{p_x}{p_y}\neq\dfrac1\alpha$.</p></div>
+      </div>
+      <div class="statement-option">
+        <div class="statement-number">3</div>
+        <div><p class="statement-label">Utility function</p><div class="statement-formula equation-adaptive"><div class="equation-desktop">$u(x,y)=\log x+\beta\log y,\qquad 0<\beta<1.$</div><div class="equation-mobile">$\begin{gathered}u(x,y)=\log x+\beta\log y\\0<\beta<1.\end{gathered}$</div></div><p class="statement-condition"><strong>Hint.</strong> There is a trick.</p></div>
+      </div>
+    </div>
+  </div>
+</article><button type="button" class="toggle-btn amber" data-exercise="1" onclick="toggle(this, 'solution-1')" aria-controls="solution-1" aria-expanded="false">Show solution — Exercise 1 ▾</button><div class="collapsible exercise-solution" id="solution-1"><p><strong>Starting point.</strong> Prices are positive. We use $m&gt;0$ for income so that it is not confused with the good $y$. For Questions 1 and 2 the utility target is nonnegative; the calculations below use $\bar u&gt;0$ (at $\bar u=0$, minimum expenditure and Hicksian quantities are zero). For Question 3 the target may be any real number.</p><p><strong>Goal.</strong> For each utility function, identify its indifference curves, its two demand functions, and the associated value functions.</p>
 <h3 class="question-heading">1. Utility representation</h3>
 
 <div class="math-display">$$u(x,y)=x^\alpha y^{1-\alpha},
@@ -1081,7 +1110,18 @@ MRS_{xy} = \frac{MU_x}{MU_y} = \frac{y}{\beta x}.
 </div>
 <div class="solution-step">
 <h4>Step 6 — Expenditure function</h4> <p>Substitute the Hicksian demands into:</p> <div class="math-display">$$e(p,\bar u) = p_xx^H+p_yy^H.$$</div> <p>Since $p_yy^H=\beta p_xx^H$, combine the expenditure terms:</p> <div class="math-display">$$e(p,\bar u)=(1+\beta)p_xx^H.$$</div> <p>Substitute $x^H$. The power of $p_x$ becomes $1-\beta/(1+\beta)=1/(1+\beta)$:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = (1+\beta) \beta^{-\frac{\beta}{1+\beta}} e^{\frac{\bar u}{1+\beta}} p_x^{\frac1{1+\beta}} p_y^{\frac{\beta}{1+\beta}} }$$</div>
-</div></div></section> <section class="subsection" id="exercise-2"><div class="part-banner"><span class="part-pill amber">Exercise 2</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 2. Uniqueness</h4> <p>A consumer has utility</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2,$$</div> <p>income $y&gt;0$, and faces prices $p_1,p_2&gt;0$.</p> <p>1. Find the Marshallian demand for each of the following cases:</p> <div class="math-display">$$\frac{p_1}{p_2}&lt;2, \qquad \frac{p_1}{p_2}&gt;2, \qquad \frac{p_1}{p_2}=2.$$</div> <p>2. Using a counter-example show that these preferences are not strictly convex. Relate your answer to the uniqueness (or non-uniqueness) of Marshallian demand.</p></div></article><button type="button" class="toggle-btn amber" data-exercise="2" onclick="toggle(this, 'solution-2')" aria-controls="solution-2" aria-expanded="false">Show solution — Exercise 2 ▾</button><div class="collapsible exercise-solution" id="solution-2"><p><strong>Starting point.</strong> Utility is linear, income is positive, and both prices are positive. <strong>Goal.</strong> Find the optimal bundle in each price case, then test strict convexity using the requested counterexample.</p>
+</div></div></section> <section class="subsection" id="exercise-2"><div class="part-banner"><span class="part-pill amber">Exercise 2</span><div class="part-line"></div></div><article class="property-item amber exercise-statement">
+  <div class="property-body">
+    <h4>Exercise 2. Uniqueness</h4>
+    <p class="statement-intro">A consumer has utility $u(x_1,x_2)=2x_1+x_2$, income $y>0$, and faces prices $p_1,p_2>0$.</p>
+    <ol class="statement-questions">
+      <li>Find the Marshallian demand in each price case:
+        <div class="statement-formula">$$\frac{p_1}{p_2}<2,\qquad \frac{p_1}{p_2}>2,\qquad \frac{p_1}{p_2}=2.$$</div>
+      </li>
+      <li>Using a counter-example, show that these preferences are not strictly convex. Relate the result to the uniqueness, or non-uniqueness, of Marshallian demand.</li>
+    </ol>
+  </div>
+</article><button type="button" class="toggle-btn amber" data-exercise="2" onclick="toggle(this, 'solution-2')" aria-controls="solution-2" aria-expanded="false">Show solution — Exercise 2 ▾</button><div class="collapsible exercise-solution" id="solution-2"><p><strong>Starting point.</strong> Utility is linear, income is positive, and both prices are positive. <strong>Goal.</strong> Find the optimal bundle in each price case, then test strict convexity using the requested counterexample.</p>
 <h3 class="question-heading">Question 1 — Marshallian demand</h3>
  <p>Utility is:</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2.$$</div> <p>The marginal utilities are:</p> <div class="math-display">$$MU_1=2, \qquad MU_2=1.$$</div> <p>Compare marginal utility per unit of expenditure:</p> <div class="math-display">$$\frac{MU_1}{p_1} = \frac2{p_1}, \qquad \frac{MU_2}{p_2} = \frac1{p_2}.$$</div> <h5>Case 1</h5> <p>If $p_1/p_2&lt;2$, then:</p>
 <div class="math-display">$$\frac2{p_1}
@@ -1172,27 +1212,21 @@ u(b).
 <p>When:</p>
 <div class="math-display">$$\frac{p_1}{p_2}=2,$$</div>
 <p>there are multiple optimal bundles on the budget line, so Marshallian demand is not single-valued.</p></div></section>
-<section class="subsection" id="exercise-3"><div class="part-banner"><span class="part-pill amber">Exercise 3</span><div class="part-line"></div></div><article class="property-item amber exercise-statement"><div class="property-body"><h4>Exercise 3. Example of a demand system</h4>
-<p>Consider the demand system $x(p,y)$ defined by</p>
-<div class="math-display">$$x_1(p,y)
-=
-\frac{p_2}{p_1+p_2+p_3}
-\frac{y}{p_1}
-\tag{1}$$</div>
-
-<div class="math-display">$$x_2(p,y)
-=
-\frac{p_3}{p_1+p_2+p_3}
-\frac{y}{p_2}
-\tag{2}$$</div>
-
-<div class="math-display">$$x_3(p,y)
-=
-\frac{\beta p_1}{p_1+p_2+p_3}
-\frac{y}{p_3}
-\tag{3}$$</div>
-<p>1. Does this demand function satisfy homogeneity of degree zero?</p>
-<p>2. Does this demand function satisfy Walras Law?</p></div></article><button type="button" class="toggle-btn amber" data-exercise="3" onclick="toggle(this, 'solution-3')" aria-controls="solution-3" aria-expanded="false">Show solution — Exercise 3 ▾</button><div class="collapsible exercise-solution" id="solution-3"><p><strong>Starting point.</strong> Keep $\beta$ fixed and use positive prices, as in the chapter. <strong>Goal.</strong> Test the two stated identities. For Walras’ Law, check positive income; at zero income both expenditure and income are zero.</p>
+<section class="subsection" id="exercise-3"><div class="part-banner"><span class="part-pill amber">Exercise 3</span><div class="part-line"></div></div><article class="property-item amber exercise-statement">
+  <div class="property-body">
+    <h4>Exercise 3. Example of a demand system</h4>
+    <p class="statement-intro">Consider the demand system $x(p,y)$ defined by:</p>
+    <div class="statement-formula demand-system">$$\begin{aligned}
+      x_1(p,y)&=\frac{p_2}{p_1+p_2+p_3}\frac{y}{p_1},\\
+      x_2(p,y)&=\frac{p_3}{p_1+p_2+p_3}\frac{y}{p_2},\\
+      x_3(p,y)&=\frac{\beta p_1}{p_1+p_2+p_3}\frac{y}{p_3}.
+    \end{aligned}$$</div>
+    <ol class="statement-questions">
+      <li>Does this demand function satisfy homogeneity of degree zero?</li>
+      <li>Does this demand function satisfy Walras’ Law?</li>
+    </ol>
+  </div>
+</article><button type="button" class="toggle-btn amber" data-exercise="3" onclick="toggle(this, 'solution-3')" aria-controls="solution-3" aria-expanded="false">Show solution — Exercise 3 ▾</button><div class="collapsible exercise-solution" id="solution-3"><p><strong>Starting point.</strong> Keep $\beta$ fixed and use positive prices, as in the chapter. <strong>Goal.</strong> Test the two stated identities. For Walras’ Law, check positive income; at zero income both expenditure and income are zero.</p>
 <h3 class="question-heading">Question 1 — Homogeneity of degree zero</h3>
 
 <p>The course defines homogeneity of degree zero by:</p>
