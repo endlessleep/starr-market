@@ -510,9 +510,9 @@ body {
 /* Reading layout for Consumer Theory. */
 .main-content { container:course / inline-size; }
 .subsection { scroll-margin-top:86px; }
-.chapter-map { display:flex; flex-wrap:wrap; gap:8px; margin-top:-20px; }
-.chapter-map a { color:var(--text-2); border:1px solid var(--border); background:var(--bg-card);
-  border-radius:999px; padding:7px 13px; font-size:.8rem; text-decoration:none; }
+.chapter-map { display:flex; flex-wrap:wrap; gap:10px 24px; margin-top:-20px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+.chapter-map a { color:var(--text-2); font-size:.88rem; text-decoration:underline; text-underline-offset:5px; }
+.course-part { margin-top:24px; padding-top:24px; border-top:1px solid var(--border); font-size:1.55rem; color:var(--text); scroll-margin-top:86px; }
 .chapter-map a:hover { border-color:var(--blue-border); color:var(--blue-bright); }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2px solid var(--blue-bright); outline-offset:4px; }
 .assumption-grid, .definition-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
@@ -523,7 +523,11 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
 .definition-pair > div { padding:14px; border:1px solid var(--border); border-radius:var(--radius); }
 .definition-pair h4, .foc-list h4, .collapsible h4 { color:var(--text); font-size:.92rem; margin-bottom:8px; }
 .figure-grid { display:grid; gap:16px; }
-.budget-figures { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.budget-figures { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.budget-figures > :first-child { grid-column:1 / -1; width:100%; max-width:560px; justify-self:center; }
+.figure-key { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:.82rem; margin:8px 0; }
+.figure-key .before { color:#fbbf24; }
+.figure-key .after { color:#60a5fa; }
 .demand-figures { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .course-figure { min-width:0; padding:16px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-card); }
 .course-figure svg { display:block; width:100%; height:auto; fill:var(--text-2); font:15px var(--font); margin:8px 0; }
@@ -629,12 +633,13 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
     <header class="page-title-block">
       <div class="page-label">Consumer Theory</div>
       <h1>Consumer Theory</h1>
-      <p>Utility Maximization (UMP) and Expenditure Minimization (EmP)</p>
+      <p>Consumer’s preferences, utility maximization, and expenditure minimization</p>
     </header>
 
     <nav class="chapter-map" aria-label="Consumer Theory sections">
-      <a href="#preamble">Preamble</a>
-      <a href="#ump">2 · UMP and EmP</a>
+      <a href="#consumer-preferences">Consumer’s preferences</a>
+      <a href="#mrs">Marginal rate of substitution</a>
+      <a href="#ump">Setting up the UMP</a>
       <a href="#marshallian-demand">Marshallian demand</a>
       <a href="#solving-ump">Solving the UMP</a>
       <a href="#indirect-utility">Indirect utility</a>
@@ -642,6 +647,72 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <a href="#duality">Duality</a>
     </nav>
 
+    <h2 class="course-part" id="consumer-preferences">1. Consumer’s Preferences</h2>
+    <section class="subsection" id="utility-function">
+      <div class="part-banner"><h3 class="part-pill blue">Utility Function</h3><div class="part-line"></div></div>
+      <p class="course-text">Under the preceding assumptions on preferences, the consumer’s ranking of bundles can be represented by a utility function $u(x)$. The function assigns a number to each bundle so that a preferred bundle receives a higher number. We now use this representation to describe preferences and the trade-offs between goods.</p>
+      <article class="property-item blue">
+        <h3 class="property-name">How to read the three properties of $u$</h3>
+        <div class="property-body">
+          <dl class="property-explanations">
+            <div><dt>Strictly increasing</dt><dd>A bundle with at least as much of every good and strictly more of at least one good has higher utility. This expresses strict monotonicity in terms of the utility function.</dd></div>
+            <div><dt>Strictly quasi-concave</dt><dd>For two distinct bundles, a genuine mixture has strictly higher utility than the lower of their two utility levels. This is how the utility function expresses strictly convex preferences.</dd></div>
+            <div><dt>Unique up to a strictly increasing transformation</dt><dd>The utility numbers themselves are not unique. A strictly increasing transformation changes those numbers while preserving their order, so it represents the same preferences.</dd></div>
+          </dl>
+          <p>A transformation $f$ is <strong>strictly increasing</strong> if:</p>
+          <div class="math-display">$$u_1&gt;u_2\quad\Longrightarrow\quad f(u_1)&gt;f(u_2).$$</div>
+          <p>Thus, replacing $u(x)$ by $f(u(x))$ preserves which bundle is ranked above which. It changes the numerical representation, not the consumer’s ranking.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="subsection" id="mrs">
+      <div class="part-banner"><h3 class="part-pill green">Marginal Rate of Substitution</h3><div class="part-line"></div></div>
+      <article class="property-item green">
+        <h3 class="property-name">The consumer’s willingness to exchange goods</h3>
+        <div class="property-body">
+          <p>Assuming that $u$ is differentiable, the <strong>marginal rate of substitution of good $x_2$ for good $x_1$</strong> is:</p>
+          <div class="math-display boxed-green">$$MRS_{12}=\frac{\partial u(x_1,x_2)/\partial x_1}{\partial u(x_1,x_2)/\partial x_2}.$$</div>
+          <p>The numerator is the marginal utility of good 1; the denominator is the marginal utility of good 2. Each measures how utility changes when the quantity of that good increases slightly, holding the other quantity fixed.</p>
+          <p><strong>In one sentence:</strong> $MRS_{12}$ measures how much of $x_2$ the consumer is willing to give up for one more unit of $x_1$, locally, while keeping utility constant.</p>
+        </div>
+      </article>
+      <figure class="course-figure tangency-figure" id="mrs-figure">
+        <h3>Reading the MRS on an indifference curve</h3>
+        <svg viewBox="0 0 440 330" role="img" aria-labelledby="mrs-figure-title">
+          <title id="mrs-figure-title">A downward-sloping indifference curve and its tangent at x star. Moving right along the tangent increases good 1 and reduces good 2.</title>
+          <path d="M55 24V280H415" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="30" y="28">x₂</text><text x="411" y="306">x₁</text><text x="35" y="302">0</text>
+          <path d="M107 40 C115 125 146 168 190 190 C242 216 307 223 393 231" fill="none" stroke="#60a5fa" stroke-width="3"/>
+          <path d="M112 151L330 260" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="7 5"/>
+          <path d="M190 190H290V240" fill="none" stroke="#34d399" stroke-width="2"/>
+          <path d="m282 186 8 4-8 4m4 38 4 8 4-8" fill="none" stroke="#34d399" stroke-width="2"/>
+          <circle cx="190" cy="190" r="5" fill="#34d399"/>
+          <text x="167" y="178" fill="#34d399">x*</text>
+          <text x="235" y="175" text-anchor="middle" fill="#34d399">Δx₁</text>
+          <text x="305" y="207" fill="#34d399">Δx₂</text>
+          <text x="249" y="98" fill="#60a5fa">Indifference curve</text>
+          <path d="M300 107L339 222" fill="none" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3 4"/>
+        </svg>
+        <div class="figure-key"><span class="before">Dashed orange: tangent at $x^*$</span><span class="after">Blue: constant utility</span></div>
+        <figcaption>At $x^*$, the tangent shows the local trade-off: $\Delta x_1$ is positive and $\Delta x_2$ is negative. The slope of the indifference curve is negative; the MRS is <strong>minus this slope</strong>, expressing the amount of good 2 given up.</figcaption>
+      </figure>
+      <article class="property-item green" id="mrs-differentials">
+        <h3 class="property-name">The same intuition using differentials</h3>
+        <div class="property-body">
+          <p>We want a small change $(dx_1,dx_2)$ that keeps utility constant. The total change in utility must therefore be zero:</p>
+          <div class="math-display">$$du=\frac{\partial u}{\partial x_1}dx_1+\frac{\partial u}{\partial x_2}dx_2=0.$$</div>
+          <p>Both partial derivatives are evaluated at $(x_1,x_2)$. The utility gained from increasing good 1 must offset the utility lost from reducing good 2. Move the first term to the right:</p>
+          <div class="math-display">$$\frac{\partial u}{\partial x_2}dx_2=-\frac{\partial u}{\partial x_1}dx_1.$$</div>
+          <p>Dividing by $dx_1$ and by the nonzero marginal utility of good 2 gives the slope along the indifference curve:</p>
+          <div class="math-display">$$\frac{dx_2}{dx_1}=-\frac{\partial u/\partial x_1}{\partial u/\partial x_2}.$$</div>
+          <p>The MRS is the amount given up, so we take the negative of that slope:</p>
+          <div class="math-display boxed-green">$$MRS_{12}=-\frac{dx_2}{dx_1}=\frac{\partial u/\partial x_1}{\partial u/\partial x_2}.$$</div>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="course-part" id="consumer-behavior">2. Consumer’s Behavior: UMP and EmP</h2>
     <section class="subsection" id="preamble">
       <div class="part-banner"><h2 class="part-pill blue">Preamble</h2><div class="part-line"></div></div>
       <p class="course-text">Before setting up the consumer’s optimization problem, we specify the environment in which choices are made. The following assumptions explain what consumers know, how they face prices, and which quantities they can choose.</p>
@@ -658,10 +729,10 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <article class="property-item green">
         <h3 class="property-name">The consumer’s utility-maximization problem</h3>
         <div class="property-body">
-          <p>Let $x=(x_1,\ldots,x_n)$ be a bundle, $p=(p_1,\ldots,p_n)$ the price vector, and $y$ income. Here, $y$ denotes money available to spend. Total expenditure is $p\cdot x=\sum_{i=1}^n p_ix_i$.</p>
+          <p>Let $x=(x_1,\ldots,x_L)$ be a bundle, $p=(p_1,\ldots,p_L)$ the price vector, and $y$ income. Here, $y$ denotes money available to spend. Total expenditure is $p\cdot x=\sum_{i=1}^L p_ix_i$. The number of goods is denoted by $L$ here and by $n$ in the later formulas.</p>
           <p>The setup assumes that $u$ is <strong>continuous, differentiable, and strictly quasi-concave</strong>, and that the budget set $B(p,y)$ is <strong>compact</strong>. Continuity rules out jumps in utility; differentiability allows us to work with marginal utilities. Strict quasi-concavity is the utility representation of the strict convexity of preferences used below.</p>
           <p>The consumer chooses a nonnegative bundle that gives the highest utility while remaining affordable:</p>
-          <div class="math-display boxed-green">$$\max_{x\in\mathbb R_+^n}u(x)\quad\text{s.t. }p\cdot x\leq y.$$</div>
+          <div class="math-display boxed-green">$$\max_{x\in\mathbb R_+^L}u(x)\quad\text{s.t. }p\cdot x\leq y.$$</div>
           <p><strong>“Subject to”</strong> means that the maximization is restricted by the budget. A bundle with a higher utility is not an available choice if its cost exceeds income.</p>
           <div class="definition-pair">
             <div><h4>Marshallian demand: $x(p,y)$</h4><p>The solution to the UMP: the bundle, or set of bundles, chosen at the given prices and income.</p></div>
@@ -695,13 +766,15 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
         </figure>
         <figure class="course-figure">
           <h3>When income decreases</h3>
-          <svg viewBox="0 0 360 290" role="img" aria-labelledby="income-fall-title"><title id="income-fall-title">A fall in income moves the budget line inward in parallel.</title><path d="M55 24V242H331" fill="none" stroke="#94a3b8" stroke-width="1.5"/><path d="m51 31 4-7 4 7M324 238l7 4-7 4" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="32" y="28">x₂</text><text x="327" y="266">x₁</text><text x="39" y="261">0</text><path d="M55 42L307 242" fill="none" stroke="#fbbf24" stroke-width="2.7"/><path d="M55 102L231 242" fill="none" stroke="#60a5fa" stroke-width="2.7"/><path d="M162 134L135 157m0-8v8h8" fill="none" stroke="#94a3b8" stroke-width="1.8"/><text x="166" y="107" fill="#fbbf24">Original</text><text x="68" y="176" fill="#60a5fa">Lower y</text></svg>
-          <figcaption>With prices unchanged, both intercepts decrease. The line shifts inward <strong>in parallel</strong>: its slope remains $-p_1/p_2$.</figcaption>
+          <svg viewBox="0 0 400 300" role="img" aria-labelledby="income-fall-title"><title id="income-fall-title">Income falls from y to y prime: both intercepts move inward and the slope is unchanged.</title><path d="M68 24V252H372" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="44" y="25">x₂</text><text x="370" y="280">x₁</text><text x="48" y="278">0</text><path d="M68 52L340 252" fill="none" stroke="#fbbf24" stroke-width="2.7" stroke-dasharray="7 5"/><path d="M68 112L258.4 252" fill="none" stroke="#60a5fa" stroke-width="3"/><text x="59" y="56" text-anchor="end" fill="#fbbf24">y/p₂</text><text x="59" y="116" text-anchor="end" fill="#60a5fa">y′/p₂</text><text x="340" y="278" text-anchor="middle" fill="#fbbf24">y/p₁</text><text x="258" y="278" text-anchor="middle" fill="#60a5fa">y′/p₁</text><path d="M213 148L187 184m-1-10 1 10 10-2" fill="none" stroke="#e2e8f0" stroke-width="2"/></svg>
+          <div class="figure-key"><span class="before">Dashed: original income $y$</span><span class="after">Solid: lower income $y'&lt;y$</span></div>
+          <figcaption>With prices unchanged, both intercepts decrease from $y/p_i$ to $y'/p_i$. The line shifts inward <strong>in parallel</strong>: its slope remains $-p_1/p_2$.</figcaption>
         </figure>
         <figure class="course-figure">
           <h3>When $p_1$ increases</h3>
-          <svg viewBox="0 0 360 290" role="img" aria-labelledby="price-rise-title"><title id="price-rise-title">An increase in the price of good 1 pivots the line inward around the unchanged vertical intercept.</title><path d="M55 24V242H331" fill="none" stroke="#94a3b8" stroke-width="1.5"/><path d="m51 31 4-7 4 7M324 238l7 4-7 4" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="32" y="28">x₂</text><text x="327" y="266">x₁</text><text x="39" y="261">0</text><path d="M55 42L307 242" fill="none" stroke="#fbbf24" stroke-width="2.7"/><path d="M55 42L219 242" fill="none" stroke="#60a5fa" stroke-width="2.7"/><circle cx="55" cy="42" r="4" fill="#fbbf24"/><text x="46" y="46" text-anchor="end">y/p₂</text><text x="294" y="266" text-anchor="middle">y/p₁</text><text x="154" y="87" fill="#fbbf24">Original</text><text x="69" y="165" fill="#60a5fa">Higher p₁</text></svg>
-          <figcaption>With $y$ and $p_2$ unchanged, $y/p_2$ stays fixed while $y/p_1$ falls. The line pivots inward and becomes <strong>steeper</strong>.</figcaption>
+          <svg viewBox="0 0 400 300" role="img" aria-labelledby="price-rise-title"><title id="price-rise-title">The price of good 1 increases: the horizontal intercept moves inward while the vertical intercept stays fixed.</title><path d="M68 24V252H372" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="44" y="25">x₂</text><text x="370" y="280">x₁</text><text x="48" y="278">0</text><path d="M68 52L340 252" fill="none" stroke="#fbbf24" stroke-width="2.7" stroke-dasharray="7 5"/><path d="M68 52L232 252" fill="none" stroke="#60a5fa" stroke-width="3"/><circle cx="68" cy="52" r="4" fill="#e2e8f0"/><text x="59" y="56" text-anchor="end">y/p₂</text><text x="340" y="278" text-anchor="middle" fill="#fbbf24">y/p₁</text><text x="232" y="278" text-anchor="middle" fill="#60a5fa">y/p₁′</text><path d="M283 205Q253 210 223 205m8-5-8 5 8 5" fill="none" stroke="#e2e8f0" stroke-width="2"/></svg>
+          <div class="figure-key"><span class="before">Dashed: original price $p_1$</span><span class="after">Solid: higher price $p_1'&gt;p_1$</span></div>
+          <figcaption>With $y$ and $p_2$ unchanged, $y/p_2$ stays fixed. The horizontal intercept falls from $y/p_1$ to $y/p_1'$. The line pivots inward: its slope changes from $-p_1/p_2$ to $-p_1'/p_2$, becoming <strong>steeper</strong>.</figcaption>
         </figure>
       </div>
     </section>
