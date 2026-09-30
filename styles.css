@@ -218,8 +218,7 @@ body {
 }
 
 .avatar {
-  width: 36px;
-  height: 36px;
+  width: 44px; height: 44px;
   border-radius: var(--radius-sm);
   background: var(--accent-red-gradient);
   display: flex;
@@ -710,8 +709,7 @@ body {
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
-  width: 34px;
-  height: 34px;
+  width: 44px; height: 44px;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
