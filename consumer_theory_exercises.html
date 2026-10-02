@@ -935,135 +935,129 @@ e(p,\bar u)
 }$$</div>
 
 </div>
-<h3 class="question-heading">2. A utility function with a kink</h3>
-
-<div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)
-=
-\max(\alpha x,\alpha y)+\min(x,y),
-\qquad
-0&lt;\alpha&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)
-=
-\max(\alpha x,\alpha y)+\min(x,y)\\0&lt;\alpha&lt;1.\end{gathered}$$</div></div>
-<p>First write the utility function piecewise.</p>
-<p>If $x\ge y$, then:</p>
-<div class="math-display">$$u(x,y)=\alpha x+y.$$</div>
-<p>If $y\ge x$, then:</p>
-<div class="math-display">$$u(x,y)=x+\alpha y.$$</div>
+<h3 class="question-heading" id="utility-with-kink">2. A utility function with a kink</h3>
+<div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\max(\alpha x,\alpha y)+\min(x,y),\qquad 0&lt;\alpha&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\max(\alpha x,\alpha y)\\+\min(x,y),\qquad 0&lt;\alpha&lt;1.\end{gathered}$$</div></div>
+<p>We follow the lecture's order: first read the two parts of the indifference curves, then compare the MRS with the price ratio in each region. We keep $m$ for income, corresponding to $I$ in the handwritten notes. The notation $v(p,m)$ denotes the utility obtained at the optimal bundle; $\bar u$ denotes a fixed utility target in the expenditure problem.</p>
 
 <div class="solution-step">
-<h4>Step 1 — Indifference curves</h4>
-<p>Fix utility at $\bar u$.</p>
-<p>If $x\ge y$:</p>
-<div class="math-display">$$\alpha x+y=\bar u$$</div>
-<p>so:</p>
-<div class="math-display">$$\boxed{
-y=\bar u-\alpha x.
-}$$</div>
-<p>If $y\ge x$:</p>
-<div class="math-display">$$x+\alpha y=\bar u$$</div>
-<p>so:</p>
-<div class="math-display">$$\boxed{
-y=\frac{\bar u-x}{\alpha}.
-}$$</div>
-<p>The two pieces meet when:</p>
-<div class="math-display calculation-group">$$\begin{gathered}
-x=y.\\[0.65em]
-(1+\alpha)x=\bar u
-\end{gathered}$$</div>
-<p>and therefore the kink is:</p>
-<div class="math-display">$$\boxed{
-x=y=\frac{\bar u}{1+\alpha}.
-}$$</div>
-<figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-2"><title id="curve-title-2">Two linear pieces meeting on the line x equals y</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><path d="M48 270L283 35" fill="none" stroke="#64748b" stroke-dasharray="5 5"/><text x="279" y="30">x = y</text><path d="M48 150L88 230L168 270" fill="none" stroke="#60a5fa" stroke-width="2.5"/><path d="M48 90L108 210L228 270" fill="none" stroke="#34d399" stroke-width="2.5"/><path d="M48 30L128 190L288 270" fill="none" stroke="#fbbf24" stroke-width="2.5"/></svg><figcaption>Shape illustrated for $\alpha=1/2$. The slope is $-1/\alpha$ above $x=y$ and $-\alpha$ below it. The meeting point is the kink.</figcaption></figure>
-
+<h4>Step 1 — Indifference curves: $x&lt;y$, $x&gt;y$, then $x=y$</h4>
+<h5>When $x&lt;y$</h5>
+<p>Since $\alpha&gt;0$, we also have $\alpha x&lt;\alpha y$. The maximum term is therefore $\alpha y$, while the minimum term is $x$. Fixing utility at $\bar u$ gives:</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+u(x,y)&=\alpha y+x,\\[0.5em]
+\alpha y+x&=\bar u,\\[0.5em]
+\alpha y&=\bar u-x,\\[0.5em]
+y&=\frac{\bar u}{\alpha}-\frac{1}{\alpha}x.
+\end{aligned}$$</div>
+<p>This part of the indifference curve is a straight line with slope $-1/\alpha$. The MRS is written as a positive number in the notes, so here $MRS=1/\alpha$. The slope itself is negative.</p>
+<h5>When $x&gt;y$</h5>
+<p>The maximum term is now $\alpha x$, and the minimum term is $y$. On the same fixed-utility curve:</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+u(x,y)&=\alpha x+y,\\[0.5em]
+\alpha x+y&=\bar u,\\[0.5em]
+y&=\bar u-\alpha x.
+\end{aligned}$$</div>
+<p>This part is a straight line with slope $-\alpha$, so $MRS=\alpha$. It is less steep than the first part because $0&lt;\alpha&lt;1$.</p>
+<h5>When $x=y$</h5>
+<p>Write the common quantity as $t$, so that $x=y=t$. Substitution into the utility function gives:</p>
+<div class="math-display">$$u(t,t)=\alpha t+t=(1+\alpha)t.$$</div>
+<p>On a given indifference curve, this identifies the point where the two straight pieces meet. Their slopes differ, so the curve has a kink there: there is no single slope at that point. In the figure, the steeper part lies in $x&lt;y$ and the flatter part in $x&gt;y$.</p>
+<figure class="exercise-figure"><svg viewBox="0 0 410 310" role="img" aria-labelledby="curve-title-2"><title id="curve-title-2">Two linear pieces meeting on the line x equals y</title><path d="M48 20V270H382" fill="none" stroke="#94a3b8" stroke-width="1.5"/><text x="24" y="25">y</text><text x="382" y="292">x</text><text x="30" y="292">0</text><path d="M48 270L283 35" fill="none" stroke="#64748b" stroke-dasharray="5 5"/><text x="279" y="30">x = y</text><path d="M48 150L88 230L168 270" fill="none" stroke="#60a5fa" stroke-width="2.5"/><path d="M48 90L108 210L228 270" fill="none" stroke="#34d399" stroke-width="2.5"/><path d="M48 30L128 190L288 270" fill="none" stroke="#fbbf24" stroke-width="2.5"/></svg><figcaption>Each indifference curve has two straight pieces meeting on $x=y$. The slope is $-1/\alpha$ in $x&lt;y$ and $-\alpha$ in $x&gt;y$.</figcaption></figure>
 </div>
-<div class="solution-step">
-<h4>Step 2 — Marshallian demand</h4>
-<p>Compare the relevant choices.</p>
-<h5>Only $x$</h5>
-<p>If all income is spent on $x$:</p>
-<div class="math-display">$$x=\frac{m}{p_x},
-\qquad
-y=0.$$</div>
-<p>Utility is:</p>
-<div class="math-display">$$u=
-\frac{\alpha m}{p_x}.$$</div>
-<h5>Only $y$</h5>
-<p>If all income is spent on $y$:</p>
-<div class="math-display">$$x=0,
-\qquad
-y=\frac{m}{p_y}.$$</div>
-<p>Utility is:</p>
-<div class="math-display">$$u=
-\frac{\alpha m}{p_y}.$$</div>
-<h5>Kink</h5>
-<p>At the kink:</p>
-<div class="math-display">$$x=y=q.$$</div>
-<p>The budget constraint becomes:</p>
-<div class="math-display calculation-group">$$\begin{gathered}
-(p_x+p_y)q=m.\\[0.65em]
-q=\frac{m}{p_x+p_y}.
-\end{gathered}$$</div>
-<p>Utility is:</p>
-<div class="math-display">$$u
-=
-(1+\alpha)q
-=
-\frac{(1+\alpha)m}{p_x+p_y}.$$</div>
-<p>Utility is linear on each of the two segments of the budget line, so its maximum is at a segment endpoint: one of the two corners or the kink. Compare only these three candidates. The excluded price ratios rule out ties along a segment.</p>
-<p>Only $x$ beats the kink precisely when:</p><div class="math-display">$$\frac{\alpha m}{p_x}&gt;\frac{(1+\alpha)m}{p_x+p_y}
- \iff \alpha p_y&gt;p_x.$$</div><p>Only $y$ beats the kink precisely when:</p><div class="math-display">$$\frac{\alpha m}{p_y}&gt;\frac{(1+\alpha)m}{p_x+p_y}
- \iff \alpha p_x&gt;p_y.$$</div><p>These comparisons give the three price regions below. Between the two thresholds, the kink beats both corners. We do not use the smooth MRS condition at the kink.</p><div class="price-results">
- <p><strong>If $p_x/p_y&lt;\alpha$:</strong></p>
- <div class="math-display">$$\boxed{(x^M,y^M)=\left(\frac{m}{p_x},0\right).}$$</div>
- <p><strong>If $\alpha&lt;p_x/p_y&lt;1/\alpha$:</strong></p>
- <div class="math-display">$$x^M=y^M=\frac{m}{p_x+p_y}.$$</div>
- <p><strong>If $p_x/p_y&gt;1/\alpha$:</strong></p>
- <div class="math-display">$$\boxed{(x^M,y^M)=\left(0,\frac{m}{p_y}\right).}$$</div>
- </div>
 
-</div>
 <div class="solution-step">
-<h4>Step 3 — Indirect utility function</h4>
-<p>Substitute the Marshallian demand in each price region:</p>
-<div class="math-display">$$\boxed{
-v(p,m)
-=
-\begin{cases}
-\displaystyle
-\frac{\alpha m}{p_x},
-&amp;
-\frac{p_x}{p_y}&lt;\alpha,
-\\[1em]
-\displaystyle
-\frac{(1+\alpha)m}{p_x+p_y},
-&amp;
-\alpha&lt;
-\frac{p_x}{p_y}
-&lt;
-\frac1\alpha,
-\\[1em]
-\displaystyle
-\frac{\alpha m}{p_y},
-&amp;
-\frac{p_x}{p_y}&gt;
-\frac1\alpha.
-\end{cases}
-}$$</div>
+<h4>Step 2 — Start in $x&lt;y$: compare the price ratio with $1/\alpha$</h4>
+<p>In this region, $MRS=1/\alpha$. The MRS expresses how much $y$ the consumer is willing to give up for one more unit of $x$, holding utility constant. The price ratio $p_x/p_y$ expresses how much $y$ that unit of $x$ costs on the market. The lecture compares these two valuations.</p>
+<h5>If $\dfrac{p_x}{p_y}&gt;\dfrac1\alpha$</h5>
+<p>The market price of $x$, relative to $y$, is higher than the consumer's valuation. Although the consumer already has less $x$ than $y$, they still prefer to reduce $x$ and obtain more $y$. This leads to $x^M=0$. Substituting into the budget constraint gives:</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+p_xx^M+p_yy^M&=m,\\[0.5em]
+p_y y^M&=m,\\[0.5em]
+\boxed{x^M=0,\qquad y^M=\frac{m}{p_y}.}
+\end{aligned}$$</div>
+<p>Substitute these quantities into $u=\alpha y+x$ to obtain indirect utility:</p>
+<div class="math-display">$$v(p,m)=\alpha\frac{m}{p_y}+0=\boxed{\frac{\alpha m}{p_y}}.$$</div>
+<p>The notes then solve this relation for the income needed to reach a given utility level $\bar u$. This gives the expenditure function in this price region:</p>
+<div class="math-display calculation-group">$$\bar u=\frac{\alpha m}{p_y}
+\quad\Longrightarrow\quad m=\frac{\bar u p_y}{\alpha}
+\quad\Longrightarrow\quad
+\boxed{e(p,\bar u)=\frac{\bar u p_y}{\alpha}.}$$</div>
+<p>Using Shephard's lemma as in the notes, differentiate expenditure with respect to each price, keeping $\bar u$ fixed. These derivatives give Hicksian demand: the quantities that attain the utility target at minimum expenditure.</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+x^H&=\frac{\partial e(p,\bar u)}{\partial p_x}=\boxed{0},\\[0.7em]
+y^H&=\frac{\partial e(p,\bar u)}{\partial p_y}=\boxed{\frac{\bar u}{\alpha}}.
+\end{aligned}$$</div>
+<h5>If $\dfrac{p_x}{p_y}&lt;\dfrac1\alpha$</h5>
+<p>The consumer values $x$ more highly than the market does. Starting from $x&lt;y$, they prefer to increase $x$ and reduce $y$, moving towards $x=y$. Reaching this point does not yet settle the final choice: the MRS changes on the other side, which is why the lecture next examines $x&gt;y$.</p>
+</div>
 
-</div>
 <div class="solution-step">
-<h4>Step 4 — Hicksian demand</h4>
-<p>If $p_x/p_y&lt;\alpha$, the expenditure-minimizing choice uses only $x$.</p> <p>Since:</p> <div class="math-display calculation-group">$$\begin{gathered}
-\alpha x=\bar u,\\[0.65em]
-\boxed{ x^H=\frac{\bar u}{\alpha}, \qquad y^H=0. }
-\end{gathered}$$</div> <p>If:</p> <div class="math-display">$$\alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha,$$</div> <p>the optimal bundle is at the kink:</p> <div class="math-display">$$x=y.$$</div> <p>Since:</p> <div class="math-display calculation-group">$$\begin{gathered}
-(1+\alpha)x=\bar u,\\[0.65em]
-\boxed{ x^H=y^H= \frac{\bar u}{1+\alpha}. }
-\end{gathered}$$</div> <p>If:</p> <div class="math-display">$$\frac{p_x}{p_y}&gt; \frac1\alpha,$$</div> <p>the choice uses only $y$:</p> <div class="math-display">$$\boxed{ x^H=0, \qquad y^H=\frac{\bar u}{\alpha}. }$$</div> <p>Thus:</p>
+<h4>Step 3 — Start in $x&gt;y$: compare the price ratio with $\alpha$</h4>
+<p>In this region, $MRS=\alpha$. We again compare the consumer's valuation of $x$ with its relative market price.</p>
+<h5>If $\dfrac{p_x}{p_y}&gt;\alpha$</h5>
+<p>The consumer values $x$ less highly than the market does. Starting with more $x$ than $y$, they prefer to reduce $x$ and increase $y$, moving towards $x=y$.</p>
+<h5>If $\dfrac{p_x}{p_y}&lt;\alpha$</h5>
+<p>The consumer values $x$ more highly than the market does. Even though they already have more $x$ than $y$, they prefer to increase $x$ further, until $y^M=0$. The budget constraint then gives:</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+p_xx^M+p_y\times0&=m,\\[0.5em]
+\boxed{x^M=\frac{m}{p_x},\qquad y^M=0.}
+\end{aligned}$$</div>
+<p>Substituting into $u=\alpha x+y$ gives:</p>
+<div class="math-display">$$v(p,m)=\alpha\frac{m}{p_x}+0=\boxed{\frac{\alpha m}{p_x}}.$$</div>
+<p>As before, solve for the income required to reach $\bar u$:</p>
+<div class="math-display calculation-group">$$\bar u=\frac{\alpha m}{p_x}
+\quad\Longrightarrow\quad m=\frac{\bar u p_x}{\alpha}
+\quad\Longrightarrow\quad
+\boxed{e(p,\bar u)=\frac{\bar u p_x}{\alpha}.}$$</div>
+<p>Shephard's lemma then gives:</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+y^H&=\frac{\partial e(p,\bar u)}{\partial p_y}=\boxed{0},\\[0.7em]
+x^H&=\frac{\partial e(p,\bar u)}{\partial p_x}=\boxed{\frac{\bar u}{\alpha}}.
+\end{aligned}$$</div>
 </div>
+
 <div class="solution-step">
-<h4>Step 5 — Expenditure function</h4> <p>Substitute the Hicksian demand into expenditure:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = \begin{cases} \displaystyle \frac{p_x\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&lt;\alpha, \\[1em] \displaystyle \frac{(p_x+p_y)\bar u}{1+\alpha}, &amp; \alpha&lt; \frac{p_x}{p_y} &lt; \frac1\alpha, \\[1em] \displaystyle \frac{p_y\bar u}{\alpha}, &amp; \frac{p_x}{p_y}&gt; \frac1\alpha. \end{cases} }$$</div>
+<h4>Step 4 — Bring the price regions together</h4>
+<p>The price line in the notes brings together the preceding comparisons. Below $\alpha$, the consumer chooses only $x$. Above $1/\alpha$, they choose only $y$. Between these thresholds, both directions lead towards equal quantities: from $x&lt;y$ the consumer wants more $x$, and from $x&gt;y$ they want less $x$. The optimum is therefore at $x=y$.</p>
+<div class="price-results">
+<p><strong>If $p_x/p_y&lt;\alpha$:</strong></p>
+<div class="math-display">$$x^M=\frac{m}{p_x},\qquad y^M=0.$$</div>
+<p><strong>If $\alpha&lt;p_x/p_y&lt;1/\alpha$:</strong></p>
+<div class="math-display">$$x^M=y^M.$$</div>
+<p><strong>If $p_x/p_y&gt;1/\alpha$:</strong></p>
+<div class="math-display">$$x^M=0,\qquad y^M=\frac{m}{p_y}.$$</div>
+</div>
+<p>The interval $[\alpha,1/\alpha]$ marked in the notes is bounded by the MRS values on the two sides of the kink. It does not give a unique slope at the kink.</p>
+</div>
+
+<div class="solution-step">
+<h4>Step 5 — Calculate the equal-quantity choice</h4>
+<p>For $\alpha&lt;p_x/p_y&lt;1/\alpha$, write $x^M=y^M=t^M$. Since the consumer buys the same quantity of each good, the budget constraint becomes:</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+p_xt^M+p_yt^M&=m,\\[0.5em]
+(p_x+p_y)t^M&=m,\\[0.5em]
+\boxed{t^M=x^M=y^M=\frac{m}{p_x+p_y}.}
+\end{aligned}$$</div>
+<p>At equal quantities, utility is $(1+\alpha)t$. Substituting the optimal common quantity gives:</p>
+<div class="math-display">$$v(p,m)=(1+\alpha)\frac{m}{p_x+p_y}=\boxed{\frac{(1+\alpha)m}{p_x+p_y}}.$$</div>
+<p>Solving the same relation for the income needed to reach $\bar u$ gives:</p>
+<div class="math-display calculation-group">$$\bar u=\frac{(1+\alpha)m}{p_x+p_y}
+\quad\Longrightarrow\quad
+\boxed{e(p,\bar u)=\frac{\bar u(p_x+p_y)}{1+\alpha}.}$$</div>
+<p>Apply Shephard's lemma with respect to each price:</p>
+<div class="math-display calculation-group">$$\begin{aligned}
+x^H&=\frac{\partial e(p,\bar u)}{\partial p_x}=\frac{\bar u}{1+\alpha},\\[0.7em]
+y^H&=\frac{\partial e(p,\bar u)}{\partial p_y}=\frac{\bar u}{1+\alpha}.
+\end{aligned}$$</div>
+<p>Thus the Hicksian quantities are also equal, with common quantity $t^H=\bar u/(1+\alpha)$, as in the notes.</p>
+</div>
+
+<div class="solution-step">
+<h4>Step 6 — The two equality cases discussed at the end of the lecture</h4>
+<p>The exercise initially excludes the two threshold price ratios. The handwritten correction ends by discussing them separately.</p>
+<p>If $p_x/p_y=\alpha$, the price ratio equals the MRS on the $x&gt;y$ side. Every bundle <strong>on the budget line</strong> with $x\ge y$ is optimal.</p>
+<p>If $p_x/p_y=1/\alpha$, the price ratio equals the MRS on the $x&lt;y$ side. Every bundle <strong>on the budget line</strong> with $x\le y$ is optimal.</p>
+<p>Here, “all feasible bundles” in the notes refers to the relevant bundles satisfying $p_xx+p_yy=m$, rather than bundles that leave some income unspent.</p>
 </div>
 <h3 class="question-heading">3. Logarithmic utility</h3>
  <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y, \qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div>
