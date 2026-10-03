@@ -609,8 +609,8 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
 .course-figure-image img {
   display:block;
   width:100%;
-  max-width:460px;
-  max-height:430px;
+  max-width:300px;
+  max-height:285px;
   margin:0 auto;
   object-fit:contain;
   border-radius:8px;
@@ -697,6 +697,22 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   color:#fde68a;
   font-size:.9rem;
 }
+.research-toggle {
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 0;
+  border:0;
+  background:transparent;
+  color:#fde68a;
+  cursor:pointer;
+  font:inherit;
+  font-weight:800;
+  text-align:left;
+}
+.research-toggle span:last-child { color:#fbbf24; font-size:.82rem; }
 .empirical-label { display:block; margin-bottom:8px; color:#fbbf24; }
 .research-list { margin:10px 0 0; }
 .research-list li + li { margin-top:7px; }
@@ -731,7 +747,20 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   color:var(--text);
   font-weight:650;
 }
-.figure-sequence { display:grid; gap:8px; }
+.figure-sequence {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(190px,.72fr);
+  align-items:center;
+  gap:16px;
+}
+.figure-sequence .figure-question { margin:0; }
+.property-body:has(> .course-figure-image) {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(190px,.72fr);
+  align-items:center;
+  gap:16px;
+}
+.property-body:has(> .course-figure-image) .course-figure-image { margin:0; }
 .figure-pair {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -739,7 +768,7 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   margin:16px 0 4px;
 }
 .figure-pair .course-figure-image { margin:0; }
-.figure-pair .course-figure-image img { max-width:100%; max-height:330px; }
+.figure-pair .course-figure-image img { max-width:100%; max-height:230px; }
 .derivation-panel {
   margin-top:16px;
   border:1px solid rgba(96,165,250,.34);
@@ -775,7 +804,7 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   .research-data { grid-template-columns:1fr; }
   .course-figure-image { padding:9px; }
   .course-figure-image img { max-width:100%; max-height:none; }
-  .figure-pair { grid-template-columns:1fr; }
+  .figure-pair, .figure-sequence, .property-body:has(> .course-figure-image) { grid-template-columns:1fr; }
   .math-display { font-size:.60rem; }
   .classification-table { min-width:0; table-layout:fixed; font-size:.75rem; }
   .classification-table th, .classification-table td { padding:10px 7px; overflow-wrap:anywhere; }
@@ -811,6 +840,7 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a>
       <a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2-1</a>
       <a href="income_price_effects.html" class="sidebar-sublink active" aria-current="page">3 · Income and Price Effects</a>
+      <a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2-2</a>
     </div>
   </nav>
   <div class="sidebar-footer">
@@ -1071,10 +1101,34 @@ function initChapterProgress(){
   updateProgress();
 }
 
+function initEmpiricalPanels() {
+  document.querySelectorAll('.research-empirical').forEach((panel) => {
+    const content = document.createElement('div');
+    content.className = 'research-empirical-content';
+    Array.from(panel.children).forEach((child) => content.appendChild(child));
+    const label = content.querySelector('.empirical-label')?.textContent || 'Empirical evidence';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'research-toggle';
+    button.setAttribute('aria-expanded', 'false');
+    button.innerHTML = `<span>${label}</span><span>Show ▾</span>`;
+    content.hidden = true;
+    button.addEventListener('click', () => {
+      const open = !content.hidden;
+      content.hidden = open;
+      button.setAttribute('aria-expanded', String(!open));
+      button.lastElementChild.textContent = open ? 'Show ▾' : 'Hide ▴';
+      if (!open && window.MathJax?.typesetPromise) MathJax.typesetPromise([content]).catch(console.error);
+    });
+    panel.append(button, content);
+  });
+}
+
 if(document.readyState === 'loading'){
-  document.addEventListener('DOMContentLoaded', initChapterProgress);
+  document.addEventListener('DOMContentLoaded', () => { initChapterProgress(); initEmpiricalPanels(); });
 } else {
   initChapterProgress();
+  initEmpiricalPanels();
 }
 
 </script>
