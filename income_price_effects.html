@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MICRO — 3. Income and Price Effects · Consumer Theory</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+<style>
+/* =====================================================
+   DESIGN SYSTEM — MICRO (Dark Red Premium)
+   ===================================================== */
+:root {
+  --sidebar-bg: #13020A;
+  --sidebar-width: 280px;
+  --bg: #0f1117;
+  --bg-card: #161922;
+  --red: #e11d48;
+  --red-bright: #ff2d55;
+  --red-muted: rgba(225,29,72,0.1);
+  --red-border: rgba(225,29,72,0.3);
+  --red-glow: rgba(225,29,72,0.15);
+  --red-gradient: linear-gradient(135deg, #e11d48 0%, #9f1239 100%);
+  --blue-bright: #60a5fa;
+  --blue-muted: rgba(59,130,246,0.1);
+  --blue-border: rgba(59,130,246,0.3);
+  --green-bright: #34d399;
+  --green-muted: rgba(16,185,129,0.08);
+  --green-border: rgba(16,185,129,0.3);
+  --purple-bright: #c084fc;
+  --purple-muted: rgba(168,85,247,0.1);
+  --purple-border: rgba(168,85,247,0.3);
+  --amber-bright: #fbbf24;
+  --amber-muted: rgba(245,158,11,0.09);
+  --amber-border: rgba(245,158,11,0.3);
+  --text: #f8fafc;
+  --text-2: #cbd5e1;
+  --text-3: #94a3b8;
+  --text-muted: #64748b;
+  --border: rgba(255,255,255,0.07);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --font: 'Outfit', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  position: fixed; top:0; left:0; bottom:0;
+  z-index: 200; transition: transform .3s ease; overflow: hidden;
+}
+.sidebar-brand {
+  padding: 22px 20px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sidebar-brand h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: 1px; }
+.sidebar-brand h1 span { color: var(--red); }
+.sidebar-close { background:none; border:none; color:var(--text-3); font-size:1.4rem; cursor:pointer; }
+.sidebar-close:hover { color: var(--red); }
+.sidebar-nav { flex:1; overflow-y:auto; padding:12px 0; }
+
+.sidebar-link {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 22px;
+  color: var(--text-3); text-decoration: none;
+  font-size: 0.88rem; font-weight: 700;
+  transition: all .2s; border-left: 3px solid transparent;
+}
+.sidebar-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.sidebar-link.active { color: var(--red-bright); border-left-color: var(--red); background: var(--red-muted); }
+
+.sidebar-group { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.sidebar-group-title {
+  padding: 10px 22px 4px;
+  font-size: 0.82rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.6px; color: var(--text-3);
+}
+.sidebar-sublink {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 22px 9px 36px;
+  color: var(--text-3); text-decoration: none;
+  font-size: 0.85rem; font-weight: 600;
+  transition: all .2s; border-left: 3px solid transparent;
+}
+.sidebar-sublink:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.sidebar-sublink.active { color: var(--red-bright); border-left-color: var(--red); background: var(--red-muted); }
+
+.sidebar-footer {
+  padding: 14px 16px; border-top: 1px solid var(--border);
+}
+.sidebar-user { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px; }
+.user-avatar { width: 44px; height: 44px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; }
+.user-dot { width:8px; height:8px; background:#10b981; border-radius:50%; border:2px solid var(--sidebar-bg); position:absolute; bottom:-2px; right:-2px; }
+.user-info { overflow:hidden; }
+.user-name { font-size:0.82rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.user-role { font-size:0.7rem; color:var(--text-muted); }
+
+/* ── TOPBAR ── */
+.topbar {
+  height: 64px; background: rgba(15,17,23,0.9); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px); position:sticky; top:0; z-index:100;
+  display:flex; align-items:center; padding:0 28px; gap:16px;
+}
+.topbar-toggle { background:rgba(255,255,255,0.06); border:1px solid var(--border); color:var(--text); width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.1rem; flex-shrink:0; transition:.2s; }
+.topbar-toggle:hover { border-color: var(--red-border); color: var(--red); }
+.topbar-breadcrumb { color:var(--text-3); font-size:0.88rem; display:flex; align-items:center; gap:6px; }
+.topbar-breadcrumb .sep { opacity:.4; }
+.topbar-breadcrumb strong { color:var(--text); font-weight:700; }
+.topbar-pill { margin-left:auto; background:var(--red-muted); border:1px solid var(--red-border); color:var(--red); padding:5px 14px; border-radius:999px; font-size:0.78rem; font-weight:700; display:flex; align-items:center; gap:7px; }
+.topbar-dot { width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 7px var(--red); }
+
+/* ── LAYOUT ── */
+.main-wrap { margin-left: var(--sidebar-width); flex:1; display:flex; flex-direction:column; transition:margin-left .3s; min-width:0; }
+.main-wrap.expanded { margin-left:0; }
+.main-content { padding:40px 44px 70px; max-width:920px; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:44px; }
+
+/* ── PAGE TITLE ── */
+.page-title-block { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+.page-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--red); margin-bottom:8px; }
+.page-title-block h1 { font-size:2.1rem; font-weight:800; letter-spacing:-0.5px; line-height:1.2; }
+.page-title-block p { color:var(--text-3); font-size:0.95rem; margin-top:8px; }
+
+/* ── PART BANNER ── */
+.part-banner {
+  display: flex; align-items: center; gap: 14px; margin-top: 6px;
+}
+.part-pill {
+  font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.8px; padding: 6px 15px; border-radius: 999px; white-space: nowrap;
+}
+.part-pill.green { background: rgba(16,185,129,0.12); color: var(--green-bright); border: 1px solid var(--green-border); }
+.part-pill.blue  { background: var(--blue-muted); color: var(--blue-bright); border: 1px solid var(--blue-border); }
+.part-pill.purple{ background: var(--purple-muted); color: var(--purple-bright); border: 1px solid var(--purple-border); }
+.part-pill.amber { background: var(--amber-muted); color: var(--amber-bright); border: 1px solid var(--amber-border); }
+.part-pill.red   { background: var(--red-muted); color: var(--red-bright); border: 1px solid var(--red-border); }
+.part-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── SUBSECTIONS ── */
+.subsection { display:flex; flex-direction:column; gap:22px; }
+
+/* ── KEY NOTE ── */
+.key-note {
+  font-size:0.93rem; color:var(--text-2); line-height:1.68;
+  border-left: 3px solid var(--red); padding: 14px 18px;
+  background: var(--red-muted); border-radius: 0 var(--radius) var(--radius) 0;
+}
+.key-note.green  { border-left-color: #10b981; background: var(--green-muted); }
+.key-note.blue   { border-left-color: #3b82f6; background: var(--blue-muted); }
+.key-note.purple { border-left-color: #a855f7; background: var(--purple-muted); }
+.key-note.amber  { border-left-color: #f59e0b; background: var(--amber-muted); }
+.key-note strong { color:var(--text); font-weight:800; }
+
+/* ── MATH DISPLAY ── */
+.math-display {
+  background: var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:14px 20px;
+  text-align:center; margin: 8px 0; overflow-x:visible; min-width:0;
+}
+.math-display.boxed        { border-color:var(--red-border);    background:var(--red-muted); }
+.math-display.boxed-blue   { border-color:var(--blue-border);   background:var(--blue-muted); }
+.math-display.boxed-green  { border-color:var(--green-border);  background:var(--green-muted); }
+.math-display.boxed-purple { border-color:var(--purple-border); background:var(--purple-muted); }
+.math-display.boxed-amber  { border-color:var(--amber-border);  background:var(--amber-muted); }
+
+/* ── PROPERTY ITEM ── */
+.property-item {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:20px 24px; display:flex; flex-direction:column; gap:10px;
+}
+.property-item.red    { border-left:4px solid var(--red); }
+.property-item.blue   { border-left:4px solid #3b82f6; }
+.property-item.green  { border-left:4px solid #10b981; }
+.property-item.purple { border-left:4px solid #a855f7; }
+.property-item.amber  { border-left:4px solid #f59e0b; }
+.property-name { font-size:0.82rem; font-weight:800; text-transform:uppercase; letter-spacing:0.6px; }
+.property-item.red    .property-name { color:var(--red); }
+.property-item.blue   .property-name { color:#60a5fa; }
+.property-item.green  .property-name { color:#34d399; }
+.property-item.purple .property-name { color:#c084fc; }
+.property-item.amber  .property-name { color:#fbbf24; }
+.property-body { font-size:0.92rem; color:var(--text-2); line-height:1.68; }
+.property-body .intuition { font-style:italic; color:var(--text-3); font-size:0.86rem; margin-top:8px; display:block; }
+
+/* ── BULLETS ── */
+.bullet-list { list-style:none; display:flex; flex-direction:column; gap:10px; padding:0; }
+.bullet-list li { font-size:0.91rem; color:var(--text-2); line-height:1.65; display:block; }
+.bullet-list li::before { content:"—"; color:var(--red); font-weight:800; margin-right:8px; }
+.bullet-list.blue   li::before { color:#60a5fa; }
+.bullet-list.green  li::before { color:#34d399; }
+.bullet-list.purple li::before { color:#c084fc; }
+.bullet-list.amber  li::before { color:#fbbf24; }
+
+/* ── DEDICATED EXAMPLE CARD (NEW STRUCTURED DESIGN) ── */
+.example-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: linear-gradient(180deg, rgba(245,158,11,0.04) 0%, rgba(22,25,34,1) 100%);
+}
+.example-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.example-badge {
+  font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.8px; padding: 4px 10px; border-radius: 999px;
+  background: var(--amber-muted); color: var(--amber-bright);
+  border: 1px solid var(--amber-border);
+}
+.example-statement {
+  font-size: 1.05rem; font-weight: 700; color: var(--text);
+  line-height: 1.5;
+}
+.example-setup {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px;
+  margin-top: 2px;
+}
+.setup-box {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.setup-title {
+  font-size: 0.78rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--amber-bright);
+}
+.setup-desc { font-size: 0.87rem; color: var(--text-2); line-height: 1.5; }
+
+.proof-duo-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px;
+  margin-top: 4px;
+}
+.proof-duo-card {
+  background: rgba(10,11,16,0.65);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.proof-duo-card.pass { border-top: 3px solid #10b981; }
+.proof-duo-card.fail { border-top: 3px solid var(--red); }
+.proof-duo-head {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.proof-duo-title { font-size: 0.95rem; font-weight: 800; color: var(--text); }
+.status-tag {
+  font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px;
+}
+.status-tag.green { background: rgba(16,185,129,0.15); color: var(--green-bright); }
+.status-tag.red   { background: rgba(225,29,72,0.15); color: var(--red-bright); }
+
+/* ── SEPARABILITY: SAME COMPARISON, DIFFERENT DRINK ── */
+.separability-case { gap:14px; }
+.separability-case h3 { font-size:1rem; line-height:1.4; }
+.separability-row {
+  border:1px solid var(--border); border-radius:8px; padding:12px;
+  background:rgba(255,255,255,0.025);
+}
+.separability-row-label {
+  display:block; margin-bottom:12px; color:var(--text-2);
+  font-size:0.8rem; font-weight:700;
+}
+.separability-ranking {
+  display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center; gap:8px; text-align:center;
+}
+.separability-bundle { display:flex; flex-direction:column; gap:4px; min-width:0; }
+.separability-bundle strong { color:var(--text); font-size:0.92rem; }
+.separability-bundle span { color:var(--text-3); font-size:0.78rem; }
+.separability-reversal { background:var(--red-muted); border-color:var(--red-border); }
+.separability-reversal .separability-row-label { color:var(--red-bright); }
+.separability-verdict {
+  margin-top:auto; padding-top:12px; border-top:1px solid var(--border);
+  font-size:0.86rem; line-height:1.6; color:var(--text-2);
+}
+.separability-verdict strong { display:block; margin-top:6px; }
+.separability-case.pass .separability-verdict strong { color:var(--green-bright); }
+.separability-case.fail .separability-verdict strong { color:var(--red-bright); }
+.separability-answers { display:flex; flex-wrap:wrap; gap:8px 24px; margin-top:8px; }
+
+/* ── TOGGLE & COLLAPSIBLE ── */
+.toggle-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.03); border:1px solid var(--border);
+  color:var(--text-2); font-family:var(--font);
+  font-size:0.84rem; font-weight:700;
+  padding:8px 18px; border-radius:999px;
+  cursor:pointer; transition:all .2s; width:fit-content; margin-top:4px;
+}
+.toggle-btn:hover { border-color:var(--red-border); color:var(--red); background:var(--red-muted); }
+.toggle-btn.blue:hover   { border-color:var(--blue-border); color:var(--blue-bright); background:var(--blue-muted); }
+.toggle-btn.green:hover  { border-color:var(--green-border); color:var(--green-bright); background:var(--green-muted); }
+.toggle-btn.purple:hover { border-color:var(--purple-border); color:var(--purple-bright); background:var(--purple-muted); }
+.toggle-btn .arrow { font-size:0.65rem; transition:transform .25s; display:inline-block; }
+.toggle-btn.open .arrow { transform:rotate(180deg); }
+.collapsible {
+  display:none; margin-top:12px;
+  background:rgba(10,11,16,0.85); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:22px 24px;
+  font-size:0.9rem; color:var(--text-2); line-height:1.7;
+}
+.collapsible.open { display:block; animation: fadeDown .2s ease; }
+.collapsible strong { color:var(--text); font-weight:700; }
+@keyframes fadeDown { from {opacity:0;transform:translateY(-6px);} to {opacity:1;transform:translateY(0);} }
+.collapsible .math-display { background: rgba(255,255,255,0.03); }
+
+/* ── DEMO STEPS ── */
+.demo-step {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+}
+.demo-step:last-child { border-bottom: none; }
+.step-num {
+  min-width: 28px; height: 28px; border-radius: 50%;
+  background: var(--red-gradient); color: #fff;
+  font-size: 0.78rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-num.blue   { background: linear-gradient(135deg,#3b82f6,#1d4ed8); }
+.step-num.green  { background: linear-gradient(135deg,#10b981,#065f46); }
+.step-num.purple { background: linear-gradient(135deg,#a855f7,#6b21a8); }
+.step-body { font-size: 0.9rem; color: var(--text-2); line-height: 1.68; flex: 1; min-width:0; }
+.step-body strong { color: var(--text); font-weight: 700; }
+
+/* ── IMPLICATION CHAIN ── */
+.impl-chain {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding: 14px 18px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.impl-box {
+  background: var(--red-muted); border: 1px solid var(--red-border);
+  color: var(--text); font-size: 0.85rem; font-weight: 700;
+  padding: 6px 14px; border-radius: 6px;
+}
+.impl-box.green  { background: var(--green-muted); border-color: var(--green-border); }
+.impl-box.blue   { background: var(--blue-muted);  border-color: var(--blue-border); }
+.impl-box.purple { background: var(--purple-muted);border-color: var(--purple-border); }
+.impl-arrow { color: var(--text-3); font-size: 1rem; font-weight: 700; }
+
+/* ── COMPARISON TABLE ── */
+.comparison-table { width:100%; border-collapse:collapse; font-size:0.88rem; margin-top:8px; }
+.comparison-table th { background:rgba(255,255,255,0.03); color:var(--text-3); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; padding:12px 16px; border-bottom:1px solid var(--border); text-align:left; }
+.comparison-table td { padding:12px 16px; border-bottom:1px solid var(--border); color:var(--text-2); line-height:1.55; vertical-align:top; }
+.comparison-table tr:last-child td { border-bottom:none; }
+.comparison-table tr:hover td { background:rgba(255,255,255,0.02); }
+
+/* ── COURSE FIGURE CARD ── */
+.course-figure-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.figure-img-frame {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+.figure-img-frame img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.figure-caption-box {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.figure-caption-box strong { color: var(--text); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:10px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .sidebar { transform:translateX(-100%); }
+  .sidebar.open { transform:translateX(0); }
+  .main-wrap { margin-left:0 !important; }
+  .main-content { padding:24px 20px 40px; }
+  .example-setup, .proof-duo-grid { grid-template-columns: 1fr; }
+}
+
+/* Reading layout: keep prose and formulas within their cards. */
+.course-text { font-size:0.92rem; color:var(--text-2); line-height:1.68; }
+.property-body p + p, .key-note p + p { margin-top:10px; }
+.sidebar.collapsed { transform:translateX(-100%); }
+.toggle-btn { max-width:100%; text-align:left; }
+.toggle-btn .arrow { flex-shrink:0; }
+.part-pill { white-space:normal; }
+.part-line { min-width:16px; }
+.proof-duo-head, .example-header { flex-wrap:wrap; gap:8px; }
+.property-item, .collapsible, .proof-duo-card, .distinction-card { min-width:0; }
+.figures-gallery { grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); }
+@media (min-width:901px) and (max-width:1150px) {
+  .example-setup, .proof-duo-grid, .distinction-grid { grid-template-columns:1fr; }
+}
+@media (max-width:600px) {
+  .main-content { padding:24px 14px 40px; gap:32px; }
+  .topbar { padding:0 14px; gap:10px; }
+  .topbar-breadcrumb { display:block; font-size:0.75rem; min-width:0; }
+  .topbar-pill { display:none; }
+  .page-title-block h1 { font-size:1.65rem; }
+  .property-item, .example-card, .distinction-card { padding:16px; }
+  .proof-duo-card, .collapsible { padding:14px; }
+  .math-display { padding:10px 8px; font-size:0.82rem; }
+  .demo-step { gap:8px; }
+  .step-num { min-width:24px; height:24px; }
+  .step-body .math-display { font-size:0.76rem; }
+  .comparison-table, .comparison-table tbody, .comparison-table tr,
+  .comparison-table td { display:block; width:100%; }
+  .comparison-table thead { display:none; }
+  .comparison-table tr { padding:10px 0; border-bottom:1px solid var(--border); }
+  .comparison-table td { border:0; padding:6px 0; }
+  .comparison-table td::before {
+    content:attr(data-label); display:block; color:var(--text-3);
+    font-size:0.7rem; font-weight:800; text-transform:uppercase; margin-bottom:4px;
+  }
+}
+
+/* ── SEGMENTED CHAPTER PROGRESS BAR ── */
+.chapter-progress-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  margin: 0 20px;
+  padding: 0 2px;
+}
+.progress-segment {
+  flex: 1;
+  height: 7px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.progress-segment:hover {
+  transform: scaleY(1.35);
+  filter: brightness(1.25);
+}
+.progress-segment.completed {
+  background: linear-gradient(90deg, #9f1239, #e11d48);
+  border-color: rgba(244, 63, 94, 0.5);
+  box-shadow: 0 0 8px rgba(225, 29, 72, 0.35);
+}
+.progress-segment.active {
+  background: linear-gradient(90deg, #e11d48, #ff2d55);
+  border-color: rgba(255, 45, 85, 0.9);
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.6), 0 0 4px rgba(255, 45, 85, 0.4);
+}
+@media(max-width:900px){
+  .chapter-progress-bar { margin: 0 10px; gap: 4px; }
+  .progress-segment { height: 5px; }
+}
+@media(max-width:640px){
+  .chapter-progress-bar { display: none; }
+}
+
+
+/* Reading layout for Consumer Theory. */
+.main-content { container:course / inline-size; }
+.subsection { scroll-margin-top:86px; }
+.course-part { margin-top:24px; padding-top:24px; border-top:1px solid var(--border); font-size:1.55rem; color:var(--text); scroll-margin-top:86px; }
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2px solid var(--blue-bright); outline-offset:4px; }
+.assumption-grid, .definition-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.mini-card { padding:18px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-card); }
+.mini-card h3, .course-figure h3 { font-size:.96rem; color:var(--text); margin-bottom:8px; }
+.mini-card p, .course-figure figcaption { font-size:.88rem; line-height:1.65; color:var(--text-2); }
+.definition-pair { margin:16px 0; }
+.definition-pair > div { padding:14px; border:1px solid var(--border); border-radius:var(--radius); }
+.definition-pair h4, .foc-list h4, .collapsible h4 { color:var(--text); font-size:.92rem; margin-bottom:8px; }
+.figure-grid { display:grid; gap:16px; }
+.budget-figures { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.budget-figures > :first-child { grid-column:1 / -1; width:100%; max-width:560px; justify-self:center; }
+.figure-key { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:.82rem; margin:8px 0; }
+.figure-key .before { color:#fbbf24; }
+.figure-key .after { color:#60a5fa; }
+.demand-figures { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.course-figure { min-width:0; padding:16px; border:1px solid var(--border); border-radius:var(--radius); background:var(--bg-card); }
+.course-figure svg { display:block; width:100%; height:auto; fill:var(--text-2); font:15px var(--font); margin:8px 0; }
+.tangency-figure { width:100%; max-width:560px; align-self:center; }
+.course-figure figcaption { font-size:.84rem; }
+.foc-list { display:grid; gap:16px; margin-top:16px; }
+.foc-list > div + div, .proof-step + .proof-step { border-top:1px solid var(--border); padding-top:16px; }
+.proof-step { margin-top:18px; }
+.collapsible p + p { margin-top:12px; }
+.collapsible {
+  display:block;
+  margin-top:16px;
+  padding:18px 16px;
+  background:rgba(10,11,16,0.85);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+}
+.math-display { margin:12px 0; padding:12px 10px; }
+.math-display mjx-container[display="true"] { margin:.4em 0; }
+.responsive-math { container:formula / inline-size; }
+.formula-wide { display:none; }
+@container formula (min-width:24em) {
+  .formula-wide { display:block; }
+  .formula-compact { display:none; }
+}
+.property-explanations { display:grid; gap:0; margin-top:12px; }
+.property-explanations > div { padding:13px 0; border-top:1px solid var(--border); }
+.property-explanations dt { color:var(--text); font-weight:700; margin-bottom:4px; }
+.property-explanations dd { margin:0; }
+@container course (max-width:680px) { .budget-figures { grid-template-columns:1fr; } }
+@container course (max-width:520px) {
+  .assumption-grid, .definition-pair, .demand-figures { grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  .course-figure { padding:14px; }
+  .collapsible { padding:14px 10px; }
+  .math-display { padding:10px 5px; font-size:.82rem; }
+}
+@media(max-width:360px) {
+  #proof-roy .math-display { font-size:.76rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after { scroll-behavior:auto!important; animation:none!important; transition:none!important; }
+}
+
+/* Income and price effects */
+.effects-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin-top:18px;
+}
+.effect-tile {
+  min-width:0;
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:var(--bg-card);
+}
+.effect-tile .effect-label {
+  display:block;
+  margin-bottom:9px;
+  color:var(--text-2);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.effect-tile.total { border-color:rgba(96,165,250,.45); }
+.effect-tile.substitution { border-color:rgba(45,212,191,.45); }
+.effect-tile.income { border-color:rgba(244,114,182,.45); }
+.course-figure-placeholder {
+  display:grid;
+  place-items:center;
+  min-height:230px;
+  margin:20px 0 4px;
+  padding:28px 22px;
+  border:1px dashed rgba(148,163,184,.55);
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(51,65,85,.32),rgba(15,23,42,.45));
+  text-align:center;
+}
+.course-figure-placeholder .figure-placeholder-label {
+  color:var(--blue-bright);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.course-figure-placeholder p {
+  margin:8px 0 3px;
+  color:var(--text);
+  font-weight:650;
+}
+.course-figure-placeholder figcaption {
+  color:var(--text-2);
+  font-size:.85rem;
+}
+.classification-table {
+  width:100%;
+  min-width:560px;
+  border-collapse:separate;
+  border-spacing:0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  background:var(--bg-card);
+}
+.classification-table th,
+.classification-table td {
+  padding:13px 16px;
+  border-bottom:1px solid var(--border);
+  text-align:left;
+}
+.classification-table th {
+  color:var(--text);
+  background:rgba(59,130,246,.10);
+  font-size:.78rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.classification-table tr:last-child td { border-bottom:0; }
+.classification-table td:first-child { color:var(--text); font-weight:700; }
+.course-remark {
+  margin-top:12px;
+  color:var(--text-2);
+  font-style:italic;
+}
+.research-focus {
+  margin:38px 0;
+  padding:28px;
+  border:1px solid rgba(45,212,191,.36);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(145deg,rgba(9,73,71,.30),rgba(18,24,35,.82) 42%,rgba(20,35,53,.74));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  scroll-margin-top:86px;
+}
+.research-header {
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:10px 14px;
+  margin:0 0 20px;
+  padding-bottom:17px;
+  border-bottom:1px solid rgba(45,212,191,.25);
+}
+.research-header span,
+.empirical-label {
+  color:#5eead4;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.research-header h2 { margin:0; color:var(--text); font-size:1.55rem; }
+.research-theory,
+.research-empirical,
+.research-figures {
+  margin-top:16px;
+  padding:20px;
+  border:1px solid rgba(148,163,184,.18);
+  border-radius:var(--radius);
+  background:rgba(15,23,42,.47);
+}
+.research-theory h3,
+.research-empirical h3 { margin:0 0 12px; color:var(--text); font-size:1.06rem; }
+.research-empirical {
+  border-color:rgba(251,191,36,.42);
+  background:linear-gradient(135deg,rgba(120,53,15,.18),rgba(15,23,42,.64));
+}
+.research-empirical h4 {
+  margin:20px 0 7px;
+  color:#fde68a;
+  font-size:.9rem;
+}
+.empirical-label { display:block; margin-bottom:8px; color:#fbbf24; }
+.research-list { margin:10px 0 0; }
+.research-list li + li { margin-top:7px; }
+.research-data {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:14px 0;
+}
+.research-data > div {
+  padding:14px;
+  border:1px solid rgba(251,191,36,.22);
+  border-radius:10px;
+  background:rgba(15,23,42,.38);
+}
+.research-data p { margin:7px 0 0; color:var(--text-2); }
+.research-empirical blockquote {
+  margin:14px 0;
+  padding:16px 18px;
+  border-left:3px solid #fbbf24;
+  border-radius:0 10px 10px 0;
+  background:rgba(15,23,42,.45);
+  color:var(--text-2);
+  font-style:italic;
+}
+.figure-question {
+  margin:16px 0;
+  padding:12px 14px;
+  border-left:3px solid var(--blue-bright);
+  border-radius:0 9px 9px 0;
+  background:rgba(59,130,246,.10);
+  color:var(--text);
+  font-weight:650;
+}
+.figure-sequence { display:grid; gap:8px; }
+@container course (max-width:700px) {
+  .effects-grid { grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  html, body { overflow-x:clip; }
+  .research-focus { margin:28px 0; padding:18px 14px; }
+  .research-theory, .research-empirical, .research-figures { padding:15px; }
+  .research-data { grid-template-columns:1fr; }
+  .course-figure-placeholder { min-height:180px; padding:22px 14px; }
+  .math-display { font-size:.60rem; }
+  .classification-table { min-width:0; table-layout:fixed; font-size:.75rem; }
+  .classification-table th, .classification-table td { padding:10px 7px; overflow-wrap:anywhere; }
+}
+
+</style>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <h1>MICRO<span>.</span></h1>
+    <button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">📂 1 — Choice Theory</div>
+      <a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a>
+      <a href="utility.html" class="sidebar-sublink">2 · Utility</a>
+      <a href="choice.html" class="sidebar-sublink">3 · Choice</a>
+      <a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-1</a>
+      <a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a>
+      <a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a>
+      <a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-2</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">📂 Consumer Theory</div>
+      <a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a>
+      <a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior: UMP and EmP</a>
+      <a href="income_price_effects.html" class="sidebar-sublink active" aria-current="page">3 · Income and Price Effects</a>
+      <a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2-1</a>
+    </div>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar" style="background: transparent;">
+        <img src="images/avatar.png" alt="STAR NOVA" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+        <span class="user-dot"></span>
+      </div>
+      <div class="user-info">
+        <div class="user-name">STAR NOVA</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main-wrap" id="main-wrap">
+
+  <div class="topbar">
+    <button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+    <div class="topbar-breadcrumb">
+      MICRO <span class="sep">›</span> Consumer Theory <span class="sep">›</span> <strong>3. Income and Price Effects</strong>
+    </div>
+    <div class="chapter-progress-bar" id="chapterProgressBar" role="navigation" aria-label="Chapter sections"></div>
+    <div class="topbar-pill"><span class="topbar-dot"></span>Part II</div>
+  </div>
+
+  <div class="main-content">
+
+    <header class="page-title-block">
+      <div class="page-label">Consumer Theory · Part 3</div>
+      <h1>3. Income and Price Effects</h1>
+      <p>Slutsky decomposition, elasticities, research focuses, and welfare effects of a price change.</p>
+    </header>
+
+    <section class="subsection" id="slutsky-equation">
+      <div class="part-banner"><h2 class="part-pill blue">Slutsky Equation</h2><div class="part-line"></div></div>
+      <article class="property-item blue">
+        <div class="property-body">
+          <p>Assume that $u$ is a continuous utility function representing a locally non-satiated preference relation $\succeq$, that $p\gg0$ and $y=e(p,\bar u)$, and that $h(p,\bar u)$ and $x(p,y)$ are singleton-valued and differentiable at $(p,\bar u,y)$.</p>
+          <p>Then, for every $i,j$:</p>
+          <div class="math-display boxed-blue">$$\frac{\partial x_i(p,y)}{\partial p_j}=\frac{\partial h_i(p,\bar u)}{\partial p_j}-\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y).$$</div>
+        </div>
+      </article>
+      <article class="property-item green">
+        <h3 class="property-name">An intuition</h3>
+        <div class="property-body">
+          <p>Start from the same-problem identity:</p>
+          <div class="math-display">$$h_i(p,\bar u)=x_i(p,e(p,\bar u)).$$</div>
+          <p>Differentiate with respect to $p_j$:</p>
+          <div class="math-display">$$\frac{\partial h_i(p,\bar u)}{\partial p_j}=\frac{\partial x_i(p,y)}{\partial p_j}+\left[\frac{\partial x_i(p,y)}{\partial y}\right]\left[\frac{\partial e(p,\bar u)}{\partial p_j}\right],\qquad e(p,\bar u)=y.$$</div>
+          <p>By Shephard's Lemma, $\partial e(p,\bar u)/\partial p_j=h_j(p,\bar u)$. The same-problem identity gives $h_j(p,\bar u)=x_j(p,y)$. Substitution yields the Slutsky equation displayed above.</p>
+        </div>
+      </article>
+      <article class="property-item amber">
+        <h3 class="property-name">Two remarks about the Slutsky equation</h3>
+        <div class="property-body"><ul class="bullet-list amber"><li>It gives a relationship between the Marshallian and Hicksian demands for good $i$.</li><li>It allows us to analyze the response of the Marshallian demand for good $i$ to a price change in good $j$, including an own-price change when $i=j$.</li></ul></div>
+      </article>
+    </section>
+
+    <section class="subsection" id="effects">
+      <div class="part-banner"><h2 class="part-pill green">Substitution and Income Effects</h2><div class="part-line"></div></div>
+      <div class="effects-grid">
+        <div class="effect-tile total"><span class="effect-label">Total effect</span><div>$$\frac{\partial x_i(p,y)}{\partial p_j}$$</div></div>
+        <div class="effect-tile substitution"><span class="effect-label">Substitution effect</span><div>$$\frac{\partial h_i(p,\bar u)}{\partial p_j}$$</div></div>
+        <div class="effect-tile income"><span class="effect-label">Income effect</span><div>$$-\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y)$$</div></div>
+      </div>
+      <article class="property-item green"><h3 class="property-name">Substitution effect</h3><div class="property-body"><p>When $p_j$ varies, the substitution effect is the change in demand for good $i$ holding utility constant. A change in $p_j$ changes the optimal bundle $(x_i^*,x_j^*)$. The resulting change in demand for good $i$ depends on whether $i$ is a substitute or complement for $j$.</p></div></article>
+      <article class="property-item purple"><h3 class="property-name">Income effect</h3><div class="property-body"><p>When $p_j$ varies, the income effect is the change in demand for good $i$ holding income constant. A change in $p_j$ changes the consumer's purchasing power. The resulting change in demand for good $i$ depends on whether good $i$ is normal or inferior.</p></div></article>
+      <article class="property-item amber"><h3 class="property-name">Own-price change</h3><div class="property-body"><p>For an own-price change, $i=j$, the substitution effect is always negative:</p><div class="math-display boxed-amber">$$\frac{\partial h_i(p,\bar u)}{\partial p_i}\leq0.$$</div></div></article>
+    </section>
+
+    <section class="subsection" id="elasticities">
+      <div class="part-banner"><h2 class="part-pill amber">Income and Price Elasticities</h2><div class="part-line"></div></div>
+      <article class="property-item blue"><h3 class="property-name">Income-expansion path</h3><div class="property-body"><p>The income-expansion path represents the consumer's optimal bundles for different income levels, keeping prices constant.</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Income-expansion path</p><figcaption>Income-expansion path.</figcaption></figure></div></article>
+      <article class="property-item green"><h3 class="property-name">Income elasticity of demand</h3><div class="property-body"><p>The income elasticity measures the percentage change in the quantity of $x_i$ demanded per 1% change in income:</p><div class="math-display">$$\eta_i=\frac{\%\,\text{change in Marshallian demand}}{\%\,\text{change in income}}=\left[\frac{\partial x_i(p,y)}{\partial y}\right]\frac{y}{x_i(p,y)}.$$</div></div></article>
+      <article class="property-item blue"><h3 class="property-name">Price-expansion path</h3><div class="property-body"><p>The price-expansion path represents the optimal choices for different $p_1$, keeping $p_2$ and income constant.</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Price-expansion path</p><figcaption>Price-expansion path.</figcaption></figure></div></article>
+      <article class="property-item green"><h3 class="property-name">Price elasticity of demand</h3><div class="property-body"><p>The price elasticity measures the percentage change in the quantity of $x_i$ demanded per 1% change in price $p_j$:</p><div class="math-display">$$\varepsilon_{ij}=\frac{\%\,\text{change in Marshallian demand for }x_i}{\%\,\text{change in price }p_j}=\left[\frac{\partial x_i(p,y)}{\partial p_j}\right]\frac{p_j}{x_i(p,y)}.$$</div><p>If $i=j$, $\varepsilon_{ii}$ measures own-price elasticity. If $i\neq j$, $\varepsilon_{ij}$ measures cross-price elasticity.</p></div></article>
+      <article class="property-item purple"><h3 class="property-name">Slutsky equation in elasticity form</h3><div class="property-body"><div class="math-display">$$\varepsilon_{ij}=\varepsilon_{ij}^h-\eta_i\left(\frac{p_jx_j}{y}\right).$$</div><ul class="bullet-list purple"><li>$\varepsilon_{ij}$: Marshallian price elasticity;</li><li>$\varepsilon_{ij}^h$: Hicksian price elasticity;</li><li>$\eta_i$: income elasticity;</li><li>$p_jx_j/y$: share of good $j$ in total expenditure.</li></ul></div></article>
+      <article class="property-item amber"><h3 class="property-name">Summary — Classification of Goods</h3><div class="property-body"><div class="table-scroll"><table class="classification-table"><thead><tr><th>Type of Good</th><th>$\eta_i$</th><th>$\varepsilon_{ii}$</th><th>$\varepsilon_{ij}$</th></tr></thead><tbody><tr><td>Normal</td><td>$\eta_i>0$</td><td></td><td></td></tr><tr><td>Inferior</td><td>$\eta_i<0$</td><td></td><td></td></tr><tr><td>Luxury</td><td>$\eta_i>1$</td><td></td><td></td></tr><tr><td>Ordinary</td><td></td><td>$\varepsilon_{ii}<0$</td><td></td></tr><tr><td>Giffen</td><td>$\eta_i<0$</td><td>$\varepsilon_{ii}>0$</td><td></td></tr><tr><td>Gross Substitutes</td><td></td><td></td><td>$\varepsilon_{ij}>0$</td></tr><tr><td>Gross Complements</td><td></td><td></td><td>$\varepsilon_{ij}<0$</td></tr></tbody></table></div><p class="course-remark">enough to dominate the substitution effect.</p></div></article>
+    </section>
+
+    <section class="research-focus" id="giffen-goods">
+      <div class="research-header"><span>Research Focus</span><h2>Giffen Goods</h2></div>
+      <article class="research-theory"><h3>Intuition Behind Giffen Behavior</h3><p>Consider a poor household near a subsistence level of nutrition, whose diet consists of only two foods: a staple food with a high calorie-to-price ratio and bad taste, and a “fancy” food with a low calorie/price ratio and good taste.</p><p><strong>Question.</strong> What happens to food consumption when the price of the staple food increases?</p><p><strong>Answer.</strong> Staple food consumption increases: Giffen behavior.</p><p>If the price of bread increases, the household can no longer afford the original bundle of foods. If it increases its consumption of meat, it will fall below its required caloric intake. It must instead increase its consumption of bread, which is still the cheapest source of calories, and cut back on meat.</p></article>
+      <article class="research-theory"><h3>Overview</h3><p>A Giffen good is a good for which an increase in its price causes an increase in its quantity:</p><div class="math-display">$$\varepsilon_{ii}>0.$$</div><p>The positive own-price elasticity arises when a negative income effect dominates the substitution effect:</p><div class="math-display">$$\varepsilon_{ii}=\varepsilon_{ii}^h-\eta_i\left(\frac{p_i}{y}\right)x_i>0.$$</div><ul class="bullet-list research-list"><li>own price $\varepsilon$;</li><li>substitution effect $<0$;</li><li>income effect $<0$.</li></ul><p class="course-remark">Giffen goods are named after Sir Robert Giffen, who is said to have observed this phenomenon with bread during the Irish potato famine (allegedly). Better terminology would emphasize that the Giffen property is attached to the good for a particular consumer in a particular situation.</p></article>
+      <article class="research-theory"><h3>Conditions for Giffen Behavior</h3><ul class="bullet-list research-list"><li>The staple good is an inferior good: $\eta_i<0$.</li><li>The staple good comprises a large part of the household budget: $p_ix_i/y$.</li><li>The staple good has no ready substitute.</li><li>Households are concerned about their subsistence: not too rich and do not consume only the staple; not too poor.</li></ul><p class="course-remark">Giffen goods are always inferior: they are consumed less as income rises. However, not all inferior goods are Giffen.</p></article>
+      <div class="research-figures"><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Indifference Curves for a Giffen good.</p><figcaption>Indifference Curves for a Giffen good.</figcaption></figure><p class="figure-question">What happens when the price of the staple food increases?</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Indifference Curves for a Giffen good after the price change.</p><figcaption>Indifference Curves for a Giffen good.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Indifference Curves by households types.</p><figcaption>Indifference Curves by households types.</figcaption></figure><ul class="bullet-list research-list"><li>Income does not change the shape of indifference curves.</li><li>It changes where on them the household makes choices: at different tangency points, the relative strength of the income effect changes.</li></ul></div>
+      <article class="research-empirical"><div class="empirical-label">Empirical evidence</div><h3>Jensen &amp; Miller (2008)</h3><p>Jensen, R. T., &amp; Miller, N. H. (2008). “Giffen behavior and subsistence consumption.” <em>American Economic Review</em>, 98(4), 1553–1577.</p><h4>Research Question</h4><p>Can we document the existence of Giffen behavior beyond Sir Giffen's anecdote?</p><p class="figure-question">explain this last condition (not too poor, not too rich)</p><h4>Method</h4><p>Field experiment in China. Sample: urban-poor households.</p><div class="research-data"><div><strong>Hunan</strong><p>% of calories intake — rice: 64%<br>% of calories intake — meat: 7%</p></div><div><strong>Gansu</strong><p>% of calories intake — wheat: 69%<br>% of calories intake — meat: 1%</p></div></div><h4>Experimental Design</h4><p>Treated households received subsidies for staple food (rice/wheat) for 5 months. Control households did not receive the subsidy.</p><h4>Outcome Variables</h4><p>Consumption surveys during and after the subsidy.</p><h4>Estimation Strategy</h4><div class="math-display">$$\%\Delta \text{staple}_{i,t}=\alpha+\beta\,\%\Delta p_{i,t}+\sum\gamma\,\%\Delta Z_{i,t}+\sum\delta\,Y_{i,t}+c\,\Delta e_{i,t}.$$</div><ul class="bullet-list research-list"><li>$\%\Delta p_{i,t}$: % change in price of staple food ($<0$ in $t=2$, $<0$ in $t=3$);</li><li>$\%\Delta Z_{i,t}$: % change in controls variables (including income);</li><li>$Y_{i,t}$: county and time fixed effects.</li></ul><h4>Household Categories</h4><p>Divide households into 3 categories.</p><p>Initial calorie share of staple food $>0.8$: subsistence and calorie-deprived households, most likely to exhibit Giffen behavior. Initial calorie share of staple food $<0.2$: standard households.</p><h4>Results</h4><p><strong>Hunan.</strong> Strong evidence of Giffen behavior with respect to rice. For subsistence and calorie-deprived households, a 1% price increase causes a 0.45% increase in consumption. For standard households, a 1% price increase causes a 0.61% decrease in consumption.</p><p><strong>Price Elasticity and Initial Calorie Share.</strong> The positive range is 0.53 to 0.84; it peaks at 0.70 calorie-share for a price elasticity of 0.85; it has an inverted U-shape.</p><p><strong>Gansu.</strong> Evidence is weaker because wheat has some substitution possibilities, and households consume almost no meat, so there is simply no way to finance additional purchases of wheat by reducing meat.</p></article>
+    </section>
+
+    <section class="research-focus" id="conspicuous-consumption">
+      <div class="research-header"><span>Research Focus</span><h2>Conspicuous Consumption</h2></div>
+      <article class="research-theory"><h3>Overview</h3><p>Conspicuous consumption corresponds to purchasing goods or services primarily for the purpose of displaying wealth, status, or social prestige, rather than for their intrinsic utility or functionality.</p><p>This idea, originating with Veblen, suggests that demand for visible goods may increase disproportionately with income, generating high income elasticities.</p><p>Heffetz, O. (2011). “A test of conspicuous consumption: Visibility and income elasticities.” <em>Review of Economics and Statistics</em>, 93(4), 1101–1117.</p><p class="figure-question">Do more visible goods have higher income elasticities?</p></article>
+      <article class="research-theory"><h3>Formalizing Conspicuous Consumption</h3><p>Consider a Cobb-Douglas utility function:</p><div class="math-display">$$f(v,w)=\beta_v\ln(v)+\beta_w\ln(w),\qquad v+w=y,\qquad \beta=\frac{\beta_v}{\beta_w}.$$</div><p>Here $v,w$ are two goods, $y$ is income, and prices are normalized to 1. The standard solution to the utility maximization problem is:</p><div class="math-display">$$v(y)=\left[\frac{\beta}{1+\beta}\right]y.$$</div><p>This is the Engel curve for $v$: it describes how consumption of $v$ changes with income, holding prices fixed.</p></article>
+      <article class="research-theory"><h3>Engel Curve</h3><div class="math-display">$$v(y)=\left[\frac{\beta}{1+\beta}\right]y,\qquad \frac{v}{y}=\frac{\beta}{1+\beta}.$$</div><p>The budget share spent on $v$ is constant: richer consumers spend the same share of their income on $v$. Thus income elasticity is equal to 1:</p><div class="math-display">$$\eta_v=\left(\frac{\partial v}{\partial y}\right)\left(\frac{y}{v}\right)=1.$$</div></article>
+      <article class="research-theory"><h3>Adding Concerns for Social Status</h3><div class="math-display">$$u=(1-\alpha)f(v,w)+\alpha f(\tilde v,\tilde w).$$</div><ul class="bullet-list research-list"><li>$\tilde v,\tilde w$ are society's beliefs about one's consumption;</li><li>$\alpha$ measures one's concern for social status;</li><li>$v$ is visible: $\tilde v=v$;</li><li>$w$ is private: $\tilde w=\tilde w(v)$;</li><li>income $y$ is private.</li></ul><p>Since others observe $v$ but not $y$, they can use visible consumption to form beliefs about the consumer's income and private consumption. The consumer derives utility from others believing that (s)he has a high income and private consumption.</p></article>
+      <article class="research-theory"><h3>Standard Engel Curve and Its Inverse</h3><p>The standard Engel curve asks: “If I know someone's income $y$, how much $v$ will they consume?” For $\alpha=0$:</p><div class="math-display">$$v=\left[\frac{\beta}{1+\beta}\right]y.$$</div><p>The inverse Engel curve asks: “If I know someone's consumption $v$, how much income $y$ do they have?” For $\alpha=0$:</p><div class="math-display">$$y=\left[\frac{1+\beta}{\beta}\right]v.$$</div><p>This is useful here when $v$ is observable but income is not.</p></article>
+      <article class="research-theory"><h3>Conspicuous Consumption with Social Status Concerns</h3><p>With social status concerns, $\alpha>0$. The Engel curve becomes:</p><div class="math-display">$$y=\left[\frac{1+\beta}{\alpha+\beta}\right]v+C\,v^{-(1+\beta)/\alpha},\qquad C>0.$$</div><p>Dividing by $v$:</p><div class="math-display">$$\frac{y}{v}=\frac{1+\beta}{\alpha+\beta}+C\,v^{-(1+\beta)/\alpha}.$$</div><p>As income and visible consumption increase:</p><div class="math-display">$$v\uparrow\Rightarrow Cv^{-(1+\beta)/\alpha}\downarrow\Rightarrow \frac{y}{v}\downarrow\Rightarrow \frac{v}{y}\uparrow.$$</div><p>Therefore the budget share spent on the visible good increases with income. In other words, $\eta_v>1$.</p><p><strong>Intuition.</strong> Richer consumers increasingly tilt their consumption toward the visible good to distinguish themselves from lower-income consumers.</p></article>
+      <article class="research-empirical"><div class="empirical-label">Empirical application</div><h3>Data and Research Strategy</h3><p>Data source: Consumer Expenditure Survey. Each household reports spending on categories such as clothing, food, housing, transportation, and luxury items. The data also contain household total income and household demographic data.</p><p class="figure-question">What would be your strategy to test Veblen's intuition?</p><ol class="research-list"><li>Derive income elasticities.</li><li>Build a “Visibility Index” and examine the relationship between visibility and income elasticities.</li></ol><h3>Visibility Index</h3><p>The Visibility Index is based on a survey of about 500 US citizens.</p><blockquote>“Imagine that you meet a new person who lives in a household similar to yours. Imagine that their household is not different from other similar households, except that they live to, and do, spend more than average on [XXX].<br><br>Would you notice this about them, and if so, for how long would you have to have known them, to notice it?<br><br>Would you notice it almost immediately upon meeting them for the first time, a short while after, a while after, only a long while after, or never?”</blockquote><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Visibility Index table</p><figcaption>Visibility Index.</figcaption></figure><h3>Results</h3><p>Goods that are more visible to others have higher income elasticities. This is less true for poorer households who have no one to distinguish from.</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Relationship between visibility and income elasticities</p><figcaption>Relationship between visibility and income elasticities.</figcaption></figure><h3>Implications</h3><ul class="bullet-list research-list"><li>Social factors are important in shaping consumer demand beyond basic utility maximization $\rightarrow$ Behavioral Economics.</li><li>Taxation on luxury goods could consider the social visibility aspect to address issues related to inequality $\rightarrow$ Jenkins (2016).</li></ul></article>
+    </section>
+
+    <section class="subsection" id="welfare-effects">
+      <div class="part-banner"><h2 class="part-pill purple">Welfare Effects of a Price Change</h2><div class="part-line"></div></div>
+      <article class="property-item purple"><h3 class="property-name">Main Question</h3><div class="property-body"><p>By how much better- or worse-off is the consumer as a result of a price change?</p></div></article>
+      <article class="property-item purple"><h3 class="property-name">Why Not Compare Utility Directly?</h3><div class="property-body"><p>Look directly at the utility function? No. The answer would depend on which utility function $u$ is chosen to represent the consumer preferences.</p><p>While all utility functions give the same answer to the question of whether the consumer is better or worse off, they give different answers to the question of by how much the consumer is better or worse off. The answer would be in utils, which have no real meaning.</p></div></article>
+      <article class="property-item purple"><h3 class="property-name">Use the Expenditure Function</h3><div class="property-body"><p>Let $v$ be an arbitrary indirect utility function and $\bar p$ an arbitrary reference price vector. Recall that:</p><div class="math-display">$$e(\bar p,v(p,w))$$</div><p>is the minimum income required to reach utility level $v(p,w)$ at prices $\bar p$. We can compare two utility levels in monetary terms:</p><div class="math-display">$$e(\bar p,v(p',w))-e(\bar p,v(p,w)).$$</div><p>If this difference is greater than zero, then at the same reference prices $\bar p$, more income is required to reach $v(p',w)$ than $v(p,w)$. Since expenditure is increasing in utility, the consumer is therefore better off under $p'$.</p></div></article>
+      <article class="property-item blue"><h3 class="property-name">Choosing the Reference Price</h3><div class="property-body"><ul class="bullet-list blue"><li>use the new prices $p'$ $\rightarrow$ Compensating Variation;</li><li>use the old prices $p$ $\rightarrow$ Equivalent Variation.</li></ul><p>For the following slides, suppose the price change makes the consumer worse off:</p><div class="math-display">$$u'=v(p',w)&lt;v(p,w)=u.$$</div><p>CV and EV are expressed as positive monetary measures of this welfare loss.</p></div></article>
+    </section>
+
+    <section class="subsection" id="cv">
+      <div class="part-banner"><h2 class="part-pill green">Compensating Variation</h2><div class="part-line"></div></div>
+      <article class="property-item green"><h3 class="property-name">Definition</h3><div class="property-body"><div class="math-display">$$CV=e(p',v(p,w))-e(p',v(p',w)).$$</div><p>Using $e(p',v(p',w))=w$:</p><div class="math-display">$$CV=e(p',u)-e(p',u')=e(p',u)-w.$$</div><p><strong>At the new prices, how much money must we give the consumer to restore their original utility?</strong></p><p>For a harmful price change, $CV>0$. CV is the minimum compensation the consumer would require to accept the harmful change.</p></div></article>
+      <div class="figure-sequence"><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Compensating Variation — initial situation</p><figcaption>Compensating Variation.</figcaption></figure><p class="figure-question">At today's prices, how much additional income is needed to make her as well off as she was yesterday?</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Compensating Variation — price change: $p_1'>p_1$ and $p_2'=p_2$; budget line rotates in to $B'$.</p><figcaption>Compensating Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Identify the budget $B^{CV}$ required to achieve $u$ at prices $p'$.</p><figcaption>Compensating Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Find the CV: the difference between the new required budget and the initial budget. Assume $p_2'=p_2=1$.</p><figcaption>Compensating Variation.</figcaption></figure></div>
+    </section>
+
+    <section class="subsection" id="ev">
+      <div class="part-banner"><h2 class="part-pill purple">Equivalent Variation</h2><div class="part-line"></div></div>
+      <article class="property-item purple"><h3 class="property-name">Definition</h3><div class="property-body"><div class="math-display">$$EV=e(p,v(p,w))-e(p,v(p',w)).$$</div><p>Using $e(p,v(p,w))=w$:</p><div class="math-display">$$EV=e(p,u)-e(p,u')=w-e(p,u').$$</div><p><strong>At the old prices, how much money would the consumer be willing to give up to maintain her original utility?</strong></p><p>For a harmful price change, $EV>0$. EV is the maximum amount the consumer would be willing to pay to avoid the harmful change.</p></div></article>
+      <div class="figure-sequence"><p class="figure-question">At yesterday's prices, how much income could we take away to make her as well off as she is today?</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Equivalent Variation — price change: $p_1'>p_1$ and $p_2'=p_2$.</p><figcaption>Equivalent Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Identify the budget $B^{EV}$ required to achieve $u'$ at prices $p$.</p><figcaption>Equivalent Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Find the EV: the difference between the initially required budget and the initial budget. Assume $p_2'=p_2=1$.</p><figcaption>Equivalent Variation.</figcaption></figure></div>
+    </section>
+
+    <section class="subsection" id="compare-cv-ev">
+      <div class="part-banner"><h2 class="part-pill amber">Compensating and Equivalent Variation</h2><div class="part-line"></div></div>
+      <figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Compensating and Equivalent Variation.</p><figcaption>Compensating and Equivalent Variation.</figcaption></figure>
+      <article class="property-item amber"><h3 class="property-name">What Do CV and EV Measure?</h3><div class="property-body"><ul class="bullet-list amber"><li>CV: compensation required after the harmful change.</li><li>EV: willingness to pay before the harmful change to avoid it.</li></ul><p>For a harmful price change: $CV>0$ and $EV>0$.</p></div></article>
+      <article class="property-item amber"><h3 class="property-name">Comparing CV and EV for a Harmful Price Change</h3><div class="property-body"><p>For the price increase considered in the graphs, assume that $x_1$ is a normal good.</p><h4>If $x_1$ Is a Normal Good</h4><div class="math-display">$$CV>EV.$$</div><p>Compensating the consumer after the price increase raises her demand for $x_1$, while taking income away before the price increase lowers her demand for $x_1$. Hence, restoring the old utility requires more money than the consumer would be willing to pay to avoid the price increase.</p><h4>If $x_1$ Is an Inferior Good</h4><div class="math-display">$$EV>CV.$$</div><h4>If There Is No Income Effect for $x_1$</h4><div class="math-display">$$CV=EV.$$</div></div></article>
+      <article class="property-item blue"><h3 class="property-name">CV and EV Using the Indirect Utility Function</h3><div class="property-body"><p><strong>CV:</strong> be as well off today as she was yesterday.</p><div class="math-display">$$v(p',w+CV)=u.$$</div><p>We give the consumer CV after the harmful price change.</p><p><strong>EV:</strong> be as well off yesterday as she is today.</p><div class="math-display">$$v(p,w-EV)=u'.$$</div><p>The consumer would be willing to give up EV before the price change to avoid it.</p></div></article>
+    </section>
+
+    <section class="subsection" id="hicksian-welfare">
+      <div class="part-banner"><h2 class="part-pill green">Relating Welfare to Hicksian Demand</h2><div class="part-line"></div></div>
+      <article class="property-item green"><h3 class="property-name">Compensating Variation and Hicksian Demand</h3><div class="property-body"><p>Assume only $p_1$ changes, with $p_1'>p_1$.</p><div class="math-display">$$CV=e(p',u)-w=e(p',u)-e(p,u).$$</div><div class="math-display">$$CV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u)}{\partial p_1}\right]dp_1=\int_{p_1}^{p_1'}h_1(p,u)\,dp_1.$$</div><p>Using Shephard's Lemma, $\partial e(p,u)/\partial p_1=h_1(p,u)$.</p></div></article>
+      <div class="figure-sequence"><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>CV and Hicksian Demand — setup</p><figcaption>CV and Hicksian Demand.</figcaption></figure><p class="figure-question">Draw the CV area on this graph.</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>CV as area under Hicksian demand.</p><figcaption>CV and Hicksian Demand.</figcaption></figure></div>
+      <article class="property-item purple"><h3 class="property-name">Equivalent Variation and Hicksian Demand</h3><div class="property-body"><p>Assume only $p_1$ changes, with $p_1'>p_1$.</p><div class="math-display">$$EV=w-e(p,u')=e(p',u')-e(p,u').$$</div><div class="math-display">$$EV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u')}{\partial p_1}\right]dp_1=\int_{p_1}^{p_1'}h_1(p,u')\,dp_1.$$</div><p>Using Shephard's Lemma.</p></div></article>
+      <figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>EV as area under Hicksian demand.</p><figcaption>EV and Hicksian Demand.</figcaption></figure>
+    </section>
+
+    <section class="subsection" id="marshallian-welfare">
+      <div class="part-banner"><h2 class="part-pill red">Relating Welfare to Marshallian Demand</h2><div class="part-line"></div></div>
+      <article class="property-item red"><h3 class="property-name">Change in Consumer Surplus</h3><div class="property-body"><p>The change in Consumer Surplus following a price increase is:</p><div class="math-display">$$\Delta CS=-\int_{p_1}^{p_1'}x_1(p,y)\,dp_1<0.$$</div><p>Equivalently, the Consumer Surplus loss is:</p><div class="math-display">$$-\Delta CS=\int_{p_1}^{p_1'}x_1(p,y)\,dp_1>0.$$</div></div></article>
+      <figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Consumer Surplus Loss and Marshallian Demand.</p><figcaption>Consumer Surplus Loss and Marshallian Demand.</figcaption></figure>
+    </section>
+
+    <section class="subsection" id="welfare-measures">
+      <div class="part-banner"><h2 class="part-pill blue">Relating CV, EV, and Consumer Surplus</h2><div class="part-line"></div></div>
+      <article class="property-item blue"><h3 class="property-name">Available Welfare Measures</h3><div class="property-body"><p>To measure by how much the consumer is better- or worse-off as a result of a price change, we can use the Compensating Variation, the Equivalent Variation, or the $\Delta$ in Consumer Surplus.</p><p class="figure-question">Which measure should we use to look at the welfare effects of a change in prices?</p></div></article>
+      <article class="property-item green"><h3 class="property-name">Compensating Variation</h3><div class="property-body"><p>CV answers a compensation question. Imagine a highway has been built and cuts a neighbourhood. What is the minimum compensation residents would require after the highway is built to restore their original welfare?</p></div></article>
+      <article class="property-item purple"><h3 class="property-name">Equivalent Variation</h3><div class="property-body"><p>EV answers a willingness-to-pay question. Imagine the highway has not yet been built. What is the maximum amount residents would be willing to pay to prevent it from being built?</p></div></article>
+      <article class="property-item amber"><h3 class="property-name">Consumer Surplus</h3><div class="property-body"><p>Consumer Surplus is an intermediate measure between EV and CV without a direct interpretation in terms of welfare measured as money.</p><p>For a normal good and a price increase:</p><div class="math-display">$$EV&lt;-\Delta CS&lt;CV.$$</div><p>With no income effect:</p><div class="math-display">$$EV=-\Delta CS=CV.$$</div></div></article>
+    </section>
+  </div><!-- /main-content -->
+</div><!-- /main-wrap -->
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('main-wrap');
+  if (window.matchMedia('(max-width: 900px)').matches) {
+    sidebar.classList.toggle('open');
+  } else {
+    const collapsed = sidebar.classList.toggle('collapsed');
+    main.classList.toggle('expanded', collapsed);
+  }
+}
+
+function toggle(btn, id) {
+  const box = document.getElementById(id);
+  const isOpen = box.classList.contains('open');
+  box.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', String(!isOpen));
+  const label = btn.querySelector('.toggle-label');
+  if (label) label.textContent = (isOpen ? 'Show ' : 'Hide ') + label.dataset.label;
+  if (!isOpen && window.MathJax?.typesetPromise) {
+    MathJax.typesetPromise([box]).catch(console.error);
+  }
+}
+
+/* ── CHAPTER PROGRESS BAR LOGIC ── */
+function initChapterProgress(){
+  const container = document.getElementById('chapterProgressBar');
+  if(!container) return;
+
+  let targets = Array.from(document.querySelectorAll('.subsection'));
+  if(targets.length === 0){
+    targets = Array.from(document.querySelectorAll('.part-banner'));
+  }
+  if(targets.length === 0){
+    targets = Array.from(document.querySelectorAll('.concept-card, .exercise-statement-card'));
+  }
+  if(targets.length === 0) return;
+
+  container.innerHTML = '';
+  const segments = targets.map((sec, idx) => {
+    const seg = document.createElement('div');
+    seg.className = 'progress-segment' + (idx === 0 ? ' active' : '');
+    seg.setAttribute('role', 'button');
+    seg.setAttribute('tabindex', '0');
+    const titleEl = sec.querySelector('.subsection-title, .part-pill, .statement-title, h3, h2');
+    const titleText = titleEl ? titleEl.innerText.replace(/\s+/g, ' ').trim() : `Section ${idx + 1}`;
+    seg.setAttribute('title', titleText);
+    seg.setAttribute('aria-label', titleText);
+    const jump = () => { sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+    seg.addEventListener('click', jump);
+    seg.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(); } });
+    container.appendChild(seg);
+    return seg;
+  });
+
+  function updateProgress(){
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowH = window.innerHeight;
+    const totalH = document.documentElement.scrollHeight;
+    const isAtBottom = (windowH + scrollY) >= (totalH - 50);
+
+    if(isAtBottom){
+      segments.forEach(seg => { seg.className = 'progress-segment completed'; });
+      return;
+    }
+
+    let activeIdx = 0;
+    for(let i = 0; i < targets.length; i++){
+      const rect = targets[i].getBoundingClientRect();
+      if(rect.top <= 160){
+        activeIdx = i;
+      }
+    }
+
+    segments.forEach((seg, idx) => {
+      if(idx < activeIdx){
+        seg.className = 'progress-segment completed';
+      } else if(idx === activeIdx){
+        seg.className = 'progress-segment active';
+      } else {
+        seg.className = 'progress-segment';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initChapterProgress);
+} else {
+  initChapterProgress();
+}
+
+</script>
+</body>
+</html>
