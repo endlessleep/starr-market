@@ -735,6 +735,31 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
   font-weight:650;
 }
 .figure-sequence { display:grid; gap:8px; }
+.derivation-panel {
+  margin-top:16px;
+  border:1px solid rgba(96,165,250,.34);
+  border-radius:12px;
+  background:rgba(15,23,42,.48);
+  overflow:hidden;
+}
+.derivation-panel summary {
+  padding:13px 16px;
+  color:var(--blue-bright);
+  cursor:pointer;
+  font-size:.88rem;
+  font-weight:750;
+}
+.derivation-panel[open] summary {
+  border-bottom:1px solid rgba(96,165,250,.20);
+  background:rgba(59,130,246,.08);
+}
+.derivation-content { padding:16px; }
+.derivation-content p + .math-display,
+.derivation-content .math-display + p { margin-top:10px; }
+@media(max-width:600px) {
+  .derivation-panel summary { padding:12px 14px; }
+  .derivation-content { padding:14px 12px; }
+}
 @container course (max-width:700px) {
   .effects-grid { grid-template-columns:1fr; }
 }
@@ -831,11 +856,26 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
           <p>Differentiate with respect to $p_j$:</p>
           <div class="math-display">$$\frac{\partial h_i(p,\bar u)}{\partial p_j}=\frac{\partial x_i(p,y)}{\partial p_j}+\left[\frac{\partial x_i(p,y)}{\partial y}\right]\left[\frac{\partial e(p,\bar u)}{\partial p_j}\right],\qquad e(p,\bar u)=y.$$</div>
           <p>By Shephard's Lemma, $\partial e(p,\bar u)/\partial p_j=h_j(p,\bar u)$. The same-problem identity gives $h_j(p,\bar u)=x_j(p,y)$. Substitution yields the Slutsky equation displayed above.</p>
+          <details class="derivation-panel">
+            <summary>Read the derivation step by step</summary>
+            <div class="derivation-content">
+              <p>The identity starts with the Hicksian demand for good $i$. Its right-hand side is the Marshallian demand evaluated at the expenditure needed to attain $\bar u$.</p>
+              <div class="math-display">$$h_i(p,\bar u)=x_i(p,e(p,\bar u)).$$</div>
+              <p>When $p_j$ changes, the right-hand side changes directly through $p_j$ and indirectly through $e(p,\bar u)$. This gives the two terms in the derivative:</p>
+              <div class="math-display">$$\frac{\partial h_i(p,\bar u)}{\partial p_j}=\frac{\partial x_i(p,y)}{\partial p_j}+\left[\frac{\partial x_i(p,y)}{\partial y}\right]\left[\frac{\partial e(p,\bar u)}{\partial p_j}\right].$$</div>
+              <p>Shephard's Lemma replaces the last derivative by Hicksian demand for good $j$:</p>
+              <div class="math-display">$$\frac{\partial e(p,\bar u)}{\partial p_j}=h_j(p,\bar u).$$</div>
+              <p>At the same problem, $h_j(p,\bar u)=x_j(p,y)$. Therefore:</p>
+              <div class="math-display">$$\frac{\partial h_i(p,\bar u)}{\partial p_j}=\frac{\partial x_i(p,y)}{\partial p_j}+\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y).$$</div>
+              <p>Moving the final term to the other side gives:</p>
+              <div class="math-display">$$\frac{\partial x_i(p,y)}{\partial p_j}=\frac{\partial h_i(p,\bar u)}{\partial p_j}-\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y).$$</div>
+            </div>
+          </details>
         </div>
       </article>
       <article class="property-item amber">
         <h3 class="property-name">Two remarks about the Slutsky equation</h3>
-        <div class="property-body"><ul class="bullet-list amber"><li>It gives a relationship between the Marshallian and Hicksian demands for good $i$.</li><li>It allows us to analyze the response of the Marshallian demand for good $i$ to a price change in good $j$, including an own-price change when $i=j$.</li></ul></div>
+        <div class="property-body"><ul class="bullet-list amber"><li>It gives a relationship between the Marshallian and Hicksian demands for good $i$.</li><li>It allows us to analyze the response of the Marshallian demand for good $i$ to a price change in good $j$.</li><li>It can also be used to analyze the response to an own-price change, when $i=j$.</li></ul></div>
       </article>
     </section>
 
@@ -891,13 +931,13 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
 
     <section class="subsection" id="cv">
       <div class="part-banner"><h2 class="part-pill green">Compensating Variation</h2><div class="part-line"></div></div>
-      <article class="property-item green"><h3 class="property-name">Definition</h3><div class="property-body"><div class="math-display">$$CV=e(p',v(p,w))-e(p',v(p',w)).$$</div><p>Using $e(p',v(p',w))=w$:</p><div class="math-display">$$CV=e(p',u)-e(p',u')=e(p',u)-w.$$</div><p><strong>At the new prices, how much money must we give the consumer to restore their original utility?</strong></p><p>For a harmful price change, $CV>0$. CV is the minimum compensation the consumer would require to accept the harmful change.</p></div></article>
+      <article class="property-item green"><h3 class="property-name">Definition</h3><div class="property-body"><div class="math-display">$$CV=e(p',v(p,w))-e(p',v(p',w)).$$</div><p>Using $e(p',v(p',w))=w$:</p><div class="math-display">$$CV=e(p',u)-e(p',u')=e(p',u)-w.$$</div><details class="derivation-panel"><summary>Read the calculation step by step</summary><div class="derivation-content"><p>Start with the definition at the new prices $p'$:</p><div class="math-display">$$CV=e(p',v(p,w))-e(p',v(p',w)).$$</div><p>The earlier utility level is $u=v(p,w)$ and the utility after the price change is $u'=v(p',w)$. Replacing these two values gives:</p><div class="math-display">$$CV=e(p',u)-e(p',u').$$</div><p>The course expenditure identity is $e(p',v(p',w))=w$. Since $u'=v(p',w)$, this is $e(p',u')=w$. Hence:</p><div class="math-display">$$CV=e(p',u)-w.$$</div></div></details><p><strong>At the new prices, how much money must we give the consumer to restore their original utility?</strong></p><p>For a harmful price change, $CV>0$. CV is the minimum compensation the consumer would require to accept the harmful change.</p></div></article>
       <div class="figure-sequence"><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Compensating Variation — initial situation</p><figcaption>Compensating Variation.</figcaption></figure><p class="figure-question">At today's prices, how much additional income is needed to make her as well off as she was yesterday?</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Compensating Variation — price change: $p_1'>p_1$ and $p_2'=p_2$; budget line rotates in to $B'$.</p><figcaption>Compensating Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Identify the budget $B^{CV}$ required to achieve $u$ at prices $p'$.</p><figcaption>Compensating Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Find the CV: the difference between the new required budget and the initial budget. Assume $p_2'=p_2=1$.</p><figcaption>Compensating Variation.</figcaption></figure></div>
     </section>
 
     <section class="subsection" id="ev">
       <div class="part-banner"><h2 class="part-pill purple">Equivalent Variation</h2><div class="part-line"></div></div>
-      <article class="property-item purple"><h3 class="property-name">Definition</h3><div class="property-body"><div class="math-display">$$EV=e(p,v(p,w))-e(p,v(p',w)).$$</div><p>Using $e(p,v(p,w))=w$:</p><div class="math-display">$$EV=e(p,u)-e(p,u')=w-e(p,u').$$</div><p><strong>At the old prices, how much money would the consumer be willing to give up to maintain her original utility?</strong></p><p>For a harmful price change, $EV>0$. EV is the maximum amount the consumer would be willing to pay to avoid the harmful change.</p></div></article>
+      <article class="property-item purple"><h3 class="property-name">Definition</h3><div class="property-body"><div class="math-display">$$EV=e(p,v(p,w))-e(p,v(p',w)).$$</div><p>Using $e(p,v(p,w))=w$:</p><div class="math-display">$$EV=e(p,u)-e(p,u')=w-e(p,u').$$</div><details class="derivation-panel"><summary>Read the calculation step by step</summary><div class="derivation-content"><p>Start with the definition at the old prices $p$:</p><div class="math-display">$$EV=e(p,v(p,w))-e(p,v(p',w)).$$</div><p>The two utility levels are $u=v(p,w)$ and $u'=v(p',w)$. Replacing them gives:</p><div class="math-display">$$EV=e(p,u)-e(p,u').$$</div><p>The course expenditure identity is $e(p,v(p,w))=w$. Since $u=v(p,w)$, this is $e(p,u)=w$. Hence:</p><div class="math-display">$$EV=w-e(p,u').$$</div></div></details><p><strong>At the old prices, how much money would the consumer be willing to give up to maintain her original utility?</strong></p><p>For a harmful price change, $EV>0$. EV is the maximum amount the consumer would be willing to pay to avoid the harmful change.</p></div></article>
       <div class="figure-sequence"><p class="figure-question">At yesterday's prices, how much income could we take away to make her as well off as she is today?</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Equivalent Variation — price change: $p_1'>p_1$ and $p_2'=p_2$.</p><figcaption>Equivalent Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Identify the budget $B^{EV}$ required to achieve $u'$ at prices $p$.</p><figcaption>Equivalent Variation.</figcaption></figure><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>Find the EV: the difference between the initially required budget and the initial budget. Assume $p_2'=p_2=1$.</p><figcaption>Equivalent Variation.</figcaption></figure></div>
     </section>
 
@@ -911,9 +951,9 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
 
     <section class="subsection" id="hicksian-welfare">
       <div class="part-banner"><h2 class="part-pill green">Relating Welfare to Hicksian Demand</h2><div class="part-line"></div></div>
-      <article class="property-item green"><h3 class="property-name">Compensating Variation and Hicksian Demand</h3><div class="property-body"><p>Assume only $p_1$ changes, with $p_1'>p_1$.</p><div class="math-display">$$CV=e(p',u)-w=e(p',u)-e(p,u).$$</div><div class="math-display">$$CV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u)}{\partial p_1}\right]dp_1=\int_{p_1}^{p_1'}h_1(p,u)\,dp_1.$$</div><p>Using Shephard's Lemma, $\partial e(p,u)/\partial p_1=h_1(p,u)$.</p></div></article>
+      <article class="property-item green"><h3 class="property-name">Compensating Variation and Hicksian Demand</h3><div class="property-body"><p>Assume only $p_1$ changes, with $p_1'>p_1$.</p><div class="math-display">$$CV=e(p',u)-w=e(p',u)-e(p,u).$$</div><div class="math-display">$$CV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u)}{\partial p_1}\right]dp_1=\int_{p_1}^{p_1'}h_1(p,u)\,dp_1.$$</div><p>Using Shephard's Lemma, $\partial e(p,u)/\partial p_1=h_1(p,u)$.</p><details class="derivation-panel"><summary>Read the calculation step by step</summary><div class="derivation-content"><p>From the definition of CV:</p><div class="math-display">$$CV=e(p',u)-w.$$</div><p>At the original prices, the expenditure needed to attain $u$ is the original income, so $w=e(p,u)$:</p><div class="math-display">$$CV=e(p',u)-e(p,u).$$</div><p>Because only $p_1$ changes, this expenditure difference is written as:</p><div class="math-display">$$CV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u)}{\partial p_1}\right]dp_1.$$</div><p>Using Shephard's Lemma, the derivative inside the integral is $h_1(p,u)$:</p><div class="math-display">$$CV=\int_{p_1}^{p_1'}h_1(p,u)\,dp_1.$$</div></div></details></div></article>
       <div class="figure-sequence"><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>CV and Hicksian Demand — setup</p><figcaption>CV and Hicksian Demand.</figcaption></figure><p class="figure-question">Draw the CV area on this graph.</p><figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>CV as area under Hicksian demand.</p><figcaption>CV and Hicksian Demand.</figcaption></figure></div>
-      <article class="property-item purple"><h3 class="property-name">Equivalent Variation and Hicksian Demand</h3><div class="property-body"><p>Assume only $p_1$ changes, with $p_1'>p_1$.</p><div class="math-display">$$EV=w-e(p,u')=e(p',u')-e(p,u').$$</div><div class="math-display">$$EV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u')}{\partial p_1}\right]dp_1=\int_{p_1}^{p_1'}h_1(p,u')\,dp_1.$$</div><p>Using Shephard's Lemma.</p></div></article>
+      <article class="property-item purple"><h3 class="property-name">Equivalent Variation and Hicksian Demand</h3><div class="property-body"><p>Assume only $p_1$ changes, with $p_1'>p_1$.</p><div class="math-display">$$EV=w-e(p,u')=e(p',u')-e(p,u').$$</div><div class="math-display">$$EV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u')}{\partial p_1}\right]dp_1=\int_{p_1}^{p_1'}h_1(p,u')\,dp_1.$$</div><p>Using Shephard's Lemma.</p><details class="derivation-panel"><summary>Read the calculation step by step</summary><div class="derivation-content"><p>From the definition of EV:</p><div class="math-display">$$EV=w-e(p,u').$$</div><p>At the new prices, the expenditure needed to attain $u'$ is the income $w$, so $w=e(p',u')$:</p><div class="math-display">$$EV=e(p',u')-e(p,u').$$</div><p>Because only $p_1$ changes, this expenditure difference is written as:</p><div class="math-display">$$EV=\int_{p_1}^{p_1'}\left[\frac{\partial e(p,u')}{\partial p_1}\right]dp_1.$$</div><p>Using Shephard's Lemma gives:</p><div class="math-display">$$EV=\int_{p_1}^{p_1'}h_1(p,u')\,dp_1.$$</div></div></details></div></article>
       <figure class="course-figure-placeholder"><div class="figure-placeholder-label">Original course figure</div><p>EV as area under Hicksian demand.</p><figcaption>EV and Hicksian Demand.</figcaption></figure>
     </section>
 
