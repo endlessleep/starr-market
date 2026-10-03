@@ -212,6 +212,9 @@ body {
 .bullet-list.green  li::before { color:#34d399; }
 .bullet-list.purple li::before { color:#c084fc; }
 .bullet-list.amber  li::before { color:#fbbf24; }
+.derivative-steps { margin:10px 0 0 22px; padding:0; color:var(--text-2); }
+.derivative-steps li { padding-left:4px; }
+.derivative-steps li + li { margin-top:5px; }
 
 /* ── DEDICATED EXAMPLE CARD (NEW STRUCTURED DESIGN) ── */
 .example-card {
@@ -866,46 +869,15 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <article class="property-item green" id="roy-identity">
         <h3 class="property-name">Roy’s identity</h3>
         <div class="property-body">
-          <p>Let $u$ be continuous and strictly increasing on $\mathbb R_+^n$, and let $v(p,y)$ be differentiable. At points where $\partial v/\partial y&gt;0$, Roy’s identity gives:</p>
+          <p><strong>Roy’s Identity → Marshallian demand.</strong></p>
           <div class="math-display boxed-green">$$x_i(p,y)=-\frac{\partial v(p,y)/\partial p_i}{\partial v(p,y)/\partial y}.$$</div>
-          <p>The numerator $\partial v/\partial p_i$ measures how optimized utility changes when the price of good $i$ rises. The denominator $\partial v/\partial y$ measures how optimized utility changes when income rises.</p>
-          <p>The minus sign and division express the utility loss from a price increase in <strong>income terms</strong>: how much additional income is needed per unit of a small increase in $p_i$ to offset that loss? The identity says that this rate equals the chosen quantity $x_i(p,y)$.</p>
-          <p>Knowing how indirect utility responds to prices and income therefore allows us to recover the consumer’s chosen consumption.</p>
-          <div class="collapsible" id="proof-roy">
-            <h4>Proof using the Lagrangian and the Envelope Theorem</h4>
-            <p><strong>Starting point.</strong> For the calculation, assume an interior, differentiable solution $x^*$ and positive marginal utilities at that solution. These are the conditions used in the argument below to obtain $\lambda^*&gt;0$.</p>
-            <div class="proof-step">
-              <h4>1. Write the first-order condition</h4>
-              <p>Using $\mathcal L(x,\lambda)=u(x)-\lambda(p\cdot x-y)$, there must exist a multiplier $\lambda^*$ such that:</p>
-              <div class="math-display">$$\frac{\partial\mathcal L(x^*,\lambda^*)}{\partial x_i}
-                =\frac{\partial u(x^*)}{\partial x_i}-\lambda^*p_i=0.$$</div>
-              <p>Thus $\partial u(x^*)/\partial x_i=\lambda^*p_i$. Since the marginal utility and $p_i$ are positive, the multiplier $\lambda^*$ is positive.</p>
-            </div>
-            <div class="proof-step">
-              <h4>2. Differentiate the value with respect to income</h4>
-              <p>In the Lagrangian, differentiating the term $+\lambda y$ with respect to $y$ gives $\lambda$. By the Envelope Theorem:</p>
-              <div class="math-display">$$\frac{\partial v(p,y)}{\partial y}
-                =\frac{\partial\mathcal L(x^*,\lambda^*)}{\partial y}
-                =\lambda^*&gt;0.$$</div>
-            </div>
-            <div class="proof-step">
-              <h4>3. Differentiate the value with respect to $p_i$</h4>
-              <p>The term involving $p_i$ is $-\lambda p_ix_i$. Its partial derivative is $-\lambda x_i$. Again applying the Envelope Theorem at the optimum gives:</p>
-              <div class="math-display">$$\frac{\partial v(p,y)}{\partial p_i}
-                =\frac{\partial\mathcal L(x^*,\lambda^*)}{\partial p_i}
-                =-\lambda^*x_i^*.$$</div>
-            </div>
-            <div class="proof-step">
-              <h4>4. Divide and cancel the multiplier</h4>
-              <p>The denominator is $\lambda^*&gt;0$, so division is allowed. Substitute the two derivatives: the two minus signs cancel, and the common factor $\lambda^*$ cancels between numerator and denominator:</p>
-              <div class="math-display">$$\begin{aligned}
-                -\frac{\partial v/\partial p_i}{\partial v/\partial y}
-                &=-\frac{-\lambda^*x_i^*}{\lambda^*}\\
-                &=x_i^*=x_i(p,y).
-              \end{aligned}$$</div>
-              <p>This is Roy’s identity.</p>
-            </div>
-          </div>
+          <p>Take the function $v(p,y)$:</p>
+          <ol class="derivative-steps">
+            <li>Differentiate $v(p,y)$ with respect to $p_i$.</li>
+            <li>Differentiate $v(p,y)$ with respect to $y$.</li>
+            <li>Take the negative of the first derivative divided by the second derivative.</li>
+          </ol>
+          <div class="math-display">$$v(p,y)\longrightarrow\text{Roy’s Identity}\longrightarrow x_i(p,y)\text{ = Marshallian demand.}$$</div>
         </div>
       </article>
     </section>
@@ -947,57 +919,10 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
       <article class="property-item green" id="shephard-lemma">
         <h3 class="property-name">Shephard’s lemma</h3>
         <div class="property-body">
-          <p>If $u(\cdot)$ is continuous and strictly increasing in consumption on $\mathbb R_+^n$, and $e(p,u)$ is differentiable in prices, then:</p>
-          <div class="math-display boxed-green">$$h_i(p,u)=\frac{\partial e(p,u)}{\partial p_i}.$$</div>
-          <p>The derivative measures how minimum expenditure changes when the price of good $i$ changes, <strong>holding the required utility fixed</strong>. Shephard’s lemma identifies this rate with the Hicksian quantity of that good.</p>
-          <p>As prices change, the consumer adjusts consumption to minimize the cost of maintaining the same utility. The connection with <strong>compensating variation</strong> is this compensation idea: the expenditure needed to preserve a given utility level changes with prices.</p>
-          <div class="collapsible" id="proof-shephard">
-            <h4>Proof using the expenditure identity and the EmP conditions</h4>
-            <p><strong>Starting point.</strong> Keep $\bar u$ fixed. The calculation uses differentiable Hicksian demand and the interior first-order conditions of the EmP. All quantities and utility derivatives below are evaluated at the minimizing bundle $h(p,\bar u)$.</p>
-            <div class="proof-step">
-              <h4>1. Differentiate total expenditure</h4>
-              <p>Expenditure at Hicksian demand is the sum of price times quantity for each good:</p>
-              <div class="math-display">$$e(p,\bar u)=\sum_{j=1}^{n}p_jh_j(p,\bar u).$$</div>
-              <p>Apply the product rule with respect to $p_i$. Differentiating the price itself contributes $h_i$ for good $i$. The quantities $h_j$ can also change with $p_i$, producing the remaining sum:</p>
-              <div class="math-display">$$\frac{\partial e(p,\bar u)}{\partial p_i}
-                =h_i+\sum_{j=1}^{n}p_j\frac{\partial h_j}{\partial p_i}.$$</div>
-            </div>
-            <div class="proof-step">
-              <h4>2. Use the Lagrangian of the EmP</h4>
-              <p>The Lagrangian and first-order condition are:</p>
-              <div class="math-display">$$\mathcal L=\sum_jp_jx_j+\lambda[\bar u-u(x)].$$</div>
-              <div class="math-display">$$\frac{\partial\mathcal L}{\partial x_j}
-                =p_j-\lambda\frac{\partial u}{\partial x_j}=0.$$</div>
-              <p>Rearrange the condition to write each price in terms of the multiplier and marginal utility:</p>
-              <div class="math-display">$$p_j=\lambda\frac{\partial u}{\partial x_j}.$$</div>
-            </div>
-            <div class="proof-step">
-              <h4>3. Substitute this expression for prices</h4>
-              <p>Replace $p_j$ inside the sum and take the common multiplier $\lambda$ outside it:</p>
-              <div class="math-display">$$\frac{\partial e(p,\bar u)}{\partial p_i}
-                =h_i+\lambda\sum_{j=1}^{n}
-                \frac{\partial u}{\partial x_j}\frac{\partial h_j}{\partial p_i}.$$</div>
-            </div>
-            <div class="proof-step">
-              <h4>4. Use the fact that utility stays constant</h4>
-              <p>Along Hicksian demand, consumption adjusts while utility remains at the fixed target:</p>
-              <div class="math-display">$$u(h(p,\bar u))=\bar u.$$</div>
-              <p>Differentiating with respect to $p_i$ gives zero on the right because $\bar u$ is fixed. The chain rule on the left gives:</p>
-              <div class="math-display">$$\sum_{j=1}^{n}
-                \frac{\partial u}{\partial x_j}\frac{\partial h_j}{\partial p_i}=0.$$</div>
-              <p>This is exactly the sum appearing in the previous step.</p>
-            </div>
-            <div class="proof-step">
-              <h4>5. Conclude</h4>
-              <p>The adjustment term is $\lambda$ times zero. Therefore:</p>
-              <div class="math-display boxed-green">$$\begin{aligned}
-                \frac{\partial e(p,\bar u)}{\partial p_i}
-                &=h_i+\lambda\cdot0\\
-                &=h_i(p,\bar u).
-              \end{aligned}$$</div>
-              <p>This is Shephard’s lemma.</p>
-            </div>
-          </div>
+          <p><strong>Shephard’s Lemma → Hicksian demand.</strong></p>
+          <div class="math-display boxed-green">$$h_i(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p_i}.$$</div>
+          <p>Take the function $e(p,\bar u)$ and differentiate it with respect to $p_i$.</p>
+          <div class="math-display">$$e(p,\bar u)\longrightarrow\frac{\partial}{\partial p_i}\longrightarrow h_i(p,\bar u)\text{ = Hicksian demand.}$$</div>
         </div>
       </article>
     </section>
