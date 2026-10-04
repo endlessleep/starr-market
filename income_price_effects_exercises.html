@@ -18,10 +18,17 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
 <aside class="sidebar" id="sidebar"><div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div><nav class="sidebar-nav"><a href="index.html" class="sidebar-link">📂 0 — Introduction</a><div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div><div class="sidebar-group"><div class="sidebar-group-title">📂 Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink active" style="color:#f59e0b" aria-current="page">✦ Exercises Part 2-2</a></div></nav><div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div></aside>
 <main class="main-wrap" id="main-wrap"><div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Consumer Theory &nbsp;›&nbsp; <strong>Exercises Part 2-2</strong></div><div class="topbar-pill">Part II</div></div><div class="main-content"><header class="page-title"><div class="page-label">Part II — Consumer Theory</div><h1>Exercises Part 2-2</h1><p>Quasilinearity, the Slutsky equation, and welfare effects of a price change.</p></header>
 <section class="subsection"><div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div><article class="exercise-card"><h2>Exercise 1. Quasilinearity and Income Effect</h2><p>A consumer has preferences over the single good $x$ and all other goods $z$ represented by:</p><div class="math">$$u(x,z)=\ln(x)+z.$$</div><p>Let the price of $x$ be $p>0$, the price of $z$ be unity, and income be $y>0$.</p><ol class="questions"><li>Find the Marshallian demand functions $x^*$ and $z^*$.</li><li>Find the indirect utility function.</li><li>Use the Slutsky equation to decompose the effect of an own-price change on the demand for $x$ into an income and substitution effect. How can you interpret your result?</li><li>Suppose $y>1$, so that the consumer chooses an interior bundle. The price of $x$ rises from $p_0$ to $p_1>p_0$. Show that the change in consumer surplus gives an exact monetary measure of the welfare effect of the price change.</li></ol></article><button class="toggle" data-open="false" onclick="toggleSolution(this)">Show solution — Exercise 1 ▾</button><div class="solution" id="solution">
-  <p><strong>Setting.</strong> The budget constraint is $px+z\leq y$, with $x,z\geq0$. Because utility is increasing in $z$, the consumer spends the entire income at the optimum:</p>
-  <div class="math">$$px+z=y.$$</div>
-
   <h3>1. Marshallian demands</h3>
+  <div class="step">
+    <h4>Set up the utility-maximization problem</h4>
+    <p>The Marshallian demand is the solution to the consumer’s utility-maximization problem. Here, the consumer chooses $x$ and $z$ to maximize utility for a given income $y$:</p>
+    <div class="math">$$\max_{x>0,\ z\geq0}\ \ln(x)+z
+    \qquad\text{s.t.}\qquad
+    px+z\leq y.$$</div>
+    <p>Because utility is strictly increasing in both goods, it must be the case that the budget constraint binds:</p>
+    <div class="math">$$px+z=y.$$</div>
+  </div>
+
   <div class="step">
     <h4>Interior candidate</h4>
     <p>First suppose that both goods are consumed in positive quantities. At an interior optimum, the marginal rate of substitution equals the price ratio:</p>
@@ -77,12 +84,12 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
   </div>
 
   <h3>Before Question 3 — Calculate the Hicksian demand</h3>
-  <p class="remark"><strong>Why do this first?</strong> The Slutsky equation contains the Hicksian demand $h(p,\bar u)$. We therefore calculate it before decomposing the Marshallian price effect.</p>
+  <p class="remark"><strong>Why do this first?</strong> The Hicksian demand is the solution to the expenditure-minimization problem: prices and a utility target $\bar u$ are fixed, and the consumer chooses the least expensive bundle that reaches this target. The Slutsky equation contains $h(p,\bar u)$, so we calculate it before decomposing the Marshallian price effect.</p>
 
   <div class="step">
     <h4>Interior Hicksian bundle</h4>
-    <p>For a target utility level $\bar u$, the expenditure-minimization problem is:</p>
-    <div class="math">$$\min_{x,z\geq0}\ px+z
+    <p>For a target utility level $\bar u$, the consumer solves:</p>
+    <div class="math">$$\min_{x>0,\ z\geq0}\ px+z
     \qquad\text{s.t.}\qquad
     \ln(x)+z\geq\bar u.$$</div>
     <p>For an interior Hicksian bundle, the MRS condition used in Question 1 gives:</p>
