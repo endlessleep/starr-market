@@ -88,49 +88,56 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     \end{cases}}$$</div>
   </div>
 
-  <h3>Before Question 3 — Calculate the Hicksian demand</h3>
-  <p class="remark"><strong>Why do this first?</strong> The Hicksian demand is the solution to the expenditure-minimization problem: prices and a utility target $\bar u$ are fixed, and the consumer chooses the least expensive bundle that reaches this target. The Slutsky equation contains $h(p,\bar u)$, so we calculate it before decomposing the Marshallian price effect.</p>
+  <h3>Before Question 3 — Find the Hicksian demand</h3>
+  <p class="remark"><strong>What is fixed?</strong> For Hicksian demand, prices and the utility target $\bar u$ are fixed. We first find the cost-minimizing bundle directly. Shephard’s Lemma will only check the result afterwards.</p>
+  <p>The Hicksian demand is the solution to the expenditure-minimization problem:</p>
+  <div class="math">$$\min_{x>0,\ z\geq0}\ px+z
+  \qquad\text{s.t.}\qquad
+  \ln(x)+z\geq\bar u.$$</div>
 
   <div class="step">
     <h4>Interior Hicksian bundle</h4>
-    <p>For a target utility level $\bar u$, the consumer solves:</p>
-    <div class="math">$$\min_{x>0,\ z\geq0}\ px+z
-    \qquad\text{s.t.}\qquad
-    \ln(x)+z\geq\bar u.$$</div>
-    <p>For an interior Hicksian bundle, the MRS condition used in Question 1 gives:</p>
-    <div class="math">$$\frac{1}{x^h}=\frac{p}{1}
+    <p>For an interior bundle, use the MRS condition directly:</p>
+    <div class="math">$$MRS_{xz}=\frac{p_x}{p_z}
     \qquad\Longrightarrow\qquad
-    x^h=\frac{1}{p}.$$</div>
-    <p>The utility target binds. Substituting $x^h=1/p$ into $\bar u=\ln(x^h)+z^h$ gives:</p>
-    <div class="math">$$z^h=\bar u-\ln\left(\frac{1}{p}\right)
-    =\bar u+\ln(p).$$</div>
-    <p>Hence the expenditure function is:</p>
-    <div class="math">$$e(p,\bar u)
-    =p\left(\frac{1}{p}\right)+\bar u+\ln(p)
+    \frac{1}{x}=p
+    \qquad\Longrightarrow\qquad
+    \boxed{x^h(p,\bar u)=\frac{1}{p}}.$$</div>
+    <p>Use the binding utility constraint to obtain the quantity of $z$:</p>
+    <div class="math">$$\bar u=\ln(x^h)+z^h
+    \qquad\Longrightarrow\qquad
+    z^h=\bar u+\ln(p).$$</div>
+    <p>We already have the Hicksian demand for $x$. Shephard’s Lemma is not needed to find it.</p>
+    <p class="remark"><strong>Short check — Shephard’s Lemma.</strong> The expenditure of this directly obtained bundle is:</p>
+    <div class="math">$$e(p,\bar u)=p\left(\frac{1}{p}\right)+\bar u+\ln(p)
     =1+\bar u+\ln(p).$$</div>
-    <p>Shephard’s Lemma then gives:</p>
-    <div class="math">$$h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=\frac{1}{p},
+    <p>Therefore:</p>
+    <div class="math">$$\frac{\partial e(p,\bar u)}{\partial p}
+    =\frac{1}{p}
+    =x^h(p,\bar u),
     \qquad
-    \frac{\partial h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
+    \boxed{h(p,\bar u)=x^h(p,\bar u)=\frac{1}{p}}.$$</div>
   </div>
 
   <div class="step">
     <h4>Corner Hicksian bundle</h4>
-    <p>This is the Hicksian counterpart of the corner solution above. Here utility $\bar u$ is fixed. Since $z=0$, use the binding utility constraint:</p>
-    <div class="math">$$\ln(x)+z=\bar u.$$</div>
-    <p>It must therefore be the case that:</p>
-    <div class="math">$$\ln(x)=\bar u
+    <p>This corresponds to the Marshallian corner above. The interior condition would give $x=1/p$, but for $0&lt;y&lt;1$ it would imply $z=y-1&lt;0$. Hence the relevant corner has:</p>
+    <div class="math">$$\boxed{z=0}.$$</div>
+    <p>For Hicksian demand, utility $\bar u$ is fixed. Use the binding utility constraint:</p>
+    <div class="math">$$\ln(x)+z=\bar u
+    \qquad\Longrightarrow\qquad
+    \ln(x)=\bar u
     \qquad\Longrightarrow\qquad
     \boxed{x^h(p,\bar u)=e^{\bar u}}.$$</div>
-    <p>Because this Hicksian demand does not depend on $p$ when $\bar u$ is held fixed:</p>
-    <div class="math">$$\boxed{\frac{\partial x^h(p,\bar u)}{\partial p}=0}.$$</div>
-    <p>Shephard’s Lemma confirms the same demand; it does not give a different one. At the corner, expenditure is:</p>
+    <p>Again, the Hicksian demand has already been obtained directly.</p>
+    <p class="remark"><strong>Short check — Shephard’s Lemma.</strong> The expenditure of this bundle is:</p>
     <div class="math">$$e(p,\bar u)=p\,e^{\bar u}.$$</div>
     <p>Therefore:</p>
-    <div class="math">$$\underbrace{h(p,\bar u)}_{=\,x^h(p,\bar u)}
-    =\frac{\partial e(p,\bar u)}{\partial p}
-    =\frac{\partial\left(pe^{\bar u}\right)}{\partial p}
-    =e^{\bar u}.$$</div>
+    <div class="math">$$\frac{\partial e(p,\bar u)}{\partial p}
+    =e^{\bar u}
+    =x^h(p,\bar u),
+    \qquad
+    \boxed{h(p,\bar u)=x^h(p,\bar u)=e^{\bar u}}.$$</div>
   </div>
 
   <h3>3. Slutsky decomposition for an own-price change</h3>
@@ -148,8 +155,9 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{1}{p^2},
     \qquad
     \frac{\partial x^m}{\partial y}=0.$$</div>
-    <p>From the interior Hicksian calculation above:</p>
-    <div class="math">$$\frac{\partial h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
+    <p>We now differentiate the Hicksian demand found above:</p>
+    <div class="math">$$\frac{\partial x^h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
+    <p>Since $h(p,\bar u)=x^h(p,\bar u)$, this is the substitution effect.</p>
     <p>Therefore:</p>
     <div class="math">$$\underbrace{-\frac{1}{p^2}}_{\text{total effect}}
     =\underbrace{-\frac{1}{p^2}}_{\text{substitution effect}}
@@ -162,8 +170,9 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{y}{p^2},
     \qquad
     \frac{\partial x^m}{\partial y}=\frac{1}{p}.$$</div>
-    <p>From the corner Hicksian calculation above:</p>
-    <div class="math">$$\frac{\partial h(p,\bar u)}{\partial p}=0.$$</div>
+    <p>We now differentiate the Hicksian demand found above:</p>
+    <div class="math">$$\frac{\partial x^h(p,\bar u)}{\partial p}=0.$$</div>
+    <p>Since $h(p,\bar u)=x^h(p,\bar u)$, the substitution effect is zero.</p>
     <p>Thus:</p>
     <div class="math">$$\underbrace{-\frac{y}{p^2}}_{\text{total effect}}
     =\underbrace{0}_{\text{substitution effect}}
