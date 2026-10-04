@@ -48,10 +48,15 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
   </div>
 
   <div class="step">
-    <h4>Check non-negativity</h4>
-    <p>The interior candidate is feasible only when $z=y-1\geq0$, that is, when $y\geq1$.</p>
-    <p>If $0&lt;y&lt;1$, the interior candidate would require $z=y-1&lt;0$. This is not feasible. The constraint $z\geq0$ then binds, so the consumer spends all income on $x$:</p>
-    <div class="math">$$x=\frac{y}{p},\qquad z=0.$$</div>
+    <h4>Corner solution: $0&lt;y&lt;1$</h4>
+    <p>The interior condition gives $x=1/p$. But substituting this candidate into the budget constraint gives $z=y-1&lt;0$. This is not feasible because $z\geq0$. The optimum is therefore at the boundary:</p>
+    <div class="math">$$\boxed{z=0}.$$</div>
+    <p><strong>Marshallian demand: income $y$ is fixed.</strong> Use the binding budget constraint:</p>
+    <div class="math">$$px+z=y.$$</div>
+    <p>Since $z=0$:</p>
+    <div class="math">$$px=y
+    \qquad\Longrightarrow\qquad
+    \boxed{x^m(p,y)=\frac{y}{p}}.$$</div>
   </div>
 
   <div class="step result">
@@ -111,16 +116,21 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
 
   <div class="step">
     <h4>Corner Hicksian bundle</h4>
-    <p>At the relevant corner, $z=0$. The utility target becomes:</p>
+    <p>This is the Hicksian counterpart of the corner solution above. Here utility $\bar u$ is fixed. Since $z=0$, use the binding utility constraint:</p>
+    <div class="math">$$\ln(x)+z=\bar u.$$</div>
+    <p>It must therefore be the case that:</p>
     <div class="math">$$\ln(x)=\bar u
     \qquad\Longrightarrow\qquad
-    x=e^{\bar u}.$$</div>
-    <p>Hence:</p>
-    <div class="math">$$e(p,\bar u)=px=pe^{\bar u}.$$</div>
-    <p>Applying Shephard’s Lemma gives:</p>
-    <div class="math">$$h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=e^{\bar u},
-    \qquad
-    \frac{\partial h(p,\bar u)}{\partial p}=0.$$</div>
+    \boxed{x^h(p,\bar u)=e^{\bar u}}.$$</div>
+    <p>Because this Hicksian demand does not depend on $p$ when $\bar u$ is held fixed:</p>
+    <div class="math">$$\boxed{\frac{\partial x^h(p,\bar u)}{\partial p}=0}.$$</div>
+    <p>Shephard’s Lemma confirms the same demand; it does not give a different one. At the corner, expenditure is:</p>
+    <div class="math">$$e(p,\bar u)=p\,e^{\bar u}.$$</div>
+    <p>Therefore:</p>
+    <div class="math">$$\underbrace{h(p,\bar u)}_{=\,x^h(p,\bar u)}
+    =\frac{\partial e(p,\bar u)}{\partial p}
+    =\frac{\partial\left(pe^{\bar u}\right)}{\partial p}
+    =e^{\bar u}.$$</div>
   </div>
 
   <h3>3. Slutsky decomposition for an own-price change</h3>
