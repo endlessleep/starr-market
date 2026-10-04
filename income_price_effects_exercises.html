@@ -76,9 +76,49 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     \end{cases}}$$</div>
   </div>
 
+  <h3>Before Question 3 — Calculate the Hicksian demand</h3>
+  <p class="remark"><strong>Why do this first?</strong> The Slutsky equation contains the Hicksian demand $h(p,\bar u)$. We therefore calculate it before decomposing the Marshallian price effect.</p>
+
+  <div class="step">
+    <h4>Interior Hicksian bundle</h4>
+    <p>For a target utility level $\bar u$, the expenditure-minimization problem is:</p>
+    <div class="math">$$\min_{x,z\geq0}\ px+z
+    \qquad\text{s.t.}\qquad
+    \ln(x)+z\geq\bar u.$$</div>
+    <p>For an interior Hicksian bundle, the MRS condition used in Question 1 gives:</p>
+    <div class="math">$$\frac{1}{x^h}=\frac{p}{1}
+    \qquad\Longrightarrow\qquad
+    x^h=\frac{1}{p}.$$</div>
+    <p>The utility target binds. Substituting $x^h=1/p$ into $\bar u=\ln(x^h)+z^h$ gives:</p>
+    <div class="math">$$z^h=\bar u-\ln\left(\frac{1}{p}\right)
+    =\bar u+\ln(p).$$</div>
+    <p>Hence the expenditure function is:</p>
+    <div class="math">$$e(p,\bar u)
+    =p\left(\frac{1}{p}\right)+\bar u+\ln(p)
+    =1+\bar u+\ln(p).$$</div>
+    <p>Shephard’s Lemma then gives:</p>
+    <div class="math">$$h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=\frac{1}{p},
+    \qquad
+    \frac{\partial h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
+  </div>
+
+  <div class="step">
+    <h4>Corner Hicksian bundle</h4>
+    <p>At the relevant corner, $z=0$. The utility target becomes:</p>
+    <div class="math">$$\ln(x)=\bar u
+    \qquad\Longrightarrow\qquad
+    x=e^{\bar u}.$$</div>
+    <p>Hence:</p>
+    <div class="math">$$e(p,\bar u)=px=pe^{\bar u}.$$</div>
+    <p>Applying Shephard’s Lemma gives:</p>
+    <div class="math">$$h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=e^{\bar u},
+    \qquad
+    \frac{\partial h(p,\bar u)}{\partial p}=0.$$</div>
+  </div>
+
   <h3>3. Slutsky decomposition for an own-price change</h3>
   <div class="step">
-    <p>For this one-good price change, the Slutsky equation is:</p>
+    <p>We can now use the Hicksian demands calculated above. For this one-good price change, the Slutsky equation is:</p>
     <div class="math">$$\frac{\partial x^m(p,y)}{\partial p}
     =\frac{\partial h(p,\bar u)}{\partial p}
     -x^m(p,y)\frac{\partial x^m(p,y)}{\partial y}.$$</div>
@@ -91,25 +131,8 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{1}{p^2},
     \qquad
     \frac{\partial x^m}{\partial y}=0.$$</div>
-    <p>The income effect is zero. To obtain the substitution effect, first solve the expenditure-minimization problem for a target utility level $\bar u$:</p>
-    <div class="math">$$\min_{x,z\geq0}\ px+z
-    \qquad\text{s.t.}\qquad
-    \ln(x)+z\geq\bar u.$$</div>
-    <p>For an interior Hicksian bundle, the MRS condition used in Question 1 gives:</p>
-    <div class="math">$$\frac{1}{x^h}=\frac{p}{1}
-    \qquad\Longrightarrow\qquad
-    x^h=\frac{1}{p}.$$</div>
-    <p>The utility target binds. Substituting $x^h=1/p$ into $\bar u=\ln(x^h)+z^h$ gives:</p>
-    <div class="math">$$z^h=\bar u-\ln\left(\frac{1}{p}\right)
-    =\bar u+\ln(p).$$</div>
-    <p>Hence the minimum expenditure is:</p>
-    <div class="math">$$e(p,\bar u)
-    =p\left(\frac{1}{p}\right)+\bar u+\ln(p)
-    =1+\bar u+\ln(p).$$</div>
-    <p>Only now apply Shephard’s Lemma:</p>
-    <div class="math">$$h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=\frac{1}{p},
-    \qquad
-    \frac{\partial h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
+    <p>From the interior Hicksian calculation above:</p>
+    <div class="math">$$\frac{\partial h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
     <p>Therefore:</p>
     <div class="math">$$\underbrace{-\frac{1}{p^2}}_{\text{total effect}}
     =\underbrace{-\frac{1}{p^2}}_{\text{substitution effect}}
@@ -122,15 +145,7 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{y}{p^2},
     \qquad
     \frac{\partial x^m}{\partial y}=\frac{1}{p}.$$</div>
-    <p>At the relevant corner, $z=0$. The utility target then becomes:</p>
-    <div class="math">$$\ln(x)=\bar u
-    \qquad\Longrightarrow\qquad
-    x=e^{\bar u}.$$</div>
-    <p>Therefore the minimum expenditure and Hicksian demand are:</p>
-    <div class="math">$$e(p,\bar u)=px=pe^{\bar u},
-    \qquad
-    h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=e^{\bar u}.$$</div>
-    <p>Since $\bar u$ is held fixed when differentiating the Hicksian demand with respect to price:</p>
+    <p>From the corner Hicksian calculation above:</p>
     <div class="math">$$\frac{\partial h(p,\bar u)}{\partial p}=0.$$</div>
     <p>Thus:</p>
     <div class="math">$$\underbrace{-\frac{y}{p^2}}_{\text{total effect}}
