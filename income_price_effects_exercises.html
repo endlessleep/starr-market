@@ -17,6 +17,133 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
 <body>
 <aside class="sidebar" id="sidebar"><div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div><nav class="sidebar-nav"><a href="index.html" class="sidebar-link">📂 0 — Introduction</a><div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div><div class="sidebar-group"><div class="sidebar-group-title">📂 Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink active" style="color:#f59e0b" aria-current="page">✦ Exercises Part 2-2</a></div></nav><div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div></aside>
 <main class="main-wrap" id="main-wrap"><div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Consumer Theory &nbsp;›&nbsp; <strong>Exercises Part 2-2</strong></div><div class="topbar-pill">Part II</div></div><div class="main-content"><header class="page-title"><div class="page-label">Part II — Consumer Theory</div><h1>Exercises Part 2-2</h1><p>Quasilinearity, the Slutsky equation, and welfare effects of a price change.</p></header>
-<section class="subsection"><div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div><article class="exercise-card"><h2>Exercise 1. Quasilinearity and Income Effect</h2><p>A consumer has preferences over the single good $x$ and all other goods $z$ represented by:</p><div class="math">$$u(x,z)=\ln(x)+z.$$</div><p>Let the price of $x$ be $p>0$, the price of $z$ be unity, and income be $y>0$.</p><ol class="questions"><li>Find the Marshallian demand functions $x^*$ and $z^*$.</li><li>Find the indirect utility function.</li><li>Use the Slutsky equation to decompose the effect of an own-price change on the demand for $x$ into an income and substitution effect. How can you interpret your result?</li><li>Suppose $y>1$, so that the consumer chooses an interior bundle. The price of $x$ rises from $p_0$ to $p_1>p_0$. Show that the change in consumer surplus gives an exact monetary measure of the welfare effect of the price change.</li></ol></article><button class="toggle" data-open="false" onclick="toggleSolution(this)">Show solution — Exercise 1 ▾</button><div class="solution" id="solution"><p><strong>Setting.</strong> As in the course, the budget set is $px+z\leq y$, with $x,z\geq0$. Since utility is increasing in $z$, the budget constraint binds at the optimum.</p><h3>1. Marshallian demands</h3><div class="step"><h4>Interior candidate</h4><p>Write the UMP as:</p><div class="math">$$\max_{x,z\geq0}\ \ln(x)+z\qquad\text{s.t.}\qquad px+z=y.$$</div><p>The Lagrangian is:</p><div class="math">$$\mathcal L=\ln(x)+z+\lambda(y-px-z).$$</div><p>The first-order conditions are:</p><div class="math">$$\frac1x=\lambda p,\qquad 1=\lambda.$$</div><p>Substituting $\lambda=1$ into the first condition gives:</p><div class="math">$$x=\frac1p.$$</div><p>Using the budget constraint then gives:</p><div class="math">$$z=y-p\left(\frac1p\right)=y-1.$$</div><p>This bundle is feasible with $z\geq0$ precisely when $y\geq1$.</p></div><div class="step"><h4>Corner case</h4><p>If $0&lt;y&lt;1$, the interior candidate would imply $z=y-1&lt;0$. The constraint $z\geq0$ binds, so the consumer spends all income on $x$:</p><div class="math">$$x=\frac yp,\qquad z=0.$$</div></div><div class="step result"><h4>Marshallian demand</h4><div class="math">$$\boxed{x^*(p,y)=\frac{\min\{y,1\}}{p},\qquad z^*(p,y)=\max\{y-1,0\}.}$$</div></div><h3>2. Indirect utility function</h3><div class="step"><p>For $y\geq1$, substitute the interior demand into utility:</p><div class="math">$$v(p,y)=\ln\left(\frac1p\right)+(y-1)=y-1-\ln(p).$$</div><p>For $0&lt;y&lt;1$, the chosen bundle is $(y/p,0)$, so:</p><div class="math">$$v(p,y)=\ln\left(\frac yp\right)=\ln(y)-\ln(p).$$</div></div><div class="step result"><h4>Indirect utility</h4><div class="math">$$\boxed{v(p,y)=\begin{cases}y-1-\ln(p),&y\geq1,\\[.4em]\ln(y)-\ln(p),&0&lt;y&lt;1.\end{cases}}$$</div></div><h3>3. Slutsky decomposition for an own-price change</h3><div class="step"><p>The following question concerns the interior demand, for which $y>1$:</p><div class="math">$$x(p,y)=\frac1p.$$</div><p>Differentiate with respect to $p$ and to income:</p><div class="math">$$\frac{\partial x(p,y)}{\partial p}=-\frac1{p^2},\qquad\frac{\partial x(p,y)}{\partial y}=0.$$</div><p>The Slutsky equation for an own-price change is:</p><div class="math">$$\frac{\partial x(p,y)}{\partial p}=\frac{\partial h(p,\bar u)}{\partial p}-\left[\frac{\partial x(p,y)}{\partial y}\right]x(p,y).$$</div><p>Because $\partial x/\partial y=0$, the income effect is zero:</p><div class="math">$$-\left[\frac{\partial x(p,y)}{\partial y}\right]x(p,y)=0.$$</div><p>Therefore the substitution effect equals the total effect:</p><div class="math">$$\boxed{\frac{\partial h(p,\bar u)}{\partial p}=-\frac1{p^2}.}$$</div></div><p class="remark"><strong>Interpretation.</strong> In the interior region, the demand for $x$ does not change when income changes. Thus an own-price increase affects $x$ only through the substitution effect.</p><h3>4. Consumer surplus and the welfare effect</h3><div class="step"><p>For $y>1$, Marshallian demand remains:</p><div class="math">$$x(p,y)=\frac1p.$$</div><p>The consumer-surplus change caused by the price increase is:</p><div class="math">$$\Delta CS=-\int_{p_0}^{p_1}x(p,y)\,dp=-\int_{p_0}^{p_1}\frac1p\,dp=-\ln\left(\frac{p_1}{p_0}\right).$$</div><p>Hence the positive consumer-surplus loss is:</p><div class="math">$$-\Delta CS=\ln\left(\frac{p_1}{p_0}\right).$$</div><p>To compare this with welfare, start from the interior indirect utility:</p><div class="math">$$u_0=v(p_0,y)=y-1-\ln(p_0).$$</div><p>At prices $p$, the expenditure function associated with the interior solution is:</p><div class="math">$$e(p,u)=1+u+\ln(p).$$</div><p>Therefore the compensating variation is:</p><div class="math">$$\begin{aligned}CV&=e(p_1,u_0)-y\\&=1+\big[y-1-\ln(p_0)\big]+\ln(p_1)-y\\&=\ln\left(\frac{p_1}{p_0}\right).\end{aligned}$$</div></div><div class="step result"><h4>Conclusion</h4><div class="math">$$\boxed{CV=-\Delta CS=\ln\left(\frac{p_1}{p_0}\right).}$$</div><p>Because the income effect is zero, the course result gives $EV=-\Delta CS=CV$. The consumer-surplus loss is therefore an exact monetary measure of the welfare loss.</p></div></div></section></div></main>
+<section class="subsection"><div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div><article class="exercise-card"><h2>Exercise 1. Quasilinearity and Income Effect</h2><p>A consumer has preferences over the single good $x$ and all other goods $z$ represented by:</p><div class="math">$$u(x,z)=\ln(x)+z.$$</div><p>Let the price of $x$ be $p>0$, the price of $z$ be unity, and income be $y>0$.</p><ol class="questions"><li>Find the Marshallian demand functions $x^*$ and $z^*$.</li><li>Find the indirect utility function.</li><li>Use the Slutsky equation to decompose the effect of an own-price change on the demand for $x$ into an income and substitution effect. How can you interpret your result?</li><li>Suppose $y>1$, so that the consumer chooses an interior bundle. The price of $x$ rises from $p_0$ to $p_1>p_0$. Show that the change in consumer surplus gives an exact monetary measure of the welfare effect of the price change.</li></ol></article><button class="toggle" data-open="false" onclick="toggleSolution(this)">Show solution — Exercise 1 ▾</button><div class="solution" id="solution">
+  <p><strong>Setting.</strong> The budget constraint is $px+z\leq y$, with $x,z\geq0$. Because utility is increasing in $z$, the consumer spends the entire income at the optimum:</p>
+  <div class="math">$$px+z=y.$$</div>
+
+  <h3>1. Marshallian demands</h3>
+  <div class="step">
+    <h4>Interior candidate</h4>
+    <p>First suppose that both goods are consumed in positive quantities. Along an indifference curve, utility is constant, so:</p>
+    <div class="math">$$du=\frac{1}{x}dx+dz=0.$$</div>
+    <p>Rearranging gives the marginal rate of substitution used in the class correction:</p>
+    <div class="math">$$MRS_{xz}=-\frac{dx}{dz}=x.$$</div>
+    <p>Along the budget line, income is held constant. Therefore:</p>
+    <div class="math">$$dy=p\,dx+dz=0
+    \qquad\Longrightarrow\qquad
+    -\frac{dx}{dz}=\frac{1}{p}.$$</div>
+    <p>At an interior optimum, the two rates are equal. It must therefore be the case that:</p>
+    <div class="math">$$x=\frac{1}{p}.$$</div>
+    <p>Substitute this quantity into the binding budget constraint:</p>
+    <div class="math">$$p\left(\frac{1}{p}\right)+z=y
+    \qquad\Longrightarrow\qquad
+    z=y-1.$$</div>
+  </div>
+
+  <div class="step">
+    <h4>Check non-negativity</h4>
+    <p>The interior candidate is feasible only when $z=y-1\geq0$, that is, when $y\geq1$.</p>
+    <p>If $0&lt;y&lt;1$, the interior candidate would require $z=y-1&lt;0$. This is not feasible. The constraint $z\geq0$ then binds, so the consumer spends all income on $x$:</p>
+    <div class="math">$$x=\frac{y}{p},\qquad z=0.$$</div>
+  </div>
+
+  <div class="step result">
+    <h4>Marshallian demand</h4>
+    <div class="math">$$\boxed{
+    x^m(p,y)=\begin{cases}
+    \dfrac{1}{p},&y\geq1,\\[.45em]
+    \dfrac{y}{p},&0&lt;y&lt;1,
+    \end{cases}
+    \qquad
+    z^m(p,y)=\begin{cases}
+    y-1,&y\geq1,\\[.35em]
+    0,&0&lt;y&lt;1.
+    \end{cases}}$$</div>
+  </div>
+
+  <h3>2. Indirect utility function</h3>
+  <div class="step">
+    <p>For $y\geq1$, substitute the interior demands into $u(x,z)=\ln(x)+z$:</p>
+    <div class="math">$$v(p,y)=\ln\left(\frac{1}{p}\right)+(y-1)=y-1-\ln(p).$$</div>
+    <p>For $0&lt;y&lt;1$, the chosen bundle is $(y/p,0)$, so:</p>
+    <div class="math">$$v(p,y)=\ln\left(\frac{y}{p}\right)=\ln(y)-\ln(p).$$</div>
+  </div>
+  <div class="step result">
+    <h4>Indirect utility</h4>
+    <div class="math">$$\boxed{v(p,y)=\begin{cases}
+    y-1-\ln(p),&y\geq1,\\[.4em]
+    \ln(y)-\ln(p),&0&lt;y&lt;1.
+    \end{cases}}$$</div>
+  </div>
+
+  <h3>3. Slutsky decomposition for an own-price change</h3>
+  <div class="step">
+    <p>For this one-good price change, the Slutsky equation is:</p>
+    <div class="math">$$\frac{\partial x^m(p,y)}{\partial p}
+    =\frac{\partial h(p,\bar u)}{\partial p}
+    -x^m(p,y)\frac{\partial x^m(p,y)}{\partial y}.$$</div>
+    <p>The first term on the right-hand side is the substitution effect. The second term, with its minus sign, is the income effect.</p>
+  </div>
+
+  <div class="step">
+    <h4>Case 1: $y\geq1$</h4>
+    <p>Here, $x^m(p,y)=1/p$. Hence:</p>
+    <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{1}{p^2},
+    \qquad
+    \frac{\partial x^m}{\partial y}=0.$$</div>
+    <p>The income effect is zero. Using the expenditure function from the class correction, $e(p,\bar u)=1+\bar u+\ln(p)$, Shephard’s Lemma gives:</p>
+    <div class="math">$$h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=\frac{1}{p},
+    \qquad
+    \frac{\partial h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
+    <p>Therefore:</p>
+    <div class="math">$$\underbrace{-\frac{1}{p^2}}_{\text{total effect}}
+    =\underbrace{-\frac{1}{p^2}}_{\text{substitution effect}}
+    -\underbrace{\left(\frac{1}{p}\right)(0)}_{\text{income effect}}.$$</div>
+  </div>
+
+  <div class="step">
+    <h4>Case 2: $0&lt;y&lt;1$</h4>
+    <p>Here, $x^m(p,y)=y/p$. Therefore:</p>
+    <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{y}{p^2},
+    \qquad
+    \frac{\partial x^m}{\partial y}=\frac{1}{p}.$$</div>
+    <p>In this corner case, the expenditure function used in the class correction is $e(p,\bar u)=p e^{\bar u}$. By Shephard’s Lemma, the Hicksian demand is therefore $h(p,\bar u)=e^{\bar u}$, so:</p>
+    <div class="math">$$\frac{\partial h(p,\bar u)}{\partial p}=0.$$</div>
+    <p>Thus:</p>
+    <div class="math">$$\underbrace{-\frac{y}{p^2}}_{\text{total effect}}
+    =\underbrace{0}_{\text{substitution effect}}
+    -\underbrace{\left(\frac{y}{p}\right)\left(\frac{1}{p}\right)}_{\text{income effect}}.$$</div>
+  </div>
+  <p class="remark"><strong>Interpretation.</strong> When $y\geq1$, demand for $x$ does not depend on income, so the own-price effect is entirely a substitution effect. When $0&lt;y&lt;1$, the own-price effect comes entirely from the income effect. In both cases, an increase in $p$ reduces demand for $x$.</p>
+
+  <h3>4. Consumer surplus and the welfare effect</h3>
+  <div class="step">
+    <p>The question assumes $y>1$, so the consumer remains in the interior case and:</p>
+    <div class="math">$$x^m(p,y)=\frac{1}{p}.$$</div>
+    <p>When the price rises from $p_0$ to $p_1>p_0$, the positive consumer-surplus loss is:</p>
+    <div class="math">$$-\Delta CS=\int_{p_0}^{p_1}\frac{1}{p}\,dp
+    =\ln(p_1)-\ln(p_0)
+    =\ln\left(\frac{p_1}{p_0}\right).$$</div>
+  </div>
+
+  <div class="step">
+    <h4>Compare with CV and EV</h4>
+    <p>Initially, utility is $u_0=v(p_0,y)=y-1-\ln(p_0)$. Compensating variation restores this utility at the new price:</p>
+    <div class="math">$$v(p_1,y+CV)=v(p_0,y).$$</div>
+    <p>Substituting the interior indirect utility function gives:</p>
+    <div class="math">$$y+CV-1-\ln(p_1)=y-1-\ln(p_0)
+    \qquad\Longrightarrow\qquad
+    CV=\ln\left(\frac{p_1}{p_0}\right).$$</div>
+    <p>Equivalent variation gives the same result. It is defined by:</p>
+    <div class="math">$$v(p_0,y-EV)=v(p_1,y)
+    \qquad\Longrightarrow\qquad
+    EV=\ln\left(\frac{p_1}{p_0}\right).$$</div>
+  </div>
+  <div class="step result">
+    <h4>Conclusion</h4>
+    <div class="math">$$\boxed{CV=EV=-\Delta CS=\ln\left(\frac{p_1}{p_0}\right).}$$</div>
+    <p>Because the interior demand for $x$ has no income effect, the consumer-surplus loss is an exact monetary measure of the welfare loss.</p>
+  </div>
+</div></div></section></div></main>
 <script>function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:900px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}function toggleSolution(btn){const box=document.getElementById('solution'),open=box.classList.toggle('open');btn.textContent=(open?'Hide':'Show')+' solution — Exercise 1 '+(open?'▴':'▾');btn.setAttribute('aria-expanded',String(open));if(open&&window.MathJax?.typesetPromise)MathJax.typesetPromise([box]).catch(console.error)}</script>
 </body></html>
