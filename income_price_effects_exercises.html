@@ -91,7 +91,22 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{1}{p^2},
     \qquad
     \frac{\partial x^m}{\partial y}=0.$$</div>
-    <p>The income effect is zero. Using the expenditure function from the class correction, $e(p,\bar u)=1+\bar u+\ln(p)$, Shephard’s Lemma gives:</p>
+    <p>The income effect is zero. To obtain the substitution effect, first solve the expenditure-minimization problem for a target utility level $\bar u$:</p>
+    <div class="math">$$\min_{x,z\geq0}\ px+z
+    \qquad\text{s.t.}\qquad
+    \ln(x)+z\geq\bar u.$$</div>
+    <p>For an interior Hicksian bundle, the MRS condition used in Question 1 gives:</p>
+    <div class="math">$$\frac{1}{x^h}=\frac{p}{1}
+    \qquad\Longrightarrow\qquad
+    x^h=\frac{1}{p}.$$</div>
+    <p>The utility target binds. Substituting $x^h=1/p$ into $\bar u=\ln(x^h)+z^h$ gives:</p>
+    <div class="math">$$z^h=\bar u-\ln\left(\frac{1}{p}\right)
+    =\bar u+\ln(p).$$</div>
+    <p>Hence the minimum expenditure is:</p>
+    <div class="math">$$e(p,\bar u)
+    =p\left(\frac{1}{p}\right)+\bar u+\ln(p)
+    =1+\bar u+\ln(p).$$</div>
+    <p>Only now apply Shephard’s Lemma:</p>
     <div class="math">$$h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=\frac{1}{p},
     \qquad
     \frac{\partial h(p,\bar u)}{\partial p}=-\frac{1}{p^2}.$$</div>
@@ -107,7 +122,15 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     <div class="math">$$\frac{\partial x^m}{\partial p}=-\frac{y}{p^2},
     \qquad
     \frac{\partial x^m}{\partial y}=\frac{1}{p}.$$</div>
-    <p>In this corner case, the expenditure function used in the class correction is $e(p,\bar u)=p e^{\bar u}$. By Shephard’s Lemma, the Hicksian demand is therefore $h(p,\bar u)=e^{\bar u}$, so:</p>
+    <p>At the relevant corner, $z=0$. The utility target then becomes:</p>
+    <div class="math">$$\ln(x)=\bar u
+    \qquad\Longrightarrow\qquad
+    x=e^{\bar u}.$$</div>
+    <p>Therefore the minimum expenditure and Hicksian demand are:</p>
+    <div class="math">$$e(p,\bar u)=px=pe^{\bar u},
+    \qquad
+    h(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p}=e^{\bar u}.$$</div>
+    <p>Since $\bar u$ is held fixed when differentiating the Hicksian demand with respect to price:</p>
     <div class="math">$$\frac{\partial h(p,\bar u)}{\partial p}=0.$$</div>
     <p>Thus:</p>
     <div class="math">$$\underbrace{-\frac{y}{p^2}}_{\text{total effect}}
