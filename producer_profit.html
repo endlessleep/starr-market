@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MICRO — 1. Technology and Production</title>
+<title>MICRO — 3. Profit-Maximization Problem</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script>
   MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};
@@ -24,110 +24,35 @@
     <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
     <div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div>
     <div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div>
-    <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink active" aria-current="page">1 · Technology &amp; Production</a><a href="producer_research.html" class="sidebar-sublink">2 · Research Focus</a><a href="producer_profit.html" class="sidebar-sublink">3 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">4 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">5 · Efficiency</a></div>
+    <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_research.html" class="sidebar-sublink">2 · Research Focus</a><a href="producer_profit.html" class="sidebar-sublink active" aria-current="page">3 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">4 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">5 · Efficiency</a></div>
   </nav>
   <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div>
 </aside>
 <main class="main-wrap" id="main-wrap">
-  <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Producer Theory &nbsp;›&nbsp; <strong>1. Technology and Production</strong></div><div class="topbar-pill">Part III</div></div>
+  <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Producer Theory &nbsp;›&nbsp; <strong>3. Profit-Maximization Problem</strong></div><div class="topbar-pill">Part III</div></div>
   <div class="main-content">
-    <header class="page-title"><div class="page-label">Part III — Producer Theory</div><h1>1. Technology and Production</h1><p>Technology, input choices, and returns to scale.</p></header>
+    <header class="page-title"><div class="page-label">Part III — Producer Theory</div><h1>3. Profit-Maximization Problem</h1><p>How the producer chooses inputs to maximize profit.</p></header>
 
     <section>
-      <div class="part-banner"><span class="part-pill">Technology and production</span><span class="part-line"></span></div>
-      <h2>Vocabulary</h2>
-      <h3>Production function</h3>
-      <p class="lead">A production function measures the <strong>maximum output</strong>, denoted by $y$, that can be obtained from a given input vector $z$. It describes the technological relation between the inputs used by a producer and the output that can be produced.</p>
-      <div class="key-note"><strong>Production function and utility function.</strong> The production function $f$ plays a role similar to a utility function in the sense that it maps a vector into a number. The difference is that production functions are <strong>cardinal</strong>, whereas utility functions are ordinal.</div>
-      <p>Throughout this chapter, the production function is assumed to satisfy the following properties.</p>
-      <div class="cards">
-        <div class="card"><h3>Essentiality</h3><div class="math">$$f(0)=0.$$</div><p>With no inputs, the maximum output is zero.</p></div>
-        <div class="card"><h3>Smoothness</h3><p>The production function is twice continuously differentiable, so its first and second derivatives can be used in the analysis.</p></div>
-        <div class="card full"><h3>Monotonicity</h3><p>Increasing the amount of at least one input produces at least as much output as before. More input does not reduce the maximum feasible output.</p></div>
-      </div>
+      <div class="part-banner"><span class="part-pill">3 · Profit-maximization problem</span><span class="part-line"></span></div>
+      <h2>The Profit Function</h2>
+      <p class="lead">The profit function $\pi$ associates to a given output price $p$ the highest profit the producer can obtain: the largest difference between revenue and input costs.</p>
+      <div class="math emphasis">$$\pi=\max_z\;p\cdot y-z\cdot w
+      \qquad\text{s.t.}\qquad f(z)=y.\tag{1}$$</div>
+      <p>Here, $p$ is the output price and $w$ is the vector of input prices. The producer is assumed to be a <strong>price-taker</strong>: $p$ and $w$ are taken as given.</p>
 
-      <h3>Production set and isoquant</h3>
-      <div class="term-grid">
-        <div class="term"><h3>Production set</h3><p>The production set $I^0$ contains all input bundles that can produce <em>at least</em> the output level $y^0$:</p><div class="math">$$I^0=\{z\mid f(z)\geq y^0\}.\tag{1}$$</div><p class="small">It is analogous to a feasible set.</p></div>
-        <div class="term"><h3>Isoquant curve</h3><p>The isoquant $Q^0$ contains all input bundles that produce <em>exactly</em> the output level $y^0$:</p><div class="math">$$Q^0=\{z\mid f(z)=y^0\}.\tag{2}$$</div><p class="small">It is analogous to an indifference curve.</p></div>
-      </div>
+      <h2>The Profit-Maximization Problem</h2>
+      <p>Assume that $f$ is strictly quasi-concave and twice continuously differentiable. Replacing output $y$ by $f(z)$ gives the long-term profit-maximization problem:</p>
+      <div class="math emphasis">$$\max_z\;p\cdot f(z)-z\cdot w.\tag{2}$$</div>
+      <div class="key-note"><strong>Outputs of the problem.</strong> The unconditional input demand $z_\pi(w,p)$ is the solution to the profit-maximization problem. It is unconditional because the producer is not required to meet a fixed output target. The profit function $\pi$ is the value function of this problem.</div>
 
-      <h3>Convexity of the production set</h3>
-      <p>The production set $I^0$ is convex. If $z^a$ and $z^b$ are two ways of producing $y^0$, any mixture of these two input bundles can produce at least as much output. The isoquant curves form the boundary of the production set.</p>
-      <div class="figure-row"><figure><img src="images/producer-convex-set.png" alt="Convex production set with two input bundles and their mixture"><figcaption class="caption">Figure 1: Convex set.</figcaption></figure><div class="figure-copy"><h3>How to read the figure</h3><p>The input bundles $z^a$ and $z^b$ lie on the same isoquant, so each produces the same output. The mixture $z^c$ lies inside the production set associated with that output level.</p><p>The figure therefore shows the meaning of convexity: combining two feasible input plans remains feasible for producing at least the same output.</p></div></div>
-    </section>
-
-    <section>
-      <div class="part-banner"><span class="part-pill">Time horizon</span><span class="part-line"></span></div>
-      <h2>Short- and Long-Term</h2>
-      <p>Consider a production function with two inputs. Input $z_1$ is a <strong>variable input</strong>: its quantity can be varied instantaneously. Input $z_2$ is a <strong>fixed input</strong>: its quantity can be varied from period $t$ to period $t+1$.</p>
-      <div class="comparison"><div class="card"><h3>Short term — period 0</h3><p>The producer can vary $z_1$ while $z_2$ remains fixed.</p></div><div class="card"><h3>Long term — period 1</h3><p>The producer can vary both $z_1$ and $z_2$.</p></div><div class="card"><h3>Two responses</h3><p>Input substitution changes one input while the others are constant. Returns to scale vary all inputs in the same proportion.</p></div></div>
-      <div class="remark"><strong>Focus of the course.</strong> Input substitution is typically studied in the short term. Returns to scale are typically studied in the long term.</div>
-    </section>
-
-    <section>
-      <div class="part-banner"><span class="part-pill">Short-term properties</span><span class="part-line"></span></div>
-      <h2>Marginal Product</h2>
-      <p>The marginal product of input 1 measures the change in output when input 1 changes while input 2 is held fixed:</p>
-      <div class="math emphasis">$$MP_1=\frac{\partial y}{\partial z_1}=f'(z_1).\tag{3}$$</div>
-      <div class="key-note"><strong>Reading the assumption.</strong> At least one input has a positive marginal product: this is the productivity assumption. Marginal product is typically assumed to be diminishing. Output still rises when more of input 1 is used, but it rises at a decreasing rate.</div>
-
-      <h2>Marginal Rate of Technical Substitution</h2>
-      <p>The marginal rate of technical substitution measures the change in input 2 needed to keep output constant when input 1 changes:</p>
-      <div class="math emphasis">$$MRTS_{12}=\frac{MP_1(z_1,z_2)}{MP_2(z_1,z_2)}=-\frac{dz_2}{dz_1}.\tag{4}$$</div>
-      <p>The MRTS is the technical counterpart of the marginal rate of substitution. It is usually assumed to be diminishing.</p>
-      <div class="key-note"><strong>Graphical meaning.</strong> The MRTS is minus the slope of an isoquant. When the MRTS is diminishing, the slope, which is minus the MRTS, changes so that isoquants are convex.</div>
-      <div class="remark"><strong>Do not confuse the two assumptions.</strong> A diminishing $MRTS_{12}$ concerns how the ratio of marginal products changes when $z_1$ rises and $z_2$ falls along the same isoquant. A diminishing $MP_1$ concerns how $MP_1$ changes when $z_1$ rises while $z_2$ is held fixed.</div>
-
-      <h2>Elasticity of Substitution</h2>
-      <p>The elasticity of substitution connects changes in the input ratio to changes in the MRTS:</p>
-      <div class="math emphasis">$$\sigma=\frac{\%\text{ change in }z_2/z_1}{\%\text{ change in }MRTS_{12}}
-      =\frac{d\ln(z_2/z_1)}{d\ln MRTS_{12}}.\tag{5}$$</div>
-      <p>It measures the percentage change in the ratio $z_2/z_1$ associated with a 1% change in the MRTS between the two inputs. A higher elasticity means that the firm can substitute one input for the other more easily.</p>
-      <p>Moving from point $A$ to point $B$ on a given isoquant, both the MRTS and the input ratio change. The elasticity of substitution is the ratio of these changes, so it measures the curvature of the isoquant.</p>
-      <div class="cards"><div class="card"><h3>Low elasticity</h3><p>Large changes in the MRTS are associated with small changes in the input ratio. The inputs are poor substitutes; the isoquant is approximately flat.</p></div><div class="card"><h3>High elasticity</h3><p>Small changes in the MRTS are associated with large changes in the input ratio. The inputs are easily substitutable.</p></div></div>
-    </section>
-
-    <section>
-      <div class="part-banner"><span class="part-pill">Long-term properties</span><span class="part-line"></span></div>
-      <h2>Returns to Scale</h2>
-      <p>Returns to scale measure the change in output when both inputs are multiplied by the same factor $s$. They can be characterized by the degree of homogeneity $\nu$ of the production function or by the elasticity of scale $E$.</p>
-      <div class="math emphasis">$$E=\frac{\partial f(s\cdot z)/f(s\cdot z)}{\partial s/s}
-      =\frac{\partial f(s\cdot z)}{\partial s}\frac{s}{f(s\cdot z)}.\tag{6}$$</div>
-      <p>The elasticity of scale compares the change in output caused by scaling all inputs with the common proportional change in inputs.</p>
-      <div class="cards"><div class="card"><h3>Constant returns</h3><div class="math">$$s\cdot f(z_1,z_2)=f(sz_1,sz_2).\tag{7}$$</div><p>Here $E=1$, or $f$ is homogeneous of degree $\nu=1$.</p></div><div class="card"><h3>Increasing returns</h3><div class="math">$$s\cdot f(z_1,z_2)&lt;f(sz_1,sz_2).\tag{8}$$</div><p>Here $E>1$, or $f$ is homogeneous of degree $\nu>1$.</p></div><div class="card full"><h3>Decreasing returns</h3><div class="math">$$s\cdot f(z_1,z_2)>f(sz_1,sz_2).\tag{9}$$</div><p>Here $E&lt;1$, or $f$ is homogeneous of degree $\nu&lt;1$.</p></div></div>
-
-      <h2>Homogeneous functions of degree $\nu$</h2>
-      <p>When the production function is homogeneous of degree $\nu$, scaling every input by $s$ gives $f(sz)=s^\nu f(z)$. The elasticity of scale is then equal to the degree of homogeneity:</p>
-      <div class="derive"><h3>Elasticity of scale</h3><div class="math">$$\begin{aligned}
-      E&=\frac{\partial f(s\cdot z)}{\partial s}\frac{s}{f(s\cdot z)}\\
-      &=\frac{\partial\left[s^\nu f(z)\right]}{\partial s}\frac{s}{s^\nu f(z)}\\
-      &=\left[\nu s^{\nu-1}f(z)\right]\frac{s}{s^\nu f(z)}\\
-      &=\nu.
-      \end{aligned}\tag{10}$$</div><p>The first equality is the definition of $E$. The next line uses homogeneity, and differentiating $s^\nu f(z)$ gives the final result.</p></div>
-      <p>Its partial derivatives are homogeneous of degree $\nu-1$:</p>
-      <div class="math">$$f_i'(sz)=s^{\nu-1}f_i'(z).\tag{11}$$</div>
-      <p>Therefore, the slope of an isoquant depends on input proportions $z_i/z_j$, rather than the scale of production:</p>
-      <div class="math">$$\begin{aligned}
-      MRTS_{ij}(sz)&=\frac{f_i'(sz)}{f_j'(sz)}\\
-      &=\frac{s^{\nu-1}f_i'(z)}{s^{\nu-1}f_j'(z)}\\
-      &=\frac{f_i'(z)}{f_j'(z)}.
-      \end{aligned}$$</div>
-      <div class="figure-row reverse"><div class="figure-copy"><h3>How to read the figure</h3><p>The bundles $(z_1,z_2)$ and $(sz_1,sz_2)$ lie on the same ray from the origin: their input proportions are the same.</p><p>The tangents have the same slope, illustrating that the MRTS depends on the input proportions and not on the production scale.</p></div><figure><img src="images/producer-homogeneous-isoquants.png" alt="Isoquants of a homogeneous production function"><figcaption class="caption">Figure 2: Isoquants of a homogeneous $f$.</figcaption></figure></div>
-
-      <div class="remark"><strong>Industry patterns discussed in class.</strong> Tobacco and food can display decreasing returns because fragile materials create spoilage and quality-control constraints. Paper, petroleum, and metal can display increasing returns because they require large capital investment at the outset, such as refineries or steel mills.</div>
-
-      <h2>Incorporating increasing or decreasing returns to scale</h2>
-      <p>Starting from a function $f$ with constant returns to scale, the course considers the transformation:</p>
-      <div class="math emphasis">$$F(z_1,z_2)=\left[f(z_1,z_2)\right]^\gamma,
-      \qquad\gamma>0.$$</div>
-      <div class="derive"><h3>Effect of the transformation</h3><div class="math">$$\begin{aligned}
-      F(sz_1,sz_2)&=\left[f(sz_1,sz_2)\right]^\gamma\\
-      &=\left[s f(z_1,z_2)\right]^\gamma \qquad\text{by CRS of }f\\
-      &=s^\gamma\left[f(z_1,z_2)\right]^\gamma\\
-      &=s^\gamma F(z_1,z_2).
-      \end{aligned}\tag{12}$$</div><p>If $\gamma>1$, $F$ exhibits increasing returns to scale. If $\gamma&lt;1$, $F$ exhibits decreasing returns to scale.</p></div>
-      <div class="figure-row"><figure><img src="images/producer-production-function.png" alt="Production function with changing returns to scale"><figcaption class="caption">Figure 3: Production function.</figcaption></figure><div class="figure-copy"><h3>Returns to scale over the growth of a firm</h3><p>As a firm grows, it can successively experience increasing, constant, and decreasing returns to scale.</p><p>The figure marks an input level $z^A$ and the corresponding output $y^A$ on the production function.</p></div></div>
+      <h3>First-order condition</h3>
+      <div class="derive"><h3>Choose input $z_i$ until its value equals its cost</h3><div class="math">$$\begin{aligned}
+      \frac{\partial\left[p\cdot f(z)-z\cdot w\right]}{\partial z_i}&=0\\
+      p\frac{\partial f(z)}{\partial z_i}-w_i&=0\\
+      p\cdot MP_i&=w_i.
+      \end{aligned}\tag{3}$$</div><p>The value of the marginal product of input $i$ is $p\cdot MP_i$. At the optimum, it equals the price $w_i$ of that input.</p></div>
+      <div class="logic-grid"><div class="card"><h3>If $p\cdot MP_i>w_i$</h3><p>The input creates more revenue at the margin than it costs. Profit can be increased by using more of it.</p></div><div class="card"><h3>At the optimum</h3><p>The value of the marginal product equals the input price.</p></div><div class="card"><h3>If $p\cdot MP_i&lt;w_i$</h3><p>The input costs more at the margin than the revenue it creates. Profit can be increased by using less of it.</p></div></div>
     </section>
 
   </div>
