@@ -705,7 +705,7 @@ body {
       </div>
     </div>
   </div>
-</article><button type="button" class="toggle-btn amber" data-exercise="1" onclick="toggle(this, 'solution-1')" aria-controls="solution-1" aria-expanded="false">Show solution — Exercise 1 ▾</button><div class="collapsible exercise-solution" id="solution-1"><p><strong>Starting point.</strong> Prices are positive. We use $m&gt;0$ for income so that it is not confused with the good $y$. For Questions 1 and 2 the utility target is nonnegative; the calculations below use $\bar u&gt;0$ (at $\bar u=0$, minimum expenditure and Hicksian quantities are zero). For Question 3 the target may be any real number.</p><p><strong>Goal.</strong> For each utility function, identify its indifference curves, its two demand functions, and the associated value functions.</p>
+</article><button type="button" class="toggle-btn amber" data-label="Question 1" onclick="toggle(this, 'answer-ex1-1')" aria-controls="answer-ex1-1" aria-expanded="false">Show correction — Question 1 ▾</button><div class="collapsible exercise-solution" id="answer-ex1-1"><p><strong>Starting point.</strong> Prices are positive. We use $m&gt;0$ for income so that it is not confused with the good $y$. For Questions 1 and 2 the utility target is nonnegative; the calculations below use $\bar u&gt;0$ (at $\bar u=0$, minimum expenditure and Hicksian quantities are zero). For Question 3 the target may be any real number.</p><p><strong>Goal.</strong> For each utility function, identify its indifference curves, its two demand functions, and the associated value functions.</p>
 <h3 class="question-heading">1. Utility representation</h3>
 
 <div class="math-display">$$u(x,y)=x^\alpha y^{1-\alpha},
@@ -938,7 +938,8 @@ e(p,\bar u)
 }$$</div>
 
 </div>
-<h3 class="question-heading" id="utility-with-kink">2. A utility function with a kink</h3>
+</div>
+<button type="button" class="toggle-btn amber" data-label="Question 2" onclick="toggle(this, 'answer-ex1-2')" aria-controls="answer-ex1-2" aria-expanded="false">Show correction — Question 2 ▾</button><div class="collapsible exercise-solution" id="answer-ex1-2"><h3 class="question-heading" id="utility-with-kink">2. A utility function with a kink</h3>
 <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\max(\alpha x,\alpha y)+\min(x,y),\qquad 0&lt;\alpha&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\max(\alpha x,\alpha y)\\+\min(x,y),\qquad 0&lt;\alpha&lt;1.\end{gathered}$$</div></div>
 <p>We follow the lecture's order: first read the two parts of the indifference curves, then compare the MRS with the price ratio in each region. We keep $m$ for income, corresponding to $I$ in the handwritten notes. The notation $v(p,m)$ denotes the utility obtained at the optimal bundle; $\bar u$ denotes a fixed utility target in the expenditure problem.</p>
 
@@ -1062,7 +1063,8 @@ y^H&=\frac{\partial e(p,\bar u)}{\partial p_y}=\frac{\bar u}{1+\alpha}.
 <p>If $p_x/p_y=1/\alpha$, the price ratio equals the MRS on the $x&lt;y$ side. Every bundle <strong>on the budget line</strong> with $x\le y$ is optimal.</p>
 <p>Here, “all feasible bundles” in the notes refers to the relevant bundles satisfying $p_xx+p_yy=m$, rather than bundles that leave some income unspent.</p>
 </div>
-<h3 class="question-heading">3. Logarithmic utility</h3>
+</div>
+<button type="button" class="toggle-btn amber" data-label="Question 3" onclick="toggle(this, 'answer-ex1-3')" aria-controls="answer-ex1-3" aria-expanded="false">Show correction — Question 3 ▾</button><div class="collapsible exercise-solution" id="answer-ex1-3"><h3 class="question-heading">3. Logarithmic utility</h3>
  <div class="math-display equation-adaptive"><div class="equation-desktop">$$u(x,y)=\log x+\beta\log y, \qquad 0&lt;\beta&lt;1.$$</div><div class="equation-mobile">$$\begin{gathered}u(x,y)=\log x+\beta\log y\\0&lt;\beta&lt;1.\end{gathered}$$</div></div>
 <div class="solution-step">
 <h4>Step 1 — Hint — the trick</h4> <p>Use:</p> <div class="math-display">$$\log x+\beta\log y = \log(xy^\beta).$$</div> <p>Since the logarithm is strictly increasing, maximizing:</p> <div class="math-display">$$\log(xy^\beta)$$</div> <p>gives the same choice as maximizing:</p> <div class="math-display">$$xy^\beta.$$</div>
@@ -1108,7 +1110,7 @@ MRS_{xy} = \frac{MU_x}{MU_y} = \frac{y}{\beta x}.
 </div>
 <div class="solution-step">
 <h4>Step 6 — Expenditure function</h4> <p>Substitute the Hicksian demands into:</p> <div class="math-display">$$e(p,\bar u) = p_xx^H+p_yy^H.$$</div> <p>Since $p_yy^H=\beta p_xx^H$, combine the expenditure terms:</p> <div class="math-display">$$e(p,\bar u)=(1+\beta)p_xx^H.$$</div> <p>Substitute $x^H$. The power of $p_x$ becomes $1-\beta/(1+\beta)=1/(1+\beta)$:</p> <div class="math-display">$$\boxed{ e(p,\bar u) = (1+\beta) \beta^{-\frac{\beta}{1+\beta}} e^{\frac{\bar u}{1+\beta}} p_x^{\frac1{1+\beta}} p_y^{\frac{\beta}{1+\beta}} }$$</div>
-</div></div></section> <section class="subsection" id="exercise-2"><div class="part-banner"><span class="part-pill amber">Exercise 2</span><div class="part-line"></div></div><article class="property-item amber exercise-statement">
+</div></section> <section class="subsection" id="exercise-2"><div class="part-banner"><span class="part-pill amber">Exercise 2</span><div class="part-line"></div></div><article class="property-item amber exercise-statement">
   <div class="property-body">
     <h4>Exercise 2. Uniqueness</h4>
     <p class="statement-intro">A consumer has utility $u(x_1,x_2)=2x_1+x_2$, income $y>0$, and faces prices $p_1,p_2>0$.</p>
@@ -1119,7 +1121,7 @@ MRS_{xy} = \frac{MU_x}{MU_y} = \frac{y}{\beta x}.
       <li>Using a counter-example, show that these preferences are not strictly convex. Relate the result to the uniqueness, or non-uniqueness, of Marshallian demand.</li>
     </ol>
   </div>
-</article><button type="button" class="toggle-btn amber" data-exercise="2" onclick="toggle(this, 'solution-2')" aria-controls="solution-2" aria-expanded="false">Show solution — Exercise 2 ▾</button><div class="collapsible exercise-solution" id="solution-2"><p><strong>Starting point.</strong> Utility is linear, income is positive, and both prices are positive. <strong>Goal.</strong> Find the optimal bundle in each price case, then test strict convexity using the requested counterexample.</p>
+</article><button type="button" class="toggle-btn amber" data-label="Question 1" onclick="toggle(this, 'answer-ex2-1')" aria-controls="answer-ex2-1" aria-expanded="false">Show correction — Question 1 ▾</button><div class="collapsible exercise-solution" id="answer-ex2-1"><p><strong>Starting point.</strong> Utility is linear, income is positive, and both prices are positive. <strong>Goal.</strong> Find the optimal bundle in each price case, then test strict convexity using the requested counterexample.</p>
 <h3 class="question-heading">Question 1 — Marshallian demand</h3>
  <p>Utility is:</p> <div class="math-display">$$u(x_1,x_2)=2x_1+x_2.$$</div> <p>The marginal utilities are:</p> <div class="math-display">$$MU_1=2, \qquad MU_2=1.$$</div> <p>Compare marginal utility per unit of expenditure:</p> <div class="math-display">$$\frac{MU_1}{p_1} = \frac2{p_1}, \qquad \frac{MU_2}{p_2} = \frac1{p_2}.$$</div> <h5>Case 1</h5> <p>If $p_1/p_2&lt;2$, then:</p>
 <div class="math-display">$$\frac2{p_1}
@@ -1171,7 +1173,8 @@ p_1x_1+p_2x_2=y,\qquad x_1,x_2\geq0.\\[0.65em]
 <p>Therefore the equality case is precisely the case in which an interior combination can satisfy both FOCs.</p>
 <p>For the other price ratios, the optimum is a corner.</p>
 
-<h3 class="question-heading">Question 2 — Strict convexity and uniqueness</h3>
+</div>
+<button type="button" class="toggle-btn amber" data-label="Question 2" onclick="toggle(this, 'answer-ex2-2')" aria-controls="answer-ex2-2" aria-expanded="false">Show correction — Question 2 ▾</button><div class="collapsible exercise-solution" id="answer-ex2-2"><h3 class="question-heading">Question 2 — Strict convexity and uniqueness</h3>
 
 <p>Take:</p>
 <div class="math-display calculation-group">$$\begin{gathered}
@@ -1224,7 +1227,7 @@ u(b).
       <li>Does this demand function satisfy Walras’ Law?</li>
     </ol>
   </div>
-</article><button type="button" class="toggle-btn amber" data-exercise="3" onclick="toggle(this, 'solution-3')" aria-controls="solution-3" aria-expanded="false">Show solution — Exercise 3 ▾</button><div class="collapsible exercise-solution" id="solution-3"><p><strong>Starting point.</strong> Keep $\beta$ fixed and use positive prices, as in the chapter. <strong>Goal.</strong> Test the two stated identities. For Walras’ Law, check positive income; at zero income both expenditure and income are zero.</p>
+</article><button type="button" class="toggle-btn amber" data-label="Question 1" onclick="toggle(this, 'answer-ex3-1')" aria-controls="answer-ex3-1" aria-expanded="false">Show correction — Question 1 ▾</button><div class="collapsible exercise-solution" id="answer-ex3-1"><p><strong>Starting point.</strong> Keep $\beta$ fixed and use positive prices, as in the chapter. <strong>Goal.</strong> Test the two stated identities. For Walras’ Law, check positive income; at zero income both expenditure and income are zero.</p>
 <h3 class="question-heading">Question 1 — Homogeneity of degree zero</h3>
 
 <p>The course defines homogeneity of degree zero by:</p>
@@ -1254,7 +1257,8 @@ x(\lambda p,\lambda y)=x(p,y)
 <p>and the demand system satisfies:</p>
 <div class="math-display">$$\boxed{\text{homogeneity of degree zero}.}$$</div>
 
-<h3 class="question-heading">Question 2 — Walras’ Law</h3>
+</div>
+<button type="button" class="toggle-btn amber" data-label="Question 2" onclick="toggle(this, 'answer-ex3-2')" aria-controls="answer-ex3-2" aria-expanded="false">Show correction — Question 2 ▾</button><div class="collapsible exercise-solution" id="answer-ex3-2"><h3 class="question-heading">Question 2 — Walras’ Law</h3>
 
 <p>The course defines Walras’ Law by:</p>
 <div class="math-display">$$p\cdot x=y.$$</div>
@@ -1312,10 +1316,11 @@ function toggleSidebar() {
 function toggle(btn, id) {
   const box = document.getElementById(id);
   const isOpen = box.classList.contains('open');
+  const label = btn.dataset.label || ('Exercise ' + btn.dataset.exercise);
   box.classList.toggle('open', !isOpen);
   btn.classList.toggle('open', !isOpen);
   btn.setAttribute('aria-expanded', String(!isOpen));
-  btn.textContent = (isOpen ? 'Show' : 'Hide') + ' solution — Exercise ' + btn.dataset.exercise + (isOpen ? ' ▾' : ' ▴');
+  btn.textContent = (isOpen ? 'Show' : 'Hide') + ' correction — ' + label + (isOpen ? ' ▾' : ' ▴');
   if (!isOpen && window.MathJax?.typesetPromise) {
     MathJax.typesetPromise([box]).catch(console.error);
   }

@@ -17,7 +17,7 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
 <body>
 <aside class="sidebar" id="sidebar"><div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div><nav class="sidebar-nav"><a href="index.html" class="sidebar-link">📂 0 — Introduction</a><div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div><div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink active" style="color:#f59e0b" aria-current="page">✦ Exercises Part 2-2</a></div><div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a></div></nav><div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div></aside>
 <main class="main-wrap" id="main-wrap"><div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Consumer Theory &nbsp;›&nbsp; <strong>Exercises Part 2-2</strong></div><div class="topbar-pill">Part II</div></div><div class="main-content"><header class="page-title"><div class="page-label">Part II — Consumer Theory</div><h1>Exercises Part 2-2</h1><p>Quasilinearity, the Slutsky equation, and welfare effects of a price change.</p></header>
-<section class="subsection"><div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div><article class="exercise-card"><h2>Exercise 1. Quasilinearity and Income Effect</h2><p>A consumer has preferences over the single good $x$ and all other goods $z$ represented by:</p><div class="math">$$u(x,z)=\ln(x)+z.$$</div><p>Let the price of $x$ be $p>0$, the price of $z$ be unity, and income be $y>0$.</p><ol class="questions"><li>Find the Marshallian demand functions $x^*$ and $z^*$.</li><li>Find the indirect utility function.</li><li>Use the Slutsky equation to decompose the effect of an own-price change on the demand for $x$ into an income and substitution effect. How can you interpret your result?</li><li>Suppose $y>1$, so that the consumer chooses an interior bundle. The price of $x$ rises from $p_0$ to $p_1>p_0$. Show that the change in consumer surplus gives an exact monetary measure of the welfare effect of the price change.</li></ol></article><button class="toggle" data-open="false" onclick="toggleSolution(this)">Show solution — Exercise 1 ▾</button><div class="solution" id="solution">
+<section class="subsection"><div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div><article class="exercise-card"><h2>Exercise 1. Quasilinearity and Income Effect</h2><p>A consumer has preferences over the single good $x$ and all other goods $z$ represented by:</p><div class="math">$$u(x,z)=\ln(x)+z.$$</div><p>Let the price of $x$ be $p>0$, the price of $z$ be unity, and income be $y>0$.</p><ol class="questions"><li>Find the Marshallian demand functions $x^*$ and $z^*$.</li><li>Find the indirect utility function.</li><li>Use the Slutsky equation to decompose the effect of an own-price change on the demand for $x$ into an income and substitution effect. How can you interpret your result?</li><li>Suppose $y>1$, so that the consumer chooses an interior bundle. The price of $x$ rises from $p_0$ to $p_1>p_0$. Show that the change in consumer surplus gives an exact monetary measure of the welfare effect of the price change.</li></ol></article><button type="button" class="toggle answer-toggle" data-label="Question 1" onclick="toggleAnswer(this, 'answer-1-1')" aria-controls="answer-1-1" aria-expanded="false">Show correction — Question 1 ▾</button><div class="solution answer-panel" id="answer-1-1">
   <h3>1. Marshallian demands</h3>
   <div class="step">
     <h4>Set up the utility-maximization problem</h4>
@@ -73,7 +73,8 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     \end{cases}}$$</div>
   </div>
 
-  <h3>2. Indirect utility function</h3>
+</div>
+<button type="button" class="toggle answer-toggle" data-label="Question 2" onclick="toggleAnswer(this, 'answer-1-2')" aria-controls="answer-1-2" aria-expanded="false">Show correction — Question 2 ▾</button><div class="solution answer-panel" id="answer-1-2">  <h3>2. Indirect utility function</h3>
   <div class="step">
     <p>For $y\geq1$, substitute the interior demands into $u(x,z)=\ln(x)+z$:</p>
     <div class="math">$$v(p,y)=\ln\left(\frac{1}{p}\right)+(y-1)=y-1-\ln(p).$$</div>
@@ -88,7 +89,8 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     \end{cases}}$$</div>
   </div>
 
-  <h3>3. Slutsky decomposition for an own-price change</h3>
+</div>
+<button type="button" class="toggle answer-toggle" data-label="Question 3" onclick="toggleAnswer(this, 'answer-1-3')" aria-controls="answer-1-3" aria-expanded="false">Show correction — Question 3 ▾</button><div class="solution answer-panel" id="answer-1-3">  <h3>3. Slutsky decomposition for an own-price change</h3>
   <div class="step">
     <p>The main method starts from the Marshallian demand. The Slutsky equation is:</p>
     <div class="math">$$\frac{\partial x^m(p,y)}{\partial p}
@@ -202,7 +204,8 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     </div>
   </details>
 
-  <h3>4. Consumer surplus and the welfare effect</h3>
+</div>
+<button type="button" class="toggle answer-toggle" data-label="Question 4" onclick="toggleAnswer(this, 'answer-1-4')" aria-controls="answer-1-4" aria-expanded="false">Show correction — Question 4 ▾</button><div class="solution answer-panel" id="answer-1-4">  <h3>4. Consumer surplus and the welfare effect</h3>
   <div class="step">
     <p>Assume $y>1$, so the consumer chooses an interior bundle throughout the price change. When the price rises from $p_0$ to $p_1>p_0$, Marshallian demand is:</p>
     <div class="math">$$x^m(p,y)=\frac{1}{p}.$$</div>
@@ -293,8 +296,7 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
       <li>Suppose the government compensates the consumer after the per-unit tax so that she remains at her initial utility $u$. Express the deadweight loss and represent it graphically using Hicksian demand.</li>
     </ol>
   </article>
-  <button class="toggle" data-open="false" onclick="toggleSolution(this,'solution-2','Exercise 2')">Show solution — Exercise 2 ▾</button>
-  <div class="solution" id="solution-2">
+  <button type="button" class="toggle answer-toggle" data-label="Question 1" onclick="toggleAnswer(this, 'answer-2-1')" aria-controls="answer-2-1" aria-expanded="false">Show correction — Question 1 ▾</button><div class="solution answer-panel" id="answer-2-1">
     <h3>Question 1 — Per-unit tax versus a lump-sum tax</h3>
     <div class="step">
       <p>Under the per-unit tax, the consumer keeps wealth $w$ but faces the new prices $p'$. Utility is:</p>
@@ -322,7 +324,8 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
       <p>If $EV>T$, the per-unit tax causes a welfare loss equivalent to losing more money than the government actually collects. It is therefore worse for the consumer than a lump-sum tax collecting the same revenue.</p>
     </div>
 
-    <h3>Question 2 — Deadweight loss at post-tax utility $u'$</h3>
+  </div>
+<button type="button" class="toggle answer-toggle" data-label="Question 2" onclick="toggleAnswer(this, 'answer-2-2')" aria-controls="answer-2-2" aria-expanded="false">Show correction — Question 2 ▾</button><div class="solution answer-panel" id="answer-2-2">  <h3>Question 2 — Deadweight loss at post-tax utility $u'$</h3>
     <div class="step">
       <h4>1. Define the welfare loss and rewrite EV</h4>
       <p>Deadweight loss is the additional welfare loss from the distortionary per-unit tax relative to a lump-sum tax raising the same revenue:</p>
@@ -368,7 +371,8 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
       <p>EV is the whole monetary welfare loss from the per-unit tax. One part becomes government revenue $T$; the remaining part is deadweight loss.</p>
     </div>
 
-    <h3>Question 3 — Tax plus compensation back to initial utility $u$</h3>
+  </div>
+<button type="button" class="toggle answer-toggle" data-label="Question 3" onclick="toggleAnswer(this, 'answer-2-3')" aria-controls="answer-2-3" aria-expanded="false">Show correction — Question 3 ▾</button><div class="solution answer-panel" id="answer-2-3">  <h3>Question 3 — Tax plus compensation back to initial utility $u$</h3>
     <div class="step">
       <h4>1. Compensation required</h4>
       <p>The tax is the same, but the government now compensates the consumer so that utility remains at its initial level $u$. Initially, $e(p,u)=w$. At the new prices, the minimum expenditure needed to reach the same initial utility is $e(p',u)$.</p>
@@ -465,5 +469,5 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     </figure>
   </div>
 </section></div></main>
-<script>function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:900px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}function toggleSolution(btn,id,label){const box=document.getElementById(id||'solution'),open=box.classList.toggle('open'),name=label||'Exercise 1';btn.textContent=(open?'Hide':'Show')+' solution — '+name+' '+(open?'▴':'▾');btn.setAttribute('aria-expanded',String(open));if(open&&window.MathJax?.typesetPromise)MathJax.typesetPromise([box]).catch(console.error)}</script>
+<script>function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:900px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}function toggleAnswer(btn,id){const box=document.getElementById(id),open=box.classList.toggle('open'),label=btn.dataset.label;btn.textContent=(open?'Hide':'Show')+' correction — '+label+' '+(open?'▴':'▾');btn.setAttribute('aria-expanded',String(open));if(open&&window.MathJax?.typesetPromise)MathJax.typesetPromise([box]).catch(console.error)}</script>
 </body></html>
