@@ -399,14 +399,17 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
     <div class="step result">
       <h4>Question 2 vs Question 3</h4>
       <p>The algebraic construction is almost exactly the same. The essential difference is the utility level held fixed, and therefore the Hicksian demand curve used.</p>
-      <div class="math">$$\begin{array}{c|c|c}
-      &\text{Question 2}&\text{Question 3}\\ \hline
-      \text{Fixed utility}&u'\ \text{(post-tax)}&u\ \text{(initial)}\\
-      \text{Hicksian demand}&h_1(\cdot,u')&h_1(\cdot,u)\\
-      \text{Welfare measure}&EV&CV\\
-      \text{Deadweight loss}&EV-t\,h_1(p',u')&CV-t\,h_1(p',u)
-      \end{array}$$</div>
-      <div class="math">$$\boxed{\text{Q2: same construction at }u'\qquad\text{Q3: same construction at }u.}$$</div>
+      <div class="math">$$\textbf{Q2:}\qquad
+      DW
+      =
+      \int_{p_1}^{p_1'}h_1(\tilde p_1,p_{-1},\boxed{u'})\,d\tilde p_1
+      -t\,h_1(p',\boxed{u'}).$$</div>
+      <div class="math">$$\textbf{Q3:}\qquad
+      DW
+      =
+      \int_{p_1}^{p_1'}h_1(\tilde p_1,p_{-1},\boxed{u})\,d\tilde p_1
+      -t\,h_1(p',\boxed{u}).$$</div>
+      <p><strong>Q2 uses post-tax utility $u'$.</strong> <strong>Q3 uses initial utility $u$.</strong> The algebraic structure is the same; the Hicksian demand curve changes because the fixed utility level changes.</p>
     </div>
 
     <h3>Graphical interpretation</h3>
