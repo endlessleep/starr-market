@@ -359,8 +359,8 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
       <h4>4. Obtain and sign the deadweight loss</h4>
       <div class="math">$$\begin{aligned}
       DW&=\int_{p_1}^{p_1'}h_1(\tilde p_1,p_{-1},u')\,d\tilde p_1
-      -\int_{p_1}^{p_1'}h_1(p',u')\,d\tilde p_1\\
-      &=\boxed{\int_{p_1}^{p_1'}\left[h_1(\tilde p_1,p_{-1},u')-h_1(p',u')\right]d\tilde p_1.}
+      -\int_{p_1}^{p_1'}h_1(p',u')\,d\tilde p_1\\[.4em]
+      &=\int_{p_1}^{p_1'}\left[h_1(\tilde p_1,p_{-1},u')-h_1(p',u')\right]d\tilde p_1.
       \end{aligned}$$</div>
       <p>For every intermediate price $p_1\leq\tilde p_1<p_1'$, we have $\tilde p_1<p_1'$. Since Hicksian demand decreases with its own price:</p>
       <div class="math">$$h_1(\tilde p_1,p_{-1},u')>h_1(p',u').$$</div>
@@ -392,7 +392,7 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
       <p>Because $h_1(p',u)$ is fixed with respect to $\tilde p_1$:</p>
       <div class="math">$$t\,h_1(p',u)=\int_{p_1}^{p_1'}h_1(p',u)\,d\tilde p_1.$$</div>
       <p>Therefore:</p>
-      <div class="math">$$\boxed{DW=\int_{p_1}^{p_1'}\left[h_1(\tilde p_1,p_{-1},u)-h_1(p',u)\right]d\tilde p_1.}$$</div>
+      <div class="math">$$DW=\int_{p_1}^{p_1'}\left[h_1(\tilde p_1,p_{-1},u)-h_1(p',u)\right]d\tilde p_1.$$</div>
       <p>Hicksian demand is decreasing in its own price, so the integrand is positive and:</p>
       <div class="math">$$\boxed{DW>0.}$$</div>
     </div>
@@ -451,16 +451,12 @@ MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['scri
         <text x="82" y="70" fill="#f8fafc" font-size="20" font-family="Outfit, sans-serif">p₁</text>
         <text x="190" y="112" fill="#60a5fa" font-size="18" font-family="Outfit, sans-serif">h₁(·, u′)</text>
         <text x="389" y="112" fill="#fbbf24" font-size="18" font-family="Outfit, sans-serif">h₁(·, u)</text>
-        <text x="170" y="270" fill="#dbeafe" font-size="16" font-weight="700" font-family="Outfit, sans-serif">T — Q2</text>
-        <text x="137" y="335" fill="#dbeafe" font-size="16" font-weight="700" font-family="Outfit, sans-serif">tax revenue</text>
-        <text x="258" y="282" fill="#bfdbfe" font-size="16" font-weight="800" font-family="Outfit, sans-serif">DW — Q2</text>
-        <text x="285" y="185" fill="#fde68a" font-size="16" font-weight="700" font-family="Outfit, sans-serif">T — Q3</text>
-        <text x="365" y="305" fill="#fde68a" font-size="16" font-weight="800" font-family="Outfit, sans-serif">DW — Q3</text>
+        <text x="142" y="258" fill="#dbeafe" font-size="15" font-weight="700" font-family="Outfit, sans-serif">T — Q2</text>
+        <text x="244" y="305" fill="#bfdbfe" font-size="14" font-weight="800" font-family="Outfit, sans-serif">DW — Q2</text>
+        <text x="278" y="185" fill="#fde68a" font-size="15" font-weight="700" font-family="Outfit, sans-serif">T — Q3</text>
+        <text x="366" y="305" fill="#fde68a" font-size="14" font-weight="800" font-family="Outfit, sans-serif">DW — Q3</text>
         <text x="216" y="505" fill="#60a5fa" font-size="16" font-family="Outfit, sans-serif" text-anchor="middle">h₁(p′,u′)=x₁(p′,w)</text>
         <text x="354" y="530" fill="#fbbf24" font-size="16" font-family="Outfit, sans-serif" text-anchor="middle">h₁(p′,u)</text>
-        <!-- slice -->
-        <line x1="258" y1="257" x2="276" y2="257" stroke="#dbeafe" stroke-width="3"/>
-        <text x="268" y="246" fill="#dbeafe" font-size="13" font-family="Outfit, sans-serif" text-anchor="middle">DW slice</text>
       </svg>
       <figcaption>Each tax-revenue term is a true rectangle because the tax $t$ is constant and is multiplied by the final quantity purchased. EV and CV are not rectangles: they follow the relevant Hicksian demand curve over the entire price change.</figcaption>
       <p class="graph-note">For Question 2, the whole area from the vertical axis to $h_1(\cdot,u')$ is $EV=T+DW$. For Question 3, the whole area from the vertical axis to $h_1(\cdot,u)$ is $CV=t\,h_1(p',u)+DW$. The dotted line $\tilde p_1$ represents any intermediate price in the integral.</p>
