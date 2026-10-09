@@ -15,7 +15,7 @@
 
 .figure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0;align-items:start}.figure-grid figure{display:flex;flex-direction:column;align-items:center;margin:0;padding:15px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.figure-grid img{display:block;width:100%;max-width:280px;max-height:330px;object-fit:contain;margin:auto;border-radius:6px;background:#fff}.figure-grid .caption{align-self:stretch;text-align:center}.logic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:16px 0}.logic-grid .card h3{color:var(--green)}.step-card{margin:17px 0;padding:20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.step-card h3{margin:0 0 9px;color:var(--blue)}.step-card p+p{margin-top:10px}.equation-note{color:var(--text-3);font-size:.87rem;margin-top:8px}.compact-table{width:100%;border-collapse:collapse;margin:16px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--card);font-size:.9rem}.compact-table th,.compact-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}.compact-table th{color:var(--amber);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;background:rgba(255,255,255,.025)}.compact-table tr:last-child td{border-bottom:0}.figure-medium{max-width:520px;margin:20px auto;padding:16px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.figure-medium img{display:block;width:100%;max-width:100%;margin:auto;border-radius:6px;background:#fff}.figure-medium .caption{text-align:center}.proof{margin:18px 0;padding:20px;border:1px solid var(--purple-border);border-radius:var(--radius);background:var(--purple-muted)}.proof h3{margin:0 0 9px;color:var(--purple)}
 
-</style>
+.derivation-toggle{display:inline-flex;align-items:center;margin:4px 0 12px;padding:9px 13px;border:1px solid var(--green-border);border-radius:8px;background:var(--green-muted);color:var(--green);font:700 .86rem var(--font);cursor:pointer}.derivation-toggle:hover{background:rgba(16,185,129,.16)}.derivation-panel{display:none}.derivation-panel.open{display:block}.derivation-panel .derive{margin-top:4px}.derivation-panel .key-note{margin-bottom:0}</style>
 </head>
 <body>
 <aside class="sidebar" id="sidebar">
@@ -107,6 +107,39 @@
       \end{aligned}\tag{10}$$</div><p>The first equality is the definition of $E$. The next line uses homogeneity, and differentiating $s^\nu f(z)$ gives the final result.</p></div>
       <p>Its partial derivatives are homogeneous of degree $\nu-1$:</p>
       <div class="math">$$f_i'(sz)=s^{\nu-1}f_i'(z).\tag{11}$$</div>
+      <button type="button" class="derivation-toggle" data-label="the derivation" onclick="toggleDerivation(this,'homogeneous-derivation')" aria-controls="homogeneous-derivation" aria-expanded="false">Show derivation ▾</button>
+      <div class="derivation-panel" id="homogeneous-derivation">
+        <div class="derive">
+          <h3>Where does the exponent $\nu-1$ come from?</h3>
+          <p>Let $z=(z_1,\ldots,z_n)$ be the vector of inputs. Then $sz=(sz_1,\ldots,sz_n)$ means that every input is multiplied by the same scalar $s$. Also, $f_i'(z)=\frac{\partial f(z)}{\partial z_i}$ is the marginal product of input $i$, and $\nu$ is the degree of homogeneity.</p>
+          <p>Start from homogeneity:</p>
+          <div class="math">$$f(sz)=s^\nu f(z).$$</div>
+          <p>We differentiate both sides with respect to the input $z_i$, <strong>not</strong> with respect to $s$. Therefore, $s$ is treated as a constant.</p>
+          <p>On the left-hand side, the chain rule gives:</p>
+          <div class="math">$$\frac{\partial}{\partial z_i}f(sz)
+          =f_i'(sz)\frac{\partial(sz_i)}{\partial z_i}.$$</div>
+          <p>Since $s$ is constant with respect to $z_i$:</p>
+          <div class="math">$$\frac{\partial(sz_i)}{\partial z_i}=s.$$</div>
+          <p>Therefore:</p>
+          <div class="math">$$\boxed{\frac{\partial}{\partial z_i}f(sz)=s f_i'(sz).}$$</div>
+          <p>On the right-hand side, $s^\nu$ is also constant with respect to $z_i$:</p>
+          <div class="math">$$\boxed{\frac{\partial}{\partial z_i}\left[s^\nu f(z)\right]=s^\nu f_i'(z).}$$</div>
+          <p>Equating the two derivatives and dividing by $s$ gives:</p>
+          <div class="math">$$\begin{aligned}
+          s f_i'(sz)&=s^\nu f_i'(z),\\
+          f_i'(sz)&=\frac{s^\nu}{s}f_i'(z)
+          =s^{\nu-1}f_i'(z).
+          \end{aligned}$$</div>
+          <div class="key-note"><strong>Key point.</strong> The exponent $\nu-1$ does <strong>not</strong> come from directly differentiating $s^\nu$. We differentiate with respect to $z_i$, so $s^\nu$ is a constant. The $-1$ appears because the chain rule produces an $s$ on the left-hand side, and we then divide by it: $\frac{s^\nu}{s}=s^{\nu-1}$.</div>
+          <p>This also gives the MRTS result:</p>
+          <div class="math">$$\begin{aligned}
+          MRTS_{ij}(sz)&=\frac{f_i'(sz)}{f_j'(sz)}\\
+          &=\frac{s^{\nu-1}f_i'(z)}{s^{\nu-1}f_j'(z)}\\
+          &=\frac{f_i'(z)}{f_j'(z)}.
+          \end{aligned}$$</div>
+          <p>When all inputs are multiplied by the same factor $s$, both marginal products are multiplied by the same factor $s^{\nu-1}$, so this factor cancels in the MRTS.</p>
+        </div>
+      </div>
       <p>Therefore, the slope of an isoquant depends on input proportions $z_i/z_j$, rather than the scale of production:</p>
       <div class="math">$$\begin{aligned}
       MRTS_{ij}(sz)&=\frac{f_i'(sz)}{f_j'(sz)}\\
@@ -134,6 +167,7 @@
 </main>
 <script>
 function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:800px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}
+function toggleDerivation(btn,id){const panel=document.getElementById(id),open=panel.classList.toggle('open'),label=btn.dataset.label;btn.textContent=(open?'Hide':'Show')+' '+label+' '+(open?'▴':'▾');btn.setAttribute('aria-expanded',String(open));if(open&&window.MathJax?.typesetPromise)MathJax.typesetPromise([panel]).catch(console.error)}
 </script>
 </body>
 </html>
