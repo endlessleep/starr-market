@@ -571,11 +571,8 @@ body {
 .sheet-context { color:var(--text-3); font-size:.86rem; margin-top:4px; }
 .source-link { color:var(--text-3); font-size:.78rem; text-underline-offset:3px; }
 .source-link:hover { color:var(--red-bright); }
-#proof-alpha-dir2 .proof-part { margin-top:10px; }
-#proof-alpha-dir2 > .exercise-statement-card, #proof-alpha-dir2 > .question-card { padding:0; border:0; border-radius:0; background:none; }
-#proof-alpha-dir2 > .question-card { border-top:1px solid var(--border); margin-top:20px; padding-top:20px; gap:10px; }
-#proof-alpha-dir2 .question-title { font-size:.95rem; }
-.statement-badge { display:none; }
+#proof-alpha-dir2 .question-title { font-size:.9rem; margin-bottom:8px; }
+#proof-alpha-dir2 .question-goal { margin-bottom:14px; }
 .toggle-btn { text-align:left; max-width:100%; min-height:36px; }
 .toggle-btn > span:first-child { min-width:0; }
 .toggle-btn .arrow { flex-shrink:0; }
@@ -694,48 +691,41 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         <hr class="sep-line" style="margin: 4px 0;">
 
 
-      <div>
+      <div id="proof-alpha-dir2">
         <div style="font-size:0.95rem; font-weight:800; color:var(--text); margin-bottom:8px;">Direction 2: Property &alpha; $\implies$ Rationalizable</div>
-      <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:10px;">
-        <strong>Starting point:</strong> Let $X$ be a choice set and $c$ a choice function on $X$. Show, using the following two steps, that if $c$ satisfies <strong>Property &alpha;</strong> then it can be rationalized by a rational preference relation:
-      </p>
-        <button class="toggle-btn blue" onclick="toggle(this, 'proof-alpha-dir2')">Show proof — Property &alpha; $\implies$ Rationalizable <span class="arrow">▾</span></button>
-        <div class="collapsible" id="proof-alpha-dir2">
-    <!-- PROOF SETUP -->
-    <div class="exercise-statement-card">
-      <ol style="margin-left:22px; display:flex; flex-direction:column; gap:8px; font-size:0.9rem; color:var(--text-2); margin-top:6px;">
-        <li>
+        <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:10px;">
+          <strong>Starting point:</strong> Let $X$ be a choice set and $c$ a choice function on $X$. Suppose $c$ satisfies <strong>Property &alpha;</strong>.<br>
+          We construct a preference relation from pairwise choices, then show that it is rational and generates exactly the choices made by $c$.
+        </p>
+        <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6;">
           Define a binary relation $\succeq$ by:
-          <div class="math-display boxed" style="margin:6px 0; display:inline-block; padding:4px 14px;">
-            $$x \succeq y \iff c(\{x, y\}) = x$$
-          </div>
-          Show that this relation is a <strong>rational preference relation</strong>.<br>
-          <span style="font-size:0.84rem; color:var(--text-3); font-style:italic;">
-            (Note: We are defining a particular preference relation from $c$ to show that $c$ is rationalizable.)
-          </span>
-        </li>
-        <li>
+        </p>
+        <div class="math-display boxed" style="margin:10px 0;">
+          $$x \succeq y \iff c(\{x, y\}) = x$$
+        </div>
+        <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:6px;">
+          Show that this relation is a <strong>rational preference relation</strong>.
+        </p>
+        <p style="font-size:0.84rem; color:var(--text-3); font-style:italic; margin-bottom:10px;">
+          (Note: We are defining a particular preference relation from $c$ to show that $c$ is rationalizable.)
+        </p>
+        <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:12px;">
           Show that for every choice set $A$, $c(A) \succeq a$ for every $a \in A$. In other words, that the chosen alternative is the <strong>unique best alternative</strong> according to $\succeq$.
-        </li>
-      </ol>
-    </div>
-
-
-    <!-- ── STEP 1 ── -->
-    <div class="question-card">
-      <div class="question-header">
+        </p>
+        <div class="proof-stack-container">
+          <div class="proof-step-card">
+            <button class="toggle-btn full-width" onclick="toggle(this, 'proof-alpha-completeness')">
+              <span><strong>(i)</strong> Show proof — $\succeq$ is Complete</span>
+              <span class="arrow">▾</span>
+            </button>
+            <div class="collapsible" id="proof-alpha-completeness">
+<div class="question-header">
         <div class="question-title">1. Show that $\succeq$ is a Rational Preference Relation</div>
       </div>
       <div class="question-goal">
         <strong>Goal:</strong> Show that the relation defined by $x \succeq y \iff c(\{x, y\}) = x$ is <strong>complete</strong> and <strong>transitive</strong>.
       </div>
-
-      <div>
-
-        <div class="proof-part" id="sol-exo4-q1">
-          <div class="sol-block">
-            
-            <div class="sol-subbox">
+<div class="sol-subbox">
               <div class="sol-step-title">Part (a) — Completeness</div>
               <p>Pick any $x, y \in X$. Since $c$ is a single-valued choice function on the two-element choice set $\{x, y\}$:</p>
               <div class="math-display">$$c(\{x, y\}) \in \{x, y\}$$</div>
@@ -748,8 +738,15 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
                 $$\boxed{\succeq \text{ is complete}}$$
               </div>
             </div>
-
-            <div class="sol-subbox">
+            </div>
+          </div>
+          <div class="proof-step-card">
+            <button class="toggle-btn full-width" onclick="toggle(this, 'proof-alpha-transitivity')">
+              <span><strong>(ii)</strong> Show proof — $\succeq$ is Transitive</span>
+              <span class="arrow">▾</span>
+            </button>
+            <div class="collapsible" id="proof-alpha-transitivity">
+<div class="sol-subbox">
               <div class="sol-step-title">Part (b) — Transitivity</div>
               <p>Assume $x \succeq y$ and $y \succeq z$. By definition of $\succeq$:</p>
               <div class="math-display">$$c(\{x, y\}) = x \qquad\text{and}\qquad c(\{y, z\}) = y$$</div>
@@ -775,24 +772,22 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
                 $$\boxed{\succeq \text{ is transitive}}$$
               </div>
             </div>
-
-            <div>
+<div>
               <div class="sol-step-title">Conclusion</div>
               <p>Since $\succeq$ is both complete and transitive:</p>
               <div class="math-display boxed green" style="margin:8px 0;">
                 $$\boxed{\succeq \text{ is a rational preference relation}}$$
               </div>
             </div>
-
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ── STEP 2 ── -->
-    <div class="question-card">
-      <div class="question-header">
+          <div class="proof-step-card">
+            <button class="toggle-btn full-width" onclick="toggle(this, 'proof-alpha-best')">
+              <span><strong>(iii)</strong> Show proof — $c(A)$ is the Unique Best Alternative</span>
+              <span class="arrow">▾</span>
+            </button>
+            <div class="collapsible" id="proof-alpha-best">
+<div class="question-header">
         <div class="question-title">2. Show that $c(A)$ is the Unique Best Alternative</div>
       </div>
       <div class="question-goal">
@@ -801,9 +796,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         In other words, the alternative chosen from $A$ must be the unique best alternative according to $\succeq$.
       </div>
 
-      <div>
-
-        <div class="proof-part" id="sol-exo4-q2">
           <div class="sol-block">
             
             <div>
@@ -882,10 +874,8 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             </div>
 
           </div>
-        </div>
-      </div>
-    </div>
-
+                    </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1067,7 +1057,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         </div>
 
       
-      <a class="source-link" href="choice.html">Source: Choices</a>
     </section>
   </div>
 </main>
