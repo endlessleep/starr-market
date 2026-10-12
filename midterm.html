@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MICRO — Midterm Sheet</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+
+<style>
+/* =====================================================
+   DESIGN SYSTEM — MICRO (Dark Red Premium)
+   ===================================================== */
+:root {
+  --sidebar-bg: #13020A;
+  --sidebar-width: 280px;
+  --bg: #0f1117;
+  --bg-card: #161922;
+  --red: #e11d48;
+  --red-bright: #ff2d55;
+  --red-muted: rgba(225,29,72,0.1);
+  --red-border: rgba(225,29,72,0.3);
+  --red-glow: rgba(225,29,72,0.15);
+  --red-gradient: linear-gradient(135deg, #e11d48 0%, #9f1239 100%);
+  --blue-bright: #60a5fa;
+  --blue-muted: rgba(59,130,246,0.1);
+  --blue-border: rgba(59,130,246,0.3);
+  --green-bright: #34d399;
+  --green-muted: rgba(16,185,129,0.08);
+  --green-border: rgba(16,185,129,0.3);
+  --purple-bright: #c084fc;
+  --purple-muted: rgba(168,85,247,0.1);
+  --purple-border: rgba(168,85,247,0.3);
+  --orange-muted: rgba(245,158,11,0.08);
+  --orange-border: rgba(245,158,11,0.3);
+  --text: #f8fafc;
+  --text-2: #cbd5e1;
+  --text-3: #94a3b8;
+  --text-muted: #64748b;
+  --border: rgba(255,255,255,0.07);
+  --radius: 10px;
+  --radius-lg: 16px;
+  --font: 'Outfit', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  position: fixed; top:0; left:0; bottom:0;
+  z-index: 200; transition: transform .3s ease; overflow: hidden;
+}
+.sidebar:not(.open) { transform: translateX(-100%); }
+.sidebar-brand {
+  padding: 22px 20px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sidebar-brand h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: 1px; }
+.sidebar-brand h1 span { color: var(--red); }
+.sidebar-close { background:none; border:none; color:var(--text-3); font-size:1.4rem; cursor:pointer; }
+.sidebar-close:hover { color: var(--red); }
+.sidebar-nav { flex:1; overflow-y:auto; padding:12px 0; }
+
+.sidebar-link {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 22px;
+  color: var(--text-3); text-decoration: none;
+  font-size: 0.88rem; font-weight: 700;
+  transition: all .2s; border-left: 3px solid transparent;
+}
+.sidebar-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.sidebar-link.active { color: var(--red-bright); border-left-color: var(--red); background: var(--red-muted); }
+
+.sidebar-group { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; }
+.sidebar-group-title {
+  padding: 10px 22px 4px;
+  font-size: 0.82rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.6px; color: var(--text-3);
+}
+.sidebar-sublink {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 22px 9px 36px;
+  color: var(--text-3); text-decoration: none;
+  font-size: 0.85rem; font-weight: 600;
+  transition: all .2s; border-left: 3px solid transparent;
+}
+.sidebar-sublink:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.sidebar-sublink.active { color: var(--red-bright); border-left-color: var(--red); background: var(--red-muted); }
+.sidebar-sublink.disabled { opacity: 0.4; cursor: not-allowed; }
+
+.sidebar-footer {
+  padding: 14px 16px; border-top: 1px solid var(--border);
+}
+.sidebar-user { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:var(--radius); padding:10px 12px; }
+.user-avatar { width: 44px; height: 44px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; }
+.user-dot { width:8px; height:8px; background:#10b981; border-radius:50%; border:2px solid var(--sidebar-bg); position:absolute; bottom:-2px; right:-2px; }
+.user-info { overflow:hidden; }
+.user-name { font-size:0.82rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.user-role { font-size:0.7rem; color:var(--text-muted); }
+
+/* ── TOPBAR ── */
+.topbar {
+  height: 64px; background: rgba(15,17,23,0.9); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px); position:sticky; top:0; z-index:100;
+  display:flex; align-items:center; padding:0 28px; gap:16px;
+}
+.topbar-toggle { background:rgba(255,255,255,0.06); border:1px solid var(--border); color:var(--text); width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.1rem; flex-shrink:0; transition:.2s; }
+.topbar-toggle:hover { border-color: var(--red-border); color: var(--red); }
+.topbar-breadcrumb { color:var(--text-3); font-size:0.88rem; display:flex; align-items:center; gap:6px; }
+.topbar-breadcrumb .sep { opacity:.4; }
+.topbar-breadcrumb strong { color:var(--text); font-weight:700; }
+.topbar-pill { margin-left:auto; background:var(--red-muted); border:1px solid var(--red-border); color:var(--red); padding:5px 14px; border-radius:999px; font-size:0.78rem; font-weight:700; display:flex; align-items:center; gap:7px; }
+.topbar-dot { width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 7px var(--red); }
+
+/* ── LAYOUT ── */
+.main-wrap { margin-left: var(--sidebar-width); flex:1; display:flex; flex-direction:column; transition:margin-left .3s; min-width:0; }
+.main-wrap.expanded { margin-left:0; }
+.main-content { padding:40px 44px 70px; max-width:880px; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:44px; }
+
+/* ── PAGE TITLE ── */
+.page-title-block { border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+.page-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--red); margin-bottom:8px; }
+.page-title-block h1 { font-size:2rem; font-weight:800; letter-spacing:-0.5px; line-height:1.15; }
+.page-title-block p { color:var(--text-3); font-size:0.95rem; margin-top:7px; }
+
+/* ── MACRO PILLARS / OVERVIEW HERO ── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 4px;
+}
+.overview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.overview-card.blue {
+  border-top: 3px solid #3b82f6;
+  background: linear-gradient(180deg, rgba(59,130,246,0.06) 0%, rgba(22,25,34,1) 100%);
+}
+.overview-card.red {
+  border-top: 3px solid var(--red);
+  background: linear-gradient(180deg, rgba(225,29,72,0.06) 0%, rgba(22,25,34,1) 100%);
+}
+.overview-badge {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  width: fit-content;
+}
+.overview-card.blue .overview-badge {
+  background: rgba(59,130,246,0.15);
+  color: var(--blue-bright);
+}
+.overview-card.red .overview-badge {
+  background: rgba(225,29,72,0.15);
+  color: var(--red-bright);
+}
+.overview-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.overview-desc {
+  font-size: 0.85rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+.overview-formula-box {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.overview-formula-box .math-display {
+  padding: 8px 12px;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+/* ── PART BANNER (MAJOR CUT) ── */
+.part-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+.part-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.part-pill.blue {
+  background: rgba(59,130,246,0.12);
+  color: var(--blue-bright);
+  border: 1px solid rgba(59,130,246,0.3);
+}
+.part-pill.red {
+  background: rgba(225,29,72,0.12);
+  color: var(--red-bright);
+  border: 1px solid var(--red-border);
+}
+.part-pill.purple {
+  background: rgba(168,85,247,0.12);
+  color: var(--purple-bright);
+  border: 1px solid rgba(168,85,247,0.3);
+}
+.part-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── SUBSECTIONS ── */
+.subsection { display:flex; flex-direction:column; gap:20px; }
+.subsection-title { font-size:1.08rem; font-weight:800; color:var(--text); padding-bottom:8px; border-bottom:1px solid var(--border); }
+.subsection-title.blue { border-bottom-color: rgba(59,130,246,0.3); }
+.subsection-title.red { border-bottom-color: rgba(225,29,72,0.3); }
+.sub-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); margin-bottom:4px; }
+
+/* ── KEY NOTE ── */
+.key-note {
+  font-size:0.92rem; color:var(--text-2); line-height:1.65;
+  border-left: 3px solid var(--red);
+  padding: 10px 16px;
+  background: var(--red-muted);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.key-note.blue {
+  border-left-color: #3b82f6;
+  background: var(--blue-muted);
+}
+.key-note.purple {
+  border-left-color: #a855f7;
+  background: var(--purple-muted);
+}
+.key-note strong { color:var(--text); font-weight:800; }
+
+/* ── MATH DISPLAY ── */
+.math-display {
+  background: var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius); padding:14px 20px;
+  text-align:center; margin: 4px 0; overflow-x:auto;
+}
+.math-display.boxed { border-color:var(--red-border); background:var(--red-muted); }
+.math-display.boxed.blue { border-color:var(--blue-border); background:var(--blue-muted); }
+.math-display.boxed.green { border-color:var(--green-border); background:var(--green-muted); }
+
+/* ── PROPERTY / THEOREM ITEM ── */
+.property-item {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:16px 20px; display:flex; flex-direction:column; gap:8px;
+}
+.property-item.red { border-left:3px solid var(--red); }
+.property-item.blue { border-left:3px solid #3b82f6; }
+.property-item.green { border-left:3px solid #10b981; }
+.property-item.purple { border-left:3px solid #a855f7; }
+.property-name { font-size:0.78rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; }
+.property-item.red .property-name { color:var(--red); }
+.property-item.blue .property-name { color:#60a5fa; }
+.property-item.green .property-name { color:#34d399; }
+.property-item.purple .property-name { color:#c084fc; }
+.property-body { font-size:0.9rem; color:var(--text-2); line-height:1.6; }
+.property-body .intuition { font-style:italic; color:var(--text-3); font-size:0.85rem; margin-top:6px; display:block; }
+
+/* ── BULLETS ── */
+.bullet-list { list-style:none; display:flex; flex-direction:column; gap:8px; padding:0; }
+.bullet-list li { font-size:0.9rem; color:var(--text-2); line-height:1.6; display:flex; gap:10px; align-items:baseline; }
+.bullet-list li::before { content:"—"; color:var(--red); font-weight:800; flex-shrink:0; }
+.bullet-list.blue li::before { color:#60a5fa; }
+.bullet-list.purple li::before { color:#c084fc; }
+
+/* ── DISTINCTION BOX ── */
+.distinction {
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+}
+.dist-side {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px;
+}
+.dist-side.left { border-top:2px solid #3b82f6; }
+.dist-side.right { border-top:2px solid var(--red); }
+.dist-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+.dist-side.left .dist-label { color:#60a5fa; }
+.dist-side.right .dist-label { color:var(--red); }
+.dist-body { font-size:0.88rem; color:var(--text-2); line-height:1.6; }
+
+/* ── PROOF CONTAINER & SEQUENTIAL PROOF STACK ── */
+.proof-section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.proof-stack-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+.proof-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── COLLAPSIBLE SECTION ── */
+.toggle-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  background:none;
+  border:1px solid var(--border);
+  color:var(--text-3); font-family:var(--font);
+  font-size:0.8rem; font-weight:700;
+  padding:6px 14px; border-radius:999px;
+  cursor:pointer; transition:.2s; width:fit-content; margin-top:2px;
+}
+.toggle-btn:hover { border-color:var(--red-border); color:var(--red); background:var(--red-muted); }
+.toggle-btn.blue:hover { border-color:var(--blue-border); color:var(--blue-bright); background:var(--blue-muted); }
+.toggle-btn.full-width { width: 100%; justify-content: space-between; border-radius: var(--radius); padding: 10px 16px; background: rgba(255,255,255,0.02); }
+.toggle-btn.full-width:hover { background: var(--red-muted); }
+.toggle-btn .arrow { font-size:0.65rem; transition:transform .25s; display:inline-block; }
+.toggle-btn.open .arrow { transform:rotate(180deg); }
+.collapsible {
+  display:none; margin-top:10px;
+  background:rgba(10,11,16,0.7); border:1px solid var(--border);
+  border-radius:var(--radius); padding:18px 20px;
+  font-size:0.88rem; color:var(--text-2); line-height:1.7;
+}
+.collapsible.open { display:block; animation: fadeDown .2s ease; }
+.collapsible strong { color:var(--text); font-weight:700; }
+@keyframes fadeDown { from {opacity:0;transform:translateY(-6px);} to {opacity:1;transform:translateY(0);} }
+.collapsible .math-display { background: rgba(255,255,255,0.03); }
+
+/* ── PROOF BADGES / SUBHEADINGS ── */
+.proof-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--red-muted);
+  color: var(--red);
+  border: 1px solid var(--red-border);
+  margin-right: 6px;
+}
+.proof-step-title {
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 10px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── EMPIRICAL LIMITS CARD (VISIBLE, NO BUTTON) ── */
+.empirical-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.empirical-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.empirical-box.theory { border-left: 3px solid #3b82f6; }
+.empirical-box.reality { border-left: 3px solid var(--red); }
+.empirical-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.empirical-box.theory .empirical-tag { color: var(--blue-bright); }
+.empirical-box.reality .empirical-tag { color: var(--red-bright); }
+
+/* ── SEP ── */
+.sep-line { border:none; border-top:1px solid var(--border); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:10px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .sidebar { transform:translateX(-100%); }
+  .sidebar.open { transform:translateX(0); }
+  .main-wrap { margin-left:0 !important; }
+  .main-content { padding:24px 20px 40px; }
+  .overview-grid, .distinction, .empirical-grid { grid-template-columns:1fr; }
+}
+
+/* ── SEGMENTED CHAPTER PROGRESS BAR ── */
+.chapter-progress-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  margin: 0 20px;
+  padding: 0 2px;
+}
+.progress-segment {
+  flex: 1;
+  height: 7px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.progress-segment:hover {
+  transform: scaleY(1.35);
+  filter: brightness(1.25);
+}
+.progress-segment.completed {
+  background: linear-gradient(90deg, #9f1239, #e11d48);
+  border-color: rgba(244, 63, 94, 0.5);
+  box-shadow: 0 0 8px rgba(225, 29, 72, 0.35);
+}
+.progress-segment.active {
+  background: linear-gradient(90deg, #e11d48, #ff2d55);
+  border-color: rgba(255, 45, 85, 0.9);
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.6), 0 0 4px rgba(255, 45, 85, 0.4);
+}
+@media(max-width:900px){
+  .chapter-progress-bar { margin: 0 10px; gap: 4px; }
+  .progress-segment { height: 5px; }
+}
+@media(max-width:640px){
+  .chapter-progress-bar { display: none; }
+}
+
+</style>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<style>
+/* ── EXERCISE STATEMENT CARD ── */
+.exercise-statement-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.statement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.statement-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.2px;
+}
+.statement-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--red-muted);
+  color: var(--red-bright);
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--red-border);
+}
+
+/* ── QUESTION CARD ── */
+.question-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.question-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.question-goal {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.sol-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sol-step-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--red-bright);
+  margin-top: 4px;
+}
+.sol-subbox {
+  padding-left: 14px;
+  border-left: 2px solid var(--red);
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Midterm-only layout; original proof markup is preserved below. */
+.main-content { max-width: 1040px; gap: 30px; }
+.midterm-block { border-top: 2px solid var(--red); scroll-margin-top: 84px; min-width: 0; }
+.sheet-heading { display:flex; align-items:baseline; gap:14px; }
+.sheet-number { color:var(--red-bright); font-size:.8rem; font-weight:800; letter-spacing:1px; }
+.sheet-heading h2 { font-size:1.18rem; font-weight:800; line-height:1.4; }
+.sheet-context { color:var(--text-3); font-size:.86rem; margin-top:4px; }
+.source-link { color:var(--text-3); font-size:.78rem; text-underline-offset:3px; }
+.source-link:hover { color:var(--red-bright); }
+#proof-alpha-dir2 .proof-part { margin-top:10px; }
+#proof-alpha-dir2 > .exercise-statement-card, #proof-alpha-dir2 > .question-card { padding:0; border:0; border-radius:0; background:none; }
+#proof-alpha-dir2 > .question-card { border-top:1px solid var(--border); margin-top:20px; padding-top:20px; gap:10px; }
+#proof-alpha-dir2 .question-title { font-size:.95rem; }
+.statement-badge { display:none; }
+.toggle-btn { text-align:left; max-width:100%; min-height:36px; }
+.toggle-btn > span:first-child { min-width:0; }
+.toggle-btn .arrow { flex-shrink:0; }
+.proof-step-title { flex-wrap:wrap; }
+.math-display, .sol-block, .sol-subbox, .proof-step-card, .collapsible { min-width:0; max-width:100%; }
+mjx-container[display="true"] { overflow-x:auto; overflow-y:hidden; max-width:100%; padding:3px 0; }
+button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); outline-offset:4px; }
+@media (max-width:600px) {
+  .main-content { padding:24px 12px 40px; gap:24px; }
+  .proof-section-card { padding:18px 14px; }
+  .collapsible { padding:14px 10px; }
+  .math-display { padding:10px 8px; }
+  .sheet-heading { gap:10px; }
+  .sheet-heading h2 { font-size:1.04rem; }
+  .topbar { padding:0 16px; gap:12px; }
+  .topbar-pill { display:none; }
+}
+
+</style>
+</head>
+<body>
+<aside class="sidebar open" id="sidebar">
+  <div class="sidebar-brand">
+    <h1>MICRO<span>.</span></h1>
+    <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="midterm.html" class="sidebar-link active" aria-current="page">Midterm Sheet</a>
+    <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+    
+        <div class="sidebar-group">
+      <div class="sidebar-group-title">📂 1 — Choice Theory</div>
+      <a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a>
+      <a href="utility.html" class="sidebar-sublink">2 · Utility</a>
+      <a href="choice.html" class="sidebar-sublink">3 · Choice</a>
+      <a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-1</a>
+      <a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a>
+      <a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a>
+      <a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 1-2</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">📂 2 — Consumer Theory</div>
+      <a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a>
+      <a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a>
+      <a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2-1</a>
+      <a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a>
+      <a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b;">✦ Exercises Part 2-2</a>
+    </div>
+  <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a></div></nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar" style="background: transparent;">
+        <img src="images/avatar.png" alt="STAR NOVA" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;">
+        <span class="user-dot"></span>
+      </div>
+      <div class="user-info">
+        <div class="user-name">STAR NOVA</div>
+        
+      </div>
+    </div>
+  </div>
+</aside>
+<main class="main-wrap" id="main-wrap">
+  <div class="topbar">
+    <button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+    <div class="topbar-breadcrumb">MICRO <span class="sep">›</span> <strong>Midterm Sheet</strong></div>
+    <div class="topbar-pill"><span class="topbar-dot"></span>Part I</div>
+  </div>
+  <div class="main-content">
+    <header class="page-title-block">
+      <div class="page-label">Part I — Choice Theory</div>
+      <h1>Midterm Sheet</h1>
+      <p>Choice Functions &amp; Choice Rules</p>
+    </header>
+    <section class="proof-section-card midterm-block" id="property-alpha" aria-labelledby="alpha-title">
+      <header>
+        <div class="sheet-heading"><span class="sheet-number">01</span><h2 id="alpha-title">Property α ⇔ Rationalizability</h2></div>
+        <p class="sheet-context">Choice Functions</p>
+      </header>
+<div class="math-display boxed blue">
+        $$\boxed{\text{A choice function on } X \text{ is rationalizable } \iff \text{it satisfies Property } \alpha}$$
+      </div>
+        <!-- DIRECTION 1 -->
+        <div>
+          <div style="font-size:0.95rem; font-weight:800; color:var(--text); margin-bottom:8px;">
+            Direction 1: Rationalizable $\implies$ Property &alpha;
+          </div>
+          <div style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:10px;">
+            <strong>Starting point:</strong> Suppose $C$ is rationalizable.<br>
+            Then there exists a rational preference relation $\succeq$ such that, for every choice set $A$, $C(A)$ is the unique best alternative in $A$.
+          </div>
+          <button class="toggle-btn blue" onclick="toggle(this, 'proof-alpha-dir1')">
+            Show proof — Rationalizable $\implies$ Property &alpha; <span class="arrow">▾</span>
+          </button>
+          <div class="collapsible" id="proof-alpha-dir1">
+            <p>Let $C$ be a rationalizable choice function on $X$.</p>
+            <p style="margin-top:6px;">
+              Then there exists a rational preference relation $\succeq$ such that, for every choice set $A$, $C(A)$ is the <strong>unique best</strong> alternative in $A$:
+            </p>
+            <div class="math-display" style="margin:8px 0;">$$C(A) \succ y \qquad \forall y \in A, \ y \neq C(A)$$</div>
+
+            <p style="margin-top:10px;">Assume $B \subset A$ and $C(A) \in B$.</p>
+            <p style="margin-top:6px;">Since $B \subset A$, it is also true that:</p>
+            <div class="math-display" style="margin:8px 0;">$$C(A) \succ y \qquad \forall y \in B, \ y \neq C(A)$$</div>
+
+            <p style="margin-top:10px;">
+              Hence $C(A)$ is also the <strong>unique best</strong> alternative in $B$, so:
+            </p>
+            <div class="math-display boxed blue" style="margin:8px 0;">
+              $$\boxed{C(B) = C(A)}$$
+            </div>
+            <p style="margin-top:10px; font-weight:700; color:var(--text);">Thus, $C$ satisfies Property $\alpha$. $\blacksquare$</p>
+          </div>
+        </div>
+
+        <hr class="sep-line" style="margin: 4px 0;">
+
+
+      <div>
+        <div style="font-size:0.95rem; font-weight:800; color:var(--text); margin-bottom:8px;">Direction 2: Property &alpha; $\implies$ Rationalizable</div>
+      <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:10px;">
+        <strong>Starting point:</strong> Let $X$ be a choice set and $c$ a choice function on $X$. Show, using the following two steps, that if $c$ satisfies <strong>Property &alpha;</strong> then it can be rationalized by a rational preference relation:
+      </p>
+        <button class="toggle-btn blue" onclick="toggle(this, 'proof-alpha-dir2')">Show proof — Property &alpha; $\implies$ Rationalizable <span class="arrow">▾</span></button>
+        <div class="collapsible" id="proof-alpha-dir2">
+    <!-- PROOF SETUP -->
+    <div class="exercise-statement-card">
+      <ol style="margin-left:22px; display:flex; flex-direction:column; gap:8px; font-size:0.9rem; color:var(--text-2); margin-top:6px;">
+        <li>
+          Define a binary relation $\succeq$ by:
+          <div class="math-display boxed" style="margin:6px 0; display:inline-block; padding:4px 14px;">
+            $$x \succeq y \iff c(\{x, y\}) = x$$
+          </div>
+          Show that this relation is a <strong>rational preference relation</strong>.<br>
+          <span style="font-size:0.84rem; color:var(--text-3); font-style:italic;">
+            (Note: We are defining a particular preference relation from $c$ to show that $c$ is rationalizable.)
+          </span>
+        </li>
+        <li>
+          Show that for every choice set $A$, $c(A) \succeq a$ for every $a \in A$. In other words, that the chosen alternative is the <strong>unique best alternative</strong> according to $\succeq$.
+        </li>
+      </ol>
+    </div>
+
+
+    <!-- ── STEP 1 ── -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-title">1. Show that $\succeq$ is a Rational Preference Relation</div>
+      </div>
+      <div class="question-goal">
+        <strong>Goal:</strong> Show that the relation defined by $x \succeq y \iff c(\{x, y\}) = x$ is <strong>complete</strong> and <strong>transitive</strong>.
+      </div>
+
+      <div>
+
+        <div class="proof-part" id="sol-exo4-q1">
+          <div class="sol-block">
+            
+            <div class="sol-subbox">
+              <div class="sol-step-title">Part (a) — Completeness</div>
+              <p>Pick any $x, y \in X$. Since $c$ is a single-valued choice function on the two-element choice set $\{x, y\}$:</p>
+              <div class="math-display">$$c(\{x, y\}) \in \{x, y\}$$</div>
+              <p>Therefore, either:</p>
+              <div class="math-display">
+                $$c(\{x, y\}) = x \implies x \succeq y \qquad\text{or}\qquad c(\{x, y\}) = y \implies y \succeq x$$
+              </div>
+              <p>Hence:</p>
+              <div class="math-display boxed" style="margin:6px 0;">
+                $$\boxed{\succeq \text{ is complete}}$$
+              </div>
+            </div>
+
+            <div class="sol-subbox">
+              <div class="sol-step-title">Part (b) — Transitivity</div>
+              <p>Assume $x \succeq y$ and $y \succeq z$. By definition of $\succeq$:</p>
+              <div class="math-display">$$c(\{x, y\}) = x \qquad\text{and}\qquad c(\{y, z\}) = y$$</div>
+              <p>Consider the choice set $\{x, y, z\}$. Since $c$ selects an element from $\{x, y, z\}$:</p>
+              <div class="math-display">$$c(\{x, y, z\}) \in \{x, y, z\}$$</div>
+              <p>We check the three possibilities:</p>
+              <p style="margin-top:4px;">
+                • If $c(\{x, y, z\}) = y$: since $\{x, y\} \subset \{x, y, z\}$ and $y \in \{x, y\}$, <strong>Property &alpha;</strong> implies $c(\{x, y\}) = y$, which contradicts $c(\{x, y\}) = x$.
+              </p>
+              <p style="margin-top:4px;">
+                • If $c(\{x, y, z\}) = z$: since $\{y, z\} \subset \{x, y, z\}$ and $z \in \{y, z\}$, <strong>Property &alpha;</strong> implies $c(\{y, z\}) = z$, which contradicts $c(\{y, z\}) = y$.
+              </p>
+              <p style="margin-top:4px;">
+                • Therefore, we must have: <strong>$c(\{x, y, z\}) = x$</strong>.
+              </p>
+              <p style="margin-top:6px;">
+                Now consider the pair $\{x, z\} \subset \{x, y, z\}$. Since $x \in \{x, z\}$, <strong>Property &alpha;</strong> implies:
+              </p>
+              <div class="math-display">$$c(\{x, z\}) = c(\{x, y, z\}) = x$$</div>
+              <p>By definition of $\succeq$, $c(\{x, z\}) = x \implies \mathbf{x \succeq z}$.</p>
+              <p style="margin-top:6px;">Hence:</p>
+              <div class="math-display boxed" style="margin:6px 0;">
+                $$\boxed{\succeq \text{ is transitive}}$$
+              </div>
+            </div>
+
+            <div>
+              <div class="sol-step-title">Conclusion</div>
+              <p>Since $\succeq$ is both complete and transitive:</p>
+              <div class="math-display boxed green" style="margin:8px 0;">
+                $$\boxed{\succeq \text{ is a rational preference relation}}$$
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ── STEP 2 ── -->
+    <div class="question-card">
+      <div class="question-header">
+        <div class="question-title">2. Show that $c(A)$ is the Unique Best Alternative</div>
+      </div>
+      <div class="question-goal">
+        <strong>Goal:</strong> For every choice set $A$:
+        $$\boxed{c(A) \succeq a \qquad \forall a \in A}$$
+        In other words, the alternative chosen from $A$ must be the unique best alternative according to $\succeq$.
+      </div>
+
+      <div>
+
+        <div class="proof-part" id="sol-exo4-q2">
+          <div class="sol-block">
+            
+            <div>
+              <strong>Goal.</strong> For every choice set $A$,
+              <div class="math-display">
+                $$\boxed{c(A) \succeq a \qquad \forall a \in A.}$$
+              </div>
+              In other words, the alternative chosen from $A$ must be the unique best alternative according to $\succeq$.
+            </div>
+
+            <div class="sol-subbox">
+              <div class="sol-step-title">Proof by Contradiction</div>
+              <p>Take any choice set $A$, with:</p>
+              <div class="math-display">$$c(A) \in A.$$</div>
+              <p>Suppose by contradiction that $c(A)$ is <strong>not</strong> the best alternative in $A$.</p>
+              <p style="margin-top:4px;">Then there exists some:</p>
+              <div class="math-display">$$a \in A, \qquad a \neq c(A),$$</div>
+              <p>such that:</p>
+              <div class="math-display">$$a \succeq c(A).$$</div>
+              <p style="margin-top:6px;">By the definition of the preference relation:</p>
+              <div class="math-display">$$a \succeq c(A) \iff c(\{a, c(A)\}) = a.$$</div>
+              <p>Hence:</p>
+              <div class="math-display boxed" style="margin:6px 0;">
+                $$\boxed{c(\{a, c(A)\}) = a.}$$
+              </div>
+            </div>
+
+            <div class="sol-subbox">
+              <div class="sol-step-title">Contradiction via Property &alpha;</div>
+              <p>However,</p>
+              <div class="math-display">
+                $$\{a, c(A)\} \subseteq A \qquad\text{and}\qquad c(A) \in \{a, c(A)\}.$$
+              </div>
+              <p style="margin-top:4px;">
+                Since $c(A)$ is chosen from the larger set $A$, <strong>Property &alpha;</strong> implies that it must remain chosen in every smaller set that still contains it:
+              </p>
+              <div class="math-display boxed" style="margin:6px 0;">
+                $$\boxed{c(\{a, c(A)\}) = c(A).}$$
+              </div>
+              <p style="margin-top:6px; color:var(--red-bright); font-weight:700;">
+                This contradicts: $c(\{a, c(A)\}) = a$.
+              </p>
+              <p style="margin-top:4px;">
+                Therefore, the assumption was false: there cannot exist any $a \in A$ that is preferred to $c(A)$.
+              </p>
+              <p style="margin-top:6px;">Hence:</p>
+              <div class="math-display boxed" style="margin:6px 0;">
+                $$\boxed{c(A) \succeq a \qquad \forall a \in A.}$$
+              </div>
+            </div>
+
+            <div class="sol-subbox">
+              <div class="sol-step-title">Uniqueness & Strict Preference</div>
+              <p>
+                Moreover, for every $a \neq c(A)$, the choice function selects only one element from the pair:
+              </p>
+              <div class="math-display">$$c(\{a, c(A)\}) = c(A) \implies a \not\succeq c(A).$$</div>
+              <p>Therefore:</p>
+              <div class="math-display">
+                $$c(A) \succ a \qquad \forall a \in A, \ a \neq c(A).$$
+              </div>
+              <p style="margin-top:4px;">Thus:</p>
+              <div class="math-display boxed green" style="margin:6px 0;">
+                $$\boxed{c(A) \text{ is the unique best alternative in } A.}$$
+              </div>
+            </div>
+
+            <div>
+              <div class="sol-step-title">Conclusion</div>
+              <p>
+                Therefore, the rational preference relation $\succeq$ generates exactly the choices made by $c$, and:
+              </p>
+              <div class="math-display boxed green" style="margin-top:8px;">
+                $$\boxed{c \text{ is rationalizable.}}$$
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="proof-section-card midterm-block" id="harp" aria-labelledby="harp-title">
+      <header>
+        <div class="sheet-heading"><span class="sheet-number">02</span><h2 id="harp-title">HARP ⇔ Rationalizability</h2></div>
+        <p class="sheet-context">Choice Rules</p>
+      </header>
+<div class="math-display boxed">
+        $$\boxed{\text{Given a finite set } X, \text{ a choice rule } C \text{ is rationalizable } \iff C \text{ satisfies HARP.}}$$
+      </div>
+        
+        <!-- DIRECTION 1 -->
+        <div>
+          <div style="font-size:0.95rem; font-weight:800; color:var(--text); margin-bottom:8px;">
+            Direction 1: Rationalizable $\implies$ HARP
+          </div>
+          <div style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:10px;">
+            <strong>Starting point:</strong> Suppose $C$ is rationalizable.<br>
+            Then, by definition, there exists a rational preference relation $\succeq$ such that $C(A)$ contains the maximal alternatives of every choice set $A$.
+          </div>
+          <button class="toggle-btn" onclick="toggle(this, 'proof-dir1')">
+            Show proof — Rationalizable $\implies$ HARP <span class="arrow">▾</span>
+          </button>
+          <div class="collapsible" id="proof-dir1">
+            <p>Suppose $C$ is rationalizable (by a rational preference relation $\succeq$).</p>
+            <p style="margin-top:8px;">Consider $a, b \in A \cap B$ such that $a \in C(A)$ and $b \in C(B)$:</p>
+
+            <div style="margin:12px 0; padding-left:14px; border-left:2px solid var(--red);">
+              <p>• Since $a \in C(A)$ and $b \in A$, we have: <strong>$a \succeq b$</strong>.</p>
+              <p style="margin-top:6px;">• Similarly, since $b \in C(B)$ and $a \in B$, we have: <strong>$b \succeq a$</strong>.</p>
+            </div>
+
+            <p style="margin-top:10px;">Hence: <strong>$a \sim b$</strong>.</p>
+
+            <p style="margin-top:8px;">
+              Since $b$ is maximal in $B$ and $a \sim b$, $a$ is also maximal in $B$, so: <strong>$a \in C(B)$</strong>.
+            </p>
+            <p style="margin-top:6px;">
+              Similarly, since $a$ is maximal in $A$ and $b \sim a$, $b$ is also maximal in $A$, so: <strong>$b \in C(A)$</strong>.
+            </p>
+
+            <p style="margin-top:12px; font-weight:700; color:var(--text);">Thus, $C$ satisfies HARP. $\blacksquare$</p>
+          </div>
+        </div>
+
+        <hr class="sep-line" style="margin: 4px 0;">
+
+        <!-- DIRECTION 2 -->
+        <div>
+          <div style="font-size:0.95rem; font-weight:800; color:var(--text); margin-bottom:8px;">
+            Direction 2: HARP $\implies$ Rationalizable
+          </div>
+          <div style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:10px;">
+            <strong>Starting point:</strong> Suppose $C$ satisfies HARP.<br>
+            Now we do not yet have a preference relation: we construct one from observed choices, and then prove it is rational.
+          </div>
+
+          <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6;">
+            Define the <strong>revealed preference relation</strong> $\succeq$ by:
+          </p>
+
+          <div class="math-display boxed" style="margin:10px 0;">
+            $$\boxed{x \succeq y \iff \exists A \ni x, y \text{ such that } x \in C(A)}$$
+          </div>
+
+          <p style="font-size:0.86rem; color:var(--text-3); font-style:italic; margin-bottom:10px;">
+            i.e. $x \succeq y$ iff we have observed $x$ being chosen when $y$ was available.
+          </p>
+
+          <p style="font-size:0.88rem; color:var(--text-2); line-height:1.6; margin-bottom:12px;">
+            Let's show that $\succeq$ is <strong>complete</strong> and <strong>transitive</strong>, and that <strong>$C(\cdot) = C(\cdot, \succeq)$</strong>:
+          </p>
+
+          <!-- VERTICAL SEQUENTIAL PROOF STACK -->
+          <div class="proof-stack-container">
+
+            <!-- STEP i -->
+            <div class="proof-step-card">
+              <button class="toggle-btn full-width" onclick="toggle(this, 'proof-step-i')">
+                <span><strong>(i)</strong> Show proof — $\succeq$ is Complete</span>
+                <span class="arrow">▾</span>
+              </button>
+              <div class="collapsible" id="proof-step-i">
+                <p>Pick any $x, y \in X$.</p>
+                <p style="margin-top:6px;">Since $C(\{x, y\}) \neq \varnothing$, either:</p>
+                <div class="math-display" style="margin:8px 0;">$$x \in C(\{x, y\}) \quad \text{or} \quad y \in C(\{x, y\}) \quad \text{(or both).}$$</div>
+                <p>Hence:</p>
+                <div class="math-display" style="margin:8px 0;">$$x \succeq y \quad \text{or} \quad y \succeq x$$</div>
+                <div class="math-display boxed" style="margin:10px 0;">
+                  $$\boxed{\succeq \text{ is complete}}$$
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP ii -->
+            <div class="proof-step-card">
+              <button class="toggle-btn full-width" onclick="toggle(this, 'proof-step-ii')">
+                <span><strong>(ii)</strong> Show proof — $\succeq$ is Transitive</span>
+                <span class="arrow">▾</span>
+              </button>
+              <div class="collapsible" id="proof-step-ii">
+                <p>Suppose $x \succeq y$ and $y \succeq z$, and let $A = \{x, y, z\}$. Let's show that $x \succeq z$.</p>
+                <p style="margin-top:6px;">Since $C(A) \neq \varnothing$, at least one of $x, y, z$ belongs to $C(A)$:</p>
+
+                <div class="proof-step-title" style="margin-top:10px;"><strong>(a) If $x \in C(A)$:</strong></div>
+                <p style="padding-left:10px;">Then, by definition, <strong>$x \succeq z$</strong>.</p>
+
+                <div class="proof-step-title" style="margin-top:12px;"><strong>(b) If $y \in C(A)$:</strong></div>
+                <p style="padding-left:10px;">
+                  Recall that $x \succeq y$, hence $\exists B \ni x, y$ such that $x \in C(B)$.<br>
+                  Since $y \in C(A)$, $x \in C(B)$, and $x, y \in A \cap B$, HARP implies: <strong>$x \in C(A)$</strong>.<br>
+                  And we are back to <strong>(a)</strong>.
+                </p>
+
+                <div class="proof-step-title" style="margin-top:12px;"><strong>(c) If $z \in C(A)$:</strong></div>
+                <p style="padding-left:10px;">
+                  Recall that $y \succeq z$, hence $\exists D \ni y, z$ such that $y \in C(D)$.<br>
+                  Since $z \in C(A)$, $y \in C(D)$, and $y, z \in A \cap D$, HARP implies: <strong>$y \in C(A)$</strong>.<br>
+                  And we are back to <strong>(b)</strong> (which in turn leads to (a)).
+                </p>
+
+                <p style="margin-top:14px; font-weight:700; color:var(--text);">Therefore: $x \succeq z$.</p>
+
+                <div class="math-display boxed" style="margin:12px 0;">
+                  $$\boxed{\succeq \text{ is transitive}}$$
+                </div>
+
+                <div class="math-display" style="margin:8px 0; color:var(--text-3); font-size:0.86rem;">
+                  $$z \in C(A) \implies y \in C(A) \implies x \in C(A) \implies x \succeq z$$
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP iii -->
+            <div class="proof-step-card">
+              <button class="toggle-btn full-width" onclick="toggle(this, 'proof-step-iii')">
+                <span><strong>(iii)</strong> Show proof — $C(\cdot) = C(\cdot, \succeq)$ (Chosen alternatives are maximal)</span>
+                <span class="arrow">▾</span>
+              </button>
+              <div class="collapsible" id="proof-step-iii">
+                <p style="font-style:italic; color:var(--text-3); margin-bottom:10px;">
+                  Chosen alternatives are exactly the maximal alternatives:
+                </p>
+
+                <div class="proof-step-title"><span class="proof-badge">First inclusion</span> $C(A) \subseteq C(A, \succeq)$:</div>
+                <p style="padding-left:10px;">
+                  Suppose $y \in C(A)$.<br>
+                  Then for every $z \in A$, by definition of revealed preference: $y \succeq z$.<br>
+                  Hence $y$ is maximal in $A$, so $y \in C(A, \succeq)$.<br>
+                  Therefore:
+                </p>
+                <div class="math-display boxed" style="margin:8px 0;">
+                  $$\boxed{C(A) \subseteq C(A, \succeq)}$$
+                </div>
+
+                <div class="proof-step-title" style="margin-top:14px;"><span class="proof-badge">Second inclusion</span> $C(A, \succeq) \subseteq C(A)$:</div>
+                <p style="padding-left:10px;">
+                  Now suppose $y \in C(A, \succeq)$.<br>
+                  Choose any $w \in C(A)$.<br>
+                  Since $y$ is maximal: $y \succeq w$.<br>
+                  By definition of revealed preference, there exists a choice set $B$ containing $y, w$ such that $y \in C(B)$.<br>
+                  Since $w \in C(A)$, $y \in C(B)$, and $y, w \in A \cap B$, HARP implies: $y \in C(A)$.<br>
+                  Therefore:
+                </p>
+                <div class="math-display boxed" style="margin:8px 0;">
+                  $$\boxed{C(A, \succeq) \subseteq C(A)}$$
+                </div>
+
+                <div class="math-display boxed green" style="margin:14px 0;">
+                  $$\boxed{C(A) = C(A, \succeq)}$$
+                </div>
+
+                <p style="font-weight:700; color:var(--text); margin-top:8px;">Therefore, $C$ is rationalizable. $\blacksquare$</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      
+      <a class="source-link" href="choice.html">Source: Choices</a>
+    </section>
+  </div>
+</main>
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('main-wrap').classList.toggle('expanded');
+}
+function toggle(btn, id) {
+  const box = document.getElementById(id);
+  const isOpen = box.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', String(isOpen));
+  if (isOpen && window.MathJax?.typesetPromise) {
+    MathJax.typesetPromise([box]).catch(console.error);
+  }
+}
+document.querySelectorAll('button[onclick^="toggle(this,"]').forEach(btn => {
+  const id = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+  btn.setAttribute('aria-controls', id);
+  btn.setAttribute('aria-expanded', 'false');
+});
+if (window.matchMedia('(max-width:900px)').matches) {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('main-wrap').classList.add('expanded');
+}
+</script>
+</body>
+</html>
