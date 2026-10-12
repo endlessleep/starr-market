@@ -589,7 +589,15 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
   .topbar-pill { display:none; }
 }
 
+
+/* Utility block only. */
+.utility-direction-title { font-size:.95rem; font-weight:800; color:var(--text); margin-bottom:8px; }
+.utility-proposition { font-size:.88rem; color:var(--text-2); line-height:1.6; margin-bottom:10px; }
+.utility-discussion { display:flex; flex-direction:column; gap:10px; min-width:0; }
+.utility-case-title { font-size:.88rem; color:var(--red-bright); letter-spacing:.3px; border-top:1px solid var(--border); padding-top:18px; margin-top:10px; }
+.utility-subtitle { font-size:.88rem; font-weight:700; color:var(--text); margin-top:8px; }
 </style>
+<link rel="stylesheet" href="midterm-nav.css">
 </head>
 <body>
 <aside class="sidebar open" id="sidebar">
@@ -645,9 +653,64 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <h1>Midterm Sheet</h1>
       <p>Choice Functions &amp; Choice Rules</p>
     </header>
+    <section class="proof-section-card midterm-block" id="utility-representability" aria-labelledby="utility-title">
+      <header>
+        <div class="sheet-heading"><span class="sheet-number">01</span><h2 id="utility-title">Rationality &amp; Utility Representability</h2></div>
+      </header>
+      <div>
+        <div class="utility-direction-title">A. Utility Representability $\implies$ Rationality</div>
+        <button class="toggle-btn" onclick="toggle(this, 'proof-rational')">
+          Show proof — Representability implies rationality <span class="arrow">▾</span>
+        </button>
+        <div class="collapsible" id="proof-rational">
+          <p style="font-weight:700; color:var(--red); margin-bottom:6px;">Part 1: Completeness</p>
+          <p>Since $u(x), u(y) \in \mathbb{R}$, either $u(x) \ge u(y)$ or $u(y) \ge u(x)$.</p>
+          <p style="margin-top:4px;">Therefore, $x \succeq y$ or $y \succeq x$. Hence $\succeq$ is complete.</p>
+
+          <p style="font-weight:700; color:var(--red); margin-top:14px; margin-bottom:6px;">Part 2: Transitivity</p>
+          <p>Suppose $x \succeq y$ and $y \succeq z$.</p>
+          <p style="margin-top:4px;">Then $u(x) \ge u(y)$ and $u(y) \ge u(z)$, which implies $u(x) \ge u(z)$ by transitivity of $\ge$ on $\mathbb{R}$.</p>
+          <p style="margin-top:4px;">Therefore, $x \succeq z$. Hence $\succeq$ is transitive. $\blacksquare$</p>
+        </div>
+      </div>
+      <hr class="sep-line" style="margin:4px 0;">
+      <div>
+        <div class="utility-direction-title">B. Rationality $\implies$ Utility Representability</div>
+        <p class="utility-proposition">Does rationality guarantee utility representability?</p>
+        <button class="toggle-btn" onclick="toggle(this, 'proof-utility-converse')">
+          Show proof — Rationality $\implies$ Utility Representability <span class="arrow">▾</span>
+        </button>
+        <div class="collapsible" id="proof-utility-converse">
+          <div class="utility-discussion">
+              <p>Suppose that $\succeq$ is rational, meaning that it is complete and transitive.</p>
+              <h3 class="utility-case-title">CASE 1 — FINITE CHOICE SET</h3>
+              <p>If $X$ is finite, all alternatives can be ranked consistently because preferences are complete and transitive.</p>
+              <p>We can assign real numbers to alternatives according to their ranking, assigning the same utility to indifferent alternatives.</p>
+              <p>Thus, there exists a utility function $u:X\to\mathbb{R}$ such that:</p>
+              <div class="math-display">$$x \succeq y \iff u(x)\geq u(y)$$</div>
+              <p>Therefore:</p>
+              <div class="math-display boxed">$$\boxed{\text{Rationality}\implies\text{Utility Representability}}$$</div>
+              <h3 class="utility-case-title">CASE 2 — INFINITE CHOICE SET</h3>
+              <p>Suppose $X$ is infinite and $\succeq$ is rational (complete and transitive).</p>
+              <h4 class="utility-subtitle">1. Rationality alone</h4>
+              <p>Completeness and transitivity do not exclude discontinuous preferences (sudden jumps): even a very small change in an alternative may lead to a sudden change in its ranking.</p>
+              <p>Therefore:</p>
+              <div class="math-display boxed">$$\boxed{\text{Rationality}\not\implies\text{Representability in general}}$$</div>
+              <h4 class="utility-subtitle">2. Adding Continuity</h4>
+              <p>Continuity prevents sudden jumps in preferences: small changes in alternatives cannot reverse a strict preference.</p>
+              <p>On $X = \mathbb{R}_{+}^{n}$, we obtain:</p>
+              <div class="math-display">$$\underbrace{\text{Complete + Transitive}}_{\text{Rationality}}+\text{Continuous}$$</div>
+              <div class="math-display">$$\Downarrow$$</div>
+              <div class="math-display boxed">$$\boxed{\text{Continuous Utility Representability}}$$</div>
+              <p class="utility-subtitle">Remark.</p>
+              <p>Continuity is sufficient, but not necessary: some discontinuous preferences are still representable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="proof-section-card midterm-block" id="property-alpha" aria-labelledby="alpha-title">
       <header>
-        <div class="sheet-heading"><span class="sheet-number">01</span><h2 id="alpha-title">Property α ⇔ Rationalizability</h2></div>
+        <div class="sheet-heading"><span class="sheet-number">02</span><h2 id="alpha-title">Property α ⇔ Rationalizability</h2></div>
         <p class="sheet-context">Choice Functions</p>
       </header>
 <div class="math-display boxed blue">
@@ -865,7 +928,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
     </section>
     <section class="proof-section-card midterm-block" id="harp" aria-labelledby="harp-title">
       <header>
-        <div class="sheet-heading"><span class="sheet-number">02</span><h2 id="harp-title">HARP ⇔ Rationalizability</h2></div>
+        <div class="sheet-heading"><span class="sheet-number">03</span><h2 id="harp-title">HARP ⇔ Rationalizability</h2></div>
         <p class="sheet-context">Choice Rules</p>
       </header>
 <div class="math-display boxed">
