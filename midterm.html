@@ -596,6 +596,24 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 .utility-discussion { display:flex; flex-direction:column; gap:10px; min-width:0; }
 .utility-case-title { font-size:.88rem; color:var(--red-bright); letter-spacing:.3px; border-top:1px solid var(--border); padding-top:18px; margin-top:10px; }
 .utility-subtitle { font-size:.88rem; font-weight:700; color:var(--text); margin-top:8px; }
+
+/* Separate revision chapter, below the original choice-theory proofs. */
+.consumer-divider { margin-top:40px; padding-top:40px; border-top:4px solid var(--red); }
+.consumer-divider h2 { font-size:1.75rem; font-weight:800; letter-spacing:-.4px; }
+.consumer-revision-stack { display:flex; flex-direction:column; gap:26px; }
+.consumer-revision { border-top:2px solid var(--red); min-width:0; scroll-margin-top:84px; }
+.consumer-revision > p, .revision-item p { font-size:.9rem; color:var(--text-2); line-height:1.7; }
+.revision-item { display:flex; flex-direction:column; gap:10px; min-width:0; }
+.revision-item + .revision-item { border-top:1px solid var(--border); padding-top:20px; margin-top:4px; }
+.revision-item h3 { font-size:.8rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--red-bright); }
+.revision-item strong { color:var(--text); }
+.consumer-revision .revision-condition { color:var(--text-3); font-size:.84rem; }
+#proof-quasi-forward .demo-step { display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--border); }
+#proof-quasi-forward .demo-step:last-child { border-bottom:0; }
+#proof-quasi-forward .step-num { background:var(--green-muted); color:var(--green-bright); border:1px solid var(--green-border); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:800; }
+#proof-quasi-forward .step-body { flex:1; min-width:0; }
+#proof-quasi-forward .boxed-green { border-color:var(--green-border); background:var(--green-muted); }
+@media(max-width:600px) { .consumer-divider { margin-top:24px; padding-top:28px; } .consumer-divider h2 { font-size:1.5rem; } #proof-quasi-forward .demo-step { gap:8px; } }
 </style>
 <link rel="stylesheet" href="midterm-nav.css">
 </head>
@@ -1105,6 +1123,133 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 
       
     </section>
+
+    <header class="consumer-divider" id="consumer-preferences-sheet">
+      <div class="page-label">Midterm Sheet · Definitions &amp; Properties</div>
+      <h2>Consumer Preferences</h2>
+    </header>
+    <div class="consumer-revision-stack">
+<section class="proof-section-card consumer-revision" id="consumer-sheet-1" aria-labelledby="consumer-title-1">
+<header class="sheet-heading"><span class="sheet-number">01</span><h2 id="consumer-title-1">Monotonicity</h2></header>
+<p class="revision-condition">$X=\mathbb{R}_{+}^{n}$</p><div class="revision-item"><h3>Strict Monotonicity</h3>
+<div class="math-display">$$x\geq y,\quad x\neq y\implies x\succ y$$</div>
+<p>If bundle $x$ contains <strong>at least as much of every good</strong> as bundle $y$, and <strong>strictly more of at least one good</strong>, then $x$ is <strong>strictly preferred to</strong> $y$.</p></div><div class="revision-item"><h3>Weak Monotonicity</h3>
+<div class="math-display">$$x\geq y\implies x\succeq y$$</div>
+<p>If bundle $x$ contains <strong>at least as much of every good</strong> as bundle $y$, then $x$ is <strong>at least as good as</strong> $y$. The consumer may <strong>strictly prefer $x$</strong> or be <strong>indifferent</strong> between $x$ and $y$.</p></div><div class="revision-item"><h3>Local Non-Satiation (LNS)</h3>
+<div class="math-display">$$\forall x\in X,\ \forall\varepsilon>0,\quad \exists y\in X:\quad \|x-y\|<\varepsilon,\quad y\succ x$$</div>
+<p>For <strong>every bundle $x$</strong>, there exists another bundle $y$, <strong>arbitrarily close to $x$</strong>, that is <strong>strictly preferred to</strong> $x$.</p></div><div class="revision-item"><h3>Relationship Between Monotonicity and LNS</h3>
+<div class="math-display boxed">$$\boxed{\text{Strict Monotonicity}\implies\text{LNS}}$$</div>
+<p>Strict monotonicity guarantees LNS because <strong>even the smallest positive increase</strong> in one good, without reducing the others, makes the new bundle <strong>strictly better</strong>.</p>
+<div class="math-display boxed">$$\boxed{\text{Weak Monotonicity}\not\implies\text{LNS}}$$</div>
+<p>Weak monotonicity does not guarantee LNS because having more goods may leave the consumer <strong>indifferent</strong>, whereas LNS requires a <strong>strictly preferred</strong> nearby bundle.</p></div>
+</section>
+
+<section class="proof-section-card consumer-revision" id="consumer-sheet-2" aria-labelledby="consumer-title-2">
+<header class="sheet-heading"><span class="sheet-number">02</span><h2 id="consumer-title-2">Convexity</h2></header>
+<div class="revision-item"><h3>Convex Preferences</h3>
+<div class="math-display">$$x\succeq z,\quad y\succeq z \implies tx+(1-t)y\succeq z$$</div>
+<p class="revision-condition">For $t\in[0,1]$.</p>
+<p>If bundles $x$ and $y$ are both <strong>at least as good as</strong> bundle $z$, then any weighted average of $x$ and $y$ is also <strong>at least as good as</strong> $z$.</p></div><div class="revision-item"><h3>Strict Convexity</h3>
+<div class="math-display">$$x\succeq z,\quad y\succeq z \implies tx+(1-t)y\succ z$$</div>
+<p class="revision-condition">For $x\neq y$ and $t\in(0,1)$.</p>
+<p>If two distinct bundles $x$ and $y$ are both <strong>at least as good as</strong> bundle $z$, then any weighted average that gives <strong>positive weight to both bundles</strong> is <strong>strictly preferred to</strong> $z$.</p></div><div class="revision-item"><h3>Implication of Convexity</h3>
+<div class="math-display">$$x\succ y \implies tx+(1-t)y\succeq y$$</div>
+<p class="revision-condition">For $t\in[0,1]$.</p>
+<p>If bundle $x$ is <strong>strictly preferred to</strong> bundle $y$, then any weighted average of $x$ and $y$ is <strong>at least as good as</strong> $y$.</p></div>
+</section>
+
+<section class="proof-section-card consumer-revision" id="consumer-sheet-3" aria-labelledby="consumer-title-3">
+<header class="sheet-heading"><span class="sheet-number">03</span><h2 id="consumer-title-3">Homotheticity</h2></header>
+<div class="revision-item"><h3>Homothetic Preferences</h3>
+<div class="math-display">$$x\succeq y \iff \lambda x\succeq\lambda y \qquad \lambda>0$$</div>
+<p>If bundle $x$ is <strong>at least as good as</strong> bundle $y$, multiplying every quantity in <strong>both bundles</strong> by the same positive factor $\lambda$ does not change their preference ranking, and vice versa.</p></div>
+</section>
+
+<section class="proof-section-card consumer-revision" id="consumer-sheet-4" aria-labelledby="consumer-title-4">
+<header class="sheet-heading"><span class="sheet-number">04</span><h2 id="consumer-title-4">Separability</h2></header>
+<div class="revision-item"><h3>Separable Preferences</h3>
+<div class="math-display">$$(x,y)\succeq(x',y) \iff (x,y')\succeq(x',y')$$</div>
+<p>If $(x,y)$ is <strong>at least as good as</strong> $(x',y)$, replacing the common component $y$ with $y'$ in <strong>both bundles</strong> does not change the preference ranking, and vice versa.</p><p>The preference ranking between $x$ and $x'$ <strong>does not depend on the common value of the other component</strong>.</p></div>
+</section>
+
+<section class="proof-section-card consumer-revision" id="consumer-sheet-5" aria-labelledby="consumer-title-5">
+<header class="sheet-heading"><span class="sheet-number">05</span><h2 id="consumer-title-5">Numéraire Properties</h2></header>
+<p>Here, $t$ represents <strong>money</strong>, while $y$ represents <strong>other goods</strong>.</p><div class="revision-item"><h3>1. The Numéraire Good Is Valuable</h3>
+<div class="math-display">$$(t,y)\succeq(t',y) \iff t\geq t'$$</div>
+<p>When the other goods $y$ remain unchanged, the consumer prefers the alternative with <strong>more money</strong>. If the money amounts are equal, the consumer is indifferent.</p></div><div class="revision-item"><h3>2. Compensation Is Possible</h3>
+<div class="math-display">$$\forall y,y'\in Y,\quad \exists t\in\mathbb R: (0,y)\sim(t,y')$$</div>
+<p>For any two bundles of other goods $y$ and $y'$, there exists an amount of money $t$ that makes the consumer <strong>indifferent</strong> between $(0,y)$ and $(t,y')$.</p></div><div class="revision-item"><h3>3. No Wealth Effect</h3>
+<div class="math-display">$$(t,y)\succeq(t',y') \iff (t+d,y)\succeq(t'+d,y')$$</div>
+<p>Adding the <strong>same amount of money $d$</strong> to both alternatives does not change their preference ranking, even if their initial money amounts $t$ and $t'$ are different.</p></div>
+</section>
+
+<section class="proof-section-card consumer-revision" id="consumer-sheet-6" aria-labelledby="consumer-title-6">
+<header class="sheet-heading"><span class="sheet-number">06</span><h2 id="consumer-title-6">Quasi-Linear Utility</h2></header>
+<div class="revision-item"><h3>Numéraire Properties ⇔ Quasi-Linear Utility</h3>
+<p>For rational preferences on $\mathbb R\times Y$, the three numéraire properties hold <strong>if and only if</strong> preferences can be represented by:</p>
+<div class="math-display boxed">$$\boxed{u(t,y)=t+v(y)}$$</div>
+<p>Utility is <strong>quasi-linear in money</strong>: total utility equals the amount of money $t$ plus the utility $v(y)$ derived from the other goods.</p>
+</div>
+<button class="toggle-btn" onclick="toggle(this, 'proof-quasi-forward')" aria-controls="proof-quasi-forward" aria-expanded="false">Show the course proof (⇒) <span class="arrow">▾</span></button>
+<div class="collapsible" id="proof-quasi-forward">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="background:rgba(16,185,129,0.08); border-left:3px solid #10b981; padding:10px 14px; border-radius:0 8px 8px 0;">
+            <strong style="color:var(--green-bright);">Starting Point / Hypotheses:</strong><br>
+            We assume rational preferences on $\mathbb{R}\times Y$ satisfying the three numéraire properties: (1) $t$ is valuable, (2) Compensation is possible, and (3) No wealth effect.<br>
+            <strong>Goal:</strong> Construct $v:Y\to\mathbb{R}$ so that $u(t,y)=t+v(y)$ represents the preference relation.
+          </div>
+
+          <div class="demo-step">
+            <div class="step-num green">1</div>
+            <div class="step-body">
+              <strong>Because compensation is possible (Property 2).</strong><br>
+              Fix an arbitrary reference bundle $\bar{y} \in Y$. Because compensation is possible, for every $y \in Y$, there exists $v(y) \in \mathbb{R}$, the money amount that makes the reference alternative $\bar{y}$ equivalent to $y$:
+              <div class="math-display">$$(0, y) \sim (v(y), \bar{y})$$</div>
+              Similarly, for $y'\in Y$:
+              <div class="math-display">$$(0, y') \sim (v(y'), \bar{y})$$</div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="step-num green">2</div>
+            <div class="step-body">
+              <strong>Because there is no wealth effect (Property 3).</strong><br>
+              Indifference means that both weak comparisons hold. Apply property 3 to each comparison, adding $t$ to both alternatives:
+              <div class="math-display">$$(t, y) \sim (t + v(y), \bar{y})$$</div>
+              Similarly, adding $t'$ preserves indifference:
+              <div class="math-display">$$(t', y') \sim (t' + v(y'), \bar{y})$$</div>
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="step-num green">3</div>
+            <div class="step-body">
+              <strong>Hence, compare the monetary equivalents.</strong><br>
+              By transitivity of $\succeq$, comparing $(t, y)$ and $(t', y')$ is equivalent to comparing their monetary equivalents at $\bar{y}$:
+              <div class="math-display">$$\begin{gathered}
+                (t,y)\succeq(t',y')\\
+                \iff (t+v(y),\bar y)\succeq(t'+v(y'),\bar y).
+              \end{gathered}$$</div>
+              In each direction, replace the two bundles by their indifferent monetary equivalents and use transitivity.
+            </div>
+          </div>
+
+          <div class="demo-step">
+            <div class="step-num green">4</div>
+            <div class="step-body">
+              <strong>Because the numéraire good is valuable (Property 1).</strong><br>
+              Because the numéraire good is valuable (Property 1), the last comparison can be rewritten purely in terms of the numéraire amounts:
+              <div class="math-display boxed-green">$$\begin{gathered}
+                (t,y)\succeq(t',y')\\
+                \iff t+v(y)\geq t'+v(y').
+              \end{gathered}$$</div>
+              Hence $\succeq$ can be represented by the quasi-linear utility function $u(t, y) = t + v(y)$. $\blacksquare$
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+    </div>
   </div>
 </main>
 <script>
