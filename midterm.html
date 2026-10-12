@@ -571,8 +571,6 @@ body {
 .sheet-context { color:var(--text-3); font-size:.86rem; margin-top:4px; }
 .source-link { color:var(--text-3); font-size:.78rem; text-underline-offset:3px; }
 .source-link:hover { color:var(--red-bright); }
-#proof-alpha-dir2 .question-title { font-size:.9rem; margin-bottom:8px; }
-#proof-alpha-dir2 .question-goal { margin-bottom:14px; }
 .toggle-btn { text-align:left; max-width:100%; min-height:36px; }
 .toggle-btn > span:first-child { min-width:0; }
 .toggle-btn .arrow { flex-shrink:0; }
@@ -719,12 +717,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
               <span class="arrow">▾</span>
             </button>
             <div class="collapsible" id="proof-alpha-completeness">
-<div class="question-header">
-        <div class="question-title">1. Show that $\succeq$ is a Rational Preference Relation</div>
-      </div>
-      <div class="question-goal">
-        <strong>Goal:</strong> Show that the relation defined by $x \succeq y \iff c(\{x, y\}) = x$ is <strong>complete</strong> and <strong>transitive</strong>.
-      </div>
 <div class="sol-subbox">
               <div class="sol-step-title">Part (a) — Completeness</div>
               <p>Pick any $x, y \in X$. Since $c$ is a single-valued choice function on the two-element choice set $\{x, y\}$:</p>
@@ -787,14 +779,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
               <span class="arrow">▾</span>
             </button>
             <div class="collapsible" id="proof-alpha-best">
-<div class="question-header">
-        <div class="question-title">2. Show that $c(A)$ is the Unique Best Alternative</div>
-      </div>
-      <div class="question-goal">
-        <strong>Goal:</strong> For every choice set $A$:
-        $$\boxed{c(A) \succeq a \qquad \forall a \in A}$$
-        In other words, the alternative chosen from $A$ must be the unique best alternative according to $\succeq$.
-      </div>
 
           <div class="sol-block">
             
