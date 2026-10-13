@@ -642,6 +642,19 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 #proof-warp .step-body { flex:1; min-width:0; }
 #proof-warp .boxed-blue { border-color:var(--blue-border); background:var(--blue-muted); }
 @media(max-width:700px) { .revealed-pair { grid-template-columns:1fr; } .warp-condition { padding:14px 10px; } #proof-warp .demo-step { gap:8px; } }
+
+/* Identify the chosen bundle independently of the affordability comparison. */
+.choice-context { display:flex; flex-direction:column; gap:6px; min-width:0; padding:14px; border:1px solid var(--border); border-radius:8px; background:rgba(10,11,16,.35); }
+.choice-context > strong { font-size:1.08rem; }
+.observation-label { font-size:.69rem; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:var(--text-3); }
+.warp-choice-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.warp-choice-grid p { font-size:.85rem; line-height:1.6; color:var(--text-2); }
+.warp-choice-grid .first-choice { border-left:3px solid var(--blue-bright); }
+.warp-choice-grid .second-choice { border-left:3px solid var(--purple-bright); }
+.choice-reminder { padding:10px 12px; border-left:3px solid var(--blue-bright); background:rgba(10,11,16,.3); border-radius:0 6px 6px 0; }
+.choice-reminder.second-choice { border-left-color:var(--purple-bright); }
+.proof-choice-key { display:flex; flex-direction:column; gap:6px; padding:12px 14px; margin-bottom:16px; background:var(--blue-muted); border:1px solid var(--blue-border); border-radius:8px; }
+@media(max-width:700px) { .warp-choice-grid { grid-template-columns:1fr; } }
 </style>
 <link rel="stylesheet" href="midterm-nav.css">
 </head>
@@ -1289,13 +1302,21 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         <div class="revealed-pair">
           <div class="revealed-card rp">
             <h3>Revealed Preference (RP)</h3>
-            <p><strong>$X=(x_1,x_2)$ is chosen</strong> at prices $p=(p_1,p_2)$.</p>
+            <div class="choice-context first-choice">
+              <span class="observation-label">Observed choice</span>
+              <strong>$X$ was chosen</strong>
+              <p>Bundle $X=(x_1,x_2)$ at prices $p=(p_1,p_2)$.</p>
+            </div>
             <div class="math-display">$$\boxed{p_1x_1+p_2x_2\geq p_1y_1+p_2y_2}$$</div>
             <p><strong>$X$ is revealed preferred to $Y$</strong> because the consumer chooses $X$ even though $Y$ is <strong>affordable</strong>.</p>
           </div>
           <div class="revealed-card srp">
             <h3>Strict Revealed Preference (SRP)</h3>
-            <p><strong>$X=(x_1,x_2)$ is chosen</strong> at prices $p=(p_1,p_2)$.</p>
+            <div class="choice-context first-choice">
+              <span class="observation-label">Observed choice</span>
+              <strong>$X$ was chosen</strong>
+              <p>Bundle $X=(x_1,x_2)$ at prices $p=(p_1,p_2)$.</p>
+            </div>
             <div class="math-display">$$\boxed{p_1x_1+p_2x_2>p_1y_1+p_2y_2}$$</div>
             <p><strong>$X$ is strictly revealed preferred to $Y$</strong> because the consumer chooses $X$ even though $Y$ is <strong>strictly cheaper</strong>.</p>
           </div>
@@ -1304,22 +1325,35 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <section class="proof-section-card consumer-revision" id="warp-summary" aria-labelledby="warp-title">
         <header class="sheet-heading"><span class="sheet-number">02</span><h2 id="warp-title">Weak Axiom of Revealed Preference (WARP)</h2></header>
         <p>We observe <strong>two different bundles</strong> chosen at <strong>two different price vectors</strong>:</p>
-        <div class="warp-observations">
-          <p><strong>$X=(x_1,x_2)$ is chosen</strong> at prices $p=(p_1,p_2)$.</p>
-          <p><strong>$Y=(y_1,y_2)$ is chosen</strong> at prices $q=(q_1,q_2)$.</p>
+        <div class="warp-choice-grid">
+          <div class="choice-context first-choice">
+            <span class="observation-label">Observation 1 · Prices $p$</span>
+            <strong>$X$ was chosen</strong>
+            <p>$X=(x_1,x_2)$; $p=(p_1,p_2)$.</p>
+            <p>$Y$ is the other bundle being compared.</p>
+          </div>
+          <div class="choice-context second-choice">
+            <span class="observation-label">Observation 2 · Prices $q$</span>
+            <strong>$Y$ was chosen</strong>
+            <p>$Y=(y_1,y_2)$; $q=(q_1,q_2)$.</p>
+            <p>$X$ is the other bundle being compared.</p>
+          </div>
         </div>
         <div class="revision-item">
           <h3>First condition</h3>
+          <p class="choice-reminder first-choice"><strong>$X$ was chosen</strong> at prices $p$ — compare the cost of $X$ with the cost of $Y$.</p>
           <p>If:</p>
           <div class="math-display">$$\boxed{p_1x_1+p_2x_2\geq p_1y_1+p_2y_2}$$</div>
           <p><strong>$X$ is revealed preferred to $Y$</strong> because $Y$ was <strong>affordable</strong> when $X$ was chosen.</p>
         </div>
         <div class="warp-condition forbidden">
+          <p class="choice-reminder second-choice"><strong>$Y$ was chosen</strong> at prices $q$ — now check whether $X$ was affordable.</p>
           <h3>It must NOT be the case that</h3>
           <div class="math-display">$$\boxed{q_1y_1+q_2y_2\geq q_1x_1+q_2x_2}$$</div>
           <p>When <strong>$Y$ is chosen</strong> at prices $q$, $X$ <strong>cannot also be affordable</strong>.</p>
         </div>
         <div class="warp-condition required">
+          <p class="choice-reminder second-choice"><strong>$Y$ was chosen</strong> at prices $q$ — now check whether $X$ was affordable.</p>
           <h3>It MUST be the case that</h3>
           <div class="math-display">$$\boxed{q_1y_1+q_2y_2&lt;q_1x_1+q_2x_2}$$</div>
           <p>When <strong>$Y$ is chosen</strong> at prices $q$, $X$ <strong>must be too expensive to afford</strong>.</p>
@@ -1336,6 +1370,11 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         Show the course proof — Utility maximization ⇒ WARP <span class="arrow">▾</span>
       </button>
 <div class="collapsible" id="proof-warp">
+        <div class="proof-choice-key">
+          <span class="observation-label">Who was chosen in this proof?</span>
+          <p><strong>Observation 1:</strong> $X^0$ was chosen at prices $p^0$ (the $X$ and $p$ above).</p>
+          <p><strong>Observation 2:</strong> $X^1$ was chosen at prices $p^1$ (the $Y$ and $q$ above).</p>
+        </div>
           <p><strong>Starting point:</strong> Choices maximize the same <strong>strictly quasi-concave utility function</strong> on convex budget sets.<br>
           <strong>Goal:</strong> Show that these choices satisfy WARP. The proof follows the course notation $X^0,X^1$ and $p^0,p^1$: the superscripts identify the two observations.</p>
         <div class="demo-step">
