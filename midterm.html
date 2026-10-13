@@ -664,6 +664,48 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 .observed-choices { display:flex; flex-direction:column; gap:8px; padding-left:18px; font-size:.9rem; color:var(--text-2); line-height:1.7; }
 .observed-choices li::marker { color:var(--text-3); }
 .consumer-revision > .warp-takeaway strong { color:var(--text); }
+
+/* Compact revision layout; the original collapsible demonstrations keep their spacing. */
+.revealed-revision { gap:18px; }
+.revealed-revision > .consumer-revision { padding:18px 20px; gap:12px; }
+.revealed-revision .math-display:not(.collapsible .math-display) { padding:6px 10px; margin:0; }
+.revealed-revision .math-display:not(.collapsible .math-display) > mjx-container[display="true"] { margin:.3em 0 !important; }
+.revealed-revision .revealed-card { padding:14px; gap:9px; }
+.revealed-revision .revision-item, .revealed-revision .warp-condition { gap:8px; }
+.revealed-revision .warp-condition { padding:12px; }
+.revealed-revision .chosen-statement { padding:8px 10px; }
+.revealed-revision .observed-choices { gap:5px; }
+.revealed-revision p:not(.collapsible p), .revealed-revision li:not(.collapsible li) { line-height:1.55; }
+.revealed-revision .warp-takeaway { gap:5px; }
+.garp-chain-grid, .garp-outcomes, .formula-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; min-width:0; }
+.garp-chain-grid { align-items:center; padding:10px 12px; border:1px solid var(--purple-border); border-radius:var(--radius); background:var(--purple-muted); }
+.garp-chain-link { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.garp-chain-link p { font-size:.85rem; color:var(--text-2); }
+#garp-summary .garp-chain-link .math-display { background:none; border:0; }
+.garp-outcomes .warp-condition { min-width:0; }
+.theorem-green { border-color:var(--green-border); border-top-color:var(--green-bright); background:linear-gradient(180deg,var(--green-muted),var(--bg-card)); }
+.theorem-green .sheet-number, .theorem-green .theorem-takeaway h3 { color:var(--green-bright); }
+.equivalence-list { display:flex; flex-direction:column; gap:3px; }
+.equivalence-row { display:grid; grid-template-columns:26px minmax(0,1fr); align-items:start; gap:10px; }
+.equivalence-row p { font-size:.88rem; color:var(--text-2); }
+.equivalence-row strong { color:var(--text); }
+.equivalence-row p + p { margin-top:3px; }
+.equivalence-number { display:flex; align-items:center; justify-content:center; height:24px; border-radius:50%; background:var(--green-muted); border:1px solid var(--green-border); color:var(--green-bright); font-size:.8rem; font-weight:800; }
+.equivalence-arrow { color:var(--green-bright); padding-left:7px; font-size:.85rem; line-height:1; }
+.theorem-takeaway { padding-top:12px; border-top:1px solid var(--green-border); }
+.theorem-takeaway .math-display { background:var(--green-muted); border-color:var(--green-border); }
+.money-pump-setup { display:flex; flex-direction:column; gap:6px; }
+.money-pump-setup p { font-size:.88rem; color:var(--text-2); }
+.money-pump-cycle { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px 28px; }
+.revealed-card.pump-cost { border-top:3px solid var(--red); background:var(--red-muted); }
+.pump-cost h3 { color:var(--red-bright); }
+.revealed-card.pump-index { border-top:3px solid #fbbf24; background:var(--orange-muted); }
+.pump-index h3 { color:#fbbf24; }
+.pump-reading { border-top:1px solid var(--border); padding-top:10px; }
+.pump-reading .observed-choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:28px; }
+@media(max-width:700px) { .garp-outcomes, .formula-pair, .pump-reading .observed-choices { grid-template-columns:1fr; } }
+@media(max-width:600px) { .revealed-revision > .consumer-revision { padding:16px 12px; } }
+@media(max-width:360px) { .garp-chain-grid { grid-template-columns:1fr; } }
 </style>
 <link rel="stylesheet" href="midterm-nav.css">
 </head>
@@ -1305,7 +1347,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <div class="page-label">Midterm Sheet · Observed Choices</div>
       <h2>Revealed Preference Theory</h2>
     </header>
-    <div class="consumer-revision-stack">
+    <div class="consumer-revision-stack revealed-revision">
       <section class="proof-section-card consumer-revision" id="revealed-preferences-summary" aria-labelledby="rp-title">
         <header class="sheet-heading"><span class="sheet-number">01</span><h2 id="rp-title">Revealed Preferences</h2></header>
         <div class="revealed-pair">
@@ -1428,31 +1470,35 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <section class="proof-section-card consumer-revision" id="garp-summary" aria-labelledby="garp-title">
         <header class="sheet-heading"><span class="sheet-number">04</span><h2 id="garp-title">Generalized Axiom of Revealed Preference (GARP)</h2></header>
         <h3 class="axiom-label purple">Definition — GARP</h3>
-        <p>Consider a sequence of bundles:</p>
-        <div class="math-display">$$x^1,x^2,\ldots,x^K$$</div>
+        <p>Consider a sequence of bundles: $x^1,x^2,\ldots,x^K$.</p>
         <p class="chosen-statement">Each bundle <strong>$x^k$ is chosen</strong> at prices $p^k$.</p>
-        <div class="revision-item">
-          <p><strong>If:</strong></p>
-          <div class="math-display">$$\boxed{\begin{gathered}
-            x^1\;\mathrm{DRP}\;x^2\\
-            x^2\;\mathrm{DRP}\;x^3\\
-            \vdots\\
-            x^{K-1}\;\mathrm{DRP}\;x^K
-          \end{gathered}}$$</div>
-          <p>Then:</p>
-          <div class="math-display">$$\boxed{x^1\;\mathrm{IRP}\;x^K}$$</div>
+        <div class="garp-chain-grid">
+          <div class="garp-chain-link">
+            <p><strong>If:</strong></p>
+            <div class="math-display">$$\boxed{\begin{gathered}
+              x^1\;\mathrm{DRP}\;x^2\\
+              x^2\;\mathrm{DRP}\;x^3\\
+              \vdots\\
+              x^{K-1}\;\mathrm{DRP}\;x^K
+            \end{gathered}}$$</div>
+          </div>
+          <div class="garp-chain-link">
+            <p><strong>Then:</strong></p>
+            <div class="math-display">$$\boxed{x^1\;\mathrm{IRP}\;x^K}$$</div>
+          </div>
         </div>
-        <div class="warp-condition forbidden">
-          <h3>It must NOT be the case that</h3>
-          <p>When <strong>$x^K$ is chosen</strong> at prices $p^K$, $x^1$ <strong>cannot be strictly cheaper</strong> than $x^K$.</p>
-          <div class="math-display">$$\boxed{p^K\cdot x^K>p^K\cdot x^1}$$</div>
-          <p>In other words:</p>
-          <div class="math-display">$$\boxed{x^K\text{ is not SRP to }x^1}$$</div>
-        </div>
-        <div class="warp-condition required">
-          <h3>It MUST be the case that</h3>
-          <p>When <strong>$x^K$ is chosen</strong> at prices $p^K$, $x^1$ <strong>must cost at least as much as</strong> $x^K$.</p>
-          <div class="math-display">$$\boxed{p^K\cdot x^1\geq p^K\cdot x^K}$$</div>
+        <div class="garp-outcomes">
+          <div class="warp-condition forbidden">
+            <h3>It must NOT be the case that</h3>
+            <p>When <strong>$x^K$ is chosen</strong> at prices $p^K$, $x^1$ <strong>cannot be strictly cheaper</strong> than $x^K$.</p>
+            <div class="math-display">$$\boxed{p^K\cdot x^K>p^K\cdot x^1}$$</div>
+            <p>In other words: $x^K\text{ is not SRP to }x^1$.</p>
+          </div>
+          <div class="warp-condition required">
+            <h3>It MUST be the case that</h3>
+            <p>When <strong>$x^K$ is chosen</strong> at prices $p^K$, $x^1$ <strong>must cost at least as much as</strong> $x^K$.</p>
+            <div class="math-display">$$\boxed{p^K\cdot x^1\geq p^K\cdot x^K}$$</div>
+          </div>
         </div>
         <div class="warp-takeaway">
           <h3>GARP — Key takeaway</h3>
@@ -1487,9 +1533,69 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         </div>
         <div class="revision-item">
           <h3>Key difference</h3>
-          <div class="math-display">$$\boxed{\text{WARP: Direct comparisons}}$$</div>
-          <div class="math-display">$$\boxed{\text{GARP: Direct + Indirect comparisons}}$$</div>
+          <div class="formula-pair">
+            <div class="math-display">$$\boxed{\text{WARP: Direct comparisons}}$$</div>
+            <div class="math-display">$$\boxed{\text{GARP: Direct + Indirect comparisons}}$$</div>
+          </div>
           <p><strong>WARP focuses on two choices, whereas GARP can detect inconsistencies involving a longer chain of choice.</strong></p>
+        </div>
+      </section>
+
+      <section class="proof-section-card consumer-revision theorem-green" id="afriat-summary" aria-labelledby="afriat-title">
+        <header class="sheet-heading"><span class="sheet-number">05</span><h2 id="afriat-title">Afriat's Theorem</h2></header>
+        <p>For a finite dataset $D$ of nonnegative bundles and strictly positive prices, the following statements are <strong>equivalent</strong>:</p>
+        <div class="equivalence-list">
+          <div class="equivalence-row"><span class="equivalence-number">1</span><div>
+            <p><strong>The dataset satisfies GARP.</strong></p>
+            <p>The observed choices do not violate GARP.</p>
+          </div></div>
+          <div class="equivalence-arrow">$\Updownarrow$</div>
+          <div class="equivalence-row"><span class="equivalence-number">2</span><div>
+            <p><strong>The dataset can be rationalized by a locally non-satiated utility function.</strong></p>
+            <p>There exists a utility function under which <strong>every observed bundle maximizes utility within its budget</strong>.</p>
+          </div></div>
+          <div class="equivalence-arrow">$\Updownarrow$</div>
+          <div class="equivalence-row"><span class="equivalence-number">3</span><div>
+            <p><strong>The dataset can be rationalized by a continuous, concave, and strictly monotone utility function.</strong></p>
+            <p>There exists a utility function with these properties that also explains <strong>every observed choice</strong>.</p>
+          </div></div>
+        </div>
+        <div class="revision-item theorem-takeaway">
+          <h3>Key takeaway</h3>
+          <div class="math-display">$$\boxed{\text{GARP}\iff\text{Utility Maximization}}$$</div>
+          <p><strong>If the observed choices satisfy GARP, there exists a utility function that makes every chosen bundle optimal within its budget.</strong></p>
+          <p>Conversely, choices generated by utility maximization with LNS satisfy GARP.</p>
+          <p><strong>Important:</strong> We do not need to know the consumer's actual utility function. Afriat's Theorem guarantees that <strong>a suitable utility function exists</strong>.</p>
+        </div>
+      </section>
+      <section class="proof-section-card consumer-revision" id="money-pump-summary" aria-labelledby="money-pump-title">
+        <header class="sheet-heading"><span class="sheet-number">06</span><h2 id="money-pump-title">Money Pump Cost &amp; Money Pump Index</h2></header>
+        <div class="money-pump-setup">
+          <p>Consider a revealed-preference cycle:</p>
+          <div class="math-display money-pump-cycle"><span>$x_1\;\mathrm{RP}\;x_2\;\mathrm{RP}\;\cdots\;\mathrm{RP}\;x_n$</span><span>with $x_n\;\mathrm{RP}\;x_1$</span></div>
+          <p>Each bundle <strong>$x_k$ is chosen</strong> at prices $p_k$.</p>
+        </div>
+        <div class="revealed-pair money-pump-pair">
+          <div class="revealed-card pump-cost">
+            <h3>Money Pump Cost</h3>
+            <div class="math-display">$$\boxed{mp=\sum_{k=1}^{n}p_k\cdot(x_k-x_{k+1})}$$</div>
+            <p>where $x_{n+1}=x_1$.</p>
+            <p><strong>The money pump cost measures the potential monetary loss associated with a revealed-preference cycle that violates GARP.</strong></p>
+          </div>
+          <div class="revealed-card pump-index">
+            <h3>Money Pump Index (MPI)</h3>
+            <div class="math-display">$$\boxed{mpi=\frac{mp}{\displaystyle\sum_{k=1}^{n}p_k\cdot x_k}}$$</div>
+            <p><strong>The MPI measures the potential monetary loss relative to the consumer's total expenditure.</strong></p>
+            <p>A higher MPI indicates a <strong>larger monetary cost of the inconsistency relative to spending</strong>.</p>
+          </div>
+        </div>
+        <div class="revision-item pump-reading">
+          <p>For each observation, we compare:</p>
+          <ul class="observed-choices">
+            <li>The cost of <strong>the chosen bundle $x_k$</strong>.</li>
+            <li>The cost of <strong>the next bundle $x_{k+1}$</strong>.</li>
+          </ul>
+          <p>Both costs are calculated using <strong>the same prices $p_k$</strong>. The differences are then added together.</p>
         </div>
       </section>
     </div>
