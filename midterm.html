@@ -1631,12 +1631,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Consumer Theory</div>
         <h2 id="consumer-theory-title">Consumer Demand &amp; Duality</h2>
-        <p>Prices $p=(p_1,p_2)$ are strictly positive; $y\geq0$ denotes income and $\bar u$ the required utility level.</p>
-        <nav class="demand-jumps" aria-label="Consumer theory sections">
-          <a href="#marshallian-sheet">I · Marshallian demand</a>
-          <a href="#hicksian-sheet">II · Hicksian demand</a>
-          <a href="#demand-properties-sheet">III · Key properties &amp; theorems</a>
-        </nav>
       </header>
 
       <section class="demand-chapter" id="marshallian-sheet" aria-labelledby="marshallian-title">
@@ -1684,42 +1678,8 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <p class="demand-note"><strong>Exam reminder:</strong> an interior tangency may not exist for linear or kinked preferences. Check the relevant boundaries or kink separately.</p>
           </article>
 
-          <article class="demand-card demand-full" id="sheet-corners">
-            <h4><span>03</span>Corner Solutions</h4>
-            <p>A corner has <strong>$x_1^*=0$ or $x_2^*=0$</strong>. Under local non-satiation, all income is spent on the other good.</p>
-            <div class="demand-pair">
-              <div class="demand-copy">
-                <h5>Method 1 — Inspect the Utility Function</h5>
-                <p>Set each good to zero in turn and examine utility.</p>
-                <div class="math-display">$$\begin{gathered}u(x_1,x_2)=x_1^\alpha x_2^{1-\alpha}\\u(x_1,x_2)=\ln x_1+\beta\ln x_2\end{gathered}$$</div>
-                <p class="demand-condition">For $0&lt;\alpha&lt;1$, $\beta&gt;0$, positive income and prices.</p>
-                <p><strong>No corner in these standard cases:</strong> a zero quantity gives zero Cobb–Douglas utility, while a positive bundle gives positive utility; logarithmic utility is undefined at zero.</p>
-                <p>If utility remains well-defined, as with $u=2x_1+x_2$, a corner <strong>may</strong> occur. Compare the options.</p>
-              </div>
-              <div class="demand-copy">
-                <h5>Method 2 — Check the Interior Candidate</h5>
-                <p>First solve $MRS_{12}=p_1/p_2$ together with the budget constraint.</p>
-                <ul class="demand-bullets">
-                  <li><strong>Both quantities positive:</strong> the interior candidate is feasible.</li>
-                  <li><strong>A quantity is negative:</strong> the candidate is infeasible. Set that quantity to zero and solve the corresponding boundary problem.</li>
-                  <li><strong>No tangency:</strong> compare the relevant corner candidates.</li>
-                </ul>
-                <p class="demand-note"><strong>Final check:</strong> compare utility across feasible candidates and select the maximum.</p>
-              </div>
-            </div>
-            <div class="demand-copy demand-rule">
-              <h5>Linear Utility — Compare Utility per Euro</h5>
-              <p>For $u(x_1,x_2)=ax_1+bx_2$, with $a,b&gt;0$:</p>
-              <div class="demand-linear">
-                <div><div class="math-display">$$\frac{a}{p_1}&gt;\frac{b}{p_2}$$</div><p>Spend everything on <strong>good 1</strong>.</p></div>
-                <div><div class="math-display">$$\frac{a}{p_1}&lt;\frac{b}{p_2}$$</div><p>Spend everything on <strong>good 2</strong>.</p></div>
-                <div><div class="math-display">$$\frac{a}{p_1}=\frac{b}{p_2}$$</div><p><strong>Multiple optima:</strong> every bundle on the budget line.</p></div>
-              </div>
-            </div>
-          </article>
-
           <article class="demand-card" id="sheet-indirect-utility">
-            <h4><span>04</span>Indirect Utility Function</h4>
+            <h4><span>03</span>Indirect Utility Function</h4>
             <p>The <strong>maximum utility</strong> attainable at given prices and income.</p>
             <div class="math-display demand-formula">$$v(p,y)=\max_{\substack{x\geq0\\p\cdot x\leq y}}u(x)$$</div>
             <p><strong>Compute:</strong> find Marshallian demand, substitute into the original utility function, then simplify.</p>
@@ -1727,7 +1687,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <p class="demand-condition">The final expression depends on prices and income, not consumption quantities.</p>
           </article>
           <article class="demand-card" id="sheet-roy">
-            <h4><span>05</span>Roy’s Identity</h4>
+            <h4><span>04</span>Roy’s Identity</h4>
             <p>Recover <strong>Marshallian demand</strong> from indirect utility.</p>
             <div class="math-display demand-formula">$$\boxed{x_i^M(p,y)=-\frac{\partial v(p,y)/\partial p_i}{\partial v(p,y)/\partial y}}$$</div>
             <p><strong>Apply:</strong> differentiate $v$ with respect to $p_i$ and $y$, divide, and keep the <strong>minus sign</strong>.</p>
@@ -1735,7 +1695,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <p class="demand-condition">Where the relevant derivatives exist and $v_y&gt;0$.</p>
           </article>
           <article class="demand-card demand-full" id="sheet-envelope">
-            <h4><span>06</span>Lagrange Multiplier — Envelope Theorem</h4>
+            <h4><span>05</span>Lagrange Multiplier — Envelope Theorem</h4>
             <div class="demand-pair">
               <div class="demand-copy"><p>For $\mathcal L=u(x)+\lambda(y-p\cdot x)$:</p><div class="math-display demand-formula">$$\boxed{\frac{\partial v(p,y)}{\partial y}=\lambda^*}$$</div></div>
               <p>The multiplier is the <strong>marginal utility of income</strong>: it measures how much maximum attainable utility changes when income increases slightly.</p>
@@ -1785,7 +1745,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
                 <p class="demand-rule"><strong>Same tangency, different constraint:</strong> here the target utility is fixed.</p>
               </div>
             </div>
-            <p class="demand-note"><strong>Exam reminder:</strong> for linear or kinked preferences, compare feasible corner or kink candidates if an interior tangency does not exist.</p>
           </article>
           <article class="demand-card" id="sheet-expenditure">
             <h4><span>03</span>Expenditure Function</h4>
@@ -1806,15 +1765,120 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         </div>
       </section>
 
+      <section class="demand-chapter" id="corner-solutions-sheet" aria-labelledby="sheet-corners-title">
+        <article class="demand-card" id="sheet-corners">
+          <h4 id="sheet-corners-title"><span>UMP &amp; EmP</span>Corner Solutions</h4>
+          <p><strong>Corner = one good is consumed in quantity zero.</strong></p>
+          <p><strong>UMP:</strong> under local non-satiation, all income goes to the other good. <strong>EmP:</strong> buy enough of the other good to reach the utility target at minimum cost.</p>
+          <div class="demand-pair">
+            <div class="demand-copy">
+              <h5>Method 1 — Look at the Utility</h5>
+              <p>Set good $x_1$ to zero. Does utility <strong>collapse</strong>, or is it <strong>still well-defined</strong>?</p>
+              <ul class="demand-bullets">
+                <li><strong>Collapses:</strong> logarithmic utility is undefined at zero, or a standard product/minimum utility gives zero. If a feasible positive bundle gives higher utility (UMP), or zero is below the target (EmP), <strong>$x_1=0$ cannot be optimal</strong>.</li>
+                <li><strong>Still well-defined:</strong> the good is simply added, such as $+x_1$. Setting $x_1=0$ is possible: <strong>a corner may occur</strong>.</li>
+              </ul>
+              <p><strong>Repeat the same test for $x_2$.</strong></p>
+            </div>
+            <div class="demand-copy">
+              <h5>Method 2 — Look at the Demand</h5>
+              <p>For smooth preferences, solve $MRS_{12}=p_1/p_2$ together with:</p>
+              <div class="math-display">$$\begin{aligned}\text{UMP:}\quad &p_1x_1+p_2x_2=y\\\text{EmP:}\quad &u(x_1,x_2)=\bar u\end{aligned}$$</div>
+              <p><strong>Are the resulting quantities positive?</strong></p>
+              <ul class="demand-bullets">
+                <li><strong>Both positive:</strong> the candidate is interior, so neither good is at a corner.</li>
+                <li><strong>One is negative:</strong> a negative quantity is impossible. Set that good to zero and solve for the other using the relevant constraint. This gives a <strong>corner candidate</strong>.</li>
+              </ul>
+              <p>For minimum utility, use the <strong>kink condition</strong> instead of the MRS equation.</p>
+            </div>
+          </div>
+          <p class="demand-note"><strong>Choose the best feasible candidate:</strong> highest utility for the UMP; lowest expenditure while reaching $\bar u$ for the EmP.</p>
+        </article>
+      </section>
+
       <section class="demand-chapter demand-properties" id="demand-properties-sheet" aria-labelledby="demand-properties-title">
         <header class="demand-part-heading"><span class="demand-part-number">III</span><div><h3 id="demand-properties-title">Key Properties &amp; Theorems</h3><p>Results and checks for solving exercises.</p></div></header>
         <div class="demand-grid">
           <article class="demand-card demand-full" id="sheet-uniqueness">
             <h4><span>01</span>Uniqueness of Marshallian Demand</h4>
-            <p><strong>Strictly convex preferences + a convex budget set:</strong> the optimal bundle is unique, provided an optimum exists.</p>
-            <div class="demand-pair">
-              <div class="demand-copy"><h5>Counterexample — Linear Utility</h5><div class="math-display">$$\begin{gathered}u(x_1,x_2)=2x_1+x_2\\MU_1=2,\qquad MU_2=1\end{gathered}$$</div><div class="math-display demand-formula">$$\frac{2}{p_1}=\frac{1}{p_2}\iff\boxed{p_1=2p_2}$$</div></div>
-              <div class="demand-copy"><p>At these prices, both goods give the <strong>same utility per euro</strong>. Every nonnegative bundle on the budget line is optimal; with positive income, demand is <strong>not unique</strong>.</p><p class="demand-note"><strong>Demand function:</strong> one optimal bundle.<br><strong>Demand correspondence:</strong> potentially several optimal bundles.</p></div>
+            <div class="demand-copy">
+              <h5>1. Definition and Main Result</h5>
+              <p>Marshallian demand is <strong>unique</strong> when there is exactly one optimal consumption bundle for given prices and income.</p>
+              <p class="demand-note"><strong>Strictly convex preferences + existence of an optimum<br>$\Rightarrow$ Unique Marshallian demand.</strong></p>
+              <p>Strict convexity guarantees that two different affordable bundles cannot both maximize utility.</p>
+            </div>
+
+            <div class="demand-copy demand-rule">
+              <h5>2. How to Prove Uniqueness</h5>
+              <p class="demand-note"><strong>If two different optimal bundles existed, strict convexity would allow us to construct another affordable bundle that is strictly better.</strong> This is impossible because the original bundles were assumed optimal.</p>
+              <button type="button" class="toggle-btn full-width" onclick="toggle(this, 'proof-demand-uniqueness')" aria-controls="proof-demand-uniqueness" aria-expanded="false"><span>Proof by Contradiction</span><span class="arrow">▾</span></button>
+              <div class="collapsible" id="proof-demand-uniqueness">
+                <div class="demand-copy">
+                  <h5>Step 1 — Assume Two Optimal Bundles Exist</h5>
+                  <p>Suppose two distinct bundles $A$ and $B$ are both optimal:</p>
+                  <div class="math-display">$$A\neq B,\qquad A\sim B$$</div>
+                  <p>They must be indifferent because both provide the maximum utility.</p>
+                  <p class="demand-note"><strong>This is a temporary assumption, not an established result.</strong> We will show that it leads to a contradiction.</p>
+                </div>
+                <div class="demand-copy demand-rule">
+                  <h5>Step 2 — Apply Strict Convexity</h5>
+                  <p>Recall the definition from Consumer Preferences:</p>
+                  <div class="math-display">$$\begin{gathered}x\succeq z,\quad y\succeq z\\\Rightarrow tx+(1-t)y\succ z\end{gathered}$$</div>
+                  <p>For $x\neq y$ and $t\in(0,1)$.</p>
+                  <p>Apply it with $x=A$, $y=B$, and $z=A$. Since $A\succeq A$ and $B\succeq A$, strict convexity gives:</p>
+                  <div class="math-display demand-formula">$$tA+(1-t)B\succ A$$</div>
+                  <p>The mixture of $A$ and $B$ is strictly preferred to $A$.</p>
+                </div>
+                <div class="demand-copy demand-rule">
+                  <h5>Step 3 — Check Affordability</h5>
+                  <p>Since $A$ and $B$ are both affordable and the budget set is convex:</p>
+                  <div class="math-display">$$tA+(1-t)B\in B(p,y)$$</div>
+                  <p>Therefore, the mixture is also affordable.</p>
+                </div>
+                <div class="demand-copy demand-rule">
+                  <h5>Step 4 — Obtain a Contradiction</h5>
+                  <p>We assumed that $A$ was optimal. However, the mixture is:</p>
+                  <ul class="demand-bullets"><li><strong>Affordable.</strong></li><li><strong>Strictly preferred to $A$.</strong></li></ul>
+                  <p>This contradicts the assumption that $A$ maximizes utility. Two distinct optimal bundles therefore cannot exist.</p>
+                  <p class="demand-note"><strong>Conclusion:</strong> if an optimum exists, it must be unique.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="demand-copy demand-rule">
+              <h5>3. How to Prove Non-Uniqueness</h5>
+              <p class="demand-note"><strong>Show that at least two different affordable bundles achieve the same maximum utility.</strong></p>
+              <p>Use the course utility $u(x_1,x_2)=2x_1+x_2$, with positive prices and income.</p>
+              <div class="demand-pair">
+                <div class="demand-copy">
+                  <h5>Step 1 — Compare Utility per Euro</h5>
+                  <div class="math-display demand-inline-formulas"><span>$\displaystyle\frac{MU_1}{p_1}=\frac{2}{p_1}$</span><span>$\displaystyle\frac{MU_2}{p_2}=\frac{1}{p_2}$</span></div>
+                  <p>The ratios are equal when:</p>
+                  <div class="math-display demand-formula">$$\frac{2}{p_1}=\frac{1}{p_2}\iff\boxed{p_1=2p_2}$$</div>
+                  <p>Both goods then provide the <strong>same marginal utility per euro</strong>. Spending money on one good rather than the other gives no advantage.</p>
+                </div>
+                <div class="demand-copy">
+                  <h5>Step 2 — Use the Budget Constraint</h5>
+                  <p>With $p_1=2p_2$, the budget equality becomes:</p>
+                  <div class="math-display">$$2p_2x_1+p_2x_2=y$$</div>
+                  <p>Divide by $p_2$:</p>
+                  <div class="math-display">$$2x_1+x_2=\frac{y}{p_2}$$</div>
+                  <p>Since $u(x_1,x_2)=2x_1+x_2$, every bundle on the budget line gives:</p>
+                  <div class="math-display demand-formula">$$\boxed{u(x_1,x_2)=\frac{y}{p_2}}$$</div>
+                  <p>Every bundle that exhausts the budget achieves the same maximum utility. <strong>No affordable bundle can achieve more.</strong></p>
+                </div>
+              </div>
+              <h5>Step 3 — Conclude</h5>
+              <p>Multiple distinct bundles achieve the maximum utility, so Marshallian demand is not unique.</p>
+              <p class="demand-note"><strong>Multiple optimal bundles $\Rightarrow$ Non-unique Marshallian demand.</strong></p>
+            </div>
+
+            <div class="demand-copy demand-rule">
+              <h5>4. Final Exam Reminder</h5>
+              <div class="demand-pair">
+                <div class="demand-copy"><h5>Uniqueness — Proof by Contradiction</h5><p>If two different optimal bundles existed, strict convexity would make an affordable mixture strictly better. This contradicts optimality, so the optimum is unique.</p></div>
+                <div class="demand-copy"><h5>Non-Uniqueness — Direct Proof</h5><p>For linear utility, equal marginal utility per euro makes every bundle on the budget line optimal. With positive income, multiple optimal bundles exist.</p></div>
+              </div>
             </div>
           </article>
           <article class="demand-card" id="sheet-walras">
