@@ -655,6 +655,15 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 .choice-reminder.second-choice { border-left-color:var(--purple-bright); }
 .proof-choice-key { display:flex; flex-direction:column; gap:6px; padding:12px 14px; margin-bottom:16px; background:var(--blue-muted); border:1px solid var(--blue-border); border-radius:8px; }
 @media(max-width:700px) { .warp-choice-grid { grid-template-columns:1fr; } }
+
+/* Shared rhythm for direct/indirect definitions and both revealed-preference axioms. */
+.chosen-statement { padding:12px 14px; background:rgba(10,11,16,.3); border:1px solid var(--border); border-radius:8px; }
+.axiom-label { font-size:.85rem; font-weight:800; }
+.axiom-label.blue { color:var(--blue-bright); }
+.axiom-label.purple { color:var(--purple-bright); }
+.observed-choices { display:flex; flex-direction:column; gap:8px; padding-left:18px; font-size:.9rem; color:var(--text-2); line-height:1.7; }
+.observed-choices li::marker { color:var(--text-3); }
+.consumer-revision > .warp-takeaway strong { color:var(--text); }
 </style>
 <link rel="stylesheet" href="midterm-nav.css">
 </head>
@@ -1302,21 +1311,13 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         <div class="revealed-pair">
           <div class="revealed-card rp">
             <h3>Revealed Preference (RP)</h3>
-            <div class="choice-context first-choice">
-              <span class="observation-label">Observed choice</span>
-              <strong>$X$ was chosen</strong>
-              <p>Bundle $X=(x_1,x_2)$ at prices $p=(p_1,p_2)$.</p>
-            </div>
+            <p class="chosen-statement"><strong>$X=(x_1,x_2)$ is chosen</strong> at prices $p=(p_1,p_2)$.</p>
             <div class="math-display">$$\boxed{p_1x_1+p_2x_2\geq p_1y_1+p_2y_2}$$</div>
             <p><strong>$X$ is revealed preferred to $Y$</strong> because the consumer chooses $X$ even though $Y$ is <strong>affordable</strong>.</p>
           </div>
           <div class="revealed-card srp">
             <h3>Strict Revealed Preference (SRP)</h3>
-            <div class="choice-context first-choice">
-              <span class="observation-label">Observed choice</span>
-              <strong>$X$ was chosen</strong>
-              <p>Bundle $X=(x_1,x_2)$ at prices $p=(p_1,p_2)$.</p>
-            </div>
+            <p class="chosen-statement"><strong>$X=(x_1,x_2)$ is chosen</strong> at prices $p=(p_1,p_2)$.</p>
             <div class="math-display">$$\boxed{p_1x_1+p_2x_2>p_1y_1+p_2y_2}$$</div>
             <p><strong>$X$ is strictly revealed preferred to $Y$</strong> because the consumer chooses $X$ even though $Y$ is <strong>strictly cheaper</strong>.</p>
           </div>
@@ -1324,43 +1325,32 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       </section>
       <section class="proof-section-card consumer-revision" id="warp-summary" aria-labelledby="warp-title">
         <header class="sheet-heading"><span class="sheet-number">02</span><h2 id="warp-title">Weak Axiom of Revealed Preference (WARP)</h2></header>
+        <h3 class="axiom-label blue">Definition — WARP</h3>
         <p>We observe <strong>two different bundles</strong> chosen at <strong>two different price vectors</strong>:</p>
         <div class="warp-choice-grid">
-          <div class="choice-context first-choice">
-            <span class="observation-label">Observation 1 · Prices $p$</span>
-            <strong>$X$ was chosen</strong>
-            <p>$X=(x_1,x_2)$; $p=(p_1,p_2)$.</p>
-            <p>$Y$ is the other bundle being compared.</p>
-          </div>
-          <div class="choice-context second-choice">
-            <span class="observation-label">Observation 2 · Prices $q$</span>
-            <strong>$Y$ was chosen</strong>
-            <p>$Y=(y_1,y_2)$; $q=(q_1,q_2)$.</p>
-            <p>$X$ is the other bundle being compared.</p>
-          </div>
+          <p class="chosen-statement"><strong>$X=(x_1,x_2)$ is chosen</strong> at prices $p=(p_1,p_2)$.</p>
+          <p class="chosen-statement"><strong>$Y=(y_1,y_2)$ is chosen</strong> at prices $q=(q_1,q_2)$.</p>
         </div>
         <div class="revision-item">
-          <h3>First condition</h3>
-          <p class="choice-reminder first-choice"><strong>$X$ was chosen</strong> at prices $p$.</p>
-          <p>If:</p>
+          <p><strong>If:</strong></p>
           <div class="math-display">$$\boxed{p_1x_1+p_2x_2\geq p_1y_1+p_2y_2}$$</div>
           <p><strong>$X$ is revealed preferred to $Y$</strong> because $Y$ was <strong>affordable</strong> when $X$ was chosen.</p>
         </div>
         <div class="warp-condition forbidden">
-          <p>When <strong>$Y$ is chosen</strong> at prices $q$, $X$ <strong>cannot also be affordable</strong>.</p>
           <h3>It must NOT be the case that</h3>
+          <p>When <strong>$Y$ is chosen</strong> at prices $q$, $X$ <strong>cannot also be affordable</strong>.</p>
           <div class="math-display">$$\boxed{q_1y_1+q_2y_2\geq q_1x_1+q_2x_2}$$</div>
         </div>
         <div class="warp-condition required">
-          <p>When <strong>$Y$ is chosen</strong> at prices $q$, $X$ <strong>must be too expensive to afford</strong>.</p>
           <h3>It MUST be the case that</h3>
+          <p>When <strong>$Y$ is chosen</strong> at prices $q$, $X$ <strong>must be too expensive to afford</strong>.</p>
           <div class="math-display">$$\boxed{q_1y_1+q_2y_2&lt;q_1x_1+q_2x_2}$$</div>
         </div>
         <p>These are <strong>two equivalent ways of expressing the same WARP condition</strong>, not two separate definitions.</p>
         <div class="warp-takeaway">
           <h3>WARP — Key takeaway</h3>
           <p><strong>If $X$ is revealed preferred to $Y$, then $Y$ cannot be revealed preferred to $X$.</strong></p>
-          <p>In other words, the consumer cannot choose $X$ over an affordable $Y$, and then choose $Y$ over an affordable $X$.</p>
+          <p>The consumer cannot choose $X$ over an affordable $Y$, and then choose $Y$ over an affordable $X$.</p>
         </div>
         <div class="warp-demonstration">
           <h3>Demonstration</h3>
@@ -1402,6 +1392,104 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           </div>
         </div>
       </div>
+        </div>
+      </section>
+
+      <section class="proof-section-card consumer-revision" id="direct-indirect-summary" aria-labelledby="direct-indirect-title">
+        <header class="sheet-heading"><span class="sheet-number">03</span><h2 id="direct-indirect-title">Direct &amp; Indirect Revealed Preferences</h2></header>
+        <div class="revealed-pair">
+          <div class="revealed-card rp">
+            <h3>Directly Revealed Preference (DRP)</h3>
+            <p class="chosen-statement"><strong>$X=(x_1,x_2)$ is chosen</strong> at prices $p=(p_1,p_2)$.</p>
+            <div class="math-display">$$\boxed{p_1x_1+p_2x_2\geq p_1y_1+p_2y_2}$$</div>
+            <p><strong>$X$ is directly revealed preferred to $Y$</strong> because the consumer chooses $X$ while $Y$ is <strong>affordable</strong>.</p>
+            <p>A <strong>single observed choice</strong> establishes the comparison.</p>
+          </div>
+          <div class="revealed-card srp">
+            <h3>Indirectly Revealed Preference (IRP)</h3>
+            <p>Consider three different bundles $X$, $Y$, and $Z$.</p>
+            <ul class="observed-choices">
+              <li><strong>$X$ is chosen</strong> when $Y$ is affordable.</li>
+              <li><strong>$Y$ is chosen</strong> when $Z$ is affordable.</li>
+            </ul>
+            <p>Therefore:</p>
+            <div class="math-display">$$\boxed{X\;\mathrm{DRP}\;Y\;\mathrm{DRP}\;Z}$$</div>
+            <p>And consequently:</p>
+            <div class="math-display">$$\boxed{X\;\mathrm{IRP}\;Z}$$</div>
+            <p><strong>$X$ is indirectly revealed preferred to $Z$</strong> through the intermediate bundle $Y$.</p>
+          </div>
+        </div>
+        <div class="warp-takeaway">
+          <h3>Key difference</h3>
+          <p><strong>DRP:</strong> The preference is revealed through <strong>one observed choice</strong>.</p>
+          <p><strong>IRP:</strong> The preference is revealed through <strong>a chain of observed choices</strong>, connected by intermediate bundles.</p>
+        </div>
+      </section>
+      <section class="proof-section-card consumer-revision" id="garp-summary" aria-labelledby="garp-title">
+        <header class="sheet-heading"><span class="sheet-number">04</span><h2 id="garp-title">Generalized Axiom of Revealed Preference (GARP)</h2></header>
+        <h3 class="axiom-label purple">Definition — GARP</h3>
+        <p>Consider a sequence of bundles:</p>
+        <div class="math-display">$$x^1,x^2,\ldots,x^K$$</div>
+        <p class="chosen-statement">Each bundle <strong>$x^k$ is chosen</strong> at prices $p^k$.</p>
+        <div class="revision-item">
+          <p><strong>If:</strong></p>
+          <div class="math-display">$$\boxed{\begin{gathered}
+            x^1\;\mathrm{DRP}\;x^2\\
+            x^2\;\mathrm{DRP}\;x^3\\
+            \vdots\\
+            x^{K-1}\;\mathrm{DRP}\;x^K
+          \end{gathered}}$$</div>
+          <p>Then:</p>
+          <div class="math-display">$$\boxed{x^1\;\mathrm{IRP}\;x^K}$$</div>
+        </div>
+        <div class="warp-condition forbidden">
+          <h3>It must NOT be the case that</h3>
+          <p>When <strong>$x^K$ is chosen</strong> at prices $p^K$, $x^1$ <strong>cannot be strictly cheaper</strong> than $x^K$.</p>
+          <div class="math-display">$$\boxed{p^K\cdot x^K>p^K\cdot x^1}$$</div>
+          <p>In other words:</p>
+          <div class="math-display">$$\boxed{x^K\text{ is not SRP to }x^1}$$</div>
+        </div>
+        <div class="warp-condition required">
+          <h3>It MUST be the case that</h3>
+          <p>When <strong>$x^K$ is chosen</strong> at prices $p^K$, $x^1$ <strong>must cost at least as much as</strong> $x^K$.</p>
+          <div class="math-display">$$\boxed{p^K\cdot x^1\geq p^K\cdot x^K}$$</div>
+        </div>
+        <div class="warp-takeaway">
+          <h3>GARP — Key takeaway</h3>
+          <p><strong>If $x^1$ is indirectly revealed preferred to $x^K$, then $x^K$ cannot be strictly revealed preferred to $x^1$.</strong></p>
+          <p>GARP prevents a chain of revealed preferences from ending with a <strong>strict reversal</strong>.</p>
+        </div>
+      </section>
+      <section class="proof-section-card consumer-revision" id="warp-garp-comparison" aria-labelledby="warp-garp-title">
+        <header class="sheet-heading"><h2 id="warp-garp-title">WARP vs. GARP</h2></header>
+        <div class="revealed-pair">
+          <div class="revealed-card rp">
+            <h3>WARP — Direct Contradictions</h3>
+            <p>WARP examines <strong>two different bundles chosen at two different price vectors</strong>.</p>
+            <ul class="observed-choices">
+              <li><strong>$X$ is chosen</strong> when $Y$ is affordable.</li>
+              <li><strong>$Y$ is chosen</strong> at another price vector.</li>
+            </ul>
+            <p>WARP requires that <strong>$X$ must not also be affordable when $Y$ is chosen</strong>.</p>
+            <p><strong>WARP checks whether two observed choices directly contradict each other.</strong></p>
+          </div>
+          <div class="revealed-card srp">
+            <h3>GARP — Direct &amp; Indirect Contradictions</h3>
+            <p>GARP examines <strong>a sequence of observed choices</strong>, which may involve several intermediate bundles.</p>
+            <ul class="observed-choices">
+              <li><strong>$x^1$ is chosen</strong> when $x^2$ is affordable.</li>
+              <li><strong>$x^2$ is chosen</strong> when $x^3$ is affordable.</li>
+              <li>This continues until $x^K$.</li>
+            </ul>
+            <p>GARP requires that <strong>$x^K$ cannot be strictly revealed preferred to $x^1$</strong>.</p>
+            <p><strong>GARP checks whether a chain of revealed preferences leads to a strict contradiction.</strong></p>
+          </div>
+        </div>
+        <div class="revision-item">
+          <h3>Key difference</h3>
+          <div class="math-display">$$\boxed{\text{WARP: Direct comparisons}}$$</div>
+          <div class="math-display">$$\boxed{\text{GARP: Direct + Indirect comparisons}}$$</div>
+          <p><strong>WARP focuses on two choices, whereas GARP can detect inconsistencies involving a longer chain of choice.</strong></p>
         </div>
       </section>
     </div>
