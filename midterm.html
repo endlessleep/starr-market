@@ -697,6 +697,72 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 @media(max-width:700px) { .garp-outcomes, .formula-pair { grid-template-columns:1fr; } }
 @media(max-width:600px) { .revealed-revision > .consumer-revision { padding:16px 12px; } }
 @media(max-width:360px) { .garp-chain-grid { grid-template-columns:1fr; } }
+
+/* Consumer theory revision sheet: three clearly separated, parallel parts. */
+.demand-sheet { display:flex; flex-direction:column; gap:26px; min-width:0; container:consumer-demand / inline-size; }
+.demand-sheet .consumer-divider { display:flex; flex-direction:column; gap:10px; }
+.demand-sheet p, .demand-sheet li { font-size:.9rem; line-height:1.55; color:var(--text-2); }
+.demand-sheet strong { color:var(--text); }
+.demand-jumps { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+.demand-jumps a { padding:7px 11px; border:1px solid var(--border); border-radius:6px; color:var(--text-2); text-decoration:none; font-size:.8rem; font-weight:600; }
+.demand-jumps a:hover { color:var(--text); border-color:var(--red); }
+.demand-chapter { --demand-accent:var(--blue-bright); --demand-tint:var(--blue-muted); --demand-border:var(--blue-border); display:flex; flex-direction:column; gap:16px; min-width:0; scroll-margin-top:84px; }
+.demand-chapter.hicksian { --demand-accent:var(--purple-bright); --demand-tint:var(--purple-muted); --demand-border:var(--purple-border); }
+.demand-chapter.demand-properties { --demand-accent:#fbbf24; --demand-tint:var(--orange-muted); --demand-border:var(--orange-border); }
+.demand-chapter + .demand-chapter { border-top:2px solid var(--demand-border); padding-top:30px; margin-top:10px; }
+.demand-part-heading { display:flex; align-items:center; gap:14px; }
+.demand-part-number { padding:7px 10px; border:1px solid var(--demand-border); background:var(--demand-tint); color:var(--demand-accent); border-radius:7px; font-size:.95rem; font-weight:800; }
+.demand-part-heading h3 { font-size:1.35rem; font-weight:800; letter-spacing:-.2px; }
+.demand-part-heading p { font-size:.83rem; color:var(--text-3); margin-top:3px; }
+.demand-grid, .demand-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; min-width:0; }
+.demand-full { grid-column:1 / -1; }
+.demand-card { display:flex; flex-direction:column; gap:11px; min-width:0; padding:18px 20px; background:var(--bg-card); border:1px solid var(--border); border-top:2px solid var(--demand-accent); border-radius:var(--radius-lg); }
+.demand-card h4 { display:flex; align-items:baseline; gap:10px; font-size:1rem; line-height:1.4; }
+.demand-card h4 > span { color:var(--demand-accent); font-size:.74rem; letter-spacing:.6px; }
+.demand-sheet h5 { font-size:.85rem; line-height:1.4; color:var(--demand-accent); }
+.demand-sheet .math-display { padding:6px 8px; margin:0; background:rgba(0,0,0,.12); }
+.demand-sheet .math-display > mjx-container[display="true"] { margin:.3em 0 !important; }
+.demand-sheet .demand-formula { border-color:var(--demand-border); background:var(--demand-tint); }
+.demand-pair > .math-display { display:grid; place-items:center; }
+.demand-copy { display:flex; flex-direction:column; gap:8px; min-width:0; }
+.demand-note { padding:9px 12px; border-left:2px solid var(--demand-accent); background:var(--demand-tint); border-radius:0 6px 6px 0; }
+.demand-sheet .demand-condition { font-size:.82rem; color:var(--text-3); }
+.demand-method { display:flex; flex-direction:column; gap:10px; min-width:0; padding:14px; border:1px solid var(--border); border-radius:var(--radius); }
+.demand-method.quick-method { background:var(--demand-tint); border-color:var(--demand-border); align-self:start; }
+.demand-steps { display:flex; flex-direction:column; gap:10px; padding-left:20px; }
+.demand-steps > li { padding-left:3px; }
+.demand-steps > li::marker { color:var(--demand-accent); font-weight:700; }
+.demand-steps .math-display { margin-top:6px; }
+.demand-steps p + p { margin-top:4px; }
+.demand-bullets { display:flex; flex-direction:column; gap:6px; padding-left:18px; }
+.demand-rule { padding-top:12px; border-top:1px solid var(--border); }
+.demand-linear { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.demand-linear > div { display:flex; flex-direction:column; gap:7px; min-width:0; padding:10px; border:1px solid var(--border); border-radius:8px; }
+.demand-linear .math-display { border:0; padding:0; background:none; }
+.demand-linear p { font-size:.84rem; text-align:center; }
+.demand-inline-formulas { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px 24px; }
+.demand-inline-formulas > span { white-space:nowrap; }
+.demand-sheet .duality-direction { padding:14px; background:var(--demand-tint); border:1px solid var(--demand-border); border-radius:var(--radius); }
+.demand-sheet .duality-direction h5 { color:var(--text); }
+@media(max-width:750px) {
+  .demand-grid, .demand-pair { grid-template-columns:1fr; }
+  .demand-linear { grid-template-columns:1fr; }
+  .demand-linear > div { display:grid; grid-template-columns:100px minmax(0,1fr); align-items:center; }
+  .demand-linear p { text-align:left; }
+}
+@container consumer-demand (max-width:650px) {
+  .demand-grid, .demand-pair { grid-template-columns:1fr; }
+  .demand-linear { grid-template-columns:1fr; }
+  .demand-linear > div { display:grid; grid-template-columns:100px minmax(0,1fr); align-items:center; }
+  .demand-linear p { text-align:left; }
+}
+@media(max-width:600px) {
+  .demand-card { padding:16px 12px; }
+  .demand-method { padding:12px 10px; }
+  .demand-part-heading { gap:10px; }
+  .demand-part-heading h3 { font-size:1.2rem; }
+  .demand-chapter + .demand-chapter { padding-top:24px; }
+}
 </style>
 <link rel="stylesheet" href="midterm-nav.css">
 </head>
@@ -1560,6 +1626,240 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         </div>
       </section>
     </div>
+
+    <section class="demand-sheet" id="consumer-theory-sheet" aria-labelledby="consumer-theory-title">
+      <header class="consumer-divider">
+        <div class="page-label">Midterm Sheet · Consumer Theory</div>
+        <h2 id="consumer-theory-title">Consumer Demand &amp; Duality</h2>
+        <p>Prices $p=(p_1,p_2)$ are strictly positive; $y\geq0$ denotes income and $\bar u$ the required utility level.</p>
+        <nav class="demand-jumps" aria-label="Consumer theory sections">
+          <a href="#marshallian-sheet">I · Marshallian demand</a>
+          <a href="#hicksian-sheet">II · Hicksian demand</a>
+          <a href="#demand-properties-sheet">III · Key properties &amp; theorems</a>
+        </nav>
+      </header>
+
+      <section class="demand-chapter" id="marshallian-sheet" aria-labelledby="marshallian-title">
+        <header class="demand-part-heading"><span class="demand-part-number">I</span><div><h3 id="marshallian-title">Marshallian Demand</h3><p>Utility Maximization Problem (UMP) · Fix income, maximize utility.</p></div></header>
+        <div class="demand-grid">
+          <article class="demand-card demand-full" id="sheet-ump">
+            <h4><span>01</span>The Utility Maximization Problem</h4>
+            <p>Choose the <strong>affordable bundle that maximizes utility</strong>.</p>
+            <div class="demand-pair">
+              <div class="math-display demand-formula">$$\boxed{\begin{aligned}\max_{x_1,x_2\geq0}\quad &u(x_1,x_2)\\\text{s.t.}\quad &p_1x_1+p_2x_2\leq y\end{aligned}}$$</div>
+              <div class="demand-copy">
+                <p>Under <strong>local non-satiation</strong>, the budget binds:</p>
+                <div class="math-display">$$p_1x_1+p_2x_2=y$$</div>
+                <p><strong>Solution:</strong> $x_1^M(p,y)$ and $x_2^M(p,y)$, the optimal quantities as functions of <strong>prices and income</strong>.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="demand-card demand-full" id="sheet-solve-ump">
+            <h4><span>02</span>How to Solve the UMP</h4>
+            <p class="demand-condition">For a differentiable interior optimum with positive marginal utilities. Write $MU_i=\partial u/\partial x_i$.</p>
+            <div class="demand-pair">
+              <div class="demand-method">
+                <h5>Method 1 — Lagrangian</h5>
+                <ol class="demand-steps">
+                  <li><strong>Write the Lagrangian.</strong><div class="math-display">$$\begin{aligned}\mathcal L&=u(x_1,x_2)\\&\quad+\lambda(y-p_1x_1-p_2x_2)\end{aligned}$$</div></li>
+                  <li><strong>Compute the FOCs.</strong><div class="math-display">$$\begin{cases}\dfrac{\partial\mathcal L}{\partial x_1}=MU_1-\lambda p_1=0\\[5pt]\dfrac{\partial\mathcal L}{\partial x_2}=MU_2-\lambda p_2=0\\[5pt]\dfrac{\partial\mathcal L}{\partial\lambda}=y-p_1x_1-p_2x_2=0\end{cases}$$</div></li>
+                  <li><strong>Eliminate $\lambda$.</strong><p>$MU_1=\lambda p_1$ and $MU_2=\lambda p_2$. Divide:</p><div class="math-display">$$\frac{MU_1}{MU_2}=\frac{p_1}{p_2}$$</div></li>
+                  <li><strong>Solve with the budget.</strong> Express one quantity in terms of the other and substitute into $p_1x_1+p_2x_2=y$.</li>
+                  <li><strong>Obtain $x_1^M(p,y)$ and $x_2^M(p,y)$.</strong> Check that both quantities are nonnegative.</li>
+                </ol>
+              </div>
+              <div class="demand-method quick-method">
+                <h5>Method 2 — MRS Condition</h5>
+                <p>Use the same interior condition directly:</p>
+                <div class="math-display demand-formula">$$\boxed{\begin{cases}MRS_{12}=\dfrac{MU_1}{MU_2}=\dfrac{p_1}{p_2}\\[8pt]p_1x_1+p_2x_2=y\end{cases}}$$</div>
+                <ol class="demand-steps">
+                  <li>Compute $MU_1$ and $MU_2$, then form the MRS.</li>
+                  <li>Set the MRS equal to the price ratio and express one quantity in terms of the other.</li>
+                  <li>Substitute into the budget constraint, solve for both demands, and check the solution.</li>
+                </ol>
+                <p class="demand-rule"><strong>Same condition, shorter route:</strong> this method skips the Lagrangian.</p>
+              </div>
+            </div>
+            <p class="demand-note"><strong>Exam reminder:</strong> an interior tangency may not exist for linear or kinked preferences. Check the relevant boundaries or kink separately.</p>
+          </article>
+
+          <article class="demand-card demand-full" id="sheet-corners">
+            <h4><span>03</span>Corner Solutions</h4>
+            <p>A corner has <strong>$x_1^*=0$ or $x_2^*=0$</strong>. Under local non-satiation, all income is spent on the other good.</p>
+            <div class="demand-pair">
+              <div class="demand-copy">
+                <h5>Method 1 — Inspect the Utility Function</h5>
+                <p>Set each good to zero in turn and examine utility.</p>
+                <div class="math-display">$$\begin{gathered}u(x_1,x_2)=x_1^\alpha x_2^{1-\alpha}\\u(x_1,x_2)=\ln x_1+\beta\ln x_2\end{gathered}$$</div>
+                <p class="demand-condition">For $0&lt;\alpha&lt;1$, $\beta&gt;0$, positive income and prices.</p>
+                <p><strong>No corner in these standard cases:</strong> a zero quantity gives zero Cobb–Douglas utility, while a positive bundle gives positive utility; logarithmic utility is undefined at zero.</p>
+                <p>If utility remains well-defined, as with $u=2x_1+x_2$, a corner <strong>may</strong> occur. Compare the options.</p>
+              </div>
+              <div class="demand-copy">
+                <h5>Method 2 — Check the Interior Candidate</h5>
+                <p>First solve $MRS_{12}=p_1/p_2$ together with the budget constraint.</p>
+                <ul class="demand-bullets">
+                  <li><strong>Both quantities positive:</strong> the interior candidate is feasible.</li>
+                  <li><strong>A quantity is negative:</strong> the candidate is infeasible. Set that quantity to zero and solve the corresponding boundary problem.</li>
+                  <li><strong>No tangency:</strong> compare the relevant corner candidates.</li>
+                </ul>
+                <p class="demand-note"><strong>Final check:</strong> compare utility across feasible candidates and select the maximum.</p>
+              </div>
+            </div>
+            <div class="demand-copy demand-rule">
+              <h5>Linear Utility — Compare Utility per Euro</h5>
+              <p>For $u(x_1,x_2)=ax_1+bx_2$, with $a,b&gt;0$:</p>
+              <div class="demand-linear">
+                <div><div class="math-display">$$\frac{a}{p_1}&gt;\frac{b}{p_2}$$</div><p>Spend everything on <strong>good 1</strong>.</p></div>
+                <div><div class="math-display">$$\frac{a}{p_1}&lt;\frac{b}{p_2}$$</div><p>Spend everything on <strong>good 2</strong>.</p></div>
+                <div><div class="math-display">$$\frac{a}{p_1}=\frac{b}{p_2}$$</div><p><strong>Multiple optima:</strong> every bundle on the budget line.</p></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="demand-card" id="sheet-indirect-utility">
+            <h4><span>04</span>Indirect Utility Function</h4>
+            <p>The <strong>maximum utility</strong> attainable at given prices and income.</p>
+            <div class="math-display demand-formula">$$v(p,y)=\max_{\substack{x\geq0\\p\cdot x\leq y}}u(x)$$</div>
+            <p><strong>Compute:</strong> find Marshallian demand, substitute into the original utility function, then simplify.</p>
+            <div class="math-display">$$\boxed{v(p,y)=u\big(x_1^M(p,y),x_2^M(p,y)\big)}$$</div>
+            <p class="demand-condition">The final expression depends on prices and income, not consumption quantities.</p>
+          </article>
+          <article class="demand-card" id="sheet-roy">
+            <h4><span>05</span>Roy’s Identity</h4>
+            <p>Recover <strong>Marshallian demand</strong> from indirect utility.</p>
+            <div class="math-display demand-formula">$$\boxed{x_i^M(p,y)=-\frac{\partial v(p,y)/\partial p_i}{\partial v(p,y)/\partial y}}$$</div>
+            <p><strong>Apply:</strong> differentiate $v$ with respect to $p_i$ and $y$, divide, and keep the <strong>minus sign</strong>.</p>
+            <div class="math-display demand-inline-formulas"><span>$\displaystyle x_1^M=-\frac{v_{p_1}}{v_y}$</span><span>$\displaystyle x_2^M=-\frac{v_{p_2}}{v_y}$</span></div>
+            <p class="demand-condition">Where the relevant derivatives exist and $v_y&gt;0$.</p>
+          </article>
+          <article class="demand-card demand-full" id="sheet-envelope">
+            <h4><span>06</span>Lagrange Multiplier — Envelope Theorem</h4>
+            <div class="demand-pair">
+              <div class="demand-copy"><p>For $\mathcal L=u(x)+\lambda(y-p\cdot x)$:</p><div class="math-display demand-formula">$$\boxed{\frac{\partial v(p,y)}{\partial y}=\lambda^*}$$</div></div>
+              <p>The multiplier is the <strong>marginal utility of income</strong>: it measures how much maximum attainable utility changes when income increases slightly.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="demand-chapter hicksian" id="hicksian-sheet" aria-labelledby="hicksian-title">
+        <header class="demand-part-heading"><span class="demand-part-number">II</span><div><h3 id="hicksian-title">Hicksian Demand</h3><p>Expenditure Minimization Problem (EmP) · Fix utility, minimize expenditure.</p></div></header>
+        <div class="demand-grid">
+          <article class="demand-card demand-full" id="sheet-emp">
+            <h4><span>01</span>The Expenditure Minimization Problem</h4>
+            <p>Choose the <strong>least expensive bundle</strong> that attains the required utility $\bar u$.</p>
+            <div class="demand-pair">
+              <div class="math-display demand-formula">$$\boxed{\begin{aligned}\min_{x_1,x_2\geq0}\quad &p_1x_1+p_2x_2\\\text{s.t.}\quad &u(x_1,x_2)\geq\bar u\end{aligned}}$$</div>
+              <div class="demand-copy">
+                <p>Under the standard course assumptions, the utility constraint binds:</p>
+                <div class="math-display">$$u(x_1,x_2)=\bar u$$</div>
+                <p><strong>Solution:</strong> $h_1(p,\bar u)$ and $h_2(p,\bar u)$, the optimal quantities as functions of <strong>prices and target utility</strong>, not income.</p>
+              </div>
+            </div>
+          </article>
+          <article class="demand-card demand-full" id="sheet-solve-emp">
+            <h4><span>02</span>How to Solve the EmP</h4>
+            <p class="demand-condition">For a differentiable interior optimum with positive marginal utilities.</p>
+            <div class="demand-pair">
+              <div class="demand-method">
+                <h5>Method 1 — Lagrangian</h5>
+                <ol class="demand-steps">
+                  <li><strong>Write the Lagrangian.</strong><div class="math-display">$$\begin{aligned}\mathcal L&=p_1x_1+p_2x_2\\&\quad+\lambda[\bar u-u(x_1,x_2)]\end{aligned}$$</div></li>
+                  <li><strong>Compute the FOCs.</strong><div class="math-display">$$\begin{cases}\dfrac{\partial\mathcal L}{\partial x_1}=p_1-\lambda MU_1=0\\[5pt]\dfrac{\partial\mathcal L}{\partial x_2}=p_2-\lambda MU_2=0\\[5pt]\dfrac{\partial\mathcal L}{\partial\lambda}=\bar u-u(x_1,x_2)=0\end{cases}$$</div></li>
+                  <li><strong>Eliminate $\lambda$.</strong><p>$p_1=\lambda MU_1$ and $p_2=\lambda MU_2$. Divide:</p><div class="math-display">$$\frac{MU_1}{MU_2}=\frac{p_1}{p_2}$$</div></li>
+                  <li><strong>Solve with the utility constraint.</strong> Express one quantity in terms of the other and substitute into $u(x_1,x_2)=\bar u$.</li>
+                  <li><strong>Obtain $h_1(p,\bar u)$ and $h_2(p,\bar u)$.</strong> Check nonnegativity and attainment of the target utility.</li>
+                </ol>
+              </div>
+              <div class="demand-method quick-method">
+                <h5>Method 2 — MRS Condition</h5>
+                <p>Use the same interior condition directly:</p>
+                <div class="math-display demand-formula">$$\boxed{\begin{cases}MRS_{12}=\dfrac{MU_1}{MU_2}=\dfrac{p_1}{p_2}\\[8pt]u(x_1,x_2)=\bar u\end{cases}}$$</div>
+                <ol class="demand-steps">
+                  <li>Compute $MU_1$ and $MU_2$, then form the MRS.</li>
+                  <li>Set the MRS equal to the price ratio and express one quantity in terms of the other.</li>
+                  <li>Substitute into the utility constraint, solve for both demands, and check the solution.</li>
+                </ol>
+                <p class="demand-rule"><strong>Same tangency, different constraint:</strong> here the target utility is fixed.</p>
+              </div>
+            </div>
+            <p class="demand-note"><strong>Exam reminder:</strong> for linear or kinked preferences, compare feasible corner or kink candidates if an interior tangency does not exist.</p>
+          </article>
+          <article class="demand-card" id="sheet-expenditure">
+            <h4><span>03</span>Expenditure Function</h4>
+            <p>The <strong>minimum expenditure</strong> needed to attain $\bar u$.</p>
+            <div class="math-display demand-formula">$$e(p,\bar u)=\min_{\substack{x\geq0\\u(x)\geq\bar u}}p\cdot x$$</div>
+            <p><strong>Compute:</strong> find Hicksian demand, substitute into total expenditure, then simplify.</p>
+            <div class="math-display">$$\boxed{\begin{aligned}e(p,\bar u)&=p_1h_1(p,\bar u)\\&\quad+p_2h_2(p,\bar u)\end{aligned}}$$</div>
+            <p class="demand-condition">The final expression depends on prices and target utility, not income.</p>
+          </article>
+          <article class="demand-card" id="sheet-shephard">
+            <h4><span>04</span>Shephard’s Lemma</h4>
+            <p>Recover <strong>Hicksian demand</strong> from expenditure.</p>
+            <div class="math-display demand-formula">$$\boxed{h_i(p,\bar u)=\frac{\partial e(p,\bar u)}{\partial p_i}}$$</div>
+            <p><strong>Apply:</strong> differentiate $e(p,\bar u)$ with respect to $p_i$, holding target utility fixed.</p>
+            <div class="math-display demand-inline-formulas"><span>$\displaystyle h_1=\frac{\partial e}{\partial p_1}$</span><span>$\displaystyle h_2=\frac{\partial e}{\partial p_2}$</span></div>
+            <p class="demand-condition">Where expenditure is differentiable with respect to the relevant price.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="demand-chapter demand-properties" id="demand-properties-sheet" aria-labelledby="demand-properties-title">
+        <header class="demand-part-heading"><span class="demand-part-number">III</span><div><h3 id="demand-properties-title">Key Properties &amp; Theorems</h3><p>Results and checks for solving exercises.</p></div></header>
+        <div class="demand-grid">
+          <article class="demand-card demand-full" id="sheet-uniqueness">
+            <h4><span>01</span>Uniqueness of Marshallian Demand</h4>
+            <p><strong>Strictly convex preferences + a convex budget set:</strong> the optimal bundle is unique, provided an optimum exists.</p>
+            <div class="demand-pair">
+              <div class="demand-copy"><h5>Counterexample — Linear Utility</h5><div class="math-display">$$\begin{gathered}u(x_1,x_2)=2x_1+x_2\\MU_1=2,\qquad MU_2=1\end{gathered}$$</div><div class="math-display demand-formula">$$\frac{2}{p_1}=\frac{1}{p_2}\iff\boxed{p_1=2p_2}$$</div></div>
+              <div class="demand-copy"><p>At these prices, both goods give the <strong>same utility per euro</strong>. Every nonnegative bundle on the budget line is optimal; with positive income, demand is <strong>not unique</strong>.</p><p class="demand-note"><strong>Demand function:</strong> one optimal bundle.<br><strong>Demand correspondence:</strong> potentially several optimal bundles.</p></div>
+            </div>
+          </article>
+          <article class="demand-card" id="sheet-walras">
+            <h4><span>02</span>Walras’ Law</h4>
+            <p class="demand-condition">Condition: locally non-satiated preferences.</p>
+            <div class="math-display demand-formula">$$\boxed{p\cdot x^M(p,y)=y}$$</div>
+            <p>At the optimum, the consumer <strong>spends the entire budget</strong>. With two goods, $p_1x_1^M+p_2x_2^M=y$.</p>
+            <p><strong>Verify:</strong> multiply each demand by its price, add, and simplify.</p>
+            <div class="math-display">$$\sum_{i=1}^n p_ix_i^M(p,y)\overset{?}{=}y$$</div>
+            <p>If equality fails, the proposed demand system does not satisfy Walras’ Law.</p>
+          </article>
+          <article class="demand-card" id="sheet-homogeneity">
+            <h4><span>03</span>Homogeneity of Degree Zero</h4>
+            <p>Scaling <strong>all prices and income</strong> by the same positive factor leaves demand unchanged.</p>
+            <div class="math-display demand-formula">$$\boxed{x^M(\lambda p,\lambda y)=x^M(p,y)}$$</div>
+            <p class="demand-condition">For $\lambda&gt;0$.</p>
+            <p><strong>Verify:</strong> replace every $p_i$ by $\lambda p_i$ and $y$ by $\lambda y$ in each demand; simplify.</p>
+            <div class="math-display">$$x_i^M(\lambda p,\lambda y)\overset{?}{=}x_i^M(p,y)$$</div>
+            <p><strong>Scale income too:</strong> changing prices alone is not this test.</p>
+          </article>
+          <article class="demand-card demand-full" id="sheet-duality">
+            <h4><span>04</span>Duality of Consumer Problems</h4>
+            <p><strong>UMP:</strong> fix income and maximize utility. <strong>EmP:</strong> fix utility and minimize expenditure.</p>
+            <p class="demand-condition">Under the course assumptions: rational, continuous, locally non-satiated preferences on $\mathbb R_+^n$, positive prices, and attainable targets $\bar u\geq u(0)$. The demand equalities below use unique optima.</p>
+            <div class="demand-pair">
+              <div class="demand-copy duality-direction">
+                <h5>Marshallian → Hicksian</h5>
+                <p>Start with income $y$. Compute $v(p,y)$ and use it as the <strong>utility target</strong> in the EmP.</p>
+                <div class="math-display">$$\boxed{h(p,v(p,y))=x^M(p,y)}$$</div>
+                <p>The required expenditure equals the original income:</p>
+                <div class="math-display">$$\boxed{e(p,v(p,y))=y}$$</div>
+              </div>
+              <div class="demand-copy duality-direction">
+                <h5>Hicksian → Marshallian</h5>
+                <p>Start with target $\bar u$. Compute $e(p,\bar u)$ and use it as <strong>income</strong> in the UMP.</p>
+                <div class="math-display">$$\boxed{x^M(p,e(p,\bar u))=h(p,\bar u)}$$</div>
+                <p>The maximum utility equals the original target:</p>
+                <div class="math-display">$$\boxed{v(p,e(p,\bar u))=\bar u}$$</div>
+              </div>
+            </div>
+            <p class="demand-note"><strong>What to remember:</strong> matching income and target utility makes both problems recover the <strong>same optimal consumption choice</strong>.</p>
+          </article>
+        </div>
+      </section>
+    </section>
   </div>
 </main>
 <script>
