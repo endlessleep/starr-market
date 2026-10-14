@@ -1848,6 +1848,8 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <div class="demand-copy demand-rule">
               <h5>3. How to Prove Non-Uniqueness</h5>
               <p class="demand-note"><strong>Show that at least two different affordable bundles achieve the same maximum utility.</strong></p>
+              <button type="button" class="toggle-btn full-width" onclick="toggle(this, 'proof-demand-nonuniqueness')" aria-controls="proof-demand-nonuniqueness" aria-expanded="false"><span>Direct Proof — Non-Uniqueness</span><span class="arrow">▾</span></button>
+              <div class="collapsible" id="proof-demand-nonuniqueness">
               <p>Use the course utility $u(x_1,x_2)=2x_1+x_2$, with positive prices and income.</p>
               <div class="demand-pair">
                 <div class="demand-copy">
@@ -1871,6 +1873,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
               <h5>Step 3 — Conclude</h5>
               <p>Multiple distinct bundles achieve the maximum utility, so Marshallian demand is not unique.</p>
               <p class="demand-note"><strong>Multiple optimal bundles $\Rightarrow$ Non-unique Marshallian demand.</strong></p>
+              </div>
             </div>
 
             <div class="demand-copy demand-rule">
