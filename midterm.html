@@ -765,6 +765,47 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 }
 </style>
 <link rel="stylesheet" href="midterm-nav.css">
+<style id="income-effects-style">
+/* Income and Price Effects only: reuse the revision sheet's cards and spacing. */
+#income-price-effects-sheet .effects-chapter { --demand-accent:var(--red-bright); --demand-tint:var(--red-muted); --demand-border:var(--red-border); }
+#income-price-effects-sheet .effects-title { display:flex; align-items:baseline; gap:10px; font-size:1rem; line-height:1.4; }
+#income-price-effects-sheet .effects-title > span { color:var(--red-bright); font-size:.74rem; letter-spacing:.6px; }
+#income-price-effects-sheet h4 { font-size:.88rem; }
+#income-price-effects-sheet .effects-trio { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; min-width:0; }
+#income-price-effects-sheet .effects-trio .demand-method { padding:12px; }
+#income-price-effects-sheet .effects-trio .math-display { padding:6px 0; border:0; background:none; }
+#income-price-effects-sheet .effects-total { --demand-accent:var(--blue-bright); }
+#income-price-effects-sheet .effects-substitution, #income-price-effects-sheet .effects-cv, #income-price-effects-sheet .effects-exact { --demand-accent:var(--green-bright); --demand-tint:var(--green-muted); --demand-border:var(--green-border); }
+#income-price-effects-sheet .effects-income, #income-price-effects-sheet .effects-ev { --demand-accent:var(--purple-bright); --demand-tint:var(--purple-muted); --demand-border:var(--purple-border); }
+#income-price-effects-sheet .effects-total h4, #income-price-effects-sheet .effects-substitution h4, #income-price-effects-sheet .effects-income h4, #income-price-effects-sheet .effects-cv h4, #income-price-effects-sheet .effects-ev h4, #income-price-effects-sheet .effects-exact h4 { color:var(--demand-accent); }
+#income-price-effects-sheet .effects-legend { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 16px; }
+#income-price-effects-sheet .effects-legend p { font-size:.82rem; }
+#income-price-effects-sheet .effects-question { font-weight:600; color:var(--text); }
+#income-price-effects-sheet .effects-welfare-pair { align-items:stretch; }
+#income-price-effects-sheet .effects-welfare-pair > .demand-method { display:grid; grid-template-rows:subgrid; grid-row:span 9; }
+#income-price-effects-sheet .effects-exact { border-color:var(--green-border); background:var(--green-muted); }
+#income-price-effects-sheet .collapsible { margin-top:0; }
+/* Same native details panel, blue treatment and spacing as the lecture. */
+#income-price-effects-sheet .derivation-panel { margin-top:16px; border:1px solid rgba(96,165,250,.34); border-radius:12px; background:rgba(15,23,42,.48); overflow:hidden; }
+#income-price-effects-sheet .derivation-panel summary { padding:13px 16px; color:var(--blue-bright); cursor:pointer; font-size:.88rem; font-weight:750; }
+#income-price-effects-sheet .derivation-panel[open] summary { border-bottom:1px solid rgba(96,165,250,.20); background:rgba(59,130,246,.08); }
+#income-price-effects-sheet .derivation-content { padding:16px; }
+#income-price-effects-sheet .derivation-content p + .math-display, #income-price-effects-sheet .derivation-content .math-display + p { margin-top:10px; }
+#income-price-effects-sheet summary:focus-visible { outline:2px solid var(--blue-bright); outline-offset:-3px; }
+@container consumer-demand (max-width:820px) {
+  #income-price-effects-sheet .effects-trio { grid-template-columns:1fr; }
+  #income-price-effects-sheet .effects-trio:not(.effects-elasticities) > .demand-method { flex-direction:row; align-items:center; justify-content:space-between; }
+}
+@container consumer-demand (max-width:650px) {
+  #income-price-effects-sheet .effects-welfare-pair > .demand-method { display:flex; grid-row:auto; }
+}
+@media(max-width:600px) {
+  #income-price-effects-sheet .derivation-panel summary { padding:12px 14px; }
+  #income-price-effects-sheet .derivation-content { padding:14px 12px; }
+  #income-price-effects-sheet .effects-legend { grid-template-columns:1fr; }
+  #income-price-effects-sheet .effects-equation, #income-price-effects-sheet .effects-intuition { font-size:.85rem; }
+}
+</style>
 </head>
 <body>
 <aside class="sidebar open" id="sidebar">
@@ -1927,6 +1968,239 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         </div>
       </section>
     </section>
+    <!-- Income and Price Effects — revision chapter -->
+    <section class="demand-sheet" id="income-price-effects-sheet" aria-labelledby="income-price-effects-title">
+      <header class="consumer-divider">
+        <div class="page-label">Midterm Sheet · Consumer Theory</div>
+        <h2 id="income-price-effects-title">Income and Price Effects</h2>
+      </header>
+      <div class="demand-chapter effects-chapter">
+        <article class="demand-card" id="sheet-slutsky">
+          <h3 class="effects-title"><span>01</span>Slutsky Equation</h3>
+          <div class="math-display demand-formula effects-equation">$$\boxed{\begin{aligned}\frac{\partial x_i(p,y)}{\partial p_j}&=\frac{\partial h_i(p,\bar u)}{\partial p_j}\\&-\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y)\end{aligned}}$$</div>
+          <div class="effects-trio">
+            <div class="demand-method effects-total"><h4>Total effect</h4><div class="math-display">$$\frac{\partial x_i(p,y)}{\partial p_j}$$</div></div>
+            <div class="demand-method effects-substitution"><h4>Substitution effect</h4><div class="math-display">$$\frac{\partial h_i(p,\bar u)}{\partial p_j}$$</div></div>
+            <div class="demand-method effects-income"><h4>Income effect</h4><div class="math-display">$$-\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y)$$</div></div>
+          </div>
+          <details class="derivation-panel" id="sheet-slutsky-derivation" ontoggle="if (this.open &amp;&amp; window.MathJax?.typesetPromise) MathJax.typesetPromise([this]).catch(console.error)">
+            <summary>Read the derivation step by step</summary>
+            <div class="derivation-content demand-copy">
+              <div class="math-display">$$h_i(p,\bar u)=x_i(p,e(p,\bar u)).$$</div>
+              <p><strong>1. Match the two problems.</strong> Hicksian demand equals Marshallian demand evaluated at the expenditure needed to attain $\bar u$: $y=e(p,\bar u)$.</p>
+              <p class="demand-condition">Under the lecture assumptions: continuous utility representing locally non-satiated preferences, strictly positive prices, and single-valued, differentiable demands.</p>
+              <p><strong>2. Identify both channels.</strong> When $p_j$ changes, the right-hand side changes <strong>directly through $p_j$</strong> and <strong>indirectly through expenditure $e(p,\bar u)$</strong>.</p>
+              <p><strong>3. Differentiate.</strong> Expenditure enters the income argument of Marshallian demand, so the chain rule gives:</p>
+              <div class="math-display effects-equation">$$\begin{aligned}\frac{\partial h_i(p,\bar u)}{\partial p_j}&=\frac{\partial x_i(p,y)}{\partial p_j}\\&+\left[\frac{\partial x_i(p,y)}{\partial y}\right]\left[\frac{\partial e(p,\bar u)}{\partial p_j}\right].\end{aligned}$$</div>
+              <p><strong>4. Apply Shephard’s Lemma.</strong></p>
+              <div class="math-display">$$\frac{\partial e(p,\bar u)}{\partial p_j}=h_j(p,\bar u).$$</div>
+              <p><strong>5. Use the same-problem identity.</strong></p>
+              <div class="math-display">$$h_j(p,\bar u)=x_j(p,y).$$</div>
+              <p>Therefore:</p>
+              <div class="math-display effects-equation">$$\begin{aligned}\frac{\partial h_i(p,\bar u)}{\partial p_j}&=\frac{\partial x_i(p,y)}{\partial p_j}\\&+\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y).\end{aligned}$$</div>
+              <p><strong>Rearrange:</strong></p>
+              <div class="math-display effects-equation">$$\boxed{\begin{aligned}\frac{\partial x_i(p,y)}{\partial p_j}&=\frac{\partial h_i(p,\bar u)}{\partial p_j}\\&-\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y)\end{aligned}}$$</div>
+            </div>
+          </details>
+        </article>
+
+        <article class="demand-card" id="sheet-substitution-income">
+          <h3 class="effects-title"><span>02</span>Substitution and Income Effects</h3>
+          <div class="demand-pair">
+            <div class="demand-copy effects-substitution">
+              <h4>Substitution effect</h4>
+              <p>Change in demand caused by a price change <strong>holding utility constant</strong>.</p>
+              <div class="math-display">$$\boxed{SE=\frac{\partial h_i(p,\bar u)}{\partial p_j}}$$</div>
+              <div class="math-display demand-formula">$$\boxed{\frac{\partial h_i(p,\bar u)}{\partial p_i}\leq0}$$</div>
+              <p>For an own-price change, the substitution effect is always <strong>non-positive</strong>.</p>
+            </div>
+            <div class="demand-copy effects-income">
+              <h4>Income effect</h4>
+              <p>A price change changes the consumer’s <strong>purchasing power</strong>. The resulting income effect depends on whether the good is normal or inferior.</p>
+              <div class="math-display">$$\boxed{IE=-\left[\frac{\partial x_i(p,y)}{\partial y}\right]x_j(p,y)}$$</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="demand-card" id="sheet-elasticities">
+          <h3 class="effects-title"><span>03</span>Income and Price Elasticities</h3>
+          <div class="effects-trio effects-elasticities">
+            <div class="demand-method">
+              <h4>A. Income elasticity</h4>
+              <div class="math-display">$$\boxed{\eta_i=\left[\frac{\partial x_i(p,y)}{\partial y}\right]\frac{y}{x_i(p,y)}}$$</div>
+              <p>What happens to demand for good $i$ when <strong>income</strong> changes?</p>
+              <ul class="demand-bullets">
+                <li>$\eta_i&gt;0$: <strong>Normal good</strong> → income $\uparrow$ ⇒ demand for good $i$ $\uparrow$.</li>
+                <li>$\eta_i&lt;0$: <strong>Inferior good</strong> → income $\uparrow$ ⇒ demand for good $i$ $\downarrow$.</li>
+                <li>$\eta_i&gt;1$: <strong>Luxury good</strong> → demand increases more than proportionally with income.</li>
+              </ul>
+            </div>
+            <div class="demand-method">
+              <h4>B. Own-price elasticity</h4>
+              <div class="math-display">$$\boxed{\varepsilon_{ii}=\left[\frac{\partial x_i(p,y)}{\partial p_i}\right]\frac{p_i}{x_i(p,y)}}$$</div>
+              <p>What happens to demand for good $i$ when its <strong>own price</strong> changes?</p>
+              <ul class="demand-bullets">
+                <li>$\varepsilon_{ii}&lt;0$: <strong>Ordinary good</strong> → price of $i$ $\uparrow$ ⇒ demand for $i$ $\downarrow$.</li>
+                <li>$\varepsilon_{ii}&gt;0$: <strong>Giffen good</strong> → price of $i$ $\uparrow$ ⇒ demand for $i$ $\uparrow$.</li>
+              </ul>
+            </div>
+            <div class="demand-method">
+              <h4>C. Cross-price elasticity</h4>
+              <div class="math-display">$$\boxed{\varepsilon_{ij}=\left[\frac{\partial x_i(p,y)}{\partial p_j}\right]\frac{p_j}{x_i(p,y)}}$$</div>
+              <p>What happens to demand for good $i$ when the price of <strong>another good $j$</strong> changes?</p>
+              <ul class="demand-bullets">
+                <li>$\varepsilon_{ij}&gt;0$: <strong>Gross substitutes</strong> → price of $j$ $\uparrow$ ⇒ demand for $i$ $\uparrow$.</li>
+                <li>$\varepsilon_{ij}&lt;0$: <strong>Gross complements</strong> → price of $j$ $\uparrow$ ⇒ demand for $i$ $\downarrow$.</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Slutsky equation in elasticity form</h4>
+          <div class="math-display demand-formula">$$\boxed{\varepsilon_{ij}=\varepsilon_{ij}^{h}-\eta_i\left(\frac{p_jx_j}{y}\right)}$$</div>
+          <div class="effects-legend">
+            <p>$\varepsilon_{ij}$: Marshallian price elasticity</p><p>$\varepsilon_{ij}^{h}$: Hicksian price elasticity</p>
+            <p>$\eta_i$: income elasticity</p><p>$p_jx_j/y$: expenditure share of good $j$</p>
+          </div>
+        </article>
+
+        <article class="demand-card" id="sheet-research-focus">
+          <h3 class="effects-title"><span>04</span>Research Focus</h3>
+          <div class="demand-copy">
+            <button type="button" class="toggle-btn full-width" onclick="toggle(this, 'sheet-giffen-content')" aria-controls="sheet-giffen-content" aria-expanded="false"><span>Giffen Goods</span><span class="arrow">▾</span></button>
+            <div class="collapsible" id="sheet-giffen-content">
+              <div class="demand-copy">
+                <h4>Giffen Good — Core Idea</h4>
+                <p><strong>A Giffen good is a good for which an increase in its price causes an increase in its quantity demanded.</strong></p>
+                <div class="math-display demand-formula">$$\boxed{\varepsilon_{ii}&gt;0}$$</div>
+                <p>The positive own-price elasticity arises when a negative income effect dominates the substitution effect.</p>
+                <div class="math-display">$$\boxed{\varepsilon_{ii}=\varepsilon_{ii}^{h}-\eta_i\left(\frac{p_ix_i}{y}\right)&gt;0}$$</div>
+                <div class="demand-pair">
+                  <div class="demand-method">
+                    <h5>Sign logic</h5>
+                    <ul class="demand-bullets">
+                      <li>Own-price effect: $\varepsilon_{ii}&gt;0$</li>
+                      <li>Substitution effect: $\varepsilon_{ii}^{h}&lt;0$</li>
+                      <li>Income elasticity: $\eta_i&lt;0$</li>
+                    </ul>
+                    <p>Hence:</p><div class="math-display">$$-\eta_i\frac{p_ix_i}{y}&gt;0$$</div>
+                    <p>The income-effect component is strong enough to <strong>dominate the negative substitution effect</strong>.</p>
+                  </div>
+                  <div class="demand-method">
+                    <h5>Conditions for Giffen behavior</h5>
+                    <ul class="demand-bullets">
+                      <li>The staple is an <strong>inferior good</strong>: $\eta_i&lt;0$.</li>
+                      <li>Its <strong>budget share is large</strong>: $p_ix_i/y$ is large.</li>
+                      <li>The staple has <strong>no ready substitute</strong>.</li>
+                      <li>The household is <strong>near subsistence</strong>: not too rich, but not so poor that it already consumes almost only the staple.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="math-display demand-formula">$$\begin{gathered}\boxed{\text{Giffen}\Rightarrow\text{Inferior}}\\[6pt]\boxed{\text{Inferior}\not\Rightarrow\text{Giffen}}\end{gathered}$$</div>
+                <div class="math-display effects-intuition">$$\begin{gathered}p_i\uparrow\ \Rightarrow\ \text{purchasing power}\downarrow\\\Rightarrow\ \text{demand for the inferior staple}\uparrow\end{gathered}$$</div>
+                <p>If this response dominates substitution:</p><div class="math-display">$$\boxed{x_i\uparrow}$$</div>
+              </div>
+            </div>
+            <button type="button" class="toggle-btn full-width" onclick="toggle(this, 'sheet-conspicuous-content')" aria-controls="sheet-conspicuous-content" aria-expanded="false"><span>Conspicuous Consumption</span><span class="arrow">▾</span></button>
+            <div class="collapsible" id="sheet-conspicuous-content">
+              <div class="demand-copy">
+                <h4>Core idea</h4>
+                <p>Conspicuous consumption means purchasing visible goods partly to display <strong>wealth, status, or social prestige</strong>.</p>
+                <p class="demand-note"><strong>Do more visible goods have higher income elasticities?</strong></p>
+                <div class="demand-pair">
+                  <div class="demand-method">
+                    <h5>Benchmark — No status concerns</h5>
+                    <p class="demand-condition">Visible consumption is $v$; prices are normalized to 1.</p>
+                    <div class="math-display">$$v(y)=\left[\frac{\beta}{1+\beta}\right]y$$</div>
+                    <p>Therefore:</p><div class="math-display">$$\frac{v}{y}=\frac{\beta}{1+\beta}$$</div>
+                    <p>The expenditure share is constant, hence:</p><div class="math-display demand-formula">$$\boxed{\eta_v=1}$$</div>
+                  </div>
+                  <div class="demand-method">
+                    <h5>With status concerns</h5>
+                    <p>Visible consumption can signal income/status. As income rises, the share spent on the visible good rises:</p>
+                    <div class="math-display">$$\frac{v}{y}\uparrow$$</div>
+                    <p>Visible consumption increases more than proportionally with income:</p><div class="math-display demand-formula">$$\boxed{\eta_v&gt;1}$$</div>
+                    <p>Richer consumers shift a larger share of their budget toward visible consumption.</p>
+                  </div>
+                </div>
+                <p class="demand-note"><strong>Empirical takeaway — Heffetz (2011):</strong> More visible goods tend to have higher income elasticities.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="demand-card" id="sheet-welfare-effects">
+          <h3 class="effects-title"><span>05</span>Welfare Effects of a Price Change</h3>
+          <div class="math-display effects-setup">$$\begin{gathered}p\longrightarrow p',\qquad u'&lt;u,\\u=v(p,w),\qquad u'=v(p',w).\end{gathered}$$</div>
+          <p>Express the welfare change in <strong>monetary terms using the expenditure function</strong>, with income $w$ unchanged.</p>
+          <p class="demand-condition">For the integrals below, only $p_1$ changes, with $p_1'&gt;p_1$; all other prices stay fixed.</p>
+          <div class="demand-pair effects-welfare-pair">
+            <div class="demand-method effects-cv">
+              <h4>A. Compensating Variation — CV</h4>
+              <p class="effects-question">After the harmful price change, how much money must we give the consumer so that she is as well off as before?</p>
+              <p class="demand-note"><strong>CV = NEW prices + INITIAL utility.</strong></p>
+              <div class="math-display">$$\boxed{CV=e(p',u)-w}$$</div>
+              <p>Since $w=e(p,u)$:</p>
+              <div class="math-display">$$\boxed{CV=e(p',u)-e(p,u)}$$</div>
+              <div class="math-display demand-formula">$$\boxed{CV=\int_{p_1}^{p_1'}h_1(p,u)\,dp_1}$$</div>
+              <p>CV is the area under Hicksian demand evaluated at the <strong>initial utility level $u$</strong>.</p>
+              <p class="effects-sign">For a harmful price change: <strong>$CV&gt;0$.</strong></p>
+            </div>
+            <div class="demand-method effects-ev">
+              <h4>B. Equivalent Variation — EV</h4>
+              <p class="effects-question">Before the harmful price change, how much income could we take away so that the consumer is as well off as she would be after the change?</p>
+              <p class="demand-note"><strong>EV = OLD prices + FINAL utility.</strong></p>
+              <div class="math-display">$$\boxed{EV=w-e(p,u')}$$</div>
+              <p>Since $w=e(p',u')$:</p>
+              <div class="math-display">$$\boxed{EV=e(p',u')-e(p,u')}$$</div>
+              <div class="math-display demand-formula">$$\boxed{EV=\int_{p_1}^{p_1'}h_1(p,u')\,dp_1}$$</div>
+              <p>EV is the area under Hicksian demand evaluated at the <strong>final utility level $u'$</strong>.</p>
+              <p class="effects-sign">For a harmful price change: <strong>$EV&gt;0$.</strong></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="demand-card" id="sheet-cv-ev-comparison">
+          <h3 class="effects-title"><span>06</span>Comparing CV and EV for a Harmful Price Change</h3>
+          <p class="demand-condition">For a price increase of the good considered.</p>
+          <div class="effects-trio">
+            <div class="demand-copy"><h4>Normal good</h4><div class="math-display">$$\boxed{CV&gt;EV}$$</div><p>CV gives additional income after the price increase. For a normal good, this raises demand for the now-more-expensive good, so more compensation is required.</p></div>
+            <div class="demand-copy"><h4>Inferior good</h4><div class="math-display">$$\boxed{EV&gt;CV}$$</div><p>The income response goes in the opposite direction.</p></div>
+            <div class="demand-copy"><h4>No income effect</h4><div class="math-display">$$\boxed{CV=EV}$$</div><p>Changing income does not change demand for the good, so both measures coincide.</p></div>
+          </div>
+          <div class="math-display demand-formula">$$\boxed{\begin{array}{c}\text{Normal}\Rightarrow CV&gt;EV\\[3pt]\text{Inferior}\Rightarrow EV&gt;CV\\[3pt]\text{No income effect}\Rightarrow CV=EV\end{array}}$$</div>
+        </article>
+
+        <article class="demand-card" id="sheet-welfare-indirect">
+          <h3 class="effects-title"><span>07</span>CV and EV Using the Indirect Utility Function</h3>
+          <div class="demand-pair">
+            <div class="demand-method effects-cv">
+              <h4>CV</h4><p>Be as well off <strong>after</strong> the change as <strong>before</strong> the change.</p>
+              <div class="math-display demand-formula">$$\boxed{v(p',w+CV)=u}$$</div>
+              <p>where $u=v(p,w)$.</p><p class="demand-note"><strong>CV → give money AFTER.</strong></p>
+            </div>
+            <div class="demand-method effects-ev">
+              <h4>EV</h4><p>Be as well off <strong>before</strong> the change as <strong>after</strong> the change.</p>
+              <div class="math-display demand-formula">$$\boxed{v(p,w-EV)=u'}$$</div>
+              <p>where $u'=v(p',w)$.</p><p class="demand-note"><strong>EV → take money BEFORE.</strong></p>
+            </div>
+          </div>
+        </article>
+
+        <article class="demand-card" id="sheet-consumer-surplus">
+          <h3 class="effects-title"><span>08</span>Consumer Surplus</h3>
+          <p>For a price increase from $p_1$ to $p_1'$:</p>
+          <div class="demand-pair">
+            <div class="demand-copy"><h4>Change in consumer surplus</h4><div class="math-display">$$\boxed{\Delta CS=-\int_{p_1}^{p_1'}x_1(p,y)\,dp_1&lt;0}$$</div></div>
+            <div class="demand-copy"><h4>Consumer surplus loss</h4><div class="math-display">$$\boxed{-\Delta CS=\int_{p_1}^{p_1'}x_1(p,y)\,dp_1&gt;0}$$</div></div>
+          </div>
+          <p class="demand-note"><strong>CV and EV:</strong> Hicksian demand. <strong>Consumer surplus:</strong> Marshallian demand.</p>
+          <div class="demand-pair">
+            <div class="demand-method"><h4>Normal good · Price increase</h4><div class="math-display">$$\boxed{EV&lt;-\Delta CS&lt;CV}$$</div></div>
+            <div class="demand-method effects-exact"><h4>No income effect</h4><div class="math-display demand-formula">$$\boxed{EV=-\Delta CS=CV}$$</div><p>In the quasilinear interior case from the exercises, consumer-surplus loss is an <strong>exact monetary welfare measure</strong>.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- /Income and Price Effects -->
   </div>
 </main>
 <script>
