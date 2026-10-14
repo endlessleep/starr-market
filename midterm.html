@@ -1852,32 +1852,40 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 
             <div class="demand-copy demand-rule">
               <h5>3. How to Prove Non-Uniqueness</h5>
-              <p class="demand-note"><strong>Show that at least two different affordable bundles achieve the same maximum utility.</strong></p>
-              <button type="button" class="toggle-btn full-width" onclick="toggle(this, 'proof-demand-nonuniqueness')" aria-controls="proof-demand-nonuniqueness" aria-expanded="false"><span>Direct Proof — Non-Uniqueness</span><span class="arrow">▾</span></button>
+              <p class="demand-note"><strong>Goal:</strong> Show that multiple optimal bundles exist.</p>
+              <button type="button" class="toggle-btn full-width" onclick="toggle(this, 'proof-demand-nonuniqueness')" aria-controls="proof-demand-nonuniqueness" aria-expanded="false"><span>Proof of Non-Uniqueness — Marshallian Demand</span><span class="arrow">▾</span></button>
               <div class="collapsible" id="proof-demand-nonuniqueness">
-              <p>Use the course utility $u(x_1,x_2)=2x_1+x_2$, with positive prices and income.</p>
-              <div class="demand-pair">
                 <div class="demand-copy">
-                  <h5>Step 1 — Compare Utility per Euro</h5>
-                  <div class="math-display demand-inline-formulas"><span>$\displaystyle\frac{MU_1}{p_1}=\frac{2}{p_1}$</span><span>$\displaystyle\frac{MU_2}{p_2}=\frac{1}{p_2}$</span></div>
-                  <p>The ratios are equal when:</p>
-                  <div class="math-display demand-formula">$$\frac{2}{p_1}=\frac{1}{p_2}\iff\boxed{p_1=2p_2}$$</div>
-                  <p>Both goods then provide the <strong>same marginal utility per euro</strong>. Spending money on one good rather than the other gives no advantage.</p>
+                  <h5>Step 1 — Linear Utility Function</h5>
+                  <div class="math-display">$$u(x_1,x_2)=ax_1+bx_2$$</div>
+                  <p>where $a,b&gt;0$ are constants.</p>
+                  <p class="demand-condition">Assume $x_1,x_2\geq0$, positive prices $p_1,p_2&gt;0$, and income $m&gt;0$.</p>
                 </div>
-                <div class="demand-copy">
-                  <h5>Step 2 — Use the Budget Constraint</h5>
-                  <p>With $p_1=2p_2$, the budget equality becomes:</p>
-                  <div class="math-display">$$2p_2x_1+p_2x_2=y$$</div>
-                  <p>Divide by $p_2$:</p>
-                  <div class="math-display">$$2x_1+x_2=\frac{y}{p_2}$$</div>
-                  <p>Since $u(x_1,x_2)=2x_1+x_2$, every bundle on the budget line gives:</p>
-                  <div class="math-display demand-formula">$$\boxed{u(x_1,x_2)=\frac{y}{p_2}}$$</div>
-                  <p>Every bundle that exhausts the budget achieves the same maximum utility. <strong>No affordable bundle can achieve more.</strong></p>
+                <div class="demand-copy demand-rule">
+                  <h5>Step 2 — Calculate the MRS</h5>
+                  <div class="math-display">$$MU_1=a,\qquad MU_2=b$$</div>
+                  <div class="math-display demand-formula">$$\boxed{MRS=\frac{a}{b}}$$</div>
+                  <p>The MRS is <strong>constant</strong> and does not depend on $x_1$ or $x_2$.</p>
                 </div>
-              </div>
-              <h5>Step 3 — Conclude</h5>
-              <p>Multiple distinct bundles achieve the maximum utility, so Marshallian demand is not unique.</p>
-              <p class="demand-note"><strong>Multiple optimal bundles $\Rightarrow$ Non-unique Marshallian demand.</strong></p>
+                <div class="demand-copy demand-rule">
+                  <h5>Step 3 — Compare with the Price Ratio</h5>
+                  <p>If:</p>
+                  <div class="math-display demand-formula">$$\boxed{\frac{a}{b}=\frac{p_1}{p_2}}$$</div>
+                  <p>the consumer is indifferent between spending money on either good.</p>
+                </div>
+                <div class="demand-copy demand-rule">
+                  <h5>Step 4 — Show Non-Uniqueness</h5>
+                  <p>Every nonnegative bundle satisfying the budget constraint at equality:</p>
+                  <div class="math-display">$$p_1x_1+p_2x_2=m$$</div>
+                  <p>provides the same maximum utility:</p>
+                  <div class="math-display demand-formula">$$\boxed{u_{\max}=\frac{bm}{p_2}}$$</div>
+                  <p>Since infinitely many bundles satisfy this budget equality (with $m&gt;0$ and divisible goods), <strong>the optimal bundle is not unique</strong>.</p>
+                </div>
+                <div class="demand-copy demand-rule">
+                  <h5>Key Takeaway</h5>
+                  <div class="math-display demand-formula">$$\boxed{\begin{gathered}\frac{a}{b}=\frac{p_1}{p_2}\quad\Rightarrow\\\text{Infinitely many optimal bundles}\end{gathered}}$$</div>
+                  <p class="demand-note"><strong>Important:</strong> If the ratios differ, the consumer chooses a <strong>unique corner solution</strong>.</p>
+                </div>
               </div>
             </div>
 
