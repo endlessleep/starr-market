@@ -1489,8 +1489,10 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         <p>These are <strong>two equivalent ways of expressing the same WARP condition</strong>, not two separate definitions.</p>
         <div class="warp-takeaway">
           <h3>WARP — Key takeaway</h3>
-          <p><strong>If $X$ is revealed preferred to $Y$, then $Y$ cannot be revealed preferred to $X$.</strong></p>
-          <p>The consumer cannot choose $X$ over an affordable $Y$, and then choose $Y$ over an affordable $X$.</p>
+          <p><strong>If $X$ is directly revealed preferred to $Y$, then $Y$ cannot be directly revealed preferred to $X$.</strong></p>
+          <div class="math-display">$$\boxed{X\;\mathrm{DRP}\;Y\quad\Rightarrow\quad Y\;\text{not DRP}\;X}$$</div>
+          <p>WARP prevents <strong>two opposite direct revealed preferences</strong>.</p>
+          <p>When $Y$ is chosen at prices $q$, $X$ must be <strong>strictly more expensive</strong>: $q\cdot X&gt;q\cdot Y$. Equal cost would still make $X$ affordable, creating a reverse DRP.</p>
         </div>
       </section>
 
@@ -1559,8 +1561,11 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         </div>
         <div class="warp-takeaway">
           <h3>GARP — Key takeaway</h3>
-          <p><strong>If $x^1$ is indirectly revealed preferred to $x^K$, then $x^K$ cannot be strictly revealed preferred to $x^1$.</strong></p>
-          <p>GARP prevents a chain of revealed preferences from ending with a <strong>strict reversal</strong>.</p>
+          <p><strong>If $X$ is directly or indirectly revealed preferred to $Y$, then $Y$ cannot be strictly revealed preferred to $X$.</strong></p>
+          <div class="math-display">$$\boxed{X\;\mathrm{RP}\;Y\quad\Rightarrow\quad Y\;\text{not SRP}\;X}$$</div>
+          <p>Here, <strong>RP includes DRP</strong> (direct) <strong>and IRP</strong> (through a chain).</p>
+          <p>GARP prevents a <strong>strict reversal</strong>, even after a chain of revealed preferences.</p>
+          <p>When $Y$ is chosen at prices $q$, $X$ must cost <strong>at least as much</strong>: $q\cdot X\geq q\cdot Y$. Equal cost is allowed: it does not create a reverse SRP.</p>
         </div>
       </section>
       <section class="proof-section-card consumer-revision" id="warp-garp-comparison" aria-labelledby="warp-garp-title">
@@ -1591,10 +1596,10 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
         <div class="revision-item">
           <h3>Key difference</h3>
           <div class="formula-pair">
-            <div class="math-display">$$\boxed{\text{WARP: Direct comparisons}}$$</div>
-            <div class="math-display">$$\boxed{\text{GARP: Direct + Indirect comparisons}}$$</div>
+            <div class="demand-copy"><p><strong>WARP · Direct</strong></p><div class="math-display">$$\boxed{\mathrm{DRP}\Rightarrow\text{not DRP}}$$</div></div>
+            <div class="demand-copy"><p><strong>GARP · Direct or indirect</strong></p><div class="math-display">$$\boxed{\mathrm{RP}\Rightarrow\text{not SRP}}$$</div></div>
           </div>
-          <p><strong>WARP focuses on two choices, whereas GARP can detect inconsistencies involving a longer chain of choice.</strong></p>
+          <p><strong>The forbidden reversal is different:</strong> WARP rules out reverse <strong>DRP</strong>; GARP rules out reverse <strong>SRP</strong>. This is why WARP requires a strict price inequality, while GARP allows equal cost.</p>
         </div>
       </section>
 
