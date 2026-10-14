@@ -1492,47 +1492,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <p><strong>If $X$ is revealed preferred to $Y$, then $Y$ cannot be revealed preferred to $X$.</strong></p>
           <p>The consumer cannot choose $X$ over an affordable $Y$, and then choose $Y$ over an affordable $X$.</p>
         </div>
-        <div class="warp-demonstration">
-          <h3>Demonstration</h3>
-          <button class="toggle-btn blue" onclick="toggle(this, 'proof-warp')" aria-controls="proof-warp" aria-expanded="false">
-        Show the course proof — Utility maximization ⇒ WARP <span class="arrow">▾</span>
-      </button>
-<div class="collapsible" id="proof-warp">
-        <div class="proof-choice-key">
-          <span class="observation-label">Who was chosen in this proof?</span>
-          <p><strong>Observation 1:</strong> $X^0$ was chosen at prices $p^0$ (the $X$ and $p$ above).</p>
-          <p><strong>Observation 2:</strong> $X^1$ was chosen at prices $p^1$ (the $Y$ and $q$ above).</p>
-        </div>
-          <p><strong>Starting point:</strong> Choices maximize the same <strong>strictly quasi-concave utility function</strong> on convex budget sets.<br>
-          <strong>Goal:</strong> Show that these choices satisfy WARP. The proof follows the course notation $X^0,X^1$ and $p^0,p^1$: the superscripts identify the two observations.</p>
-        <div class="demo-step">
-          <div class="step-num blue">1</div>
-          <div class="step-body"><strong>Strictly quasi-concave utility + convex budget set ⇒ at most one utility-maximizing bundle.</strong> This is the uniqueness property used in the proof. Whenever a bundle is chosen as the maximizer, no different affordable bundle can give the same maximum utility.</div>
-        </div>
-        <div class="demo-step">
-          <div class="step-num blue">2</div>
-          <div class="step-body"><strong>Let $X^0$ maximize utility facing $p^0$, and $X^1$ maximize utility facing $p^1$, with $X^0\neq X^1$.</strong> These are two different bundles chosen under two sets of prices. We compare their costs using the first prices, then the second prices.</div>
-        </div>
-        <div class="demo-step">
-          <div class="step-num blue">3</div>
-          <div class="step-body"><strong>Suppose $X^0\;\mathrm{RP}\;X^1$.</strong> This means:
-            <div class="math-display">$$p^0\cdot X^0\geq p^0\cdot X^1.$$</div>
-            At the first prices, $X^1$ costs no more than $X^0$, so $X^1$ was affordable when $X^0$ was chosen.
-          </div>
-        </div>
-        <div class="demo-step">
-          <div class="step-num blue">4</div>
-          <div class="step-body"><strong>Hence, $u(X^0)&gt;u(X^1)$.</strong> Choosing $X^0$ as a maximizer gives at least as much utility as the affordable $X^1$. The inequality is strict because the bundles differ and the maximum is unique: equal utility would make both bundles maximizers.</div>
-        </div>
-        <div class="demo-step">
-          <div class="step-num blue">5</div>
-          <div class="step-body"><strong>When $X^1$ is chosen, it must therefore be that</strong>
-            <div class="math-display boxed-blue">$$p^1\cdot X^0&gt;p^1\cdot X^1.$$</div>
-            If $X^0$ were affordable at the second observation, the consumer could buy a bundle with strictly higher utility than $X^1$, contradicting the choice of $X^1$ as a maximizer. Therefore $X^0$ must cost more than the amount spent on $X^1$. This is the WARP conclusion. $\blacksquare$
-          </div>
-        </div>
-      </div>
-        </div>
       </section>
 
       <section class="proof-section-card consumer-revision" id="direct-indirect-summary" aria-labelledby="direct-indirect-title">
