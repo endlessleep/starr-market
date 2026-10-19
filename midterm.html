@@ -475,17 +475,6 @@ body {
   .chapter-progress-bar { display: none; }
 }
 
-
-.revision-progress { margin:24px 0; padding:18px; border:1px solid var(--border); border-radius:12px; background:var(--card); }
-.revision-progress-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; }
-.revision-progress progress { display:block; width:100%; height:10px; margin-top:14px; accent-color:#34d399; }
-.revision-button { padding:9px 14px; border:1px solid rgba(52,211,153,.4); border-radius:8px; background:rgba(52,211,153,.08); color:#a7f3d0; font:inherit; font-size:.85rem; font-weight:700; cursor:pointer; }
-.revision-button:hover { background:rgba(52,211,153,.18); }
-.revision-button:focus-visible { outline:2px solid #34d399; outline-offset:3px; }
-.revision-mark { display:block; margin:0 0 18px auto; }
-.revision-mark[aria-pressed="true"] { background:#064e3b; color:#d1fae5; }
-#revision-progress, [data-revision-unit] { scroll-margin-top:85px; }
-.revision-storage-note { margin-top:8px; color:var(--text-3); font-size:.8rem; }
 </style>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
@@ -872,14 +861,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <h1>Midterm Sheet</h1>
       <p>Choice Theory &amp; Consumer Theory</p>
     </header>
-    <div class="revision-progress" id="revision-progress" hidden>
-      <div class="revision-progress-row">
-        <strong id="revision-count" role="status" aria-live="polite"></strong>
-        <button type="button" class="revision-button" id="revision-next">Continue revision →</button>
-      </div>
-      <progress id="revision-meter" value="0" max="1" aria-label="Revision progress"></progress>
-      <p class="revision-storage-note" id="revision-storage-note">Progress saved in this browser. Mark each section when you have revised it.</p>
-    </div>
     <section class="proof-section-card midterm-block" id="utility-representability" aria-labelledby="utility-title">
       <header>
         <div class="sheet-heading"><span class="sheet-number">01</span><h2 id="utility-title">Rationality &amp; Utility Representability</h2></div>
@@ -2182,55 +2163,6 @@ if (window.matchMedia('(max-width:900px)').matches) {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('main-wrap').classList.add('expanded');
 }
-
-(() => {
-  const units = Array.from(document.querySelectorAll('.proof-section-card[id], .demand-chapter[id], #income-price-effects-sheet .demand-card[id]'));
-  const key = 'micro-midterm-revision-v1';
-  let completed = new Set();
-  const note = document.getElementById('revision-storage-note');
-  try {
-    const saved = JSON.parse(localStorage.getItem(key) || '[]');
-    if (Array.isArray(saved)) completed = new Set(saved.filter(id => units.some(unit => unit.id === id)));
-  } catch (_) { note.textContent = 'Progress is available for this visit; browser storage is unavailable.'; }
-  function render() {
-    units.forEach(unit => {
-      const done = completed.has(unit.id);
-      const button = unit.querySelector('.revision-mark');
-      button.setAttribute('aria-pressed', String(done));
-      button.textContent = done ? '✓ Revised — undo' : 'Mark as revised';
-    });
-    document.getElementById('revision-count').textContent = `${completed.size} / ${units.length} sections revised · ${Math.round(completed.size / units.length * 100)}%`;
-    const meter = document.getElementById('revision-meter');
-    meter.max = units.length;
-    meter.value = completed.size;
-    document.getElementById('revision-next').textContent = completed.size === units.length ? 'All revised ✓' : 'Continue revision →';
-    document.getElementById('revision-next').disabled = completed.size === units.length;
-  }
-  units.forEach(unit => {
-    unit.setAttribute('data-revision-unit', '');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'revision-button revision-mark';
-    const heading = unit.querySelector('h2, h3, h4');
-    if (heading?.id) button.setAttribute('aria-describedby', heading.id);
-    button.addEventListener('click', () => {
-      if (completed.has(unit.id)) completed.delete(unit.id); else completed.add(unit.id);
-      try { localStorage.setItem(key, JSON.stringify([...completed])); }
-      catch (_) { note.textContent = 'Progress is available for this visit only; it could not be saved.'; }
-      render();
-    });
-    unit.prepend(button);
-  });
-  document.getElementById('revision-next').addEventListener('click', () => {
-    const next = units.find(unit => !completed.has(unit.id));
-    if (next) {
-      next.scrollIntoView({ behavior: 'instant', block: 'start' });
-      next.querySelector('.revision-mark').focus({ preventScroll: true });
-    }
-  });
-  render();
-  document.getElementById('revision-progress').hidden = false;
-})();
 </script>
 </body>
 </html>
