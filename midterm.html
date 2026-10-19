@@ -2178,10 +2178,10 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <h3 class="effects-title"><span>01</span>Marginal Rate of Technical Substitution (MRTS)</h3>
           <p>The amount of <strong>input 2 that can be reduced per additional unit of input 1</strong>, while keeping output constant.</p>
           <div class="math-display demand-formula">$$\boxed{MRTS_{12}=\frac{MP_1}{MP_2}=-\left.\frac{dz_2}{dz_1}\right|_{f(z_1,z_2)=\bar q}}$$</div>
-          <p>Here $MP_1$ and $MP_2$ are the marginal products of inputs 1 and 2.</p>
-          <p>For a differentiable production function with positive marginal products, MRTS is positive. With $z_1$ on the horizontal axis and $z_2$ on the vertical axis, the <strong>isoquant slope is $-MRTS_{12}$</strong>.</p>
+          <p><strong>Calculate:</strong> find $MP_1=\partial f/\partial z_1$ and $MP_2=\partial f/\partial z_2$, then divide.</p>
+          <p><strong>Isoquant slope:</strong> $-MRTS_{12}$, with $z_1$ on the horizontal axis.</p>
           <div class="demand-copy"><h4>Diminishing MRTS</h4>
-            <p>As $z_1$ increases and $z_2$ decreases <strong>along the same isoquant</strong>, each additional unit of input 1 replaces less input 2. MRTS decreases and the isoquant becomes flatter, reflecting its convex shape.</p>
+            <p>$MRTS_{12}$ decreases as $z_1$ rises along an isoquant: each extra unit of input 1 replaces less input 2.</p>
           </div>
         </article>
 
@@ -2196,7 +2196,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <div class="demand-copy"><h4>Homogeneous production functions</h4>
             <p>A production function is homogeneous of degree $\nu$ if:</p>
             <div class="math-display demand-formula">$$\boxed{f(sz_1,sz_2)=s^\nu f(z_1,z_2)\qquad\text{for every }s&gt;0}$$</div>
-            <p>The degree $\nu$ determines how output scales. For positive output, comparing $s^\nu$ with $s$ gives:</p>
+            <p><strong>Determine returns to scale:</strong> substitute $sz_1,sz_2$ into $f$, factor out the power of $s$, and compare its exponent $\nu$ with one (for positive output).</p>
             <div class="math-display">$$\boxed{\begin{aligned}\nu&gt;1&\quad\Longrightarrow\quad\text{Increasing returns to scale},\\\nu=1&\quad\Longrightarrow\quad\text{Constant returns to scale},\\\nu&lt;1&\quad\Longrightarrow\quad\text{Decreasing returns to scale}.\end{aligned}}$$</div>
           </div>
           <div class="demand-copy"><h4>Elasticity of scale</h4>
@@ -2206,33 +2206,27 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <div class="math-display">$$\boxed{E=\nu}$$</div>
           </div>
           <div class="demand-pair">
-            <div class="demand-method"><h4>Marginal products under scaling</h4><div class="math-display">$$\boxed{f_i'(sz)=s^{\nu-1}f_i'(z)}$$</div><p>For differentiable homogeneous $f$, each partial derivative $f_i'=\partial f/\partial z_i$ is homogeneous of degree $\nu-1$. Scaling all inputs multiplies every marginal product by the same factor.</p></div>
-            <div class="demand-method"><h4>MRTS under scaling</h4><div class="math-display">$$\boxed{MRTS_{12}(sz)=MRTS_{12}(z)}$$</div><p>The common factor cancels in the ratio of marginal products. Bundles on the same ray from the origin have the same MRTS: input proportions, rather than scale, determine the isoquant slope.</p></div>
+            <div class="demand-method"><h4>Marginal products under scaling</h4><div class="math-display">$$\boxed{f_i'(sz)=s^{\nu-1}f_i'(z)}$$</div><p>If $f$ is differentiable and homogeneous of degree $\nu$, its marginal products are homogeneous of degree $\nu-1$.</p></div>
+            <div class="demand-method"><h4>MRTS under scaling</h4><div class="math-display">$$\boxed{MRTS_{12}(sz)=MRTS_{12}(z)}$$</div><p>For homogeneous $f$, scaling all inputs leaves MRTS unchanged.</p></div>
           </div>
         </article>
 
         <article class="demand-card" id="sheet-diminishing-product">
           <h3 class="effects-title"><span>03</span>Diminishing Marginal Product</h3>
-          <p>The marginal product of input 1 is $\partial f/\partial z_1$. It is diminishing when increasing $z_1$, <strong>holding all other inputs fixed</strong>, reduces the additional output produced by another unit of that input.</p>
-          <div class="math-display demand-formula">$$\boxed{\frac{\partial^2 f}{\partial z_1^2}&lt;0}$$</div>
-          <p>If the first derivative remains positive, output still rises, but at a decreasing rate. A diminishing marginal product therefore does not mean that output falls.</p>
-          <div class="demand-pair">
-            <div class="demand-copy"><h4>Returns to scale</h4><p><strong>All inputs</strong> change proportionally. Compare the output response with the common increase in inputs.</p></div>
-            <div class="demand-copy"><h4>Diminishing marginal product</h4><p><strong>One input</strong> changes while the others remain fixed. Examine how its marginal product changes.</p></div>
-          </div>
-          <p class="demand-note"><strong>Diminishing marginal product does not imply decreasing returns to scale.</strong> These properties describe different changes in the input bundle. Diminishing MRTS is also distinct: it concerns movement along an isoquant, where output is fixed and both inputs adjust.</p>
+          <p><strong>Test:</strong> differentiate twice with respect to the same input, holding the others fixed.</p>
+          <div class="math-display demand-formula">$$\boxed{\frac{\partial MP_1}{\partial z_1}=\frac{\partial^2 f}{\partial z_1^2}&lt;0}$$</div>
+          <p><strong>Find the condition:</strong> simplify the second derivative, identify its positive factors, and determine when the remaining factor is negative.</p>
+          <p class="demand-note"><strong>Do not use the returns-to-scale test here:</strong> one input changes, not all inputs. Diminishing marginal product does not imply decreasing returns to scale.</p>
         </article>
 
         <article class="demand-card" id="sheet-producer-substitution">
           <h3 class="effects-title"><span>04</span>Elasticity of Substitution</h3>
           <p>The percentage change in the input ratio $z_2/z_1$ associated with a 1% change in MRTS, <strong>along a given isoquant</strong>. For positive inputs and positive MRTS:</p>
           <div class="math-display demand-formula">$$\boxed{\sigma=\frac{d\ln(z_2/z_1)}{d\ln MRTS_{12}}}$$</div>
-          <div class="demand-pair">
-            <div class="demand-method"><h4>High elasticity</h4><p>A small change in MRTS is associated with a relatively large change in input proportions. The inputs are <strong>easier to substitute</strong>.</p></div>
-            <div class="demand-method"><h4>Low elasticity</h4><p>A large change in MRTS is associated with only a small change in input proportions. The inputs are <strong>harder to substitute</strong>.</p></div>
-          </div>
-          <p><strong>Calculate:</strong> form the ratio of marginal products, express MRTS in terms of $z_2/z_1$, and use logarithmic differentials. The numerator is the change in the log input ratio; the denominator is the change in log MRTS.</p>
-          <p class="demand-note"><strong>$E$ and $\sigma$ measure different responses.</strong> Scale elasticity $E$ measures changing output at fixed input proportions. Substitution elasticity $\sigma$ measures changing input proportions at fixed output.</p>
+<p><strong>High $\sigma$:</strong> easier substitution. <strong>Low $\sigma$:</strong> harder substitution.</p>
+          <p><strong>Calculate:</strong> set $r=z_2/z_1$, express MRTS in terms of $r$, and take logarithms. Differentiate with respect to $\ln r$, then take the reciprocal:</p>
+          <div class="math-display">$$\boxed{\sigma=\left(\frac{d\ln MRTS_{12}}{d\ln r}\right)^{-1}}$$</div>
+          <p class="demand-note"><strong>$E$:</strong> output response when all inputs are scaled. <strong>$\sigma$:</strong> substitution between inputs at fixed output.</p>
         </article>
       </div>
     </section>
