@@ -15,6 +15,30 @@
 
 .figure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0;align-items:start}.figure-grid figure{display:flex;flex-direction:column;align-items:center;margin:0;padding:15px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.figure-grid img{display:block;width:100%;max-width:280px;max-height:330px;object-fit:contain;margin:auto;border-radius:6px;background:#fff}.figure-grid .caption{align-self:stretch;text-align:center}.logic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:16px 0}.logic-grid .card h3{color:var(--green)}.step-card{margin:17px 0;padding:20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.step-card h3{margin:0 0 9px;color:var(--blue)}.step-card p+p{margin-top:10px}.equation-note{color:var(--text-3);font-size:.87rem;margin-top:8px}.compact-table{width:100%;border-collapse:collapse;margin:16px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--card);font-size:.9rem}.compact-table th,.compact-table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}.compact-table th{color:var(--amber);font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;background:rgba(255,255,255,.025)}.compact-table tr:last-child td{border-bottom:0}.figure-medium{max-width:520px;margin:20px auto;padding:16px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.figure-medium img{display:block;width:100%;max-width:100%;margin:auto;border-radius:6px;background:#fff}.figure-medium .caption{text-align:center}.proof{margin:18px 0;padding:20px;border:1px solid var(--purple-border);border-radius:var(--radius);background:var(--purple-muted)}.proof h3{margin:0 0 9px;color:var(--purple)}
 
+
+/* Structured explanations for short- and long-term costs. */
+.cost-chapter { scroll-margin-top:84px; }
+.cost-chapter > .lead { margin-bottom:16px; }
+.cost-block { margin:22px 0; padding:22px; border:1px solid var(--border); border-top:2px solid var(--blue); border-radius:var(--radius); background:var(--card); min-width:0; }
+.cost-block > h3 { margin:0 0 12px; color:var(--blue); }
+.cost-chapter h4 { margin:0 0 8px; font-size:.94rem; color:var(--blue); }
+.cost-block > h4 { margin-top:22px; }
+.cost-block p+p, .cost-block .cards+p { margin-top:12px; }
+.cost-chapter .cards > *, .cost-chapter .figure-row > * { min-width:0; }
+.cost-table-wrap { max-width:100%; overflow-x:auto; }
+.cost-chapter .compact-table { min-width:470px; }
+.cost-chapter .compact-table th { text-transform:none; font-size:.87rem; letter-spacing:0; }
+.cost-details { margin:16px 0; border:1px solid var(--green-border); border-radius:var(--radius); background:var(--green-muted); overflow:hidden; }
+.cost-details summary { padding:13px 16px; color:var(--green); font-weight:700; font-size:.9rem; cursor:pointer; }
+.cost-details summary:hover { background:rgba(16,185,129,.07); }
+.cost-details summary:focus-visible { outline:2px solid var(--green); outline-offset:-4px; }
+.cost-details[open] summary { border-bottom:1px solid var(--green-border); }
+.cost-detail-body { padding:16px; }
+.cost-detail-body p+p { margin-top:10px; }
+.cost-detail-body .figure-medium { margin-bottom:0; }
+.cost-chapter .math mjx-container[display="true"] { max-width:100%; overflow-x:auto; overflow-y:hidden; padding:3px 0; }
+@media(max-width:600px) { .cost-block { padding:16px 12px; } .cost-detail-body { padding:12px; } .cost-chapter .figure-row { padding:12px; } }
+
 </style>
 <link rel="stylesheet" href="midterm-nav.css">
 </head>
@@ -84,95 +108,214 @@
       <div class="remark"><strong>Question raised in class.</strong> An expansion path can have a negative slope over part of its range when $z_1$ is an inferior input. In the second figure, output rises from $Q^A$ to $Q^B$ while the cost-minimizing quantity of $z_1$ falls.</div>
     </section>
 
-    <section>
-      <div class="part-banner"><span class="part-pill">Short-term cost function</span><span class="part-line"></span></div>
-      <h2>Short-Term Properties of the Cost Function</h2>
-      <h3>Preamble</h3>
-      <p>Average cost and marginal cost are defined by:</p>
-      <div class="math">$$AC=\frac{TC(y)}{y},
-      \qquad
-      MC=\frac{dTC(y)}{dy}.$$</div>
-      <p>Total cost differs between the short and long term. Consequently, average and marginal costs differ as well.</p>
+    <section class="cost-chapter" id="short-term-costs" aria-labelledby="short-term-title">
+      <div class="part-banner"><span class="part-pill">01 · Short-term costs</span><span class="part-line"></span></div>
+      <h2 id="short-term-title">Short-Term Properties of the Cost Function</h2>
+      <p class="lead">In the short term, input $z_1$ can vary but $\bar z_2$ is fixed. To produce more output, the firm must adjust $z_1$ within this fixed capacity.</p>
+      <p class="equation-note">Input prices $w_1,w_2$ are held constant. Subscripts $ST$ and $LT$ mean short term and long term. The notation $MC$ is used throughout for marginal cost.</p>
 
-      <h3>Short-term total and marginal cost</h3>
-      <p>In the short run, $z_1$ is variable and $\bar z_2$ is fixed. Total cost is:</p>
-      <div class="math emphasis">$$TC(y)=VC(z_1)+FC(\bar z_2).\tag{8}$$</div>
-      <p>Average cost can therefore be written as:</p>
-      <div class="math">$$AC(y)=\frac{VC}{y}+\frac{FC}{y}.$$</div>
-      <div class="key-note"><strong>Typical U-shape of marginal cost.</strong> Initially, $MC$ decreases because fixed inputs, such as machines or ovens, are underutilized: each additional unit costs less than the previous one. Eventually, $MC$ increases because fixed inputs become constraints: each additional unit costs more than the previous one.</div>
-      <div class="derive"><h3>Marginal cost and marginal product</h3><div class="math">$$\begin{aligned}
-      MC(y)&=\frac{dTC}{dy}\\
-      dy\times MC(y)&=dTC\\
-      dy\times MC(y)&=dVC \qquad\text{because this is the short term}\\
-      dy\times MC(y)&=dz_1\times w_1\\
-      MC(y)&=\frac{dz_1}{dy}\times w_1\\
-      MC(y)&=\frac{w_1}{MP(z_1)}.
-      \end{aligned}\tag{9}$$</div><p>Since $w_1$ is given, the marginal cost of producing one more unit of output depends only on the marginal productivity of $z_1$.</p></div>
+      <article class="cost-block">
+        <h3>1. Separate variable cost from fixed cost</h3>
+        <div class="math emphasis">$$\boxed{TC_{ST}(y)=\underbrace{w_1z_1(y;\bar z_2)}_{VC(y)}+\underbrace{w_2\bar z_2}_{FC}}$$</div>
+        <div class="cards">
+          <div class="card"><h4>Variable cost · $VC(y)$</h4><p>Changes with output because the quantity of the variable input changes.</p></div>
+          <div class="card"><h4>Fixed cost · $FC$</h4><p>Does not change with output. In the short-term shutdown comparison below, this cost is paid even when output is zero.</p></div>
+        </div>
+      </article>
 
-      <h2>Zero-Profit and Shutdown Points</h2>
-      <p>In the short term, the firm prefers to produce no output when its revenues do not cover variable costs. Producing a positive output requires:</p>
-      <div class="math">$$p\cdot y>VC(y)
-      \qquad\Longleftrightarrow\qquad
-      p>\frac{VC(y)}{y}=AVC.$$</div>
-      <p>The boundary is the <strong>shutdown point</strong>. If fixed costs are positive, the firm can still produce an output $y>0$ even when profit is negative. The firm begins making profit when:</p>
-      <div class="math green">$$p>AC.$$</div>
-      <p>The corresponding boundary is the <strong>zero-profit point</strong>.</p>
-      <div class="figure-row"><figure><img src="images/producer-zero-profit.png" alt="Short term marginal cost, average cost, average variable cost, shutdown and zero profit points"><figcaption class="caption">Zero-profit and shutdown points.</figcaption></figure><div class="figure-copy"><h3>Read the two points</h3><p>The shutdown point $S$ is at the minimum of $AVC_{ST}$, at price $p^s$.</p><p>The zero-profit point $ZP$ is at the minimum of $AC_{ST}$, at price $p^{zp}$.</p></div></div>
+      <article class="cost-block">
+        <h3>2. Distinguish average cost from marginal cost</h3>
+        <div class="cost-table-wrap"><table class="compact-table">
+          <thead><tr><th scope="col">Measure</th><th scope="col">Formula</th><th scope="col">Question answered</th></tr></thead>
+          <tbody>
+            <tr><td>Average total cost</td><td>$AC_{ST}=TC_{ST}/y$</td><td>What is the total cost per unit?</td></tr>
+            <tr><td>Average variable cost</td><td>$AVC_{ST}=VC/y$</td><td>What is the variable cost per unit?</td></tr>
+            <tr><td>Average fixed cost</td><td>$AFC=FC/y$</td><td>How much fixed cost is allocated to each unit?</td></tr>
+            <tr><td>Marginal cost</td><td>$MC_{ST}=dTC_{ST}/dy=dVC/dy$</td><td>How much does an additional unit of output cost at the margin?</td></tr>
+          </tbody>
+        </table></div>
+        <p>Average costs are defined for $y&gt;0$. Fixed cost enters average total cost, but its derivative with respect to output is zero.</p>
+        <div class="math green">$$\boxed{AC_{ST}=AVC_{ST}+AFC}$$</div>
+      </article>
 
-      <h2>Links between $mC$, $AC$, and $AVC$</h2>
-      <div class="cards"><div class="card"><h3>Why $mC$ cuts averages at their minima</h3><p>When $mC&lt;AC$, the average is pulled down. When $mC>AC$, the average is pulled up. Thus the $mC$ curve cuts the average curves at their minimum points.</p></div><div class="card"><h3>Why $AC$ tends to $AVC$</h3><p>The gap between average cost and average variable cost becomes smaller as output grows.</p></div></div>
-      <div class="derive"><h3>Average fixed cost vanishes as output grows</h3><div class="math">$$\begin{aligned}
-      TC(y)&=VC+FC\\
-      TC(y)&=w_1\cdot z_1(\bar z_2,y)+w_2\cdot\bar z_2\\
-      AC(y)&=\frac{w_1\cdot z_1(\bar z_2,y)}{y}+\frac{w_2\cdot\bar z_2}{y}.
-      \end{aligned}$$</div><p>As $y$ tends to $+\infty$, average fixed cost tends to zero. Therefore, $AC$ tends to $AVC$.</p></div>
+      <article class="cost-block">
+        <h3>3. Connect marginal cost to productivity</h3>
+        <p>With one variable input and $MP_1=\partial f/\partial z_1&gt;0$:</p>
+        <div class="math emphasis">$$\boxed{MC_{ST}(y)=\frac{w_1}{MP_1(z_1,\bar z_2)}}$$</div>
+        <div class="cards">
+          <div class="card"><h4>Marginal product rises</h4><p>Less additional input is needed per extra unit of output, so <strong>marginal cost falls</strong>.</p></div>
+          <div class="card"><h4>Marginal product falls</h4><p>More additional input is needed per extra unit of output, so <strong>marginal cost rises</strong>.</p></div>
+        </div>
+        <p>A U-shaped marginal-cost curve arises when marginal product first increases and then decreases. This is a possible pattern, not a consequence of fixed costs alone.</p>
+        <details class="cost-details"><summary>Why does marginal cost equal $w_1/MP_1$?</summary><div class="cost-detail-body">
+          <p><strong>Start from total cost.</strong> With $\bar z_2$ fixed, only the variable input changes:</p>
+          <div class="math">$$\frac{dTC_{ST}}{dy}=w_1\frac{dz_1}{dy}.$$</div>
+          <p><strong>Use the production function.</strong> Along $y=f(z_1,\bar z_2)$:</p>
+          <div class="math">$$\frac{dy}{dz_1}=MP_1\quad\Longrightarrow\quad\frac{dz_1}{dy}=\frac1{MP_1}.$$</div>
+          <p>Substituting gives $MC_{ST}=w_1/MP_1$.</p>
+        </div></details>
+      </article>
     </section>
 
-    <section>
-      <div class="part-banner"><span class="part-pill">Long-term cost function</span><span class="part-line"></span></div>
-      <h2>Long-Term Properties of the Cost Function</h2>
-      <p>In the long term, total cost is the cost function defined by the cost-minimization problem:</p>
-      <div class="math emphasis">$$\begin{aligned}
-      TC(y)&=\min_z\;w\cdot z &&\text{s.t.}\quad f(z)=\bar y,\\
-      TC(y)&=w\cdot z^*.
-      \end{aligned}$$</div>
+    <section class="cost-chapter" id="cost-curve-relations" aria-labelledby="cost-relations-title">
+      <div class="part-banner"><span class="part-pill">02 · Reading the cost curves</span><span class="part-line"></span></div>
+      <h2 id="cost-relations-title">How Marginal Cost Changes Average Cost</h2>
+      <p class="lead">Compare the cost of the next unit with the current average. A cheaper unit pulls the average down; a more expensive unit pulls it up.</p>
+      <div class="math emphasis">$$\boxed{\frac{dAC}{dy}=\frac{MC-AC}{y}}\qquad\boxed{\frac{dAVC}{dy}=\frac{MC-AVC}{y}}$$</div>
+      <div class="cost-table-wrap"><table class="compact-table">
+        <thead><tr><th scope="col">Compare marginal and average cost</th><th scope="col">Effect on the average</th></tr></thead>
+        <tbody><tr><td>$MC&lt;AC$</td><td>$AC$ is decreasing.</td></tr><tr><td>$MC&gt;AC$</td><td>$AC$ is increasing.</td></tr><tr><td>$MC=AC$</td><td>$AC$ is stationary; it is a minimum when the sign changes from decreasing to increasing.</td></tr></tbody>
+      </table></div>
+      <p>The same rule applies to $AVC$. For the usual smooth U-shaped curves, <strong>marginal cost intersects both average-cost curves at their minima</strong>.</p>
+      <details class="cost-details"><summary>Show the derivative of average cost</summary><div class="cost-detail-body">
+        <p>Apply the quotient rule to $AC(y)=TC(y)/y$:</p>
+        <div class="math">$$\begin{aligned}\frac{dAC}{dy}&=\frac{y\,TC'(y)-TC(y)}{y^2}\\&=\frac{MC(y)-TC(y)/y}{y}=\frac{MC(y)-AC(y)}{y}.\end{aligned}$$</div>
+        <p>For $AVC=VC/y$, use the same calculation with $VC'(y)=MC(y)$.</p>
+      </div></details>
+      <article class="cost-block">
+        <h3>Why average total cost approaches average variable cost</h3>
+        <div class="math green">$$\boxed{AC_{ST}-AVC_{ST}=\frac{FC}{y}}$$</div>
+        <p>The same fixed cost is spread over more units as output increases. The gap shrinks and tends to zero as $y\to\infty$, if such output levels are feasible. This does <strong>not</strong> imply that either average cost itself tends to zero.</p>
+      </article>
+    </section>
 
-      <h2>Returns to Scale and Economies of Scale</h2>
-      <p>Returns to scale describe the change in output when all inputs change in the same proportion. Economies or diseconomies of scale describe the change in total cost when output changes in this way.</p>
-      <div class="math">$$E=\frac{\partial\ln(y)}{\partial\ln(s)}=\nu.$$</div>
-      <p>The elasticity of cost with respect to output is:</p>
-      <div class="math emphasis">$$E^c=\frac{\partial\ln(C)}{\partial\ln(y)}
-      =\frac{dC/C}{dy/y}
-      =\frac{dC}{dy}\frac{y}{C}
-      =\frac{MC}{AC}.$$</div>
-      <p>It answers: if output increases by 1%, by what percentage does total cost increase?</p>
-      <table class="compact-table"><thead><tr><th>Returns to scale</th><th>Costs and marginal product</th><th>Relationship between AC and MC</th></tr></thead><tbody><tr><td><strong>Increasing returns</strong><br>$E>1$</td><td>Economies of scale; marginal product increases; marginal cost decreases; $E^c&lt;1$.</td><td>$AC>MC$.</td></tr><tr><td><strong>Constant returns</strong><br>$E=E^c=1$</td><td>$MC=AC$ and both are constant.</td><td>$AC$ is minimized.</td></tr><tr><td><strong>Decreasing returns</strong><br>$E&lt;1$</td><td>Diseconomies of scale; marginal product decreases; marginal cost increases; $E^c>1$.</td><td>$AC&lt;MC$.</td></tr></tbody></table>
-      <div class="remark"><strong>Why $AC>MC$ under economies of scale.</strong> A new unit costs less than the preceding units. It therefore costs less than the average unit, whose cost is the mean of old and new costs.</div>
+    <section class="cost-chapter" id="shutdown-zero-profit" aria-labelledby="shutdown-title">
+      <div class="part-banner"><span class="part-pill">03 · Produce or shut down?</span><span class="part-line"></span></div>
+      <h2 id="shutdown-title">Zero-Profit and Shutdown Points</h2>
+      <p class="lead">For a price-taking firm, choosing how much to produce and deciding whether to produce are two separate steps. Assume fixed costs are unavoidable in the short term and $VC(0)=0$.</p>
+      <article class="cost-block">
+        <h3>1. Find the best positive output</h3>
+        <div class="math emphasis">$$\pi(y)=py-TC_{ST}(y),\qquad\boxed{p=MC_{ST}(y^*)}$$</div>
+        <p>The equality identifies an interior candidate. With the usual U-shaped cost curves, use the <strong>rising part of marginal cost</strong>; then compare its profit with shutting down. If several candidates exist, choose the one with the highest profit.</p>
+      </article>
+      <article class="cost-block">
+        <h3>2. Check whether production covers variable cost</h3>
+        <div class="cards">
+          <div class="card"><h4>Produce $y&gt;0$</h4><div class="math">$$\pi(y)=py-VC(y)-FC$$</div></div>
+          <div class="card"><h4>Shut down</h4><div class="math">$$\pi(0)=-FC$$</div></div>
+        </div>
+        <div class="math green">$$\boxed{\pi(y)-\pi(0)=py-VC(y)}$$</div>
+        <p>Producing is better than shutting down when $p&gt;AVC(y)$, and the firm is indifferent when they are equal. Fixed cost cancels because it must be paid in both cases.</p>
+        <details class="cost-details"><summary>Why can a firm produce while making a loss?</summary><div class="cost-detail-body">
+          <p>At the chosen positive output, suppose $AVC(y^*)&lt;p&lt;AC(y^*)$. Revenue covers all variable costs and part of fixed cost, so profit is negative but <strong>higher than $-FC$</strong>.</p>
+          <div class="math">$$-FC&lt;\pi(y^*)=y^*\big[p-AC(y^*)\big]&lt;0.$$</div>
+          <p>Shutting down would leave the firm with the entire fixed-cost loss.</p>
+        </div></details>
+      </article>
+      <article class="cost-block">
+        <h3>3. Identify the two price thresholds</h3>
+        <p>For the standard curves shown below, with attained minima and an optimal output:</p>
+        <div class="cards">
+          <div class="card"><h4>Shutdown price</h4><div class="math">$$\boxed{p^s=\min_{y&gt;0}AVC_{ST}(y)}$$</div><p>The lowest price at which production can cover variable cost.</p></div>
+          <div class="card"><h4>Zero-profit price</h4><div class="math">$$\boxed{p^{zp}=\min_{y&gt;0}AC_{ST}(y)}$$</div><p>The lowest price at which production can cover total cost.</p></div>
+        </div>
+        <div class="cost-table-wrap"><table class="compact-table">
+          <thead><tr><th scope="col">Market price</th><th scope="col">Short-term decision</th><th scope="col">Profit</th></tr></thead>
+          <tbody>
+            <tr><td>$p&lt;p^s$</td><td>Shut down.</td><td>$-FC$</td></tr>
+            <tr><td>$p=p^s$</td><td>Indifferent between shutdown and production at the minimum of $AVC$.</td><td>$-FC$</td></tr>
+            <tr><td>$p^s&lt;p&lt;p^{zp}$</td><td>Produce; cover variable cost and part of fixed cost.</td><td>Negative, but above $-FC$</td></tr>
+            <tr><td>$p=p^{zp}$</td><td>Produce at the minimum of $AC$.</td><td>Zero</td></tr>
+            <tr><td>$p&gt;p^{zp}$</td><td>Produce at the profit-maximizing output.</td><td>Positive</td></tr>
+          </tbody>
+        </table></div>
+      </article>
+      <div class="figure-row"><figure><img src="images/producer-zero-profit.png" alt="Marginal cost crosses average variable cost at the shutdown point S and average total cost at the zero-profit point ZP"><figcaption class="caption">Short-term shutdown and zero-profit points.</figcaption></figure><div class="figure-copy"><h3>Read the graph in this order</h3><p><strong>$S$:</strong> the minimum of $AVC_{ST}$ gives the shutdown price $p^s$.</p><p><strong>$ZP$:</strong> the minimum of $AC_{ST}$ gives the zero-profit price $p^{zp}$.</p><p><strong>Between the two prices:</strong> the firm produces even though its profit is negative.</p></div></div>
+    </section>
 
-      <h2>Long-Term Cost and Economies of Scale</h2>
-      <div class="figure-row"><figure><img src="images/producer-economies-envelope.png" alt="Long term average cost as a declining lower envelope"><figcaption class="caption">Drawing $AC_{LT}$ under economies of scale.</figcaption></figure><div class="figure-copy"><h3>Read the lower envelope</h3><p>Each $AC_{ST}$ curve corresponds to one plant size, or one level of fixed inputs. The long-term average-cost curve $AC_{LT}$ is the lower envelope of all these short-term average-cost curves.</p><p>Because all inputs are variable in the long term, it gives the minimum average cost achievable at each output level when plant size and input combination can both be adjusted.</p></div></div>
-      <div class="figure-medium"><img src="images/producer-economies-scale.png" alt="Economies of scale with long term cost curves"><figcaption class="caption">Economies of scale in the long term.</figcaption></div>
-      <p>Under economies of scale, the long-term total-cost curve rises at a decreasing rate. Both $AC_{LT}$ and $mC_{LT}$ decrease, with $mC_{LT}&lt;AC_{LT}$.</p>
+    <section class="cost-chapter" id="long-term-costs" aria-labelledby="long-term-title">
+      <div class="part-banner"><span class="part-pill">04 · Long-term costs</span><span class="part-line"></span></div>
+      <h2 id="long-term-title">Long-Term Properties of the Cost Function</h2>
+      <p class="lead">All inputs can now be adjusted. For each target output $y$, the firm chooses both its plant size and its input combination to minimize cost.</p>
+      <div class="math emphasis">$$\boxed{C_{LT}(w,y)=\min_{z\geq0}\{w\cdot z:f(z)\geq y\}}$$</div>
+      <p>When the output constraint binds, the optimum satisfies $f(z^*)=y$ and $C_{LT}(w,y)=w\cdot z^*$. With input prices fixed, write this as $TC_{LT}(y)$.</p>
+      <article class="cost-block">
+        <h3>Long-term cost is the lower envelope of short-term cost</h3>
+        <p>Each short-term curve corresponds to a particular fixed input $\bar z_2$. In the long term, the firm can choose that input too:</p>
+        <div class="math">$$\boxed{TC_{LT}(y)=\min_{\bar z_2}TC_{ST}(y;\bar z_2)}$$</div>
+        <p>Divide by the same positive output $y$ to obtain the average-cost relationship:</p>
+        <div class="math green">$$\boxed{AC_{LT}(y)=\min_{\bar z_2}AC_{ST}(y;\bar z_2)}$$</div>
+        <p>At each output, select the lowest available short-term average cost. The long-term curve can never lie above the cost of any particular plant at that output.</p>
+      </article>
+      <div class="figure-row"><figure><img src="images/producer-economies-envelope.png" alt="Long-term average cost forms the lower envelope of short-term average-cost curves for different plant sizes"><figcaption class="caption">Choosing the cheapest plant size for each output.</figcaption></figure><div class="figure-copy"><h3>What does a tangency mean?</h3><p>At a smooth tangency, that plant is optimal for the output considered: its short-term average cost equals long-term average cost.</p><p>The tangency is <strong>not generally at the minimum of that short-term curve</strong>. A plant chosen for one output need not minimize its own average cost there.</p></div></div>
+    </section>
 
-      <h2>Long-Term Cost and Constant Returns to Scale</h2>
-      <div class="figure-medium"><img src="images/producer-constant-returns.png" alt="Constant returns to scale and no economies of scale"><figcaption class="caption">Constant returns to scale and no economies of scale.</figcaption></div>
-      <p>Under constant returns to scale, the minima of the short-term average-cost curves lie on a horizontal $AC_{LT}$. Long-term total cost is a straight line from the origin, and:</p>
-      <div class="math green">$$mC_{LT}=AC_{LT}.$$</div>
-
-      <h2>Long-Term Cost and Diseconomies of Scale</h2>
-      <div class="figure-medium"><img src="images/producer-diseconomies.png" alt="Diseconomies of scale with rising long term cost curves"><figcaption class="caption">Diseconomies of scale in the long term.</figcaption></div>
-      <p>Under diseconomies of scale, the lower envelope $AC_{LT}$ slopes upward. The long-term $TC_{LT}$, $AC_{LT}$, and $mC_{LT}$ curves increase, with marginal cost rising more steeply.</p>
-      <div class="remark"><strong>Question raised in class.</strong> Average costs can fall even without increasing returns to scale if prices are not exogenous. For example, bulk discounts can make input prices fall as purchase volume rises.</div>
-
-      <h2>Back to the Profit Function</h2>
-      <p>In the long term, there is no distinction between variable and fixed costs. The minimum of $AVC$ is therefore the same as the minimum of $AC$: the minimum of $AC$ corresponds to both the shutdown and zero-profit points.</p>
-      <h3>Minimal optimal output</h3>
-      <div class="figure-row"><figure><img src="images/producer-minimal-output.png" alt="Minimal optimal output where marginal cost intersects average cost"><figcaption class="caption">Minimal optimal output.</figcaption></figure><div class="figure-copy"><h3>Meaning of $y_{\min}$</h3><p>The minimal optimal output is the output level from which the firm no longer has economies of scale.</p></div></div>
+    <section class="cost-chapter" id="scale-and-cost" aria-labelledby="scale-cost-title">
+      <div class="part-banner"><span class="part-pill">05 · Scale, costs and profit</span><span class="part-line"></span></div>
+      <h2 id="scale-cost-title">Returns to Scale and Economies of Scale</h2>
+      <div class="cards">
+        <div class="card"><h3>Returns to scale · Technology</h3><p>How does output change when every input is multiplied by the same factor?</p></div>
+        <div class="card"><h3>Economies of scale · Cost</h3><p>Does <strong>long-term average cost fall</strong> as output increases? If it rises, there are diseconomies of scale.</p></div>
+      </div>
+      <article class="cost-block">
+        <h3>1. The key measure: cost elasticity $E^c$</h3>
+        <p>Cost elasticity $E^c$ is the percentage change in total cost associated with a 1% increase in output, holding input prices fixed. <strong>This is the measure used to identify economies or diseconomies of scale from the cost function.</strong></p>
+        <div class="math emphasis">$$\boxed{E^c=\frac{d\ln C}{d\ln y}=\frac{dC}{dy}\frac{y}{C}=\frac{MC_{LT}}{AC_{LT}}}$$</div>
+        <div class="cost-table-wrap"><table class="compact-table">
+          <thead><tr><th scope="col">Cost elasticity</th><th scope="col">Marginal vs. average cost</th><th scope="col">Average-cost behaviour</th></tr></thead>
+          <tbody><tr><td>$E^c&lt;1$</td><td>$MC_{LT}&lt;AC_{LT}$</td><td>Average cost falls: <strong>economies of scale</strong>.</td></tr>
+            <tr><td>$E^c=1$</td><td>$MC_{LT}=AC_{LT}$</td><td>Average cost is stationary; constant over an interval if this equality holds throughout it.</td></tr>
+            <tr><td>$E^c&gt;1$</td><td>$MC_{LT}&gt;AC_{LT}$</td><td>Average cost rises: <strong>diseconomies of scale</strong>.</td></tr></tbody>
+        </table></div>
+      </article>
+      <article class="cost-block">
+        <h3>2. Connect costs to homogeneous production</h3>
+        <p>If $f$ is homogeneous of degree $\nu&gt;0$ and input prices are fixed, output scales by $s^\nu$ while the cost of the scaled input bundle scales by $s$. Consequently:</p>
+        <p>The technology determines the cost response. For classifying the cost function, continue to use <strong>$E^c=MC_{LT}/AC_{LT}$</strong>:</p>
+        <p><strong>Increasing returns to scale</strong> give economies of scale; <strong>constant returns to scale</strong> give constant average cost; <strong>decreasing returns to scale</strong> give diseconomies of scale under these assumptions.</p>
+        <details class="cost-details"><summary>Link with production: why is $E^c=1/\nu$?</summary><div class="cost-detail-body">
+          <p>The production elasticity $E=d\ln y/d\ln s=\nu$ describes output when inputs are scaled. Cost elasticity describes cost when output changes; for homogeneous technology at fixed input prices:</p>
+          <div class="math">$$E^c=1/\nu=1/E.$$</div>
+          <p>To multiply output by $\lambda&gt;0$, scale all inputs by $\lambda^{1/\nu}$. Homogeneity and cost minimization then give:</p>
+          <div class="math">$$C(w,\lambda y)=\lambda^{1/\nu}C(w,y).$$</div>
+          <p>Scaling an optimum up gives a feasible bundle; scaling a purported cheaper optimum back would contradict optimality. Thus the cost relation holds in both directions.</p>
+          <p>For fixed $w$, write $C(w,y)=k y^{1/\nu}$, where $k=C(w,1)$. Then:</p>
+          <div class="math">$$\frac{dC}{dy}\frac{y}{C}=\frac{k}{\nu}y^{1/\nu-1}\frac{y}{k y^{1/\nu}}=\frac1\nu.$$</div>
+        </div></details>
+      </article>
+      <article class="cost-block">
+        <h3>3. Recognize the three long-term curve patterns</h3>
+        <p>The figures illustrate the standard patterns for homogeneous technologies at fixed input prices. Open each one to connect the curves with the formulas.</p>
+        <details class="cost-details"><summary>Increasing returns to scale · Economies of scale</summary><div class="cost-detail-body">
+          <p>When $\nu&gt;1$, total cost rises less than proportionally. Average and marginal costs fall, with $MC_{LT}&lt;AC_{LT}$.</p>
+          <figure class="figure-medium"><img src="images/producer-economies-scale.png" alt="Long-term total cost rises at a decreasing rate; marginal cost lies below falling average cost"><figcaption class="caption">Increasing returns to scale at fixed input prices.</figcaption></figure>
+        </div></details>
+        <details class="cost-details"><summary>Constant returns to scale · Constant average cost</summary><div class="cost-detail-body">
+          <div class="math">$$TC_{LT}(y)=ky,\qquad\boxed{MC_{LT}=AC_{LT}=k}$$</div>
+          <p>Total cost is a straight line through the origin. Average and marginal cost are horizontal. In the standard smooth envelope diagram, the minima of the short-term average-cost curves lie on the long-term average-cost line.</p>
+          <figure class="figure-medium"><img src="images/producer-constant-returns.png" alt="Linear long-term total cost and equal constant marginal and average cost"><figcaption class="caption">Constant returns to scale at fixed input prices.</figcaption></figure>
+        </div></details>
+        <details class="cost-details"><summary>Decreasing returns to scale · Diseconomies of scale</summary><div class="cost-detail-body">
+          <p>When $0&lt;\nu&lt;1$, total cost rises more than proportionally. Average and marginal costs rise, with $MC_{LT}&gt;AC_{LT}$.</p>
+          <figure class="figure-medium"><img src="images/producer-diseconomies.png" alt="Long-term total cost rises at an increasing rate; marginal cost lies above rising average cost"><figcaption class="caption">Decreasing returns to scale at fixed input prices.</figcaption></figure>
+        </div></details>
+        <p class="remark"><strong>Keep the assumptions in view.</strong> Falling average cost alone does not imply falling marginal cost. Also, if input prices fall through bulk discounts, economies of scale can arise without increasing returns to scale.</p>
+      </article>
+      <article class="cost-block">
+        <h3>4. Return to profit and the minimum efficient scale</h3>
+        <p>In the long-term model with all costs avoidable and $C_{LT}(0)=0$, not operating gives zero profit. At a positive output:</p>
+        <div class="math">$$\pi(y)=py-TC_{LT}(y)=y\big[p-AC_{LT}(y)\big].$$</div>
+        <p>For the usual long-term average-cost curve with an attained minimum, the lowest price supporting production without a loss is:</p>
+        <div class="math green">$$\boxed{p_{LT}^{\mathrm{break\text{-}even}}=\min_{y&gt;0}AC_{LT}(y)}$$</div>
+        <p>Below this price, no positive output covers total cost. At it, the firm is indifferent between not operating and producing at a minimum of average cost. Thus the long-term zero-profit and exit thresholds coincide.</p>
+        <h4>Minimal optimal output · $y_{\min}$</h4>
+        <p>The <strong>smallest output that achieves minimum long-term average cost</strong>, also called the minimum efficient scale. On the standard curve, economies of scale end when this output is reached.</p>
+        <div class="math emphasis">$$\boxed{MC_{LT}(y_{\min})=AC_{LT}(y_{\min})}$$</div>
+        <p>This equality is the condition at a smooth interior minimum. $y_{\min}$ is a cost benchmark; the firm's profit-maximizing output also depends on the market price.</p>
+        <div class="figure-row"><figure><img src="images/producer-minimal-output.png" alt="Minimum efficient scale at the minimum of long-term average cost where marginal and average costs meet"><figcaption class="caption">Minimal optimal output.</figcaption></figure><div class="figure-copy"><h3>Locate $y_{\min}$</h3><p>Find the lowest level of $AC_{LT}$, then take the first output attaining it.</p><p>If the minimum is a flat interval, use its left endpoint.</p></div></div>
+      </article>
     </section>
 
   </div>
 </main>
 <script>
+document.querySelectorAll('.cost-details').forEach(panel => {
+  panel.addEventListener('toggle', () => {
+    if (panel.open && window.MathJax?.typesetPromise) {
+      MathJax.typesetPromise([panel]).catch(console.error);
+    }
+  });
+});
 function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:800px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}
 </script>
 </body>
