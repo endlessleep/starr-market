@@ -476,19 +476,34 @@ body {
 }
 
 
-/* Four course blocks: navigation and current reading position. */
+/* Course blocks: navigation and current reading position. */
 .course-block-nav { display:flex; flex:1; gap:8px; max-width:620px; margin-left:auto; }
 .course-block-link { position:relative; flex:1; min-width:0; padding:9px 10px 13px; overflow:hidden; border:1px solid var(--border); border-radius:8px; color:var(--text-3); text-align:center; text-decoration:none; font-size:.82rem; font-weight:700; white-space:nowrap; background:rgba(255,255,255,.025); }
 .course-block-link::after { content:''; position:absolute; left:0; bottom:0; height:3px; width:var(--read,0%); background:#34d399; }
 .course-block-link:hover, .course-block-link[aria-current="location"] { color:var(--text); border-color:rgba(52,211,153,.5); background:rgba(52,211,153,.07); }
 .course-block-link:focus-visible { outline:2px solid #34d399; outline-offset:3px; }
-#utility-representability, #consumer-preferences-sheet, #consumer-theory-sheet, #income-price-effects-sheet { scroll-margin-top:80px; }
+#utility-representability, #consumer-preferences-sheet, #consumer-theory-sheet, #income-price-effects-sheet, #producer-technology-sheet { scroll-margin-top:80px; }
 @media(max-width:700px) {
   .topbar { gap:10px; padding:0 12px; }
   .topbar-breadcrumb { display:none; }
   .course-block-nav { gap:5px; }
   .course-block-link { padding:10px 4px 13px; font-size:.75rem; }
 }
+
+/* Producer revision: compact comparison using the existing palette. */
+
+#producer-technology-sheet .effects-chapter { --demand-accent:var(--red-bright); --demand-tint:var(--red-muted); --demand-border:var(--red-border); }
+#producer-technology-sheet .effects-title { display:flex; align-items:baseline; gap:10px; font-size:1rem; line-height:1.4; }
+#producer-technology-sheet .effects-title > span { color:var(--red-bright); font-size:.74rem; letter-spacing:.6px; }
+#producer-technology-sheet .effects-trio { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; min-width:0; }
+@media(max-width:700px) { #producer-technology-sheet .effects-trio { grid-template-columns:1fr; } }
+
+.producer-table-wrap { overflow-x:auto; }
+.producer-comparison { width:100%; border-collapse:collapse; font-size:.88rem; color:var(--text-2); }
+.producer-comparison caption { text-align:left; color:var(--text); font-weight:700; margin-bottom:12px; }
+.producer-comparison th, .producer-comparison td { padding:12px; border:1px solid var(--border); text-align:left; }
+.producer-comparison thead { background:var(--red-muted); color:var(--text); }
+.producer-comparison tbody th { font-weight:500; }
 </style>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
@@ -872,6 +887,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <a class="course-block-link" href="#consumer-preferences-sheet" title="1.4–1.5 · Consumer &amp; Revealed Preferences">1.4–1.5</a>
       <a class="course-block-link" href="#consumer-theory-sheet" title="2.1–2.2 · Consumer Demand &amp; Duality">2.1–2.2</a>
       <a class="course-block-link" href="#income-price-effects-sheet" title="2.3 · Income and Price Effects">2.3</a>
+      <a class="course-block-link" href="#producer-technology-sheet" title="3.1 · Technology and Production">3.1</a>
     </nav>
   </div>
   <div class="main-content">
@@ -2157,6 +2173,116 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       </div>
     </section>
     <!-- /Income and Price Effects -->
+    <!-- Producer Theory — Technology and Production -->
+    <section class="demand-sheet" id="producer-technology-sheet" aria-labelledby="producer-technology-title">
+      <header class="consumer-divider">
+        <div class="page-label">Midterm Sheet · Producer Theory</div>
+        <h2 id="producer-technology-title">1. Technology and Production</h2>
+      </header>
+      <div class="demand-chapter effects-chapter">
+        <article class="demand-card" id="sheet-mrts">
+          <h3 class="effects-title"><span>01</span>Marginal Rate of Technical Substitution (MRTS)</h3>
+          <p>The MRTS measures how much input 2 can be reduced per additional unit of input 1, <strong>holding output constant</strong>. For a differentiable technology with positive marginal products at the input bundle considered:</p>
+          <div class="math-display demand-formula">$$\boxed{MRTS_{12}=\frac{\partial f/\partial z_1}{\partial f/\partial z_2}=-\left.\frac{dz_2}{dz_1}\right|_{f(z_1,z_2)=\bar q}}$$</div>
+          <p>With $z_1$ on the horizontal axis and $z_2$ on the vertical axis, the isoquant slope is <strong>$-MRTS_{12}$</strong>. Diminishing MRTS means that, as $z_1$ increases and $z_2$ decreases along the same isoquant, each additional unit of input 1 replaces less input 2; the isoquant becomes flatter.</p>
+          <div class="demand-copy"><h4>Cobb–Douglas</h4>
+            <p>Throughout the Cobb–Douglas calculations, assume $C,\alpha,\beta&gt;0$ and $z_1,z_2&gt;0$. For $f(z_1,z_2)=Cz_1^\alpha z_2^\beta$:</p>
+            <div class="math-display">$$MRTS_{12}=\frac{C\alpha z_1^{\alpha-1}z_2^\beta}{C\beta z_1^\alpha z_2^{\beta-1}}=\boxed{\frac{\alpha}{\beta}\frac{z_2}{z_1}}.$$</div>
+          </div>
+        </article>
+
+        <article class="demand-card" id="sheet-producer-scale">
+          <h3 class="effects-title"><span>02</span>Returns to Scale and Homogeneity</h3>
+          <p>Returns to scale ask how output changes when <strong>all inputs increase in the same proportion</strong>. Multiply every input by $s&gt;1$ and compare the new output $f(sz)$ with $s f(z)$, the output that would represent a proportional increase.</p>
+          <div class="demand-copy"><h4>Homogeneity</h4>
+            <div class="math-display demand-formula">$$\boxed{f(sz_1,sz_2)=s^\nu f(z_1,z_2)\qquad\text{for every }s&gt;0}$$</div>
+            <p>The degree of homogeneity $\nu$ determines the output response to proportional input changes. For positive output and $s&gt;1$:</p>
+          </div>
+          <div class="effects-trio">
+            <div class="demand-method"><h4>Increasing returns (IRS)</h4><div class="math-display">$$\boxed{\nu&gt;1}$$</div><p>$f(sz)&gt;s f(z)$: output increases more than proportionally.</p></div>
+            <div class="demand-method"><h4>Constant returns (CRS)</h4><div class="math-display">$$\boxed{\nu=1}$$</div><p>$f(sz)=s f(z)$: output increases in exactly the same proportion.</p></div>
+            <div class="demand-method"><h4>Decreasing returns (DRS)</h4><div class="math-display">$$\boxed{\nu&lt;1}$$</div><p>$f(sz)&lt;s f(z)$: the output response is less than proportional.</p></div>
+          </div>
+          <div class="demand-copy"><h4>Cobb–Douglas · Exercise 1, Questions 1–3</h4>
+            <div class="math-display">$$\begin{aligned}f(sz_1,sz_2)&=C(sz_1)^\alpha(sz_2)^\beta\\&=s^{\alpha+\beta}Cz_1^\alpha z_2^\beta=s^{\alpha+\beta}f(z_1,z_2).\end{aligned}$$</div>
+            <div class="math-display demand-formula">$$\boxed{\nu=\alpha+\beta}\qquad\begin{cases}\alpha+\beta&gt;1 &: \mathrm{IRS},\\\alpha+\beta=1 &: \mathrm{CRS},\\\alpha+\beta&lt;1 &: \mathrm{DRS}.\end{cases}$$</div>
+            <p>The comparison works because $s&gt;1$: raising $s$ to a power above, equal to, or below one makes it larger than, equal to, or smaller than $s$. The exercise calls CRS <strong>linear returns to scale</strong>; this does not mean that the production function is linear in its inputs.</p>
+          </div>
+          <div class="demand-copy"><h4>Elasticity of scale</h4>
+            <div class="math-display demand-formula">$$\boxed{E=\frac{\partial f(sz)}{\partial s}\frac{s}{f(sz)}}\qquad\boxed{E=\nu\quad\text{if }f\text{ is homogeneous of degree }\nu}$$</div>
+            <p>$E$ measures the percentage change in output associated with a 1% increase in every input, keeping input proportions fixed. For a homogeneous function, this elasticity is constant and equals its degree; Cobb–Douglas therefore has $E=\alpha+\beta$.</p>
+          </div>
+          <div class="demand-pair">
+            <div class="demand-method"><h4>Scaling marginal products</h4><div class="math-display">$$\boxed{f_i'(sz)=s^{\nu-1}f_i'(z)}$$</div><p>Here $f_i'=\partial f/\partial z_i$. For differentiable homogeneous $f$, all marginal products scale by the same factor. With positive marginal products and $s&gt;1$, they rise under IRS, remain unchanged under CRS, and fall under DRS <strong>when all inputs are scaled together</strong>.</p></div>
+            <div class="demand-method"><h4>Scaling the MRTS</h4><div class="math-display">$$\boxed{MRTS_{12}(sz)=MRTS_{12}(z)}$$</div><p>The common factor $s^{\nu-1}$ cancels in the ratio of marginal products. At unchanged input proportions, the MRTS is unchanged: it depends on proportions rather than production scale.</p></div>
+          </div>
+        </article>
+
+        <article class="demand-card" id="sheet-diminishing-product">
+          <h3 class="effects-title"><span>03</span>Diminishing Marginal Product</h3>
+          <p>The marginal product of input 1 is $\partial f/\partial z_1$. It is diminishing when an increase in $z_1$, <strong>holding $z_2$ fixed</strong>, reduces that marginal product:</p>
+          <div class="math-display demand-formula">$$\boxed{\frac{\partial^2 f}{\partial z_1^2}&lt;0}$$</div>
+          <div class="demand-copy"><h4>Cobb–Douglas · Exercise 1, Question 4</h4>
+            <p>For $f(z_1,z_2)=Cz_1^\alpha z_2^\beta$, differentiate twice with respect to the same input:</p>
+            <div class="math-display">$$\frac{\partial f}{\partial z_1}=C\alpha z_1^{\alpha-1}z_2^\beta,$$</div>
+            <div class="math-display demand-formula">$$\boxed{\frac{\partial^2 f}{\partial z_1^2}=C\alpha(\alpha-1)z_1^{\alpha-2}z_2^\beta}$$</div>
+            <p>Under the stated positive-parameter and positive-input assumptions, $C$, $\alpha$, $z_1^{\alpha-2}$, and $z_2^\beta$ are all positive. Thus <strong>only $\alpha-1$ determines the sign</strong>:</p>
+            <div class="math-display">$$\boxed{\text{Diminishing marginal product of input 1}\iff 0&lt;\alpha&lt;1.}$$</div>
+            <p>At $\alpha=1$ the marginal product is constant; for $\alpha&gt;1$ it increases. The parameter $\beta&gt;0$ affects its level but not the sign of this second derivative.</p>
+          </div>
+          <p class="demand-note"><strong>Exam trap:</strong> diminishing marginal product does <strong>not</strong> imply decreasing returns to scale. The first tests one input while holding the other fixed; the second scales both inputs. In Cobb–Douglas, $0&lt;\alpha&lt;1$ does not determine whether $\alpha+\beta$ is below, equal to, or above one.</p>
+        </article>
+
+        <article class="demand-card" id="sheet-producer-substitution">
+          <h3 class="effects-title"><span>04</span>Elasticity of Substitution</h3>
+          <p>Along a given isoquant, elasticity of substitution measures the <strong>percentage change in the input ratio</strong> associated with a 1% change in MRTS:</p>
+          <div class="math-display demand-formula">$$\boxed{\sigma=\frac{d\ln(z_2/z_1)}{d\ln MRTS_{12}}}$$</div>
+          <p>A high $\sigma$ means that input proportions can change substantially for a small change in MRTS: inputs are easier to substitute. A low $\sigma$ means that a large change in MRTS accompanies only a small change in input proportions: inputs are harder to substitute.</p>
+          <p class="demand-note"><strong>Calculation method:</strong> write $r=z_2/z_1$, express MRTS as a function of $r$, and take logarithms. If $\ln MRTS_{12}=a+b\ln r$, then $d\ln MRTS_{12}=b\,d\ln r$, so $\sigma=1/b$. The required elasticity is the <strong>reciprocal</strong> of the coefficient on $\ln r$.</p>
+          <div class="demand-copy"><h4>A. Cobb–Douglas · Exercise 2, Question 1</h4>
+            <p>For $f(z_1,z_2)=z_1^\alpha z_2^\beta$, with $\alpha,\beta&gt;0$ and positive inputs, form the ratio of the partial derivatives:</p>
+            <div class="math-display">$$MRTS_{12}=\frac{\alpha z_1^{\alpha-1}z_2^\beta}{\beta z_1^\alpha z_2^{\beta-1}}=\frac{\alpha}{\beta}\frac{z_2}{z_1}.$$</div>
+            <div class="math-display">$$\ln MRTS_{12}=\ln\left(\frac{\alpha}{\beta}\right)+\ln\left(\frac{z_2}{z_1}\right).$$</div>
+            <p>The term $\ln(\alpha/\beta)$ is constant and disappears upon differentiation. Therefore:</p>
+            <div class="math-display">$$d\ln MRTS_{12}=d\ln(z_2/z_1)\quad\Longrightarrow\quad\boxed{\sigma=1}.$$</div>
+            <p>This holds regardless of whether $\alpha+\beta$ implies increasing, constant, or decreasing returns to scale.</p>
+          </div>
+          <div class="demand-copy"><h4>B. CES · Exercise 2, Question 2</h4>
+            <div class="math-display">$$f(z_1,z_2)=\left(z_1^\alpha+z_2^\alpha\right)^{1/\alpha},\qquad\alpha&lt;1,\quad\alpha\neq0,\quad z_1,z_2&gt;0.$$</div>
+            <p>Let $A=z_1^\alpha+z_2^\alpha$. Apply the chain rule: differentiating the outer power contributes $(1/\alpha)A^{1/\alpha-1}$ and differentiating the inner expression contributes $\alpha z_i^{\alpha-1}$.</p>
+            <div class="math-display">$$\frac{\partial f}{\partial z_i}=\frac1\alpha A^{1/\alpha-1}\alpha z_i^{\alpha-1}=A^{1/\alpha-1}z_i^{\alpha-1},\qquad i=1,2.$$</div>
+            <p>The common factor cancels in MRTS. Rewrite the result using the ratio $z_2/z_1$ required by the definition:</p>
+            <div class="math-display">$$MRTS_{12}=\frac{z_1^{\alpha-1}}{z_2^{\alpha-1}}=\left(\frac{z_1}{z_2}\right)^{\alpha-1}=\boxed{\left(\frac{z_2}{z_1}\right)^{1-\alpha}}.$$</div>
+            <p>Inverting the ratio changes the sign of the exponent. Taking logarithms and then differentials gives:</p>
+            <div class="math-display">$$\begin{aligned}\ln MRTS_{12}&=(1-\alpha)\ln(z_2/z_1),\\d\ln MRTS_{12}&=(1-\alpha)d\ln(z_2/z_1).\end{aligned}$$</div>
+            <div class="math-display demand-formula">$$\boxed{\sigma=\frac{d\ln(z_2/z_1)}{d\ln MRTS_{12}}=\frac1{1-\alpha}}$$</div>
+            <p>Since $\alpha&lt;1$, the denominator is positive, so $\sigma&gt;0$. Keep the CES parameterization in view: its $\alpha$ appears inside a sum and is not a Cobb–Douglas input exponent.</p>
+          </div>
+          <div class="producer-table-wrap"><table class="producer-comparison">
+            <caption>Exercise 2 · Elasticity of substitution</caption>
+            <thead><tr><th scope="col">Production function</th><th scope="col">Elasticity $\sigma$</th></tr></thead>
+            <tbody><tr><th scope="row">Cobb–Douglas: $z_1^\alpha z_2^\beta$</th><td>$1$</td></tr><tr><th scope="row">CES: $(z_1^\alpha+z_2^\alpha)^{1/\alpha}$</th><td>$1/(1-\alpha)$</td></tr></tbody>
+          </table></div>
+        </article>
+
+        <article class="demand-card" id="sheet-producer-exam-methods">
+          <h3 class="effects-title"><span>05</span>Exam Methods and Common Mistakes</h3>
+          <div class="demand-pair">
+            <div class="demand-method"><h4>Exercise 1 · Returns to scale</h4><p>Replace <strong>every input</strong> by $sz_i$, factor out powers of $s$, and compare with $s f(z)$ for $s&gt;1$. If the function is homogeneous, identify its degree and compare it with one. State the resulting parameter conditions.</p></div>
+            <div class="demand-method"><h4>Exercise 1 · Diminishing marginal product</h4><p>Differentiate twice with respect to the <strong>same input</strong>, holding the other input fixed. Identify the positive factors before signing the remaining factor. A positive first derivative alone does not establish a diminishing marginal product.</p></div>
+            <div class="demand-method"><h4>Exercise 2 · MRTS</h4><p>Compute the two partial derivatives and form $f_1'/f_2'$. Cancel common factors and simplify input powers. Keep the order consistent: $MRTS_{12}$ measures input 2 released per extra unit of input 1.</p></div>
+            <div class="demand-method"><h4>Exercise 2 · Substitution elasticity</h4><p>Express MRTS in terms of $z_2/z_1$, take logarithms, and differentiate. Constants vanish; powers become coefficients. Finally form the ratio of log differentials in the order required by $\sigma$.</p></div>
+          </div>
+          <div class="demand-copy"><h4>Keep the comparisons separate</h4>
+            <p><strong>Returns to scale vs. diminishing marginal product:</strong> all inputs vary proportionally in the first; only one varies in the second. Diminishing MRTS is a third comparison: inputs move along a constant-output isoquant.</p>
+            <p><strong>MRTS vs. isoquant slope:</strong> with positive marginal products, MRTS is positive while the downward-sloping isoquant has a negative slope.</p>
+            <p><strong>Scale elasticity $E$ vs. substitution elasticity $\sigma$:</strong> $E$ tracks output when all inputs are scaled at fixed proportions; $\sigma$ tracks changing input proportions along a fixed-output isoquant.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- /Producer Theory — Technology and Production -->
+
   </div>
 </main>
 <script>
