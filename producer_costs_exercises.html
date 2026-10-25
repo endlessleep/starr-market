@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MICRO — Exercises Part 3-2 · Producer Theory</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<link rel="stylesheet" href="producer-exercises.css">
+<link rel="stylesheet" href="midterm-nav.css">
+</head>
+<body>
+<aside class="sidebar" id="sidebar"><div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div><nav class="sidebar-nav">
+    <a href="midterm.html" class="sidebar-link">Midterm Sheet</a><a href="index.html" class="sidebar-link">📂 0 — Introduction</a><div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div><div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div><div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_costs_exercises.html" class="sidebar-sublink active" aria-current="page" style="color:#f59e0b">✦ Exercises Part 3-2</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a></div></nav><div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div></aside>
+<main class="main-wrap" id="main-wrap"><div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Producer Theory &nbsp;›&nbsp; <strong>Exercises Part 3-2</strong></div><div class="topbar-pill">Part III</div></div><div class="main-content"><header class="page-title"><div class="page-label">Part III — Producer Theory</div><h1>Exercises Part 3-2</h1><p>Costs, input choices, and profit maximization</p></header>
+
+<section class="subsection" id="exercise-1" aria-labelledby="exercise-1-title">
+  <div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-1-title">Exercise 1. Economies of Scale</h2>
+    <p>Consider a firm with total cost</p>
+    <div class="math">$$TC=5+2y+y^3.$$</div>
+    <p>Find the average cost curve ($AC(y)$) and its minimum point. Interpret your results in terms of economies of scale.</p>
+  </article>
+  <button type="button" class="toggle" data-label="Exercise 1" onclick="toggleAnswer(this,'ex1-q1')" aria-controls="ex1-q1" aria-expanded="false">Show correction — Exercise 1 ▾</button>
+  <div class="solution" id="ex1-q1">
+    <h3>Economies of scale — Correction</h3>
+    <div class="step">
+      <h4>1. Average cost</h4>
+      <p>For positive output $y&gt;0$, average cost is total cost divided by output:</p>
+      <div class="math">$$\begin{aligned}
+        AC(y)&=\frac{TC(y)}{y}\\
+        &=\frac{5+2y+y^3}{y}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{AC(y)=\frac5y+2+y^2}$$</div>
+    </div>
+    <div class="step">
+      <h4>2. Find the minimizing output</h4>
+      <p>Differentiate average cost with respect to output and set the derivative equal to zero:</p>
+      <div class="math">$$\frac{dAC(y)}{dy}=-\frac5{y^2}+2y.$$</div>
+      <div class="math">$$\begin{aligned}
+        -\frac5{y^2}+2y&=0\\
+        2y&=\frac5{y^2}\\
+        2y^3&=5\\
+        y^3&=\frac52.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{y^*=\left(\frac52\right)^{1/3}}$$</div>
+      <p>This is the <strong>output level that minimizes average cost</strong>. It is the unique minimum because:</p>
+      <div class="math">$$AC''(y)=\frac{10}{y^3}+2&gt;0\qquad(y&gt;0).$$</div>
+    </div>
+    <div class="step result">
+      <h4>3. Minimum average cost</h4>
+      <p>Substitute the minimizing output into the average cost function:</p>
+      <div class="math">$$\begin{aligned}
+        AC_{\min}&=\frac5{y^*}+2+(y^*)^2\\
+        &=2+5\left(\frac25\right)^{1/3}
+          +\left(\frac52\right)^{2/3}.
+      \end{aligned}$$</div>
+      <p>Since $5=2(y^*)^3$, we also have $5/y^*=2(y^*)^2$. Therefore:</p>
+      <div class="math">$$\boxed{AC_{\min}=2+3\left(\frac52\right)^{2/3}\approx7.53}$$</div>
+      <p>This is approximately $7.5$ to one decimal place. <strong>$AC_{\min}$ is the lowest average cost per unit of output;</strong> $y^*$ is the quantity produced at that cost. The minimum point on the average cost curve is $(y^*,AC_{\min})$.</p>
+    </div>
+    <div class="step">
+      <h4>4. Economic interpretation</h4>
+      <p>The sign of the slope is particularly clear when written as:</p>
+      <div class="math">$$AC'(y)=\frac{2y^3-5}{y^2}.$$</div>
+      <ul class="questions">
+        <li><strong>If $0&lt;y&lt;y^*$: economies of scale.</strong> Average cost falls as output increases.</li>
+        <li><strong>If $y=y^*$: minimum average cost.</strong> The firm is at the bottom of its average cost curve, where $AC=MC$.</li>
+        <li><strong>If $y&gt;y^*$: diseconomies of scale.</strong> Average cost rises as output increases.</li>
+      </ul>
+      <p>Indeed, $MC(y)=TC'(y)=2+3y^2$, so $MC(y^*)=2+3(y^*)^2=AC_{\min}$.</p>
+      <div class="key-note"><strong>Zero-profit price threshold.</strong> Under competitive pricing, the break-even price is $p=\min AC$. At $y^*$, profit is $\pi=[p-AC_{\min}]y^*$, so the firm earns zero profit <strong>if the market price equals minimum average cost</strong>. Minimizing average cost alone does not imply zero profit.</div>
+    </div>
+  </div>
+</section>
+
+<section class="subsection" id="exercise-2" aria-labelledby="exercise-2-title">
+  <div class="part-banner"><span class="part-pill">Exercise 2</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-2-title">Exercise 2. Profit Maximization and Cost Minimization</h2>
+    <p>Consider a firm with the Cobb-Douglas production function:</p>
+    <div class="math">$$f(K,L)=4K^{1/2}L^{1/3}$$</div>
+    <p>where $K$ denotes units of capital and $L$ represents units of labor. The input prices are:</p>
+    <div class="math">$$w_K=10,\qquad w_L=7.$$</div>
+    <p>The firm sells every unit of output at a price $p&gt;0$.</p>
+    <ol class="questions">
+      <li>Solve the firm's cost-minimization problem to find the input demand functions.</li>
+      <li>Use your results from Question 1 to find the firm's cost function. This is its long-run total cost, as all inputs can be altered.</li>
+      <li>Find the firm's marginal cost function and its average cost function. Interpret.</li>
+      <li>Assume that capital is fixed at $\bar K=3$. Find the level of labor $L$ needed to produce an output level $\bar y$.</li>
+      <li>Using profit maximization, find the level of labor $L$ that maximizes profit.</li>
+    </ol>
+  </article>
+
+  <button type="button" class="toggle" data-label="Question 1" onclick="toggleAnswer(this,'ex2-q1')" aria-controls="ex2-q1" aria-expanded="false">Show correction — Question 1 ▾</button>
+  <div class="solution" id="ex2-q1">
+    <h3>Question 1 — Conditional input demands</h3>
+    <div class="step">
+      <h4>1. Cost minimization and the Lagrangian</h4>
+      <p>For a positive output target $\bar y$, both inputs must be positive. Since inputs are costly, the firm produces exactly the target:</p>
+      <div class="math">$$\begin{aligned}
+        &\min_{K,L\geq0}\;10K+7L\\
+        &\text{s.t.}\quad\bar y=4K^{1/2}L^{1/3}.
+      \end{aligned}$$</div>
+      <div class="math">$$\mathcal L=10K+7L+\lambda(\bar y-4K^{1/2}L^{1/3}).$$</div>
+      <p>The first-order conditions are:</p>
+      <div class="math">$$\begin{aligned}
+        \frac{\partial\mathcal L}{\partial K}
+          &=10-2\lambda K^{-1/2}L^{1/3}=0,\\
+        \frac{\partial\mathcal L}{\partial L}
+          &=7-\frac43\lambda K^{1/2}L^{-2/3}=0,\\
+        \frac{\partial\mathcal L}{\partial\lambda}
+          &=\bar y-4K^{1/2}L^{1/3}=0.
+      \end{aligned}$$</div>
+    </div>
+    <div class="step">
+      <h4>2. Find the cost-minimizing input ratio</h4>
+      <p>Divide the first two conditions to eliminate $\lambda$:</p>
+      <div class="math">$$\begin{aligned}
+        \frac{10}{7}
+          &=\frac{2K^{-1/2}L^{1/3}}{\frac43K^{1/2}L^{-2/3}}\\
+          &=\frac32\frac{L}{K}.
+      \end{aligned}$$</div>
+      <div class="math">$$20K=21L
+        \quad\Longrightarrow\quad
+        \boxed{K=\frac{21}{20}L}.$$</div>
+      <p>At this ratio, the marginal product per unit of input expenditure is the same for capital and labor.</p>
+    </div>
+    <div class="step">
+      <h4>3. Substitute into the production constraint</h4>
+      <div class="math">$$\begin{aligned}
+        \bar y&=4\left(\frac{21}{20}L\right)^{1/2}L^{1/3}\\
+          &=4\left(\frac{21}{20}\right)^{1/2}L^{5/6},\\
+        L^{5/6}&=\frac{\bar y}{4}\left(\frac{20}{21}\right)^{1/2}.
+      \end{aligned}$$</div>
+      <p>Raise both sides to the power $6/5$. For capital, use $K=(21/20)L$ and simplify its price factor:</p>
+      <div class="math">$$\frac{21}{20}\left(\frac{20}{21}\right)^{3/5}
+        =\left(\frac{21}{20}\right)^{1-3/5}
+        =\left(\frac{21}{20}\right)^{2/5}.$$</div>
+    </div>
+    <div class="step result">
+      <h4>Conditional input demands</h4>
+      <p>With input prices fixed at $w=(10,7)$, the final demands depend only on the output target $\bar y$:</p>
+      <div class="math">$$\boxed{
+        L^d(w,\bar y)=
+        \left(\frac{\bar y}{4}\right)^{6/5}
+        \left(\frac{20}{21}\right)^{3/5}
+      }$$</div>
+      <div class="math">$$\boxed{
+        K^d(w,\bar y)=
+        \left(\frac{\bar y}{4}\right)^{6/5}
+        \left(\frac{21}{20}\right)^{2/5}
+      }$$</div>
+    </div>
+  </div>
+
+  <button type="button" class="toggle" data-label="Question 2" onclick="toggleAnswer(this,'ex2-q2')" aria-controls="ex2-q2" aria-expanded="false">Show correction — Question 2 ▾</button>
+  <div class="solution" id="ex2-q2">
+    <h3>Question 2 — Long-run total cost</h3>
+    <div class="step">
+      <p>Multiply each conditional input demand by its price and add:</p>
+      <div class="math">$$C(\bar y)=10K^d(\bar y)+7L^d(\bar y).$$</div>
+      <p>Both demands contain $(\bar y/4)^{6/5}$. Factoring it out gives:</p>
+      <div class="math">$$\boxed{
+        C(\bar y)=
+        \left[
+          10\left(\frac{21}{20}\right)^{2/5}
+          +7\left(\frac{20}{21}\right)^{3/5}
+        \right]
+        \left(\frac{\bar y}{4}\right)^{6/5}
+      }$$</div>
+      <p>This is the <strong>long-run total cost function</strong>: both capital and labor can be adjusted to minimize the cost of producing each output target.</p>
+    </div>
+  </div>
+
+  <button type="button" class="toggle" data-label="Question 3" onclick="toggleAnswer(this,'ex2-q3')" aria-controls="ex2-q3" aria-expanded="false">Show correction — Question 3 ▾</button>
+  <div class="solution" id="ex2-q3">
+    <h3>Question 3 — Marginal and average cost</h3>
+    <div class="step">
+      <h4>1. Write cost as a power of output</h4>
+      <p>Define the positive constant:</p>
+      <div class="math">$$A=
+        10\left(\frac{21}{20}\right)^{2/5}
+        +7\left(\frac{20}{21}\right)^{3/5}.
+      $$</div>
+      <p>Using $y$ for output, the cost function becomes:</p>
+      <div class="math">$$C(y)=A\left(\frac y4\right)^{6/5}
+        =\frac{A}{4^{6/5}}y^{6/5}.$$</div>
+    </div>
+    <div class="step">
+      <h4>2. Differentiate for marginal cost</h4>
+      <div class="math">$$\begin{aligned}
+        MC(y)&=\frac{dC(y)}{dy}\\
+          &=\frac{A}{4^{6/5}}\cdot\frac65\,y^{6/5-1}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{MC(y)=\frac{6A}{5\cdot4^{6/5}}y^{1/5}}$$</div>
+      <h4>3. Divide by output for average cost</h4>
+      <div class="math">$$\begin{aligned}
+        AC(y)&=\frac{C(y)}{y}\\
+          &=\frac{A}{4^{6/5}}\frac{y^{6/5}}y.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{AC(y)=\frac{A}{4^{6/5}}y^{1/5}}\qquad(y&gt;0).$$</div>
+    </div>
+    <div class="step result">
+      <h4>Interpretation</h4>
+      <p>Both costs increase with output because they are positive multiples of $y^{1/5}$. In particular:</p>
+      <div class="math">$$\boxed{MC(y)=\frac65AC(y)&gt;AC(y)}\qquad(y&gt;0).$$</div>
+      <p>The firm faces <strong>diseconomies of scale</strong>. This is consistent with decreasing returns to scale in production, since the Cobb-Douglas exponents sum to $1/2+1/3=5/6&lt;1$.</p>
+    </div>
+  </div>
+
+  <button type="button" class="toggle" data-label="Question 4" onclick="toggleAnswer(this,'ex2-q4')" aria-controls="ex2-q4" aria-expanded="false">Show correction — Question 4 ▾</button>
+  <div class="solution" id="ex2-q4">
+    <h3>Question 4 — Short-run labor demand</h3>
+    <div class="step">
+      <p>With capital fixed at $\bar K=3$, the production constraint is:</p>
+      <div class="math">$$\bar y=4\sqrt3\,L^{1/3}.$$</div>
+      <p>Divide by $4\sqrt3$ and cube both sides:</p>
+      <div class="math">$$L^{1/3}=\frac{\bar y}{4\sqrt3}
+        \quad\Longrightarrow\quad
+        \boxed{L^d(\bar y)=\left(\frac{\bar y}{4\sqrt3}\right)^3}.$$</div>
+      <p>Labor is the variable input needed to reach the output target; capital remains fixed.</p>
+    </div>
+  </div>
+
+  <button type="button" class="toggle" data-label="Question 5" onclick="toggleAnswer(this,'ex2-q5')" aria-controls="ex2-q5" aria-expanded="false">Show correction — Question 5 ▾</button>
+  <div class="solution" id="ex2-q5">
+    <h3>Question 5 — Short-run profit maximization</h3>
+    <div class="step">
+      <h4>1. Write profit and differentiate</h4>
+      <p>Capital is still fixed at $\bar K=3$, so its cost is $10\times3=30$:</p>
+      <div class="math">$$\max_{L\geq0}\;\pi(L)=4p\sqrt3\,L^{1/3}-7L-30.$$</div>
+      <p>The first-order condition equates the value of labor's marginal product to its price:</p>
+      <div class="math">$$\pi'(L)=\frac{4p\sqrt3}{3}L^{-2/3}-7=0.$$</div>
+    </div>
+    <div class="step result">
+      <h4>2. Solve for optimal labor</h4>
+      <div class="math">$$\begin{aligned}
+        \frac{4p\sqrt3}{3}L^{-2/3}&=7\\
+        L^{2/3}&=\frac{4p\sqrt3}{21}
+          =\frac{4p}{7\sqrt3}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{L^*=\left(\frac{4p}{7\sqrt3}\right)^{3/2}}$$</div>
+      <p>For $p&gt;0$, profit is strictly concave for positive labor:</p>
+      <div class="math">$$\pi''(L)=-\frac{8p\sqrt3}{9}L^{-5/3}&lt;0.$$</div>
+      <p>Thus this positive solution is the unique maximum. The fixed capital cost does not affect the optimal labor choice: the constant $-30$ disappears when profit is differentiated.</p>
+    </div>
+  </div>
+</section>
+
+<section class="subsection" id="exercise-3" aria-labelledby="exercise-3-title">
+  <div class="part-banner"><span class="part-pill">Exercise 3</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-3-title">Exercise 3. Perfect Substitutes and Complements</h2>
+    <p>Derive the profit function $\pi(p)$ and the optimal quantity of output $q$ and inputs $(z_1,z_2)$ for single-output firms with the following production functions.</p>
+    <ol class="questions">
+      <li><strong>Perfect Substitutes</strong>
+        <div class="math">$$f(z_1,z_2)=2\sqrt{z_1+z_2}.$$</div>
+        <p>Hint: The inputs are perfect substitutes.</p>
+      </li>
+      <li><strong>Perfect Complements</strong>
+        <div class="math">$$f(z_1,z_2)=2\sqrt{\min(z_1,z_2)}.$$</div>
+        <p>Hint: The inputs are perfect complements.</p>
+      </li>
+      <li><strong>CES Production Function</strong>
+        <div class="math">$$f(z_1,z_2)=(z_1^\rho+z_2^\rho)^{1/\rho}.$$</div>
+        <p>Use $0&lt;\rho&lt;1$ for the differentiable interior case. Discuss $\rho=1$ separately. The displayed expression is not defined at $\rho=0$.</p>
+      </li>
+    </ol>
+    <p class="key-note">Throughout this exercise, take $p&gt;0$ and $w_1,w_2&gt;0$. Input prices are held fixed when writing the profit function $\pi(p)$.</p>
+  </article>
+
+  <button type="button" class="toggle" data-label="Question 1" onclick="toggleAnswer(this,'ex3-q1')" aria-controls="ex3-q1" aria-expanded="false">Show correction — Question 1 ▾</button>
+  <div class="solution" id="ex3-q1">
+    <h3>Question 1 — Perfect Substitutes</h3>
+    <div class="step">
+      <h4>1. Optimization program</h4>
+      <p>Production depends only on the sum of the inputs. Replacing one unit of either input with one unit of the other leaves output unchanged:</p>
+      <div class="math">$$\max_{z_1,z_2\geq0}\;
+        \pi=2p\sqrt{z_1+z_2}-w_1z_1-w_2z_2.$$</div>
+      <p>For a given total input quantity, the firm therefore chooses the cheaper input.</p>
+      <h4>2. Marginal products and interior FOCs</h4>
+      <div class="math">$$MP_1=MP_2=\frac1{\sqrt{z_1+z_2}}.$$</div>
+      <p>If both inputs are positive, the first-order conditions require:</p>
+      <div class="math">$$pMP_1=w_1,\qquad pMP_2=w_2.$$</div>
+      <p>Since the marginal products are equal, both conditions can hold simultaneously only when $w_1=w_2$.</p>
+    </div>
+    <div class="step">
+      <h4>3A. Input 1 is cheaper: $w_1&lt;w_2$</h4>
+      <p>Set $z_2^*=0$. The reduced problem and its first-order condition are:</p>
+      <div class="math">$$\begin{aligned}
+        &\max_{z_1\geq0}\;2p\sqrt{z_1}-w_1z_1,\\
+        &\frac p{\sqrt{z_1}}-w_1=0
+          \quad\Longrightarrow\quad
+          \sqrt{z_1}=\frac p{w_1}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{z_1^*=\left(\frac p{w_1}\right)^2,\qquad z_2^*=0}$$</div>
+      <p>Substitute into production and profit:</p>
+      <div class="math">$$q^*=2\sqrt{z_1^*}=\boxed{\frac{2p}{w_1}}.$$</div>
+      <div class="math">$$\begin{aligned}
+        \pi(p)&=p\frac{2p}{w_1}-w_1\left(\frac p{w_1}\right)^2\\
+          &=\frac{2p^2}{w_1}-\frac{p^2}{w_1}
+          =\boxed{\frac{p^2}{w_1}}.
+      \end{aligned}$$</div>
+    </div>
+    <div class="step">
+      <h4>3B. Input 2 is cheaper: $w_2&lt;w_1$</h4>
+      <p>The same calculation applies with the inputs reversed. Set $z_1^*=0$ and solve $p/\sqrt{z_2}=w_2$:</p>
+      <div class="math">$$\boxed{z_1^*=0,\qquad z_2^*=\left(\frac p{w_2}\right)^2}$$</div>
+      <div class="math">$$\boxed{q^*=\frac{2p}{w_2}},\qquad
+        \pi(p)=\frac{2p^2}{w_2}-\frac{p^2}{w_2}
+          =\boxed{\frac{p^2}{w_2}}.$$</div>
+    </div>
+    <div class="step">
+      <h4>3C. Equal input prices: $w_1=w_2=w$</h4>
+      <p>Let $s=z_1+z_2$. Profit is $2p\sqrt s-ws$, independently of how the total input is split. The first-order condition gives:</p>
+      <div class="math">$$\frac p{\sqrt s}=w
+        \quad\Longrightarrow\quad
+        \boxed{z_1^*+z_2^*=\left(\frac pw\right)^2}.$$</div>
+      <p>Any nonnegative combination satisfying this condition is optimal.</p>
+      <div class="math">$$\boxed{q^*=\frac{2p}{w},\qquad\pi(p)=\frac{p^2}{w}}$$</div>
+    </div>
+    <div class="key-note"><strong>Comparison.</strong> Unequal prices give a unique choice of the cheaper input; equal prices allow any split of the optimal total. In all three cases, output and profit depend on the lowest input price. The reduced objective is strictly concave in total input, since its second derivative is $-p/(2s^{3/2})&lt;0$, so the optimal total is unique.</div>
+  </div>
+
+  <button type="button" class="toggle" data-label="Question 2" onclick="toggleAnswer(this,'ex3-q2')" aria-controls="ex3-q2" aria-expanded="false">Show correction — Question 2 ▾</button>
+  <div class="solution" id="ex3-q2">
+    <h3>Question 2 — Perfect Complements</h3>
+    <div class="step">
+      <h4>1. Fixed input proportions</h4>
+      <p>In $f(z_1,z_2)=2\sqrt{\min(z_1,z_2)}$, the smaller input determines output. If $z_1&gt;z_2$, the excess of input 1 adds cost without increasing production; the same argument applies to excess input 2. With positive input prices:</p>
+      <div class="math">$$\boxed{z_1=z_2=z}.$$</div>
+      <h4>2. Reduced optimization problem</h4>
+      <div class="math">$$\max_{z\geq0}\;\pi(z)=2p\sqrt z-(w_1+w_2)z.$$</div>
+    </div>
+    <div class="step">
+      <h4>3. Solve the first-order condition</h4>
+      <div class="math">$$\begin{aligned}
+        \frac{d\pi}{dz}&=\frac p{\sqrt z}-(w_1+w_2)=0,\\
+        \sqrt z&=\frac p{w_1+w_2}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{z_1^*=z_2^*=\left(\frac p{w_1+w_2}\right)^2}$$</div>
+      <p>This is the unique maximum because $\pi''(z)=-p/(2z^{3/2})&lt;0$ for $z&gt;0$.</p>
+      <h4>4. Optimal output</h4>
+      <div class="math">$$q^*=2\sqrt{z^*}=\boxed{\frac{2p}{w_1+w_2}}.$$</div>
+    </div>
+    <div class="step result">
+      <h4>5. Optimal profit</h4>
+      <p>Subtract the cost of <strong>both</strong> inputs from revenue:</p>
+      <div class="math">$$\begin{aligned}
+        \pi(p)&=pq^*-w_1z_1^*-w_2z_2^*\\
+          &=\frac{2p^2}{w_1+w_2}
+            -(w_1+w_2)\left(\frac p{w_1+w_2}\right)^2\\
+          &=\frac{2p^2}{w_1+w_2}-\frac{p^2}{w_1+w_2}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{\pi(p)=\frac{p^2}{w_1+w_2}}$$</div>
+      <p>Perfect complements must be used together in fixed proportions. Unlike perfect substitutes, extra units of one input cannot replace missing units of the other.</p>
+    </div>
+  </div>
+
+  <button type="button" class="toggle" data-label="Question 3" onclick="toggleAnswer(this,'ex3-q3')" aria-controls="ex3-q3" aria-expanded="false">Show correction — Question 3 ▾</button>
+  <div class="solution" id="ex3-q3">
+    <h3>Question 3 — CES Production</h3>
+    <div class="step">
+      <h4>1. Optimization program</h4>
+      <p>First consider $0&lt;\rho&lt;1$:</p>
+      <div class="math">$$\max_{z_1,z_2\geq0}\;
+        \pi=p(z_1^\rho+z_2^\rho)^{1/\rho}-w_1z_1-w_2z_2.$$</div>
+      <h4>2. First-order conditions</h4>
+      <p>At positive input quantities, apply the chain rule. For input 1:</p>
+      <div class="math">$$\begin{aligned}
+        \frac{\partial f}{\partial z_1}
+          &=\frac1\rho(z_1^\rho+z_2^\rho)^{1/\rho-1}
+            \cdot\rho z_1^{\rho-1}\\
+          &=z_1^{\rho-1}(z_1^\rho+z_2^\rho)^{(1-\rho)/\rho}.
+      \end{aligned}$$</div>
+      <p>The factors $1/\rho$ and $\rho$ cancel. Applying the same rule to input 2 gives the interior profit FOCs:</p>
+      <div class="math">$$\begin{aligned}
+        \frac{\partial\pi}{\partial z_1}
+          &=p z_1^{\rho-1}(z_1^\rho+z_2^\rho)^{(1-\rho)/\rho}-w_1=0,\\
+        \frac{\partial\pi}{\partial z_2}
+          &=p z_2^{\rho-1}(z_1^\rho+z_2^\rho)^{(1-\rho)/\rho}-w_2=0.
+      \end{aligned}$$</div>
+    </div>
+    <div class="step">
+      <h4>3. Optimal input proportions</h4>
+      <p>Divide the two conditions to cancel the common factors:</p>
+      <div class="math">$$\begin{aligned}
+        \frac{w_1}{w_2}&=\left(\frac{z_1}{z_2}\right)^{\rho-1},\\
+        \frac{z_1}{z_2}
+          &=\left(\frac{w_1}{w_2}\right)^{1/(\rho-1)}
+          =\left(\frac{w_2}{w_1}\right)^{1/(1-\rho)}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{x=\left(\frac{w_2}{w_1}\right)^{1/(1-\rho)}},
+        \qquad\boxed{z_1=xz_2}.$$</div>
+      <p>This determines the optimal <strong>proportions</strong>, not the production scale. The same ratio follows from cost minimization, where $MP_1/MP_2=w_1/w_2$. For positive output and $0&lt;\rho&lt;1$, both inputs are used: the marginal product of an absent input becomes arbitrarily large as its quantity approaches zero.</p>
+    </div>
+    <div class="step">
+      <h4>4. Conditional input demands</h4>
+      <p>For a given output target $\bar q&gt;0$, substitute $z_1=xz_2$ into the production constraint:</p>
+      <div class="math">$$\begin{aligned}
+        \bar q&=(z_1^\rho+z_2^\rho)^{1/\rho}\\
+          &=\bigl[(xz_2)^\rho+z_2^\rho\bigr]^{1/\rho}\\
+          &=\bigl[(1+x^\rho)z_2^\rho\bigr]^{1/\rho}\\
+          &=(1+x^\rho)^{1/\rho}z_2.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{z_2^c=\frac{\bar q}{(1+x^\rho)^{1/\rho}}}$$</div>
+      <div class="math">$$\boxed{z_1^c=\frac{x\bar q}{(1+x^\rho)^{1/\rho}}}$$</div>
+      <div class="key-note">These are <strong>conditional cost-minimizing input demands</strong> for a specified output target. They also give zero inputs when $\bar q=0$. Profit maximization still requires choosing the output level.</div>
+    </div>
+    <div class="step">
+      <h4>5. Cost function and unit cost</h4>
+      <p>Substitute the conditional demands into total input expenditure:</p>
+      <div class="math">$$\begin{aligned}
+        C(w,\bar q)&=w_1z_1^c+w_2z_2^c\\
+          &=\frac{w_1x\bar q+w_2\bar q}{(1+x^\rho)^{1/\rho}}.
+      \end{aligned}$$</div>
+      <div class="math">$$\boxed{C(w,\bar q)=\frac{w_1x+w_2}{(1+x^\rho)^{1/\rho}}\bar q}$$</div>
+      <p>Define the cost of one unit of output:</p>
+      <div class="math">$$\boxed{c(w)=\frac{w_1x+w_2}{(1+x^\rho)^{1/\rho}}},
+        \qquad\boxed{C(w,\bar q)=c(w)\bar q}.$$</div>
+    </div>
+    <div class="step">
+      <h4>6. Profit maximization under constant returns to scale</h4>
+      <p>Multiplying both inputs by $t&gt;0$ multiplies output by $t$:</p>
+      <div class="math">$$\begin{aligned}
+        f(tz_1,tz_2)
+          &=\bigl[t^\rho(z_1^\rho+z_2^\rho)\bigr]^{1/\rho}\\
+          &=t f(z_1,z_2).
+      \end{aligned}$$</div>
+      <p>The function is homogeneous of degree 1. Unit cost is therefore independent of scale, and profit maximization reduces to:</p>
+      <div class="math">$$\max_{q\geq0}\,[pq-c(w)q]
+        =\max_{q\geq0}\,[p-c(w)]q.$$</div>
+      <h4>Case A: $p&lt;c(w)$</h4>
+      <p>Every positive unit of output generates a loss. The firm chooses zero production:</p>
+      <div class="math">$$\boxed{q^*=0,\quad z_1^*=z_2^*=0,\quad\pi(p)=0}.$$</div>
+      <h4>Case B: $p=c(w)$</h4>
+      <p>Revenue exactly covers cost at every scale, provided the firm uses cost-minimizing input proportions:</p>
+      <div class="math">$$\boxed{\pi(p)=0}.$$</div>
+      <p>Any $q\geq0$ is optimal, with $z_1^*$ and $z_2^*$ given by the conditional demands evaluated at that chosen $q$.</p>
+      <h4>Case C: $p&gt;c(w)$</h4>
+      <p>Each additional unit yields the same positive margin. Because the technology has constant returns to scale, expansion does not raise unit cost:</p>
+      <div class="math">$$\boxed{\sup\pi=+\infty}.$$</div>
+      <p>There is <strong>no finite profit-maximizing output or input bundle</strong>. Along the cost-minimizing input ratio, output, both inputs, and profit grow without bound.</p>
+      <div class="remark"><strong>Why the FOCs do not determine a unique scale.</strong> A finite positive profit-maximizing bundle can satisfy the interior FOCs only at $p=c(w)$. Below unit cost, the optimum is zero; above it, profit is unbounded.</div>
+    </div>
+    <div class="step">
+      <h4>7. Boundary case: $\rho=1$</h4>
+      <div class="math">$$f(z_1,z_2)=z_1+z_2.$$</div>
+      <p>The inputs are perfect substitutes. Cost minimization uses only the cheaper input, or any split when prices are equal, so unit cost is $c(w)=\min(w_1,w_2)$.</p>
+      <p>The same three price cases apply: below this unit cost the firm produces zero; at equality any scale is optimal using the cheapest input(s); above it profit is unbounded. Unlike Question 1's square-root technology, this linear technology has constant returns to scale.</p>
+      <div class="key-note">Do not use the interior CES ratio formula at $\rho=1$, because $1/(1-\rho)$ is undefined. The displayed CES production function is also <strong>not defined at $\rho=0$</strong>; direct substitution is invalid.</div>
+    </div>
+  </div>
+</section>
+</div></main>
+<script src="producer-exercises.js"></script>
+</body></html>
