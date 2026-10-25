@@ -465,46 +465,7 @@ body {
   }
 }
 
-/* ── SEGMENTED CHAPTER PROGRESS BAR ── */
-.chapter-progress-bar {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 24px;
-  margin: 0 20px;
-  padding: 0 2px;
-}
-.progress-segment {
-  flex: 1;
-  height: 7px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-.progress-segment:hover {
-  transform: scaleY(1.35);
-  filter: brightness(1.25);
-}
-.progress-segment.completed {
-  background: linear-gradient(90deg, #9f1239, #e11d48);
-  border-color: rgba(244, 63, 94, 0.5);
-  box-shadow: 0 0 8px rgba(225, 29, 72, 0.35);
-}
-.progress-segment.active {
-  background: linear-gradient(90deg, #e11d48, #ff2d55);
-  border-color: rgba(255, 45, 85, 0.9);
-  box-shadow: 0 0 10px rgba(225, 29, 72, 0.6), 0 0 4px rgba(255, 45, 85, 0.4);
-}
-@media(max-width:900px){
-  .chapter-progress-bar { margin: 0 10px; gap: 4px; }
-  .progress-segment { height: 5px; }
-}
-@media(max-width:640px){
-  .chapter-progress-bar { display: none; }
-}
+
 
 
 /* Reading layout for Consumer Theory. */
@@ -573,6 +534,8 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline:2
 </style>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="midterm-nav.css">
+<link rel="stylesheet" href="reading-progress.css">
+<script defer src="reading-progress.js"></script>
 </head>
 <body>
 
@@ -731,77 +694,8 @@ function toggle(btn, id) {
   }
 }
 
-/* ── CHAPTER PROGRESS BAR LOGIC ── */
-function initChapterProgress(){
-  const container = document.getElementById('chapterProgressBar');
-  if(!container) return;
 
-  let targets = Array.from(document.querySelectorAll('.subsection'));
-  if(targets.length === 0){
-    targets = Array.from(document.querySelectorAll('.part-banner'));
-  }
-  if(targets.length === 0){
-    targets = Array.from(document.querySelectorAll('.concept-card, .exercise-statement-card'));
-  }
-  if(targets.length === 0) return;
 
-  container.innerHTML = '';
-  const segments = targets.map((sec, idx) => {
-    const seg = document.createElement('div');
-    seg.className = 'progress-segment' + (idx === 0 ? ' active' : '');
-    seg.setAttribute('role', 'button');
-    seg.setAttribute('tabindex', '0');
-    const titleEl = sec.querySelector('.subsection-title, .part-pill, .statement-title, h3, h2');
-    const titleText = titleEl ? titleEl.innerText.replace(/\s+/g, ' ').trim() : `Section ${idx + 1}`;
-    seg.setAttribute('title', titleText);
-    seg.setAttribute('aria-label', titleText);
-    const jump = () => { sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
-    seg.addEventListener('click', jump);
-    seg.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); jump(); } });
-    container.appendChild(seg);
-    return seg;
-  });
-
-  function updateProgress(){
-    const scrollY = window.scrollY || window.pageYOffset;
-    const windowH = window.innerHeight;
-    const totalH = document.documentElement.scrollHeight;
-    const isAtBottom = (windowH + scrollY) >= (totalH - 50);
-
-    if(isAtBottom){
-      segments.forEach(seg => { seg.className = 'progress-segment completed'; });
-      return;
-    }
-
-    let activeIdx = 0;
-    for(let i = 0; i < targets.length; i++){
-      const rect = targets[i].getBoundingClientRect();
-      if(rect.top <= 160){
-        activeIdx = i;
-      }
-    }
-
-    segments.forEach((seg, idx) => {
-      if(idx < activeIdx){
-        seg.className = 'progress-segment completed';
-      } else if(idx === activeIdx){
-        seg.className = 'progress-segment active';
-      } else {
-        seg.className = 'progress-segment';
-      }
-    });
-  }
-
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  window.addEventListener('resize', updateProgress, { passive: true });
-  updateProgress();
-}
-
-if(document.readyState === 'loading'){
-  document.addEventListener('DOMContentLoaded', initChapterProgress);
-} else {
-  initChapterProgress();
-}
 
 </script>
 </body>

@@ -1,0 +1,65 @@
+/* Shared chapter navigation, visible below the sticky header at every width. */
+.topbar > .chapter-progress-bar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  margin: 0;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--border, rgba(255,255,255,.07));
+  background: #0f1117;
+}
+.chapter-progress-bar .progress-segment {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 24px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.chapter-progress-bar .progress-segment::before,
+.chapter-progress-bar .progress-segment::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  height: 6px;
+  border-radius: 3px;
+}
+.chapter-progress-bar .progress-segment::before {
+  width: 100%;
+  background: rgba(255,255,255,.10);
+}
+.chapter-progress-bar .progress-segment::after {
+  width: var(--read, 0%);
+  background: linear-gradient(90deg, #9f1239, #ff2d55);
+}
+.chapter-progress-bar .progress-segment[aria-current="location"]::before {
+  box-shadow: 0 0 0 1px rgba(255,45,85,.7);
+}
+.chapter-progress-bar .progress-segment:hover::before {
+  background: rgba(255,255,255,.2);
+}
+.chapter-progress-bar .progress-segment:focus-visible {
+  outline: 2px solid #ff2d55;
+  outline-offset: 1px;
+}
+.reading-progress-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.reading-progress-target { scroll-margin-top: 104px; }
+@media (max-width:640px) {
+  .topbar > .chapter-progress-bar { padding: 0 12px; gap: 4px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior: auto; }
+}
