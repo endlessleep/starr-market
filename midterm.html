@@ -434,62 +434,6 @@ body {
   .overview-grid, .distinction, .empirical-grid { grid-template-columns:1fr; }
 }
 
-/* ── SEGMENTED CHAPTER PROGRESS BAR ── */
-.chapter-progress-bar {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 24px;
-  margin: 0 20px;
-  padding: 0 2px;
-}
-.progress-segment {
-  flex: 1;
-  height: 7px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-.progress-segment:hover {
-  transform: scaleY(1.35);
-  filter: brightness(1.25);
-}
-.progress-segment.completed {
-  background: linear-gradient(90deg, #9f1239, #e11d48);
-  border-color: rgba(244, 63, 94, 0.5);
-  box-shadow: 0 0 8px rgba(225, 29, 72, 0.35);
-}
-.progress-segment.active {
-  background: linear-gradient(90deg, #e11d48, #ff2d55);
-  border-color: rgba(255, 45, 85, 0.9);
-  box-shadow: 0 0 10px rgba(225, 29, 72, 0.6), 0 0 4px rgba(255, 45, 85, 0.4);
-}
-@media(max-width:900px){
-  .chapter-progress-bar { margin: 0 10px; gap: 4px; }
-  .progress-segment { height: 5px; }
-}
-@media(max-width:640px){
-  .chapter-progress-bar { display: none; }
-}
-
-
-/* Course blocks: navigation and current reading position. */
-.course-block-nav { display:flex; flex:1; gap:8px; max-width:620px; margin-left:auto; }
-.course-block-link { position:relative; flex:1; min-width:0; padding:9px 10px 13px; overflow:hidden; border:1px solid var(--border); border-radius:8px; color:var(--text-3); text-align:center; text-decoration:none; font-size:.82rem; font-weight:700; white-space:nowrap; background:rgba(255,255,255,.025); }
-.course-block-link::after { content:''; position:absolute; left:0; bottom:0; height:3px; width:var(--read,0%); background:#34d399; }
-.course-block-link:hover, .course-block-link[aria-current="location"] { color:var(--text); border-color:rgba(52,211,153,.5); background:rgba(52,211,153,.07); }
-.course-block-link:focus-visible { outline:2px solid #34d399; outline-offset:3px; }
-#utility-representability, #consumer-preferences-sheet, #consumer-theory-sheet, #income-price-effects-sheet, #producer-technology-sheet { scroll-margin-top:80px; }
-@media(max-width:700px) {
-  .topbar { gap:10px; padding:0 12px; }
-  .topbar-breadcrumb { display:none; }
-  .course-block-nav { gap:5px; }
-  .course-block-link { padding:10px 4px 13px; font-size:.75rem; }
-}
-
 /* Producer revision: use the existing chapter styling. */
 
 #producer-technology-sheet .effects-chapter { --demand-accent:var(--red-bright); --demand-tint:var(--red-muted); --demand-border:var(--red-border); }
@@ -831,9 +775,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 </style>
 <style id="producer-continuation-style">
 /* Extend the existing revision components; keep earlier chapters unchanged. */
-.course-block-nav { min-width:0; overflow-x:auto; scrollbar-width:thin; }
-.course-block-nav::-webkit-scrollbar { height:3px; }
-.course-block-link { flex:1 0 auto; min-width:52px; }
 .producer-sheet { scroll-margin-top:80px; }
 .producer-sheet .effects-chapter { --demand-accent:var(--red-bright); --demand-tint:var(--red-muted); --demand-border:var(--red-border); }
 .producer-sheet .effects-title { display:flex; align-items:baseline; gap:10px; font-size:1rem; line-height:1.4; }
@@ -849,13 +790,12 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
 .producer-table tr:last-child > * { border-bottom:0; }
 .producer-table a { display:inline-block; max-width:100%; color:var(--text); text-underline-offset:3px; }
 .producer-table a:hover { color:var(--red-bright); }
-@media(max-width:700px) {
-  .course-block-link { padding:9px 10px 13px; font-size:.82rem; }
-}
 @media(max-width:600px) {
   .producer-table th, .producer-table td { padding:9px 8px; }
 }
 </style>
+<link rel="stylesheet" href="reading-progress.css">
+<script defer src="reading-progress.js"></script>
 </head>
 <body>
 <aside class="sidebar open" id="sidebar">
@@ -903,16 +843,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
   <div class="topbar">
     <button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
     <div class="topbar-breadcrumb">MICRO <span class="sep">›</span> <strong>Midterm Sheet</strong></div>
-    <nav class="course-block-nav" aria-label="Course blocks · reading progress">
-      <a class="course-block-link" href="#utility-representability" title="1.1–1.3 · Choice Theory">1.1–1.3</a>
-      <a class="course-block-link" href="#consumer-preferences-sheet" title="1.4–1.5 · Consumer &amp; Revealed Preferences">1.4–1.5</a>
-      <a class="course-block-link" href="#consumer-theory-sheet" title="2.1–2.2 · Consumer Demand &amp; Duality">2.1–2.2</a>
-      <a class="course-block-link" href="#income-price-effects-sheet" title="2.3 · Income and Price Effects">2.3</a>
-      <a class="course-block-link" href="#producer-technology-sheet" title="3.1 · Technology and Production">3.1</a>
-      <a class="course-block-link" href="#producer-profit-sheet" title="3.2 · Profit Maximization">3.2</a>
-      <a class="course-block-link" href="#producer-costs-sheet" title="3.3 · Cost Minimization and Cost Functions">3.3</a>
-      <a class="course-block-link" href="#producer-efficiency-sheet" title="3.4 · Efficiency">3.4</a>
-    </nav>
+    <nav class="chapter-progress-bar" id="chapterProgressBar" aria-label="Page sections · reading progress"></nav>
   </div>
   <div class="main-content">
     <header class="page-title-block">
@@ -920,7 +851,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <h1>Midterm Sheet</h1>
       <p>Choice Theory &amp; Consumer Theory</p>
     </header>
-    <section class="proof-section-card midterm-block" id="utility-representability" aria-labelledby="utility-title">
+    <section class="proof-section-card midterm-block" id="utility-representability" data-reading-section data-reading-label="1.1–1.3 · Choice Theory" aria-labelledby="utility-title">
       <header>
         <div class="sheet-heading"><span class="sheet-number">01</span><h2 id="utility-title">Rationality &amp; Utility Representability</h2></div>
       </header>
@@ -1373,7 +1304,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       
     </section>
 
-    <header class="consumer-divider" id="consumer-preferences-sheet">
+    <header class="consumer-divider" id="consumer-preferences-sheet" data-reading-section data-reading-label="1.4–1.5 · Consumer &amp; Revealed Preferences">
       <div class="page-label">Midterm Sheet · Definitions &amp; Properties</div>
       <h2>Consumer Preferences</h2>
     </header>
@@ -1670,7 +1601,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       </section>
     </div>
 
-    <section class="demand-sheet" id="consumer-theory-sheet" aria-labelledby="consumer-theory-title">
+    <section class="demand-sheet" id="consumer-theory-sheet" data-reading-section data-reading-label="2.1–2.2 · Consumer Demand &amp; Duality" aria-labelledby="consumer-theory-title">
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Consumer Theory</div>
         <h2 id="consumer-theory-title">Consumer Demand &amp; Duality</h2>
@@ -1969,7 +1900,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       </section>
     </section>
     <!-- Income and Price Effects — revision chapter -->
-    <section class="demand-sheet" id="income-price-effects-sheet" aria-labelledby="income-price-effects-title">
+    <section class="demand-sheet" id="income-price-effects-sheet" data-reading-section data-reading-label="2.3 · Income and Price Effects" aria-labelledby="income-price-effects-title">
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Consumer Theory</div>
         <h2 id="income-price-effects-title">Income and Price Effects</h2>
@@ -2198,7 +2129,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
     </section>
     <!-- /Income and Price Effects -->
     <!-- Producer Theory — Technology and Production -->
-    <section class="demand-sheet" id="producer-technology-sheet" aria-labelledby="producer-technology-title">
+    <section class="demand-sheet" id="producer-technology-sheet" data-reading-section data-reading-label="3.1 · Technology and Production" aria-labelledby="producer-technology-title">
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Producer Theory</div>
         <h2 id="producer-technology-title">3.1 — Technology and Production</h2>
@@ -2252,7 +2183,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
     <!-- /Producer Theory — Technology and Production -->
 
     <!-- Producer Theory — Profit Maximization -->
-    <section class="demand-sheet producer-sheet" id="producer-profit-sheet" aria-labelledby="producer-profit-title">
+    <section class="demand-sheet producer-sheet" id="producer-profit-sheet" data-reading-section data-reading-label="3.2 · Profit Maximization" aria-labelledby="producer-profit-title">
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Producer Theory</div>
         <h2 id="producer-profit-title">3.2 — Profit Maximization</h2>
@@ -2353,7 +2284,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
     <!-- /Producer Theory — Profit Maximization -->
 
     <!-- Producer Theory — Cost Minimization and Cost Functions -->
-    <section class="demand-sheet producer-sheet" id="producer-costs-sheet" aria-labelledby="producer-costs-title">
+    <section class="demand-sheet producer-sheet" id="producer-costs-sheet" data-reading-section data-reading-label="3.3 · Cost Minimization and Cost Functions" aria-labelledby="producer-costs-title">
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Producer Theory</div>
         <h2 id="producer-costs-title">3.3 — Cost Minimization and Cost Functions</h2>
@@ -2680,7 +2611,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
     <!-- /Producer Theory — Cost Minimization and Cost Functions -->
 
     <!-- Producer Theory — Efficiency -->
-    <section class="demand-sheet producer-sheet" id="producer-efficiency-sheet" aria-labelledby="producer-efficiency-title">
+    <section class="demand-sheet producer-sheet" id="producer-efficiency-sheet" data-reading-section data-reading-label="3.4 · Efficiency" aria-labelledby="producer-efficiency-title">
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Producer Theory</div>
         <h2 id="producer-efficiency-title">3.4 — Efficiency</h2>
@@ -2810,38 +2741,6 @@ if (window.matchMedia('(max-width:900px)').matches) {
   document.getElementById('main-wrap').classList.add('expanded');
 }
 
-(() => {
-  const links = Array.from(document.querySelectorAll('.course-block-link'));
-  const blocks = links.map(link => document.getElementById(link.hash.slice(1)));
-  const content = document.querySelector('.main-content');
-  const topbar = document.querySelector('.topbar');
-  let pending = false;
-  function updateReadingProgress() {
-    pending = false;
-    const cursor = window.scrollY + topbar.offsetHeight + 20;
-    const starts = blocks.map(block => block.getBoundingClientRect().top + window.scrollY);
-    const end = content.getBoundingClientRect().bottom + window.scrollY;
-    const atEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
-    let active = 0;
-    starts.forEach((start, index) => { if (cursor >= start - 2) active = index; });
-    if (atEnd) active = links.length - 1;
-    links.forEach((link, index) => {
-      const finish = starts[index + 1] ?? end;
-      const fraction = atEnd ? 1 : Math.max(0, Math.min(1, (cursor - starts[index]) / Math.max(1, finish - starts[index])));
-      link.style.setProperty('--read', `${fraction * 100}%`);
-      if (index === active) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-      link.setAttribute('aria-label', `${link.title} · Reading position ${Math.round(fraction * 100)}%`);
-    });
-  }
-  function scheduleUpdate() {
-    if (!pending) { pending = true; requestAnimationFrame(updateReadingProgress); }
-  }
-  window.addEventListener('scroll', scheduleUpdate, { passive: true });
-  window.addEventListener('resize', scheduleUpdate);
-  new ResizeObserver(scheduleUpdate).observe(content);
-  updateReadingProgress();
-})();
 </script>
 </body>
 </html>

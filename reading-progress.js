@@ -1,11 +1,11 @@
-/* One reading-progress implementation for lectures, exercises and introduction. */
+/* One reading-progress implementation for every course page. */
 (() => {
   const content = document.querySelector('.main-content');
   const topbar = document.querySelector('.topbar');
-  // The midterm already has its own course-block navigation and progress fills.
-  if (!content || !topbar || topbar.querySelector('.course-block-nav')) return;
+  if (!content || !topbar) return;
 
-  let targets = Array.from(content.querySelectorAll('.subsection'));
+  let targets = Array.from(content.querySelectorAll('[data-reading-section]'));
+  if (!targets.length) targets = Array.from(content.querySelectorAll('.subsection'));
   if (!targets.length) targets = Array.from(content.querySelectorAll(':scope > section'));
   if (targets.length < 2) {
     const headings = Array.from(content.querySelectorAll('h2'));
@@ -34,7 +34,8 @@
       target.querySelector('.subsection-title') || target.querySelector('h2') ||
       target.querySelector('.section-title') || target.querySelector('h3') ||
       target.querySelector('.part-pill');
-    const label = heading?.textContent.replace(/\s+/g, ' ').trim() || `Section ${index + 1}`;
+    const label = target.dataset.readingLabel ||
+      heading?.textContent.replace(/\s+/g, ' ').trim() || `Section ${index + 1}`;
     labels.push(label);
     const link = document.createElement('a');
     link.className = 'progress-segment';
