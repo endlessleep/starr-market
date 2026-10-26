@@ -2254,7 +2254,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Producer Theory</div>
         <h2 id="producer-profit-title">3.2 — Profit Maximization</h2>
-        <p>Choose inputs, then obtain output supply and maximum profit.</p>
+        <p>Optimal inputs, output supply and maximum profit.</p>
       </header>
       <div class="demand-chapter effects-chapter">
         <article class="demand-card" id="sheet-pmp">
@@ -2281,20 +2281,20 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <div class="demand-copy">
               <p>The <strong>value of each input's marginal product equals its price</strong>.</p>
               <p>If $pMP_i&gt;w_i$, increasing input $i$ raises profit. If $pMP_i&lt;w_i$, reducing it raises profit at an interior bundle.</p>
-              <p>Solve the two conditions jointly for $z_1^\pi(p,w)$ and $z_2^\pi(p,w)$.</p>
+              <p>Together, these conditions determine the interior input demands $z_1^\pi(p,w)$ and $z_2^\pi(p,w)$.</p>
             </div>
           </div>
-          <p class="demand-note"><strong>Check the candidate:</strong> interior FOCs alone do not prove a maximum. Check curvature or compare profits, consider corners, and verify that a finite maximum exists.</p>
+          <p class="demand-note">Interior FOCs are necessary, but do not by themselves establish a maximum. A corner solution or unbounded profit is also possible.</p>
           <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-pmp-derivation')"><span>Show derivation — Profit Maximization FOCs</span><span class="arrow">▾</span></button>
           <div class="collapsible" id="producer-pmp-derivation">
             <div class="demand-copy">
-              <p><strong>1.</strong> Hold prices and the other input fixed. For $i=1,2$:</p>
+              <p>At fixed prices and holding the other input constant, for $i=1,2$:</p>
               <div class="math-display">$$\frac{\partial\pi}{\partial z_i}
                 =p\frac{\partial f}{\partial z_i}-w_i
                 =pMP_i-w_i.$$</div>
-              <p><strong>2.</strong> At an interior maximum, small increases and decreases in each input are feasible, so each derivative must be zero:</p>
+              <p>At an interior maximum, small increases and decreases in each input are feasible, so each derivative must be zero:</p>
               <div class="math-display">$$\begin{gathered}pMP_i-w_i=0\\\Longrightarrow\quad pMP_i=w_i.\end{gathered}$$</div>
-              <p><strong>3.</strong> Solve the two equations jointly. There is no fixed-output equality constraint: output has already been replaced by $f(z)$, so no equality-constraint Lagrange multiplier is needed here. An input constrained to zero requires a boundary check instead.</p>
+              <p>Output is $f(z)$ and is not fixed in advance, so this problem has no output constraint or associated Lagrange multiplier. These equalities apply to positive inputs.</p>
             </div>
           </div>
           <div class="demand-copy demand-rule">
@@ -2321,26 +2321,26 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <h3 class="effects-title"><span>02</span>When Interior FOCs Are Not Enough</h3>
           <div class="demand-pair">
             <div class="demand-copy">
-              <h4>Perfect substitutes — compare input prices</h4>
+              <h4>Perfect substitutes</h4>
               <div class="math-display">$$f(z_1,z_2)=2\sqrt{z_1+z_2}$$</div>
-              <p>Both inputs contribute equally to the sum. Use only the <strong>cheaper input</strong>; equal prices allow several optimal splits. Check corners before imposing two interior FOCs.</p>
+              <p>Both inputs contribute equally to the sum. The firm uses only the <strong>cheaper input</strong>; equal prices allow several optimal splits.</p>
             </div>
             <div class="demand-copy">
-              <h4>Perfect complements — use fixed proportions</h4>
+              <h4>Perfect complements</h4>
               <div class="math-display">$$f(z_1,z_2)=2\sqrt{\min(z_1,z_2)}$$</div>
-              <p>At strictly positive input prices, avoid unused excess inputs: <strong>$z_1=z_2=z$</strong>. Substitute this equality into profit and optimize over $z$; ordinary derivatives at the kink are not the method.</p>
+              <p>At strictly positive input prices, optimal inputs satisfy <strong>$z_1=z_2=z$</strong>. Excess units of either input add cost without increasing output.</p>
             </div>
           </div>
           <div class="demand-copy demand-rule">
-            <h4>Constant returns — check whether an optimal scale exists</h4>
+            <h4>Constant returns and production scale</h4>
             <p>If long-run cost is $C(w,y)=c(w)y$, where $c(w)$ is unit cost:</p>
             <div class="math-display demand-formula">$$\boxed{\pi(y)=[p-c(w)]y}$$</div>
             <ul class="demand-bullets">
-              <li>$p&lt;c(w)$: choose $y^*=0$, with zero profit.</li>
+              <li>$p&lt;c(w)$: $y^*=0$, with zero profit.</li>
               <li>$p=c(w)$: any scale is optimal, with zero profit, using cost-minimizing inputs.</li>
               <li>$p&gt;c(w)$: profit is unbounded; there is no finite optimum in the unconstrained model.</li>
             </ul>
-            <p class="demand-note"><strong>CES exercise:</strong> $(z_1^\rho+z_2^\rho)^{1/\rho}$ has constant returns for $0&lt;\rho&lt;1$. The interior input ratio determines proportions, not scale; apply the three price cases. At $\rho=1$, use cheapest-input logic. The displayed formula is undefined at $\rho=0$.</p>
+            <p class="demand-note"><strong>CES production:</strong> $(z_1^\rho+z_2^\rho)^{1/\rho}$ has constant returns for $0&lt;\rho&lt;1$. The interior input ratio determines proportions; scale depends on the three price cases above. At $\rho=1$, the inputs are perfect substitutes. The displayed formula is undefined at $\rho=0$.</p>
           </div>
         </article>
       </div>
@@ -2352,7 +2352,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Producer Theory</div>
         <h2 id="producer-costs-title">3.3 — Cost Minimization and Cost Functions</h2>
-        <p>Find the cheapest inputs for a target, then use costs to study output decisions.</p>
+        <p>Conditional input demands, cost functions and output decisions.</p>
       </header>
       <div class="demand-chapter effects-chapter">
         <article class="demand-card" id="sheet-cmp">
@@ -2372,7 +2372,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <p><strong>Interior solution:</strong> differentiable production, positive inputs and positive marginal products.</p>
           <div class="demand-pair">
             <div class="demand-method">
-              <h4>Method 1 — Lagrangian</h4>
+              <h4>Lagrangian</h4>
               <div class="math-display">$$\begin{aligned}
                 \mathcal L&=w_1z_1+w_2z_2\\
                   &\quad+\lambda[\bar y-f(z_1,z_2)]
@@ -2383,52 +2383,45 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
                 w_2-\lambda MP_2=0,\\
                 f(z_1,z_2)=\bar y.
               \end{cases}$$</div>
-              <p>Divide the first two conditions to eliminate $\lambda$ and obtain the MRTS condition.</p>
+              <p>The ratio of the first two conditions eliminates $\lambda$ and gives the MRTS condition.</p>
             </div>
             <div class="demand-method quick-method">
-              <h4>Method 2 — MRTS Condition</h4>
-              <p>Use the same interior conditions directly:</p>
+              <h4>Interior optimum</h4>
+              <p>Tangency and the output constraint give:</p>
               <div class="math-display demand-formula">$$\boxed{\begin{cases}
                 MRTS_{12}=\dfrac{MP_1}{MP_2}=\dfrac{w_1}{w_2}\\[8pt]
                 f(z_1,z_2)=\bar y
               \end{cases}}$$</div>
               <p>The <strong>technical rate of substitution equals the input-price ratio</strong>.</p>
-              <p>Express one input in terms of the other, then substitute into the output constraint to find both conditional demands.</p>
+              <p>The input ratio and output target jointly determine the conditional input demands.</p>
             </div>
           </div>
-          <p class="demand-note">Tangency is an interior method. For substitutes, complements, or boundary candidates, check the appropriate corners or fixed proportions.</p>
-          <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-cobb-douglas-method')"><span>Show method — Cobb-Douglas cost minimization</span><span class="arrow">▾</span></button>
+          <p class="demand-note">Tangency applies to an interior optimum. Perfect substitutes may give a corner solution; perfect complements require fixed input proportions.</p>
+          <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-cobb-douglas-method')"><span>Show derivation — Cobb-Douglas cost minimization</span><span class="arrow">▾</span></button>
           <div class="collapsible" id="producer-cobb-douglas-method">
-            <ol class="demand-steps">
-              <li><strong>Differentiate the production function.</strong> For $f(K,L)=AK^\alpha L^\beta$, assume positive $A$, $\alpha$, $\beta$ and input prices:
-                <div class="math-display">$$\begin{aligned}
-                  MP_K&=A\alpha K^{\alpha-1}L^\beta,\\
-                  MP_L&=A\beta K^\alpha L^{\beta-1}.
-                \end{aligned}$$</div>
-              </li>
-              <li><strong>Divide and solve for the input ratio.</strong>
-                <div class="math-display">$$\begin{gathered}
-                  \frac{MP_K}{MP_L}=\frac{\alpha}{\beta}\frac{L}{K}=\frac{w_K}{w_L}\\
-                  \Longrightarrow\quad\boxed{K=\frac{\alpha w_L}{\beta w_K}L}.
-                \end{gathered}$$</div>
-              </li>
-              <li><strong>Substitute into the target.</strong> Set $r=\alpha w_L/(\beta w_K)$:
-                <div class="math-display">$$\bar y=A(rL)^\alpha L^\beta=Ar^\alpha L^{\alpha+\beta}.$$</div>
-              </li>
-              <li><strong>Isolate labor, then recover capital.</strong>
-                <div class="math-display">$$\begin{gathered}
-                  \boxed{L^C=\left(\frac{\bar y}{Ar^\alpha}\right)^{1/(\alpha+\beta)}}\\[4pt]
-                  \boxed{K^C=rL^C}.
-                \end{gathered}$$</div>
-              </li>
-              <li><strong>Find cost.</strong> Substitute these demands into input expenditure:
-                <div class="math-display">$$\begin{aligned}
-                  C(w,\bar y)&=w_KK^C+w_LL^C\\
-                    &=(w_Kr+w_L)L^C.
-                \end{aligned}$$</div>
-                Keep prices fixed when differentiating with respect to output.
-              </li>
-            </ol>
+            <div class="demand-copy">
+              <p>For $f(K,L)=AK^\alpha L^\beta$, with positive $A$, $\alpha$, $\beta$ and input prices, marginal products are:</p>
+              <div class="math-display">$$\begin{aligned}
+                MP_K&=A\alpha K^{\alpha-1}L^\beta,\\
+                MP_L&=A\beta K^\alpha L^{\beta-1}.
+              \end{aligned}$$</div>
+              <p>The tangency condition gives the optimal input ratio:</p>
+              <div class="math-display">$$\begin{gathered}
+                \frac{MP_K}{MP_L}=\frac{\alpha}{\beta}\frac{L}{K}=\frac{w_K}{w_L}\\
+                \Longrightarrow\quad\boxed{K=\frac{\alpha w_L}{\beta w_K}L}.
+              \end{gathered}$$</div>
+              <p>Writing $r=\alpha w_L/(\beta w_K)$, the output constraint becomes:</p>
+              <div class="math-display">$$\bar y=A(rL)^\alpha L^\beta=Ar^\alpha L^{\alpha+\beta}.$$</div>
+              <p>Hence the conditional input demands and minimum cost are:</p>
+              <div class="math-display">$$\begin{gathered}
+                \boxed{L^C=\left(\frac{\bar y}{Ar^\alpha}\right)^{1/(\alpha+\beta)}}\\[4pt]
+                \boxed{K^C=rL^C}.
+              \end{gathered}$$</div>
+              <div class="math-display">$$\begin{aligned}
+                C(w,\bar y)&=w_KK^C+w_LL^C\\
+                  &=(w_Kr+w_L)L^C.
+              \end{aligned}$$</div>
+            </div>
           </div>
           <div class="demand-copy demand-rule">
             <h4>Conditional input demands and the cost function</h4>
@@ -2445,14 +2438,14 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-cost-envelope')"><span>Show derivation — Why the multiplier equals marginal cost</span><span class="arrow">▾</span></button>
           <div class="collapsible" id="producer-cost-envelope">
             <div class="demand-copy">
-              <p><strong>1.</strong> Hold input prices fixed. At a differentiable interior optimum:</p>
+              <p>At fixed input prices and a differentiable interior optimum:</p>
               <div class="math-display">$$\frac{\partial C}{\partial\bar y}
                 =w_1\frac{\partial z_1^C}{\partial\bar y}
                 +w_2\frac{\partial z_2^C}{\partial\bar y}.$$</div>
-              <p><strong>2.</strong> Use $w_i=\lambda^*MP_i$ from the FOCs:</p>
+              <p>The FOCs give $w_i=\lambda^*MP_i$, so:</p>
               <div class="math-display">$$\frac{\partial C}{\partial\bar y}
                 =\lambda^*\sum_{i=1}^{2}MP_i\frac{\partial z_i^C}{\partial\bar y}.$$</div>
-              <p><strong>3.</strong> Differentiate the binding constraint $f(z^C(w,\bar y))=\bar y$. The sum equals $1$, so $\partial C/\partial\bar y=\lambda^*$. This is also the envelope result $\partial C/\partial\bar y=\partial\mathcal L/\partial\bar y$ evaluated at the optimum.</p>
+              <p>Differentiating the binding constraint $f(z^C(w,\bar y))=\bar y$ makes the sum equal to $1$. Thus $\partial C/\partial\bar y=\lambda^*$, the envelope result.</p>
             </div>
           </div>
         </article>
@@ -2472,12 +2465,12 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
               <p>$z^C(w,\bar y)$ is conditional on the output target.</p>
             </div>
           </div>
-          <p>Once cost is known, choose output directly:</p>
+          <p>Using the cost function, profit maximization becomes:</p>
           <div class="math-display demand-formula">$$\begin{gathered}
             \boxed{\max_{y\geq0}\;py-C(w,y)}\\[4pt]
             \boxed{p=MC(y^*)}
           \end{gathered}$$</div>
-          <p><strong>Apply:</strong> differentiate profit to get $p-C_y=0$, identify the best positive candidate, then compare with zero output. On a rising marginal-cost branch, $\pi''(y)=-MC'(y)&lt;0$; with multiple candidates, compare profit levels.</p>
+          <p>At an interior optimum, $\pi'(y)=p-MC(y)=0$. Rising marginal cost gives $\pi''(y)=-MC'(y)&lt;0$, a local maximum. The global optimum yields at least as much profit as any other output, including zero.</p>
           <p class="demand-note"><strong>$p=MC$ is a condition, not a guarantee of a maximum.</strong> Every profit-maximizing input bundle is cost-minimizing for its own output; otherwise a cheaper way to produce that output would raise profit. A cost-minimizing bundle at an arbitrary target need not maximize profit.</p>
         </article>
 
@@ -2503,7 +2496,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           </div>
           <p>Average costs require $y&gt;0$. Fixed cost contributes to $AC$, but disappears from $MC$ because it does not change with output.</p>
           <div class="demand-copy demand-rule">
-            <h4>Connect cost to productivity</h4>
+            <h4>Marginal cost and productivity</h4>
             <div class="math-display demand-formula">$$\boxed{MC=\frac{w_1}{MP_1}}$$</div>
             <p>This applies with <strong>one variable input</strong>, fixed input price $w_1$, and $MP_1&gt;0$. Rising marginal product lowers marginal cost; falling marginal product raises it.</p>
             <p>Marginal productivity may rise initially as production becomes more effective, then fall as fixed inputs constrain expansion. This can produce a U-shaped $MC$ curve; fixed costs alone do not imply that shape.</p>
@@ -2511,24 +2504,25 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           </div>
           <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-mc-mp-derivation')"><span>Show derivation — Why MC = w₁ / MP₁</span><span class="arrow">▾</span></button>
           <div class="collapsible" id="producer-mc-mp-derivation">
-            <ol class="demand-steps">
-              <li><strong>Differentiate cost:</strong> $TC(y)=w_1z_1(y;\bar z_2)+w_2\bar z_2$ gives $MC=w_1\,dz_1/dy$.</li>
-              <li><strong>Differentiate production:</strong> along $y=f(z_1,\bar z_2)$, $dy/dz_1=MP_1$. Since $MP_1&gt;0$, invert to get $dz_1/dy=1/MP_1$.</li>
-              <li><strong>Substitute:</strong> $MC=w_1/MP_1$. A more productive input requires fewer extra units to produce one more unit of output.</li>
-            </ol>
+            <div class="demand-copy">
+              <p>With fixed input prices, $TC(y)=w_1z_1(y;\bar z_2)+w_2\bar z_2$ gives $MC=w_1\,dz_1/dy$.</p>
+              <p>Along $y=f(z_1,\bar z_2)$, $dy/dz_1=MP_1&gt;0$, so $dz_1/dy=1/MP_1$. Hence:</p>
+              <div class="math-display">$$MC=w_1\frac{dz_1}{dy}=\frac{w_1}{MP_1}.$$</div>
+              <p>A more productive input requires fewer extra units to produce one more unit of output.</p>
+            </div>
           </div>
-          <p class="demand-note"><strong>Fixed-capital exercise:</strong> substitute $\bar K$ into $f(K,L)$ first. For a target $\bar y$, solve $f(\bar K,L)=\bar y$ for labor. For profit maximization, choose $L$ in $pf(\bar K,L)-w_LL-w_K\bar K$; the fixed capital cost does not affect the labor FOC.</p>
+          <p class="demand-note"><strong>Fixed capital:</strong> $f(\bar K,L)=\bar y$ determines the labor required for a target output. Short-run profit is $pf(\bar K,L)-w_LL-w_K\bar K$; the fixed capital cost does not affect the labor FOC.</p>
         </article>
 
         <article class="demand-card" id="sheet-average-cost-method">
-          <h3 class="effects-title"><span>04</span>Read Average Cost — and Find Its Minimum</h3>
+          <h3 class="effects-title"><span>04</span>Average Cost and Its Minimum</h3>
           <p>An additional unit costing less than the current average pulls the average down; one costing more pushes it up. For positive output:</p>
           <div class="table-wrap">
             <table class="producer-table">
               <thead><tr><th scope="col">Comparison</th><th scope="col">Effect on average cost</th></tr></thead>
               <tbody>
                 <tr><th scope="row">$MC&lt;AC$</th><td>$AC$ decreases.</td></tr>
-                <tr><th scope="row">$MC=AC$</th><td>$AC$ is stationary; check the slope change to identify a minimum.</td></tr>
+                <tr><th scope="row">$MC=AC$</th><td>$AC$ is stationary; a negative-to-positive slope change gives a minimum.</td></tr>
                 <tr><th scope="row">$MC&gt;AC$</th><td>$AC$ increases.</td></tr>
               </tbody>
             </table>
@@ -2541,42 +2535,31 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-mc-ac-derivation')"><span>Show derivation — Why MC intersects AC</span><span class="arrow">▾</span></button>
           <div class="collapsible" id="producer-mc-ac-derivation">
             <div class="demand-copy">
-              <p><strong>1.</strong> Apply the quotient rule to $AC(y)=TC(y)/y$:</p>
+              <p>The quotient rule applied to $AC(y)=TC(y)/y$ gives:</p>
               <div class="math-display">$$\begin{aligned}
                 AC'(y)&=\frac{y\,TC'(y)-TC(y)}{y^2}\\
                   &=\frac{MC(y)-TC(y)/y}{y}\\
                   &=\boxed{\frac{MC(y)-AC(y)}{y}}.
               \end{aligned}$$</div>
-              <p><strong>2.</strong> Since $y&gt;0$, the sign of $AC'$ is the sign of $MC-AC$. Equality makes $AC'=0$: a stationary point. A change from $MC&lt;AC$ to $MC&gt;AC$ gives a minimum; equality by itself is insufficient.</p>
-              <p><strong>3.</strong> Repeat for average variable cost, $AVC=VC/y$. Because $VC'=MC$:</p>
+              <p>Since $y&gt;0$, the sign of $AC'$ is the sign of $MC-AC$. A change from $MC&lt;AC$ to $MC&gt;AC$ gives a minimum; equality alone only identifies a stationary point.</p>
+              <p>Likewise, $AVC=VC/y$ and $VC'=MC$ imply:</p>
               <div class="math-display">$$AVC'(y)=\frac{MC(y)-AVC(y)}{y}.$$</div>
               <p>The same sign-change argument identifies the minimum of $AVC$.</p>
             </div>
           </div>
           <div class="demand-pair demand-rule">
-            <div class="demand-method quick-method">
-              <h4>Exam method — minimum average cost</h4>
-              <ol class="demand-steps">
-                <li>Calculate $AC(y)=TC(y)/y$.</li>
-                <li>Differentiate $AC(y)$.</li>
-                <li>Solve $AC'(y)=0$ for feasible positive outputs.</li>
-                <li>Verify a minimum, using a negative-to-positive slope change or $AC''&gt;0$; compare other candidates or boundaries when needed.</li>
-                <li>Substitute the minimizing output into $AC(y)$.</li>
-              </ol>
-            </div>
+            <div class="math-display demand-formula">$$\boxed{\text{Minimum point: }(y^*,AC(y^*))}$$</div>
             <div class="demand-copy">
-              <h4>Report both coordinates</h4>
               <p><strong>$y^*$:</strong> the output minimizing average cost.</p>
-              <p><strong>$AC^*=AC(y^*)$:</strong> the minimum cost per unit.</p>
-              <div class="math-display demand-formula">$$\boxed{\text{Minimum point: }(y^*,AC^*)}$$</div>
-              <p>This $y^*$ is a <strong>cost benchmark</strong>. A profit-maximizing output also depends on the market price; do not identify the two automatically.</p>
+              <p><strong>$AC(y^*)$:</strong> the minimum cost per unit.</p>
+              <p>The output minimizing average cost is a <strong>cost benchmark</strong>; profit-maximizing output also depends on the market price.</p>
             </div>
           </div>
         </article>
 
         <article class="demand-card" id="sheet-shutdown-break-even">
           <h3 class="effects-title"><span>05</span>Shutdown versus Zero Profit</h3>
-          <p><strong>Use when:</strong> deciding whether the firm should operate, and whether its best output earns a profit. In the short run, assume fixed costs remain payable at zero output and $VC(0)=0$.</p>
+          <p>In the short run, fixed costs remain payable at zero output and $VC(0)=0$.</p>
           <div class="demand-pair">
             <div class="demand-copy">
               <h4>Shutdown threshold — cover variable costs</h4>
@@ -2596,7 +2579,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
               <p>At a minimum-AC output, zero profit therefore requires <strong>$p=\min AC$</strong>.</p>
             </div>
           </div>
-          <p><strong>Decision sequence:</strong> find the best positive output, then compare its profit with shutdown. For the standard competitive cost curves, attained minima, and a finite optimum:</p>
+          <p>For standard competitive cost curves with attained minima and a finite optimum:</p>
           <div class="table-wrap">
             <table class="producer-table">
               <thead><tr><th scope="col">Market price</th><th scope="col">Short-run decision</th><th scope="col">Profit</th></tr></thead>
@@ -2624,12 +2607,12 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             </div>
             <div class="demand-copy">
               <h4>Minimum efficient scale</h4>
-              <p>The <strong>smallest output attaining minimum long-run average cost</strong>. Use the minimum-AC method above; if the minimum is a flat interval, choose its left endpoint.</p>
+              <p>The <strong>smallest output attaining minimum long-run average cost</strong>. If the minimum is a flat interval, minimum efficient scale is its left endpoint.</p>
               <p>This identifies an efficient scale in cost terms, not the quantity that maximizes profit at every price.</p>
             </div>
           </div>
           <div class="demand-copy demand-rule">
-            <h4>Classify cost behavior with cost elasticity</h4>
+            <h4>Cost elasticity</h4>
             <p>At fixed input prices, cost elasticity measures the percentage change in minimum total cost for a 1% increase in output:</p>
             <div class="math-display demand-formula">$$\boxed{
               E^c=\frac{d\ln C}{d\ln y}
@@ -2649,23 +2632,21 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <p>For a technology homogeneous of degree $\nu&gt;0$, fixed input prices, and the standard long-run cost-minimization setup:</p>
             <div class="math-display demand-formula">$$\boxed{E^c=\frac1\nu}.$$</div>
             <p><strong>IRS</strong> therefore give economies of scale; <strong>CRS</strong> give constant average cost; <strong>DRS</strong> give diseconomies of scale. This connects the technology results in 3.1 to cost behavior.</p>
-            <p class="demand-note"><strong>Do not reverse the inference from one point:</strong> $MC=AC$ at one output only makes $AC$ stationary there. It does not establish globally constant returns to scale.</p>
+            <p class="demand-note">Equality $MC=AC$ at one output only makes $AC$ stationary there. It does not establish globally constant returns to scale.</p>
           </div>
           <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-cost-elasticity-derivation')"><span>Show derivation — Why cost elasticity equals 1/ν</span><span class="arrow">▾</span></button>
           <div class="collapsible" id="producer-cost-elasticity-derivation">
-            <ol class="demand-steps">
-              <li><strong>Scale output by $t&gt;0$.</strong> Homogeneity means that scaling every input by $t^{1/\nu}$ multiplies output by $t$. At fixed input prices, expenditure scales by $t^{1/\nu}$.</li>
-              <li><strong>Apply cost minimization in both directions.</strong> Scaling a cheapest bundle gives a feasible bundle for the new target; a cheaper alternative could be scaled back to contradict the original minimum. Thus:
-                <div class="math-display">$$C(w,ty)=t^{1/\nu}C(w,y).$$</div>
-              </li>
-              <li><strong>Start from one unit of output.</strong> Let $k=C(w,1)&gt;0$. Then $C(w,y)=k y^{1/\nu}$, and:
-                <div class="math-display">$$\begin{aligned}
-                  MC&=\frac{k}{\nu}y^{1/\nu-1},\\
-                  AC&=k y^{1/\nu-1}.
-                \end{aligned}$$</div>
-              </li>
-              <li><strong>Divide:</strong> $E^c=MC/AC=1/\nu$ for positive output.</li>
-            </ol>
+            <div class="demand-copy">
+              <p>Homogeneity means that scaling every input by $t^{1/\nu}$ multiplies output by $t&gt;0$. At fixed input prices, expenditure scales by $t^{1/\nu}$.</p>
+              <p>Scaling a cheapest bundle gives a feasible bundle for the new target. A cheaper alternative could be scaled back to contradict the original minimum. Therefore:</p>
+              <div class="math-display">$$C(w,ty)=t^{1/\nu}C(w,y).$$</div>
+              <p>With $k=C(w,1)&gt;0$, cost is $C(w,y)=k y^{1/\nu}$, so:</p>
+              <div class="math-display">$$\begin{aligned}
+                MC&=\frac{k}{\nu}y^{1/\nu-1},\\
+                AC&=k y^{1/\nu-1}.
+              \end{aligned}$$</div>
+              <p>The ratio gives $E^c=MC/AC=1/\nu$ for positive output.</p>
+            </div>
           </div>
         </article>
       </div>
@@ -2677,7 +2658,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <header class="consumer-divider">
         <div class="page-label">Midterm Sheet · Producer Theory</div>
         <h2 id="producer-efficiency-title">3.4 — Efficiency</h2>
-        <p>Distinguish physical efficiency from least-cost production, then apply the two production-side theorems.</p>
+        <p>Output efficiency, technical efficiency and economic efficiency.</p>
       </header>
       <div class="demand-chapter effects-chapter">
         <article class="demand-card" id="sheet-producer-efficiency">
@@ -2724,18 +2705,16 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
               <p>Any feasible improvement would raise profit. <strong>Convexity is not required</strong> for this direction.</p>
               <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-profit-efficiency-proof')"><span>Show proof — Profit maximization implies efficiency</span><span class="arrow">▾</span></button>
               <div class="collapsible" id="producer-profit-efficiency-proof">
-                <ol class="demand-steps">
-                  <li>Profit maximization gives $\mathbf p\cdot a^*\geq\mathbf p\cdot a'$ for every $a'\in Y$.</li>
-                  <li>Suppose $a^*$ were inefficient. A feasible $a'\geq a^*$ would then exist with at least one strictly larger component.</li>
-                  <li>Since every price is strictly positive:
-                    <div class="math-display">$$\begin{gathered}
-                      \mathbf p\cdot(a'-a^*)\\
-                      =\sum_i p_i(a_i'-a_i^*)&gt;0.
-                    \end{gathered}$$</div>
-                  </li>
-                  <li>This contradicts profit maximization, so $a^*$ is efficient.</li>
-                </ol>
-                <p>If a price were zero, improving only that component might leave profit unchanged. This is why strict positivity matters.</p>
+                <div class="demand-copy">
+                  <p>Profit maximization gives $\mathbf p\cdot a^*\geq\mathbf p\cdot a'$ for every $a'\in Y$.</p>
+                  <p>If $a^*$ were inefficient, a feasible $a'\geq a^*$ would exist with at least one strictly larger component. Strictly positive prices imply:</p>
+                  <div class="math-display">$$\begin{gathered}
+                    \mathbf p\cdot(a'-a^*)\\
+                    =\sum_i p_i(a_i'-a_i^*)&gt;0.
+                  \end{gathered}$$</div>
+                  <p>This contradicts profit maximization, so $a^*$ is efficient.</p>
+                  <p>If a price were zero, improving only that component might leave profit unchanged. This is why strict positivity matters.</p>
+                </div>
               </div>
             </div>
             <div class="demand-method">
