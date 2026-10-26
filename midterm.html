@@ -909,9 +909,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <a class="course-block-link" href="#consumer-theory-sheet" title="2.1–2.2 · Consumer Demand &amp; Duality">2.1–2.2</a>
       <a class="course-block-link" href="#income-price-effects-sheet" title="2.3 · Income and Price Effects">2.3</a>
       <a class="course-block-link" href="#producer-technology-sheet" title="3.1 · Technology and Production">3.1</a>
-      <a class="course-block-link" href="#producer-profit-sheet" title="3.2 · Profit Maximization">3.2</a>
-      <a class="course-block-link" href="#producer-costs-sheet" title="3.3 · Cost Minimization and Cost Functions">3.3</a>
-      <a class="course-block-link" href="#producer-efficiency-sheet" title="3.4 · Efficiency">3.4</a>
+      <a class="course-block-link" href="#producer-profit-sheet" title="3.2–3.4 · Profit Maximization, Costs &amp; Efficiency">3.2–3.4</a>
     </nav>
   </div>
   <div class="main-content">
@@ -2261,32 +2259,29 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <div class="demand-chapter effects-chapter">
         <article class="demand-card" id="sheet-pmp">
           <h3 class="effects-title"><span>01</span>The Profit Maximization Problem (PMP)</h3>
-          <p><strong>Use when:</strong> the firm chooses how much to produce at given output and input prices. Output is <strong>not imposed</strong>.</p>
-          <div class="math-display demand-formula">$$\boxed{\begin{aligned}
-            \max_{z_1,z_2\geq0}\;&\pi(z_1,z_2)\\
-            &=pf(z_1,z_2)-w\cdot z
-          \end{aligned}}$$</div>
-          <p>The firm chooses inputs $z_1,z_2$. Output price $p$ and input prices $w_1,w_2$ are taken as given: $pf(z_1,z_2)$ is revenue, while $w_1z_1+w_2z_2$ is input expenditure.</p>
+          <p>Choose the <strong>inputs $z=(z_1,z_2)$ that maximize profit</strong> at given output and input prices.</p>
+          <div class="demand-pair">
+            <div class="math-display demand-formula">$$\boxed{\max_{z\geq0}\;\big[pf(z)-w\cdot z\big]}$$</div>
+            <div class="demand-copy">
+              <p><strong>Revenue:</strong> $pf(z_1,z_2)$.</p>
+              <p><strong>Input expenditure:</strong> $w\cdot z=w_1z_1+w_2z_2$.</p>
+              <p><strong>Solution:</strong> $z^\pi(p,w)$, the optimal inputs as functions of <strong>output and input prices</strong>. Output is chosen through $y^*=f(z^\pi)$.</p>
+            </div>
+          </div>
+          <h4>Interior first-order conditions</h4>
+          <p>With differentiable production and positive optimal inputs:</p>
           <div class="demand-pair">
             <div class="demand-copy">
-              <h4>Interior first-order conditions</h4>
-              <p>With differentiable production and positive optimal inputs:</p>
+              <div class="math-display">$$\frac{\partial\pi}{\partial z_i}=pMP_i-w_i=0$$</div>
               <div class="math-display demand-formula">$$\boxed{\begin{cases}
                 pMP_1=w_1,\\
                 pMP_2=w_2.
               \end{cases}}$$</div>
-              <p>The <strong>value of each input's marginal product equals its price</strong>. If $pMP_i&gt;w_i$, a little more of input $i$ raises profit; if $pMP_i&lt;w_i$, a little less raises profit at an interior bundle.</p>
             </div>
-            <div class="demand-method quick-method">
-              <h4>Exam method</h4>
-              <ol class="demand-steps">
-                <li>Write the profit function.</li>
-                <li>Differentiate with respect to each chosen input.</li>
-                <li>Set the derivatives equal to zero.</li>
-                <li>Solve for the optimal inputs.</li>
-                <li>Substitute into production for optimal output.</li>
-                <li>Substitute into profit for maximum profit.</li>
-              </ol>
+            <div class="demand-copy">
+              <p>The <strong>value of each input's marginal product equals its price</strong>.</p>
+              <p>If $pMP_i&gt;w_i$, increasing input $i$ raises profit. If $pMP_i&lt;w_i$, reducing it raises profit at an interior bundle.</p>
+              <p>Solve the two conditions jointly for $z_1^\pi(p,w)$ and $z_2^\pi(p,w)$.</p>
             </div>
           </div>
           <p class="demand-note"><strong>Check the candidate:</strong> interior FOCs alone do not prove a maximum. Check curvature or compare profits, consider corners, and verify that a finite maximum exists.</p>
@@ -2303,7 +2298,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             </div>
           </div>
           <div class="demand-copy demand-rule">
-            <h4>Three different outputs of the calculation</h4>
+            <h4>Input demand, output supply and profit</h4>
             <div class="table-wrap">
               <table class="producer-table">
                 <thead><tr><th scope="col">Result</th><th scope="col">Meaning / calculation</th></tr></thead>
@@ -2362,7 +2357,7 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       <div class="demand-chapter effects-chapter">
         <article class="demand-card" id="sheet-cmp">
           <h3 class="effects-title"><span>01</span>Cost Minimization: From Input Choice to Cost</h3>
-          <p><strong>Use when:</strong> output $\bar y$ is given and the firm must choose the cheapest input combination that can produce it.</p>
+          <p>Choose the <strong>least expensive input bundle</strong> that produces the target output $\bar y$.</p>
           <div class="demand-pair">
             <div class="math-display demand-formula">$$\boxed{\begin{aligned}
               \min_{z_1,z_2\geq0}\quad&w_1z_1+w_2z_2\\
@@ -2371,39 +2366,37 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
             <div class="demand-copy">
               <p>With positive input prices, a continuous increasing production function, and a feasible positive target, the output constraint binds:</p>
               <div class="math-display">$$f(z_1,z_2)=\bar y.$$</div>
-              <p>Producing more than required would use costly inputs unnecessarily.</p>
+              <p><strong>Solution:</strong> $z^C(w,\bar y)$, the optimal inputs as functions of <strong>input prices and target output</strong>.</p>
             </div>
           </div>
-          <div class="math-display demand-formula">$$\boxed{\begin{aligned}
-            \mathcal L&=w_1z_1+w_2z_2\\
-              &\quad+\lambda[\bar y-f(z_1,z_2)]
-          \end{aligned}}$$</div>
+          <p><strong>Interior solution:</strong> differentiable production, positive inputs and positive marginal products.</p>
           <div class="demand-pair">
-            <div class="demand-copy">
-              <h4>Interior FOCs and tangency</h4>
+            <div class="demand-method">
+              <h4>Method 1 — Lagrangian</h4>
+              <div class="math-display">$$\begin{aligned}
+                \mathcal L&=w_1z_1+w_2z_2\\
+                  &\quad+\lambda[\bar y-f(z_1,z_2)]
+              \end{aligned}$$</div>
+              <p>The first-order conditions are:</p>
               <div class="math-display">$$\begin{cases}
                 w_1-\lambda MP_1=0,\\
                 w_2-\lambda MP_2=0,\\
                 f(z_1,z_2)=\bar y.
               \end{cases}$$</div>
-              <p>With positive marginal products, divide the first two conditions:</p>
-              <div class="math-display demand-formula">$$\boxed{MRTS_{12}=\frac{MP_1}{MP_2}=\frac{w_1}{w_2}}$$</div>
-              <p>The optimal technical input trade-off equals the input-price ratio. This is where <strong>MRTS</strong> enters the calculation.</p>
-              <p class="demand-condition">Tangency is an interior method. For substitutes, complements, or boundary candidates, check the appropriate corners or fixed proportions.</p>
+              <p>Divide the first two conditions to eliminate $\lambda$ and obtain the MRTS condition.</p>
             </div>
             <div class="demand-method quick-method">
-              <h4>Exam method</h4>
-              <ol class="demand-steps">
-                <li>Write the minimization program.</li>
-                <li>Write the Lagrangian and its FOCs.</li>
-                <li>Divide the first two FOCs to eliminate $\lambda$.</li>
-                <li>Express one input in terms of the other.</li>
-                <li>Substitute into $f(z_1,z_2)=\bar y$.</li>
-                <li>Solve for the conditional input demands.</li>
-                <li>Substitute them into input expenditure for the cost function.</li>
-              </ol>
+              <h4>Method 2 — MRTS Condition</h4>
+              <p>Use the same interior conditions directly:</p>
+              <div class="math-display demand-formula">$$\boxed{\begin{cases}
+                MRTS_{12}=\dfrac{MP_1}{MP_2}=\dfrac{w_1}{w_2}\\[8pt]
+                f(z_1,z_2)=\bar y
+              \end{cases}}$$</div>
+              <p>The <strong>technical rate of substitution equals the input-price ratio</strong>.</p>
+              <p>Express one input in terms of the other, then substitute into the output constraint to find both conditional demands.</p>
             </div>
           </div>
+          <p class="demand-note">Tangency is an interior method. For substitutes, complements, or boundary candidates, check the appropriate corners or fixed proportions.</p>
           <button type="button" class="toggle-btn" onclick="toggle(this, 'producer-cobb-douglas-method')"><span>Show method — Cobb-Douglas cost minimization</span><span class="arrow">▾</span></button>
           <div class="collapsible" id="producer-cobb-douglas-method">
             <ol class="demand-steps">
@@ -2688,24 +2681,33 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
       </header>
       <div class="demand-chapter effects-chapter">
         <article class="demand-card" id="sheet-producer-efficiency">
-          <h3 class="effects-title"><span>01</span>Technical versus Economic Efficiency</h3>
-          <div class="table-wrap">
-            <table class="producer-table">
-              <thead><tr><th scope="col">Concept</th><th scope="col">What is held fixed?</th><th scope="col">Test</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Output efficiency</th><td>Inputs.</td><td>No more output is feasible: $y=f(z)$.</td></tr>
-                <tr><th scope="row">Technical efficiency</th><td>Output.</td><td>No input can be reduced without increasing another or failing to produce the same output.</td></tr>
-                <tr><th scope="row">Economic efficiency</th><td>Output and input prices.</td><td>The chosen inputs attain minimum cost: $w\cdot z=C(w,y)$.</td></tr>
-              </tbody>
-            </table>
+          <h3 class="effects-title"><span>01</span>Output, Technical and Economic Efficiency</h3>
+          <div class="demand-pair">
+            <div class="demand-copy">
+              <h4>Output efficiency · Given inputs</h4>
+              <p>The firm cannot produce <strong>more output with the same inputs</strong>.</p>
+              <div class="math-display demand-formula">$$\boxed{y=f(z)}$$</div>
+              <p>The output produced reaches the maximum allowed by the technology.</p>
+            </div>
+            <div class="demand-copy">
+              <h4>Technical efficiency · Given output</h4>
+              <p>The firm cannot produce the same output with <strong>less of at least one input and no more of any other input</strong>.</p>
+              <p>With several inputs, this means reducing inputs component by component, rather than adding their quantities together.</p>
+            </div>
           </div>
-          <p><strong>Economic efficiency is precisely the result of cost minimization in 3.3.</strong> For strictly positive input prices:</p>
+          <div class="demand-copy demand-rule">
+            <h4>Economic efficiency · Given output and input prices</h4>
+            <p>For a given output and given input prices, a firm is economically efficient when <strong>no feasible input combination costs less</strong>.</p>
+            <div class="math-display demand-formula">$$\boxed{w\cdot z^*=C(w,y)}$$</div>
+            <p>The cost of the chosen bundle must equal the <strong>minimum cost of producing $y$</strong>.</p>
+          </div>
+          <p>For strictly positive input prices:</p>
           <div class="math-display demand-formula">$$\boxed{\begin{gathered}
             \text{Economic efficiency}\\
             \Longrightarrow\;\text{Technical efficiency}
           \end{gathered}}.$$</div>
-          <p>If an input could be reduced without using more of another or lowering output, cost would fall. But a technically efficient input mix can still be too expensive: substituting a cheaper input for an expensive one may reduce cost without changing output.</p>
-          <p class="demand-note"><strong>The converse need not hold.</strong> Technical efficiency rules out wasted inputs; it does not select the least expensive mix at current prices. Likewise, reaching the production frontier alone does not rule out input waste if that frontier has a flat part.</p>
+          <p>If an input could be reduced without increasing another or lowering output, cost would fall. The original bundle could not be cost-minimizing.</p>
+          <p class="demand-note"><strong>The converse does not hold.</strong> A technically efficient firm may still use an expensive input mix. It can sometimes reduce cost by using <strong>more of a cheaper input and less of an expensive input</strong>, while keeping output unchanged.</p>
         </article>
 
         <article class="demand-card" id="sheet-production-welfare">
@@ -2761,25 +2763,6 @@ button:focus-visible, a:focus-visible { outline:2px solid var(--red-bright); out
           <p class="demand-note"><strong>Different directions, different hypotheses:</strong> strictly positive given prices make profit maximization imply efficiency; convexity makes supporting prices exist for an efficient plan. These are production-side results, not a full statement of general-equilibrium welfare theorems.</p>
         </article>
 
-        <article class="demand-card" id="sheet-producer-exam-guide">
-          <h3 class="effects-title"><span>Exam guide</span>Which Method Should I Use?</h3>
-          <div class="table-wrap">
-            <table class="producer-table">
-              <thead><tr><th scope="col">The question asks…</th><th scope="col">Start here</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Maximize profit using inputs</th><td><a href="#sheet-pmp">Write the PMP</a>; differentiate, solve, and check the candidate.</td></tr>
-                <tr><th scope="row">Find minimum-cost input quantities</th><td><a href="#sheet-cmp">Use the CmP</a>: input ratio plus output constraint.</td></tr>
-                <tr><th scope="row">Find the cost function</th><td><a href="#sheet-cmp">Substitute conditional demands</a> into input expenditure.</td></tr>
-                <tr><th scope="row">Find marginal cost</th><td><a href="#sheet-short-run-costs">Differentiate total cost</a> with respect to output.</td></tr>
-                <tr><th scope="row">Find average cost</th><td><a href="#sheet-short-run-costs">Divide total cost by output.</a></td></tr>
-                <tr><th scope="row">Find minimum average cost</th><td><a href="#sheet-average-cost-method">Differentiate average cost</a>, verify the minimum, and report both coordinates.</td></tr>
-                <tr><th scope="row">Decide whether to shut down</th><td><a href="#sheet-shutdown-break-even">Compare price with minimum AVC</a> when fixed costs are unavoidable.</td></tr>
-                <tr><th scope="row">Identify economies of scale</th><td><a href="#sheet-long-run-scale">Study average cost or compare MC and AC.</a></td></tr>
-                <tr><th scope="row">Find optimal labor with fixed capital</th><td><a href="#sheet-short-run-costs">Substitute fixed capital first</a>, then optimize profit over labor.</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
       </div>
     </section>
     <!-- /Producer Theory — Efficiency -->
