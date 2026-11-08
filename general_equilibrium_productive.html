@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MICRO — Part IV · General Equilibrium in the Productive Economy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+  <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+  <style>
+    :root{--sidebar-bg:#13020A;--sidebar-width:280px;--bg:#0f1117;--card:#161922;--red:#e11d48;--red-bright:#ff2d55;--red-muted:rgba(225,29,72,.1);--red-border:rgba(225,29,72,.3);--blue:#60a5fa;--blue-muted:rgba(59,130,246,.1);--blue-border:rgba(59,130,246,.3);--green:#34d399;--green-muted:rgba(16,185,129,.09);--green-border:rgba(16,185,129,.3);--purple:#c084fc;--purple-muted:rgba(168,85,247,.1);--purple-border:rgba(168,85,247,.3);--amber:#fbbf24;--amber-muted:rgba(245,158,11,.09);--amber-border:rgba(245,158,11,.3);--text:#f8fafc;--text-2:#cbd5e1;--text-3:#94a3b8;--border:rgba(255,255,255,.07);--radius:10px;--font:'Outfit',sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font);display:flex;line-height:1.65}.sidebar{width:var(--sidebar-width);position:fixed;inset:0 auto 0 0;z-index:20;display:flex;flex-direction:column;overflow:hidden;background:var(--sidebar-bg);border-right:1px solid var(--border);transition:transform .25s}.sidebar.collapsed{transform:translateX(-100%)}.sidebar-brand{display:flex;justify-content:space-between;align-items:center;padding:22px 20px 16px;border-bottom:1px solid var(--border)}.sidebar-brand h1{font-size:1.3rem;letter-spacing:1px}.sidebar-brand h1 span{color:var(--red)}.sidebar-close{border:0;background:none;color:var(--text-3);font-size:1.3rem;cursor:pointer}.sidebar-nav{flex:1;overflow-y:auto;padding:12px 0}.sidebar-link,.sidebar-sublink{display:flex;padding:9px 22px;color:var(--text-3);text-decoration:none;font-size:.85rem;font-weight:600;border-left:3px solid transparent}.sidebar-link{padding:11px 22px;font-weight:700}.sidebar-sublink{padding-left:36px}.sidebar-link:hover,.sidebar-sublink:hover{background:rgba(255,255,255,.04);color:var(--text)}.sidebar-sublink.active{background:var(--red-muted);border-left-color:var(--red);color:var(--red-bright)}.sidebar-group{display:flex;flex-direction:column;gap:2px;margin-top:4px}.sidebar-group-title{padding:10px 22px 4px;color:var(--text-3);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px}.sidebar-footer{padding:14px 16px;border-top:1px solid var(--border)}.sidebar-user{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);background:rgba(255,255,255,.04)}.user-avatar{position:relative;width:44px;height:44px}.user-dot{position:absolute;right:-2px;bottom:-2px;width:8px;height:8px;border:2px solid var(--sidebar-bg);border-radius:50%;background:#10b981}.user-name{font-size:.82rem;font-weight:700}.main-wrap{min-width:0;flex:1;margin-left:var(--sidebar-width);transition:margin-left .25s}.main-wrap.expanded{margin-left:0}.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:16px;height:64px;padding:0 28px;border-bottom:1px solid var(--border);background:rgba(15,17,23,.92);backdrop-filter:blur(12px)}.topbar-toggle{width:38px;height:38px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}.breadcrumb{color:var(--text-3);font-size:.88rem}.breadcrumb strong{color:var(--text)}.topbar-pill{margin-left:auto;padding:5px 14px;border:1px solid var(--red-border);border-radius:999px;background:var(--red-muted);color:var(--red-bright);font-size:.78rem;font-weight:700}.main-content{width:100%;max-width:980px;margin:0 auto;padding:40px 44px 76px}.page-title{padding-bottom:24px;border-bottom:1px solid var(--border)}.page-label{margin-bottom:8px;color:var(--red);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px}.page-title h1{font-size:2.1rem;line-height:1.2}.page-title p{margin-top:8px;color:var(--text-3)}section{margin-top:44px}.part-banner{display:flex;align-items:center;gap:14px;margin-bottom:20px}.part-pill{padding:6px 15px;border:1px solid var(--blue-border);border-radius:999px;background:var(--blue-muted);color:var(--blue);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px}.part-line{height:1px;flex:1;background:var(--border)}h2{font-size:1.38rem;margin-bottom:12px}h3{font-size:1.05rem;margin:26px 0 12px;color:var(--text)}h4{font-size:.84rem;color:var(--purple);margin:0 0 7px;text-transform:uppercase;letter-spacing:.5px}p{color:var(--text-2);font-size:.94rem}p+p{margin-top:10px}.lead{font-size:1rem;line-height:1.75}.key-note,.remark,.question,.source-marker,.definition{margin:16px 0;padding:14px 17px;border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;background:var(--blue-muted);color:var(--text-2)}.remark{border-left-color:var(--amber);background:var(--amber-muted)}.question{border-left-color:var(--purple);background:var(--purple-muted)}.source-marker{border:1px dashed var(--amber-border);background:var(--amber-muted);color:var(--amber)}.definition{border-color:var(--green);background:var(--green-muted)}.definition h3{margin:0 0 9px;color:var(--green)}.key-note strong,.remark strong,.question strong,.source-marker strong,.definition strong{color:var(--text)}.math{margin:14px 0;padding:14px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:#11151e;text-align:center}.math.emphasis{border-color:var(--blue-border);background:var(--blue-muted)}.cards,.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card,.study-block{padding:19px 20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.card h3{margin:0 0 7px;font-size:.94rem;color:var(--blue)}.card p,.study-block p,.study-block li{font-size:.9rem}.card.full,.study-block.full{grid-column:1/-1}.study-block{background:rgba(255,255,255,.025)}.list{list-style:none;display:grid;gap:10px;margin:13px 0}.list li{color:var(--text-2);font-size:.92rem}.list li::before{content:'—';color:var(--blue);font-weight:800;margin-right:8px}@media(max-width:800px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main-wrap{margin-left:0}.main-content{padding:30px 20px 55px}.topbar{padding:0 18px}.cards,.study-grid{grid-template-columns:1fr}.topbar-pill{display:none}}@media(max-width:520px){.main-content{padding:24px 14px 48px}.topbar{height:58px;padding:0 12px}.breadcrumb{font-size:.76rem}.page-title h1{font-size:1.75rem}.math{padding:10px 6px;font-size:.85rem}}
+  </style>
+<link rel="stylesheet" href="midterm-nav.css">
+<link rel="stylesheet" href="reading-progress.css">
+<link rel="stylesheet" href="equilibrium.css">
+<script defer src="reading-progress.js"></script>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
+    <nav class="sidebar-nav" aria-label="Course navigation">
+    <a href="midterm.html" class="sidebar-link">Midterm Sheet</a>
+      <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a><a href="producer_costs_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 4 — Equilibrium &amp; Welfare</div><a href="partial_equilibrium.html" class="sidebar-sublink">1 · Partial Equilibrium</a><a href="general_equilibrium_exchange.html" class="sidebar-sublink">2 · General Equilibrium in the Exchange Economy</a><a href="general_equilibrium_productive.html" class="sidebar-sublink active" aria-current="page">3 · General Equilibrium in the Productive Economy</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div>
+  </aside>
+  <main class="main-wrap" id="main-wrap">
+    <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>3. General Equilibrium in the Productive Economy</strong></div><div class="topbar-pill">Part IV</div></div>
+    <div class="main-content">
+<header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>3. General Equilibrium in the Productive Economy</h1><p>Production plans, profit income, market clearing, and efficiency.</p></header>
+
+    <section id="productive-economy">
+      <div class="part-banner"><span class="part-pill">01 · Adding production</span><span class="part-line"></span></div>
+      <h2>Consumers, Firms, and Goods</h2>
+      <p class="lead">The economy now contains \(N\) goods, \(I\) consumers, and \(K\) firms. Firms transform inputs into outputs, so total consumption can differ from the initial endowment.</p>
+      <div class="term-grid">
+        <article class="term"><h3>Consumers</h3><p>Consumer \(i\) has utility \(u_i\), endowment \(\omega_i\), and consumption bundle \(x_i\geq0\).</p></article>
+        <article class="term"><h3>Firms</h3><p>Firm \(k\) chooses a net-output vector \(y_k\) from its production set \(Y_k\).</p></article>
+      </div>
+      <div class="key-note"><strong>Read the signs.</strong> A positive component \(y_{kn}\) is an output of good \(n\); a negative component is an input. For example, \(y_k=(-2,3)\) uses 2 units of good 1 to produce 3 units of good 2.</div>
+      <p>At prices \(p\), profit is revenue minus input expenditure, both included in the dot product:</p>
+      <div class="math emphasis">\[
+        \pi_k(p)=\max_{y_k\in Y_k}p\cdot y_k,
+        \qquad
+        y_k(p)\in\arg\max_{y_k\in Y_k}p\cdot y_k.
+      \]</div>
+    </section>
+
+    <section id="profit-income">
+      <div class="part-banner"><span class="part-pill">02 · Ownership &amp; income</span><span class="part-line"></span></div>
+      <h2>How Are Profits Distributed?</h2>
+      <p>Consumers own the firms. Let \(\theta_{ki}\) be consumer \(i\)'s ownership share in firm \(k\), and therefore their share of its profit:</p>
+      <div class="math">\[
+        \theta_{ki}\geq0,
+        \qquad \sum_{i=1}^{I}\theta_{ki}=1
+        \quad\text{for every firm }k.
+      \]</div>
+      <div class="cards">
+        <article class="card"><h3>Full ownership</h3><p>If \(\theta_{ki}=1\), consumer \(i\) owns all of firm \(k\); all other consumers have zero shares in that firm.</p></article>
+        <article class="card"><h3>Equal ownership</h3><p>If \(\theta_{ki}=1/I\) for every \(i\), each consumer receives the same share of firm \(k\)'s profit.</p></article>
+      </div>
+      <p>Wealth includes both the value of the initial endowment and distributed profits:</p>
+      <div class="math emphasis">\[
+        m_i(p)=p\cdot\omega_i+\sum_{k=1}^{K}\theta_{ki}\pi_k(p),
+        \qquad p\cdot x_i\leq m_i(p).\tag{4}
+      \]</div>
+      <div class="remark"><strong>Ownership concerns profit, not gross output.</strong> The firm must pay for its inputs before distributing profit. The budget therefore uses \(\theta_{ki}\pi_k(p)\), not a share of sales revenue.</div>
+    </section>
+
+    <section id="equilibrium-production">
+      <div class="part-banner"><span class="part-pill">03 · Walrasian equilibrium</span><span class="part-line"></span></div>
+      <h2>Optimization and Market Clearing</h2>
+      <p>An allocation \(x^*\), production plans \(y^*\), and a nonzero price vector \(p^*\geq0\) form a Walrasian equilibrium when all three conditions hold.</p>
+      <article class="course-block"><h3>Firm optimization</h3><p>Each firm chooses a feasible plan that maximizes profit:</p>
+        <div class="math emphasis">\[
+          y_k^*\in\arg\max_{y_k\in Y_k}p^*\cdot y_k
+          \quad\text{for every }k.
+        \]</div>
+      </article>
+      <article class="course-block"><h3>Consumer optimization</h3><p>Each consumer chooses their best bundle at the wealth generated by endowments and equilibrium profits:</p>
+        <div class="math emphasis">\[
+          x_i^*\in\arg\max_{x_i\geq0}u_i(x_i)
+          \quad\text{s.t.}\quad
+          p^*\cdot x_i\leq p^*\cdot\omega_i+
+          \sum_k\theta_{ki}\,p^*\cdot y_k^*.
+        \]</div>
+      </article>
+      <article class="course-block"><h3>Market clearing</h3><p>For each good, consumption equals the initial endowment plus net production:</p>
+        <div class="math emphasis">\[
+          \sum_i x_{in}^*=\sum_i\omega_{in}+\sum_k y_{kn}^*
+          \quad(n=1,\ldots,N).
+        \]</div>
+        <p>Equivalently, aggregate net purchases equal aggregate net output: \(\sum_i(x_i^*-\omega_i)=\sum_k y_k^*\).</p>
+      </article>
+      <h3>Aggregate excess demand</h3>
+      <p>Using demand at the full wealth \(m_i(p)\), including profit income:</p>
+      <div class="math">\[
+        z_n(p)=\sum_i x_{in}(p,m_i(p))
+        -\sum_i\omega_{in}-\sum_k y_{kn}(p).\tag{5}
+      \]</div>
+      <p>If preferences are locally nonsatiated and all profits are distributed, Walras' law remains valid:</p>
+      <div class="math">\[
+        p\cdot z(p)
+        =\sum_i m_i(p)-p\cdot\sum_i\omega_i-\sum_k\pi_k(p)=0.
+      \]</div>
+    </section>
+
+    <section id="existence-production">
+      <div class="part-banner"><span class="part-pill">04 · Existence</span><span class="part-line"></span></div>
+      <h2>Conditions for Equilibrium</h2>
+      <p>Existence requires assumptions on both preferences and technology. A convenient, restrictive sufficient benchmark for a finite economy is:</p>
+      <ul class="list">
+        <li>Consumption sets are \(\mathbb R_+^N\); every \(u_i\) is continuous, strictly increasing, and strictly concave.</li>
+        <li>Every consumer has a strictly positive endowment, \(\omega_i\gg0\).</li>
+        <li>Each production set \(Y_k\) is nonempty, closed, bounded, and convex, and contains the no-production plan \(0\).</li>
+        <li>Ownership shares are nonnegative and sum to one for each firm.</li>
+      </ul>
+      <div class="cards">
+        <article class="card"><h3>Closed and bounded production sets</h3><p>Compactness ensures that the continuous profit objective attains a finite maximum. Convexity supports the equilibrium existence argument.</p></article>
+        <article class="card"><h3>Positive endowments and \(0\in Y_k\)</h3><p>Consumers can finance some consumption, and firms can choose not to produce. Maximum profit is therefore nonnegative.</p></article>
+      </div>
+      <div class="remark"><strong>A sufficient benchmark.</strong> Strict convexity of technology is not needed. More general existence theorems allow unbounded production sets under suitable restrictions on feasible production and resources; free disposal, for example, makes production sets unbounded in negative directions.</div>
+    </section>
+
+    <section id="efficiency-production">
+      <div class="part-banner"><span class="part-pill">05 · Feasibility &amp; efficiency</span><span class="part-line"></span></div>
+      <h2>Feasible Consumption and Production</h2>
+      <p>An allocation and production plan \((x,y)\) is feasible when \(x_i\geq0\), \(y_k\in Y_k\), and, for every good:</p>
+      <div class="math emphasis">\[
+        \sum_i x_{in}\leq\sum_i\omega_{in}+\sum_k y_{kn}
+        \qquad(n=1,\ldots,N).
+      \]</div>
+      <p>The inequality permits disposal of available goods. Inputs already enter \(y_k\) negatively, so they must not be subtracted a second time.</p>
+      <h3>Pareto efficiency</h3>
+      <p>A feasible \((x,y)\) is Pareto efficient if there is no other feasible pair \((x',y')\) for which:</p>
+      <div class="math">\[
+        u_i(x_i')\geq u_i(x_i)\ \text{for every }i,
+        \qquad u_j(x_j')&gt;u_j(x_j)\ \text{for some }j.
+      \]</div>
+      <div class="key-note"><strong>Production can change too.</strong> To assess efficiency, consider both reallocating existing goods and choosing different feasible production plans. Firms' profits affect consumer wealth, but consumer utilities determine the Pareto comparison.</div>
+    </section>
+
+    <section id="welfare-production">
+      <div class="part-banner"><span class="part-pill">06 · Welfare theorems</span><span class="part-line"></span></div>
+      <h2>Efficiency with Production</h2>
+      <article class="course-block"><h3>First welfare theorem</h3>
+        <p>In the competitive private-goods economy, with locally nonsatiated preferences, every Walrasian equilibrium \((x^*,y^*,p^*)\) is Pareto efficient.</p>
+        <p>A Pareto improvement would require consumption whose value exceeds total equilibrium wealth. But feasibility and profit maximization imply that no alternative production plans can provide a greater total value at the equilibrium prices.</p>
+        <div class="math">\[
+          \sum_i p^*\cdot x_i'
+          \leq p^*\cdot\sum_i\omega_i+\sum_k p^*\cdot y_k'
+          \leq p^*\cdot\sum_i\omega_i+\sum_k\pi_k(p^*).
+        \]</div>
+        <p>This contradicts the value required for a Pareto improvement. Convexity of production is not needed for this direction.</p>
+      </article>
+      <article class="course-block"><h3>Second welfare theorem</h3>
+        <p>With continuous, strongly monotone, convex preferences and closed, convex production sets, an efficient allocation with interior consumption can be supported by prices and suitable lump-sum wealth transfers.</p>
+        <p>At the supporting prices, firms maximize profit. Transfers give consumers the wealth required to choose the target bundles:</p>
+        <div class="math">\[
+          p^*\cdot x_i\leq p^*\cdot\omega_i+
+          \sum_k\theta_{ki}\pi_k(p^*)+T_i,
+          \qquad \sum_i T_i=0.
+        \]</div>
+        <p>For a target \((x^*,y^*)\), use \(T_i=p^*\cdot x_i^*-p^*\cdot\omega_i-\sum_k\theta_{ki}\pi_k(p^*)\). Feasibility at the efficient allocation and full profit distribution make these transfers sum to zero.</p>
+      </article>
+      <div class="remark"><strong>Changing ownership alone need not be enough.</strong> Redistributing shares changes profit income, but cannot generate every required wealth distribution when profits are zero or too small. The general second welfare theorem allows wealth transfers or a redistribution of endowments, rather than relying only on ownership shares.</div>
+      <p class="small">The role of convexity and wealth transfers is discussed in <a href="https://ocw.mit.edu/courses/14-04-intermediate-microeconomic-theory-fall-2020/1l9kx3DXl6J0mWLbAFtMf7U5jnyo4fBBH_transcript.pdf">MIT's review of the welfare theorems</a> and <a href="https://marcelogallardob.github.io/files/courses/Microeconomics-II/EG_lecture_notes.pdf">Gallardo, section 5</a>.</p>
+    </section>
+    </div>
+  </main>
+  <script>function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:800px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}</script>
+</body>
+</html>

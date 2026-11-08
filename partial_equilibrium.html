@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MICRO — Part IV · Partial Equilibrium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>
+    MathJax = { tex: { inlineMath: [['\\(', '\\)']] }, options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] } };
+  </script>
+  <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+  <style>
+    :root{--sidebar-bg:#13020A;--sidebar-width:280px;--bg:#0f1117;--card:#161922;--red:#e11d48;--red-bright:#ff2d55;--red-muted:rgba(225,29,72,.1);--red-border:rgba(225,29,72,.3);--blue:#60a5fa;--blue-muted:rgba(59,130,246,.1);--blue-border:rgba(59,130,246,.3);--green:#34d399;--green-muted:rgba(16,185,129,.09);--green-border:rgba(16,185,129,.3);--purple:#c084fc;--purple-muted:rgba(168,85,247,.1);--purple-border:rgba(168,85,247,.3);--amber:#fbbf24;--amber-muted:rgba(245,158,11,.09);--amber-border:rgba(245,158,11,.3);--text:#f8fafc;--text-2:#cbd5e1;--text-3:#94a3b8;--border:rgba(255,255,255,.07);--radius:10px;--font:'Outfit',sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font);display:flex;line-height:1.65}.sidebar{width:var(--sidebar-width);position:fixed;inset:0 auto 0 0;z-index:20;display:flex;flex-direction:column;overflow:hidden;background:var(--sidebar-bg);border-right:1px solid var(--border);transition:transform .25s}.sidebar.collapsed{transform:translateX(-100%)}.sidebar-brand{display:flex;justify-content:space-between;align-items:center;padding:22px 20px 16px;border-bottom:1px solid var(--border)}.sidebar-brand h1{font-size:1.3rem;letter-spacing:1px}.sidebar-brand h1 span{color:var(--red)}.sidebar-close{border:0;background:none;color:var(--text-3);font-size:1.3rem;cursor:pointer}.sidebar-nav{flex:1;overflow-y:auto;padding:12px 0}.sidebar-link,.sidebar-sublink{display:flex;padding:9px 22px;color:var(--text-3);text-decoration:none;font-size:.85rem;font-weight:600;border-left:3px solid transparent}.sidebar-link{padding:11px 22px;font-weight:700}.sidebar-sublink{padding-left:36px}.sidebar-link:hover,.sidebar-sublink:hover{background:rgba(255,255,255,.04);color:var(--text)}.sidebar-sublink.active{background:var(--red-muted);border-left-color:var(--red);color:var(--red-bright)}.sidebar-group{display:flex;flex-direction:column;gap:2px;margin-top:4px}.sidebar-group-title{padding:10px 22px 4px;color:var(--text-3);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px}.sidebar-footer{padding:14px 16px;border-top:1px solid var(--border)}.sidebar-user{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);background:rgba(255,255,255,.04)}.user-avatar{position:relative;width:44px;height:44px}.user-dot{position:absolute;right:-2px;bottom:-2px;width:8px;height:8px;border:2px solid var(--sidebar-bg);border-radius:50%;background:#10b981}.user-name{font-size:.82rem;font-weight:700}.main-wrap{min-width:0;flex:1;margin-left:var(--sidebar-width);transition:margin-left .25s}.main-wrap.expanded{margin-left:0}.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:16px;height:64px;padding:0 28px;border-bottom:1px solid var(--border);background:rgba(15,17,23,.92);backdrop-filter:blur(12px)}.topbar-toggle{width:38px;height:38px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}.breadcrumb{color:var(--text-3);font-size:.88rem}.breadcrumb strong{color:var(--text)}.topbar-pill{margin-left:auto;padding:5px 14px;border:1px solid var(--red-border);border-radius:999px;background:var(--red-muted);color:var(--red-bright);font-size:.78rem;font-weight:700}.main-content{width:100%;max-width:980px;margin:0 auto;padding:40px 44px 76px}.page-title{padding-bottom:24px;border-bottom:1px solid var(--border)}.page-label{margin-bottom:8px;color:var(--red);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px}.page-title h1{font-size:2.1rem;line-height:1.2}.page-title p{margin-top:8px;color:var(--text-3)}section{margin-top:44px}.part-banner{display:flex;align-items:center;gap:14px;margin-bottom:20px}.part-pill{padding:6px 15px;border:1px solid var(--blue-border);border-radius:999px;background:var(--blue-muted);color:var(--blue);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px}.part-pill.research{border-color:var(--purple-border);background:var(--purple-muted);color:var(--purple)}.part-line{height:1px;flex:1;background:var(--border)}h2{font-size:1.38rem;margin-bottom:12px}h3{font-size:1.05rem;margin:26px 0 12px;color:var(--text)}h4{font-size:.84rem;color:var(--purple);margin:0 0 7px;text-transform:uppercase;letter-spacing:.5px}p{color:var(--text-2);font-size:.94rem}p+p{margin-top:10px}.lead{font-size:1rem;line-height:1.75}.key-note,.remark,.question{margin:16px 0;padding:14px 17px;border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;background:var(--blue-muted);color:var(--text-2)}.remark{border-left-color:var(--amber);background:var(--amber-muted)}.question{border-left-color:var(--purple);background:var(--purple-muted)}.key-note strong,.remark strong,.question strong{color:var(--text)}.math{margin:14px 0;padding:14px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:#11151e;text-align:center}.math.emphasis{border-color:var(--blue-border);background:var(--blue-muted)}.cards,.term-grid,.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card,.term,.study-block{padding:19px 20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.card h3,.term h3{margin:0 0 7px;font-size:.94rem;color:var(--blue)}.card p,.term p,.study-block p,.study-block li{font-size:.9rem}.card.full,.study-block.full{grid-column:1/-1}.list{list-style:none;display:grid;gap:10px;margin:13px 0}.list li{color:var(--text-2);font-size:.92rem}.list li::before{content:'—';color:var(--blue);font-weight:800;margin-right:8px}.figure-placeholder,.source-marker{display:flex;align-items:center;justify-content:center;min-height:96px;margin:18px 0;padding:20px;border:1px dashed var(--amber-border);border-radius:var(--radius);background:var(--amber-muted);color:var(--amber);font-size:.84rem;font-weight:700;text-align:center}.research-focus{margin-top:18px;padding:24px;border:1px solid var(--purple-border);border-radius:16px;background:linear-gradient(180deg,rgba(168,85,247,.10),rgba(22,25,34,.92) 35%)}.study{margin-top:18px;padding:20px;border:1px solid rgba(168,85,247,.24);border-radius:var(--radius);background:rgba(15,17,23,.52)}.study h3{margin:0 0 9px;color:var(--purple)}.study-ref,.small{color:var(--text-3);font-size:.86rem;font-style:italic}.study-grid{margin-top:14px}.study-block{background:rgba(255,255,255,.025)}@media(max-width:800px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main-wrap{margin-left:0}.main-content{padding:30px 20px 55px}.topbar{padding:0 18px}.cards,.term-grid,.study-grid{grid-template-columns:1fr}.topbar-pill{display:none}}@media(max-width:520px){.main-content{padding:24px 14px 48px}.topbar{height:58px;padding:0 12px}.breadcrumb{font-size:.76rem}.page-title h1{font-size:1.75rem}.math{padding:10px 6px;font-size:.85rem}.research-focus{padding:18px}}
+  </style>
+<link rel="stylesheet" href="midterm-nav.css">
+<link rel="stylesheet" href="reading-progress.css">
+<link rel="stylesheet" href="equilibrium.css">
+<script defer src="reading-progress.js"></script>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
+    <nav class="sidebar-nav" aria-label="Course navigation">
+    <a href="midterm.html" class="sidebar-link">Midterm Sheet</a>
+      <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a><a href="producer_costs_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 4 — Equilibrium &amp; Welfare</div><a href="partial_equilibrium.html" class="sidebar-sublink active" aria-current="page">1 · Partial Equilibrium</a><a href="general_equilibrium_exchange.html" class="sidebar-sublink">2 · General Equilibrium in the Exchange Economy</a><a href="general_equilibrium_productive.html" class="sidebar-sublink">3 · General Equilibrium in the Productive Economy</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div>
+  </aside>
+  <main class="main-wrap" id="main-wrap">
+    <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>1. Partial Equilibrium</strong></div><div class="topbar-pill">Part IV</div></div>
+    <div class="main-content">
+<header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>1. Partial Equilibrium</h1><p>Competitive prices, market clearing, surplus, and experimental evidence.</p></header>
+
+    <section id="competition">
+      <div class="part-banner"><span class="part-pill">01 · Market structures</span><span class="part-line"></span></div>
+      <h2>Perfect Competition</h2>
+      <p class="lead">Market structures differ in how much influence individual agents have over prices. This chapter studies <strong>perfect competition</strong>: consumers and firms take market prices as given.</p>
+      <div class="cards">
+        <article class="card"><h3>Price-taking consumers</h3><p>Each consumer chooses a utility-maximizing bundle within their budget. An individual purchase does not affect the market price.</p></article>
+        <article class="card"><h3>Price-taking producers</h3><p>Each firm chooses a profit-maximizing production plan within its technology. An individual firm's output does not affect the market price.</p></article>
+      </div>
+      <p>Monopoly, duopoly, and oligopoly instead allow sellers to influence prices; monopsony gives market power to a buyer.</p>
+    </section>
+
+    <section id="market-demand-supply">
+      <div class="part-banner"><span class="part-pill">02 · One market at a time</span><span class="part-line"></span></div>
+      <h2>Partial Equilibrium</h2>
+      <p class="lead">Partial equilibrium studies one market while holding other prices and consumers' incomes fixed. It is useful when feedback from the rest of the economy is small.</p>
+      <div class="key-note"><strong>The approximation.</strong> If expenditure on the good is a small share of the budget, income effects may be limited. If this market is small relative to related markets, its changes may have little effect on other prices. Substitution in response to the good's own price still matters.</div>
+      <h3>Market demand</h3>
+      <p>At each price \(p\), add the quantities demanded by all consumers:</p>
+      <div class="math emphasis">\[Q^d(p)=\sum_{i\in I}q_i(p,p_{-x},m_i).\tag{1}\]</div>
+      <div class="term-grid">
+        <article class="term"><h3>\(I\) and \(q_i\)</h3><p>\(I\) is the set of consumers; \(q_i\) is consumer \(i\)'s utility-maximizing demand for the good.</p></article>
+        <article class="term"><h3>\(p_{-x}\) and \(m_i\)</h3><p>\(p_{-x}\) contains all other goods' prices; \(m_i\) is consumer \(i\)'s income. Both are held fixed when drawing \(Q^d(p)\).</p></article>
+      </div>
+      <p>Market demand generally depends on both total income and its distribution. Scaling <em>all</em> prices and every consumer's income by the same positive factor leaves demand unchanged: demand is homogeneous of degree zero in prices and incomes jointly.</p>
+      <h3>Market supply</h3>
+      <p>At each output price \(p\), add firms' profit-maximizing quantities, taking input prices \(w\) as given:</p>
+      <div class="math emphasis">\[Q^s(p)=\sum_{j\in J}q_j(p,w).\tag{2}\]</div>
+      <div class="cards">
+        <article class="card"><h3>Short run</h3><p>The set \(J\) of existing firms is fixed. A firm can adjust its output or shut down, subject to its short-run costs.</p></article>
+        <article class="card"><h3>Long run</h3><p>Firms can enter or exit. Market supply must account for how the number of active firms responds to profitability.</p></article>
+      </div>
+    </section>
+
+    <section id="competitive-equilibrium">
+      <div class="part-banner"><span class="part-pill">03 · Market clearing</span><span class="part-line"></span></div>
+      <h2>Competitive Equilibrium</h2>
+      <h3>Short-run equilibrium</h3>
+      <p>A competitive equilibrium price \(p^*\) makes buyers' and sellers' optimal choices compatible:</p>
+      <div class="math emphasis">\[Q^d(p^*)=Q^s(p^*)=Q^*.\tag{3}\]</div>
+      <p>Each consumer and firm is already choosing optimally at that price, and the total quantity buyers want equals the total quantity sellers offer. No agent has a profitable unilateral change of quantity <strong>taking the price as given</strong>.</p>
+      <h3>Long-run equilibrium with free entry</h3>
+      <p>With free entry and identical firms that can replicate the same technology, a long-run equilibrium combines market clearing with zero economic profit for active firms:</p>
+      <div class="math emphasis">\[
+        Q^d(\widehat p)=\sum_{j\in J_{LR}}q_j(\widehat p,w),
+        \qquad \pi_j(\widehat p)=0\quad(j\in J_{LR}).\tag{4}
+      \]</div>
+      <div class="cards">
+        <article class="card"><h3>Positive maximum profit attracts entry</h3><p>If some output \(q&gt;0\) gives \(p&gt;AC(q)\), an entrant can earn positive economic profit. Entry expands market supply.</p></article>
+        <article class="card"><h3>Losses at every positive output lead to exit</h3><p>If \(p&lt;\min_{q&gt;0}AC(q)\), no positive output covers total cost. A firm exits once all costs are avoidable.</p></article>
+      </div>
+      <div class="math">\[\widehat p=\min_{q&gt;0}AC(q).\tag{5}\]</div>
+      <p>At the minimum of average cost, an active firm breaks even. If this minimum occurs at an interior output and cost is differentiable, \(\widehat p=AC(q^*)=MC(q^*)\). Market demand then determines the number of firms needed at that output.</p>
+      <div class="remark"><strong>Scope of the zero-profit result.</strong> It concerns economic profit, including opportunity costs, in the free-entry benchmark. Scarce inputs, barriers to entry, or differences between firms can support rents. Making a loss at one arbitrary output is not enough to justify exit: compare the best available output with exiting.</div>
+    </section>
+
+    <section id="existence-uniqueness">
+      <div class="part-banner"><span class="part-pill">04 · Existence &amp; uniqueness</span><span class="part-line"></span></div>
+      <h2>Does an Equilibrium Exist?</h2>
+      <p>Define excess demand \(Z(p)=Q^d(p)-Q^s(p)\). If demand and supply are continuous on a price interval, with excess demand at its lower end and excess supply at its upper end, the intermediate value theorem guarantees a price where \(Z(p)=0\).</p>
+      <div class="math">\[
+        Z(p_L)&gt;0,\qquad Z(p_H)&lt;0
+        \quad\Longrightarrow\quad
+        \exists\,p^*\in(p_L,p_H):Z(p^*)=0.
+      \]</div>
+      <div class="question"><strong>What if quantities are indivisible?</strong> Suppose that at a candidate price a buyer wants 2 units, while a seller optimally supplies either 0 or 3. Their choices do not clear the market at that price.</div>
+      <p>This mismatch alone does not rule out equilibrium at every other price. Nor does discontinuity always prevent clearing: three buyers demanding 2 units each can trade with two sellers supplying 3 units each, provided these are their optimal choices at a common price.</p>
+      <h3>Is the equilibrium unique?</h3>
+      <p>If excess demand is strictly decreasing in price, it can cross zero at most once. For example, strictly decreasing demand and nondecreasing supply are sufficient for uniqueness, if an equilibrium exists.</p>
+      <div class="remark"><strong>Weak monotonicity is not enough for a unique price.</strong> Flat segments can produce several clearing prices. Upward-sloping demand, as can occur for a Giffen good, may also allow multiple intersections with supply; it does not automatically imply multiple equilibria.</div>
+    </section>
+
+    <section id="surplus">
+      <div class="part-banner"><span class="part-pill">05 · Welfare measures</span><span class="part-line"></span></div>
+      <h2>Consumer and Producer Surplus</h2>
+      <figure class="course-figure"><img src="images/equilibrium-surplus.svg" alt="A downward-sloping demand curve meets an upward-sloping supply curve at Q star and p star. Consumer surplus is above the price and below demand; producer surplus is below the price and above supply."><figcaption>Illustrative competitive market: the two shaded areas are the gains from trade at \(Q^*\).</figcaption></figure>
+      <h3>Consumer surplus</h3>
+      <p>Consumer surplus measures willingness to pay above the amount actually paid. For market demand \(Q^d(p)\), with a choke price \(p_{\max}\) at which demand becomes zero:</p>
+      <div class="math emphasis">\[CS(p)=\int_p^{p_{\max}}Q^d(s)\,ds.\]</div>
+      <div class="cards">
+        <article class="card"><h3>A price increase: \(p_1&gt;p_0\)</h3><p>Consumer surplus falls. The size of the loss is:</p><div class="math">\[CS(p_0)-CS(p_1)=\int_{p_0}^{p_1}Q^d(s)\,ds.\tag{6}\]</div></article>
+        <article class="card"><h3>A price decrease: \(p_1&lt;p_0\)</h3><p>Consumer surplus rises. The size of the gain is:</p><div class="math">\[CS(p_1)-CS(p_0)=\int_{p_1}^{p_0}Q^d(s)\,ds.\tag{7}\]</div></article>
+      </div>
+      <p>Both expressions are positive when demand is positive over the relevant interval. Equivalently, the signed change is \(\Delta CS=-\int_{p_0}^{p_1}Q^d(s)\,ds\).</p>
+      <div class="remark"><strong>Income effects matter.</strong> Marshallian consumer surplus is an exact money measure of welfare changes under quasilinear preferences, with no income effect on this good. Otherwise it is generally an approximation; compensating and equivalent variation provide the exact expenditure-based measures studied earlier.</div>
+      <h3>Producer surplus</h3>
+      <p>Producer surplus is revenue above the variable cost of supplying the units sold. With inverse supply \(P^s(Q)\), representing marginal cost over the relevant range:</p>
+      <div class="math emphasis">\[
+        PS(p^*)=p^*Q^*-\int_0^{Q^*}P^s(Q)\,dQ.
+      \]</div>
+      <p>If supply is zero below a nonnegative minimum price, this is also the area \(\int_0^{p^*}Q^s(p)\,dp\). For a firm with \(VC(0)=0\), producer surplus equals \(pq-VC(q)\), so:</p>
+      <div class="math">\[PS=\pi+FC.\]</div>
+      <div class="key-note"><strong>Surplus and profit differ.</strong> In the short run, fixed cost is paid even when output is zero. A firm can therefore have positive producer surplus while making an economic loss.</div>
+    </section>
+
+    <section id="market-experiments">
+      <div class="part-banner"><span class="part-pill research">Research focus · Market experiments</span><span class="part-line"></span></div>
+      <h2>Can Trading Converge to the Competitive Price?</h2>
+      <p class="lead">An experiment lets researchers specify buyers' values and sellers' costs, calculate a competitive benchmark, and observe whether actual trades approach it.</p>
+      <div class="research-focus">
+        <h3>From Chamberlain to Smith</h3>
+        <p>Chamberlain's early classroom markets did not closely reproduce the competitive prediction. Smith (1962) studied repeated trading with public bids and offers in a double oral auction.</p>
+        <div class="study-grid">
+          <div class="study-block"><h4>Private values</h4><p>Each buyer receives a maximum purchase price; each seller receives a minimum sale price. Participants initially know their own reservation prices.</p></div>
+          <div class="study-block"><h4>Public trading</h4><p>Buyers announce bids, sellers announce offers, and accepting an offer creates a trade. Trading repeats over successive periods.</p></div>
+        </div>
+        <div class="study"><h3>Measuring convergence</h3><p>Smith measures transaction-price deviations from the theoretical equilibrium price \(p^*\), rather than from the sample mean:</p>
+          <div class="math">\[\alpha=\frac{100}{p^*}\sqrt{\frac{1}{M}\sum_{r=1}^{M}(p_r-p^*)^2}.\]</div>
+          <p>Here \(M\) is the number of trades in a period. A smaller \(\alpha\) means transactions lie closer to the competitive benchmark.</p>
+        </div>
+        <div class="study"><h3>Results and interpretation</h3><p>Transaction prices generally converged toward the competitive prediction over repeated periods, despite limited participants and private information. Adjustment depended on the supply and demand schedules. In the usual upward-sloping supply case, a positive demand shift raises the equilibrium price.</p></div>
+        <p class="study-ref">Smith, V. L. (1962). <a href="https://doi.org/10.1086/258609">An experimental study of competitive market behavior.</a> <em>Journal of Political Economy</em>, 70(2), 111–137.</p>
+      </div>
+      <h3>Why use an experiment?</h3>
+      <div class="cards">
+        <article class="card"><h3>Observable fundamentals</h3><p>A transaction price alone does not reveal the buyer's willingness to pay or the seller's cost. Controlled values make equilibrium and the gains from trade measurable.</p></article>
+        <article class="card"><h3>Controlled comparisons</h3><p>Researchers can hold institutions and endowments fixed, repeat the market, or introduce a demand shock. This helps separate the effect of interest from taxes, regulation, or other changes.</p></article>
+      </div>
+      <div class="remark"><strong>What carries over to real markets?</strong> Participants can learn from public offers without observing everyone's preferences. However, stationary fundamentals, short trading periods, and a small laboratory market simplify the environment. Convergence is an experimental finding, not a guarantee for every market institution.</div>
+    </section>
+
+    <section id="bubbles">
+      <div class="part-banner"><span class="part-pill research">Research focus · Bubbles &amp; crashes</span><span class="part-line"></span></div>
+      <h2>Experience, Emotions, and Asset Prices</h2>
+      <p class="lead">A rising asset price may reflect changing fundamentals or speculation about resale. Laboratory asset markets make the dividend process observable, allowing researchers to compare prices with a known expected-payoff benchmark.</p>
+      <div class="research-focus">
+        <h3>Smith, Suchanek &amp; Williams (1988)</h3>
+        <div class="study-grid">
+          <div class="study-block"><h4>Research question</h4><p>Can bubbles appear even when traders know the asset's dividend distribution and finite lifetime?</p></div>
+          <div class="study-block"><h4>Design</h4><p>Traders receive cash and assets and trade in a double auction. In the 15-period treatment considered here, each asset pays 0, 8, 28, or 60 cents per period with equal probability.</p></div>
+          <div class="study-block full"><h4>Fundamental value</h4><p>The expected dividend is 24 cents. With no discounting and no terminal resale value, the expected remaining dividends at the start of period \(t\) are:</p><div class="math">\[FV_t=24(16-t)\text{ cents},\qquad t=1,\ldots,15.\]</div><p>Thus \(FV_1=360\) cents and \(FV_{15}=24\) cents; value falls to zero after the final dividend.</p></div>
+          <div class="study-block full"><h4>Results and interpretation</h4><p>Prices often rose above this benchmark and later crashed. Bubbles tended to diminish with trader experience. Knowledge of the dividend distribution alone did not eliminate speculative pricing; this does not mean traders knew one another's future actions.</p></div>
+        </div>
+        <p class="study-ref">Smith, V. L., Suchanek, G. L., &amp; Williams, A. W. (1988). <a href="https://doi.org/10.2307/1911361">Bubbles, crashes, and endogenous expectations in experimental spot asset markets.</a> <em>Econometrica</em>, 56(5), 1119–1151.</p>
+      </div>
+      <div class="research-focus">
+        <h3>Dufwenberg, Lindqvist &amp; Moore (2005)</h3>
+        <div class="study-grid">
+          <div class="study-block"><h4>Research question</h4><p>Do bubbles return when inexperienced traders enter a market with experienced traders?</p></div>
+          <div class="study-block"><h4>Design</h4><p>Six traders first participate in three successive markets. In a fourth market, either two or four traders are replaced by newcomers, leaving respectively two-thirds or one-third of the group experienced.</p></div>
+          <div class="study-block full"><h4>Results</h4><p>Bubbles were substantially reduced even when experienced traders were a minority. Experience can therefore influence a mixed market, rather than helping only when everyone has participated before.</p></div>
+        </div>
+        <div class="remark"><strong>Interpretation.</strong> These results qualify the idea that a few newcomers necessarily recreate a bubble. They do not establish that experience prevents bubbles in every real asset market.</div>
+        <p class="study-ref">Dufwenberg, M., Lindqvist, T., &amp; Moore, E. (2005). <a href="https://www.aeaweb.org/articles?id=10.1257/000282805775014362">Bubbles and experience: An experiment.</a> <em>American Economic Review</em>, 95(5), 1731–1737.</p>
+      </div>
+      <div class="research-focus">
+        <h3>Andrade, Odean &amp; Lin (2016)</h3>
+        <div class="study-grid">
+          <div class="study-block"><h4>Research question</h4><p>Does excitement itself increase asset-price bubbles, rather than simply accompany them?</p></div>
+          <div class="study-block"><h4>Design</h4><p>Before trading in a bubble-prone asset market, participants watch videos intended to induce excitement, calm, or fear. These treatments vary the emotional state while keeping the market environment comparable.</p></div>
+          <div class="study-block"><h4>Treatment comparison</h4><p>Excitement is positive and intense; calm is positive but less intense; fear is intense but negative. Emotion checks assess whether the videos produce the intended reactions.</p></div>
+          <div class="study-block"><h4>Outcomes</h4><p>Bubble magnitude captures average overpricing relative to fundamental value; peak amplitude captures its largest extent.</p></div>
+          <div class="study-block full"><h4>Results</h4><p>Across 55 markets, the excitement treatment produced larger bubbles in both magnitude and amplitude than calm or fear. The experiment supports a causal role for induced excitement in this setting.</p></div>
+        </div>
+        <p class="study-ref">Andrade, E. B., Odean, T., &amp; Lin, S. (2016; first published online in 2015). <a href="https://doi.org/10.1093/rof/rfv016">Bubbling with excitement: An experiment.</a> <em>Review of Finance</em>, 20(2), 447–466.</p>
+      </div>
+    </section>
+    </div>
+  </main>
+  <script>function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:800px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}</script>
+</body>
+</html>

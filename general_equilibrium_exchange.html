@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MICRO — Part IV · General Equilibrium in the Exchange Economy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script>MathJax={tex:{inlineMath:[['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+  <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+  <style>
+    :root{--sidebar-bg:#13020A;--sidebar-width:280px;--bg:#0f1117;--card:#161922;--red:#e11d48;--red-bright:#ff2d55;--red-muted:rgba(225,29,72,.1);--red-border:rgba(225,29,72,.3);--blue:#60a5fa;--blue-muted:rgba(59,130,246,.1);--blue-border:rgba(59,130,246,.3);--green:#34d399;--green-muted:rgba(16,185,129,.09);--green-border:rgba(16,185,129,.3);--purple:#c084fc;--purple-muted:rgba(168,85,247,.1);--purple-border:rgba(168,85,247,.3);--amber:#fbbf24;--amber-muted:rgba(245,158,11,.09);--amber-border:rgba(245,158,11,.3);--text:#f8fafc;--text-2:#cbd5e1;--text-3:#94a3b8;--border:rgba(255,255,255,.07);--radius:10px;--font:'Outfit',sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font);display:flex;line-height:1.65}.sidebar{width:var(--sidebar-width);position:fixed;inset:0 auto 0 0;z-index:20;display:flex;flex-direction:column;overflow:hidden;background:var(--sidebar-bg);border-right:1px solid var(--border);transition:transform .25s}.sidebar.collapsed{transform:translateX(-100%)}.sidebar-brand{display:flex;justify-content:space-between;align-items:center;padding:22px 20px 16px;border-bottom:1px solid var(--border)}.sidebar-brand h1{font-size:1.3rem;letter-spacing:1px}.sidebar-brand h1 span{color:var(--red)}.sidebar-close{border:0;background:none;color:var(--text-3);font-size:1.3rem;cursor:pointer}.sidebar-nav{flex:1;overflow-y:auto;padding:12px 0}.sidebar-link,.sidebar-sublink{display:flex;padding:9px 22px;color:var(--text-3);text-decoration:none;font-size:.85rem;font-weight:600;border-left:3px solid transparent}.sidebar-link{padding:11px 22px;font-weight:700}.sidebar-sublink{padding-left:36px}.sidebar-link:hover,.sidebar-sublink:hover{background:rgba(255,255,255,.04);color:var(--text)}.sidebar-sublink.active{background:var(--red-muted);border-left-color:var(--red);color:var(--red-bright)}.sidebar-group{display:flex;flex-direction:column;gap:2px;margin-top:4px}.sidebar-group-title{padding:10px 22px 4px;color:var(--text-3);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px}.sidebar-footer{padding:14px 16px;border-top:1px solid var(--border)}.sidebar-user{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);background:rgba(255,255,255,.04)}.user-avatar{position:relative;width:44px;height:44px}.user-dot{position:absolute;right:-2px;bottom:-2px;width:8px;height:8px;border:2px solid var(--sidebar-bg);border-radius:50%;background:#10b981}.user-name{font-size:.82rem;font-weight:700}.main-wrap{min-width:0;flex:1;margin-left:var(--sidebar-width);transition:margin-left .25s}.main-wrap.expanded{margin-left:0}.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:16px;height:64px;padding:0 28px;border-bottom:1px solid var(--border);background:rgba(15,17,23,.92);backdrop-filter:blur(12px)}.topbar-toggle{width:38px;height:38px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}.breadcrumb{color:var(--text-3);font-size:.88rem}.breadcrumb strong{color:var(--text)}.topbar-pill{margin-left:auto;padding:5px 14px;border:1px solid var(--red-border);border-radius:999px;background:var(--red-muted);color:var(--red-bright);font-size:.78rem;font-weight:700}.main-content{width:100%;max-width:980px;margin:0 auto;padding:40px 44px 76px}.page-title{padding-bottom:24px;border-bottom:1px solid var(--border)}.page-label{margin-bottom:8px;color:var(--red);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px}.page-title h1{font-size:2.1rem;line-height:1.2}.page-title p{margin-top:8px;color:var(--text-3)}section{margin-top:44px}.part-banner{display:flex;align-items:center;gap:14px;margin-bottom:20px}.part-pill{padding:6px 15px;border:1px solid var(--blue-border);border-radius:999px;background:var(--blue-muted);color:var(--blue);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px}.part-line{height:1px;flex:1;background:var(--border)}h2{font-size:1.38rem;margin-bottom:12px}h3{font-size:1.05rem;margin:26px 0 12px;color:var(--text)}h4{font-size:.84rem;color:var(--purple);margin:0 0 7px;text-transform:uppercase;letter-spacing:.5px}p{color:var(--text-2);font-size:.94rem}p+p{margin-top:10px}.lead{font-size:1rem;line-height:1.75}.key-note,.remark,.question,.verify{margin:16px 0;padding:14px 17px;border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;background:var(--blue-muted);color:var(--text-2)}.remark{border-left-color:var(--amber);background:var(--amber-muted)}.question{border-left-color:var(--purple);background:var(--purple-muted)}.verify{border:1px dashed var(--amber-border);background:var(--amber-muted);color:var(--amber)}.key-note strong,.remark strong,.question strong,.verify strong{color:var(--text)}.math{margin:14px 0;padding:14px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:#11151e;text-align:center}.math.emphasis{border-color:var(--blue-border);background:var(--blue-muted)}.cards,.term-grid,.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card,.term,.step{padding:19px 20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.card h3,.term h3,.step h3{margin:0 0 7px;font-size:.94rem;color:var(--blue)}.card p,.term p{font-size:.9rem}.card.full{grid-column:1/-1}.list{list-style:none;display:grid;gap:10px;margin:13px 0}.list li{color:var(--text-2);font-size:.92rem}.list li::before{content:'—';color:var(--blue);font-weight:800;margin-right:8px}.figure-placeholder{display:flex;align-items:center;justify-content:center;min-height:112px;margin:18px 0;padding:20px;border:1px dashed var(--amber-border);border-radius:var(--radius);background:var(--amber-muted);color:var(--amber);font-size:.84rem;font-weight:700;text-align:center}.sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:16px 0}.sequence .card h3{color:var(--green)}.proof{margin:18px 0;padding:20px;border:1px solid var(--purple-border);border-radius:var(--radius);background:var(--purple-muted)}.proof h3{margin:0 0 9px;color:var(--purple)}.proof-step{margin-top:14px;padding:15px;border:1px solid var(--border);border-radius:8px;background:rgba(15,17,23,.48)}.proof-step h4{color:var(--purple)}@media(max-width:800px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main-wrap{margin-left:0}.main-content{padding:30px 20px 55px}.topbar{padding:0 18px}.cards,.term-grid,.steps,.sequence{grid-template-columns:1fr}.topbar-pill{display:none}}@media(max-width:520px){.main-content{padding:24px 14px 48px}.topbar{height:58px;padding:0 12px}.breadcrumb{font-size:.76rem}.page-title h1{font-size:1.75rem}.math{padding:10px 6px;font-size:.85rem}}
+  </style>
+<link rel="stylesheet" href="midterm-nav.css">
+<link rel="stylesheet" href="reading-progress.css">
+<link rel="stylesheet" href="equilibrium.css">
+<script defer src="reading-progress.js"></script>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
+    <nav class="sidebar-nav" aria-label="Course navigation">
+    <a href="midterm.html" class="sidebar-link">Midterm Sheet</a>
+      <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a><a href="producer_costs_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 4 — Equilibrium &amp; Welfare</div><a href="partial_equilibrium.html" class="sidebar-sublink">1 · Partial Equilibrium</a><a href="general_equilibrium_exchange.html" class="sidebar-sublink active" aria-current="page">2 · General Equilibrium in the Exchange Economy</a><a href="general_equilibrium_productive.html" class="sidebar-sublink">3 · General Equilibrium in the Productive Economy</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div>
+  </aside>
+  <main class="main-wrap" id="main-wrap">
+    <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>2. General Equilibrium in the Exchange Economy</strong></div><div class="topbar-pill">Part IV</div></div>
+    <div class="main-content">
+<header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>2. General Equilibrium in the Exchange Economy</h1><p>Feasible trades, the Edgeworth box, competitive prices, and welfare theorems.</p></header>
+
+    <section id="feasibility-efficiency">
+      <div class="part-banner"><span class="part-pill">01 · Foundations</span><span class="part-line"></span></div>
+      <h2>From One Market to the Whole Economy</h2>
+      <div class="cards">
+        <article class="card"><h3>Partial equilibrium</h3><p>Study one market, holding other prices and incomes fixed. This simplifies the analysis when feedback from other markets is limited.</p></article>
+        <article class="card"><h3>General equilibrium</h3><p>Determine prices and allocations across markets together. One good's price changes purchasing power and demand for other goods.</p></article>
+      </div>
+      <p>Which model is useful depends on the question. Predicting an equilibrium is a <strong>positive</strong> exercise; evaluating its efficiency or distribution is a <strong>normative</strong> exercise.</p>
+      <h3>Feasibility in a pure exchange economy</h3>
+      <p>There are \(I\) consumers and \(N\) goods, with no production. Consumer \(i\) starts with endowment \(\omega_i=(\omega_{i1},\ldots,\omega_{iN})\) and receives consumption bundle \(x_i\geq0\). Feasibility requires, good by good:</p>
+      <div class="math emphasis">\[
+        \sum_{i=1}^{I}x_{in}\leq\sum_{i=1}^{I}\omega_{in}
+        \qquad(n=1,\ldots,N).
+      \]</div>
+      <p>The inequality allows disposal. If all available goods are allocated, it holds with equality.</p>
+      <h3>Pareto improvements and Pareto efficiency</h3>
+      <p>A feasible allocation \(x'\) is a <strong>Pareto improvement</strong> over \(x\) if nobody is worse off and at least one consumer is strictly better off:</p>
+      <div class="math">\[
+        u_i(x_i')\geq u_i(x_i)\ \text{for every }i,
+        \qquad
+        u_j(x_j')&gt;u_j(x_j)\ \text{for at least one }j.
+      \]</div>
+      <p>An allocation is <strong>Pareto efficient</strong> if no feasible Pareto improvement exists. Pareto comparisons are incomplete: if a change helps one consumer but hurts another, neither allocation Pareto dominates the other.</p>
+      <div class="remark"><strong>Efficiency does not settle equity.</strong> A highly unequal allocation can be Pareto efficient. The criterion asks whether anyone can be helped without harming someone else, not whether the distribution is fair.</div>
+      <h3>Pareto efficiency and total surplus</h3>
+      <p>In the quasilinear, transferable-numeraire benchmark, with no externalities and no restrictions on compensating transfers, maximizing total surplus identifies efficient trade. An increase in total surplus creates scope for compensation, but is not itself a Pareto improvement.</p>
+      <div class="key-note"><strong>Why?</strong> Some consumers or producers may lose from a change even when the total gain is positive. Compensation must actually leave everyone at least as well off for the change to be a Pareto improvement. Outside this benchmark, consumer surplus is not a general substitute for utility-based welfare comparisons.</div>
+    </section>
+
+    <section id="edgeworth-box">
+      <div class="part-banner"><span class="part-pill">02 · Exchange without prices</span><span class="part-line"></span></div>
+      <h2>The Edgeworth Box</h2>
+      <p class="lead">With two consumers, \(A\) and \(B\), and two goods, all allocations that use the entire endowment fit into a rectangle of width \(\bar\omega_1\) and height \(\bar\omega_2\), where \(\bar\omega_n=\omega_{An}+\omega_{Bn}\).</p>
+      <div class="math">\[
+        x_{An}+x_{Bn}=\bar\omega_n,\qquad n=1,2.
+      \]</div>
+      <div class="cards">
+        <article class="card"><h3>Read from \(A\)'s origin</h3><p>The bottom-left corner is \(A\)'s origin. Moving right increases \(x_{A1}\); moving up increases \(x_{A2}\).</p></article>
+        <article class="card"><h3>Read from \(B\)'s origin</h3><p>The top-right corner is \(B\)'s origin. Moving left increases \(x_{B1}\); moving down increases \(x_{B2}\).</p></article>
+      </div>
+      <p>Every point specifies both consumers' bundles. The endowment point \(\omega\) is the allocation before trade. Consumer \(i\)'s <strong>net purchase</strong> of good \(n\) is \(x_{in}-\omega_{in}\): positive for a purchase, negative for a sale.</p>
+      <figure class="course-figure"><img src="images/edgeworth-gains.svg" alt="An Edgeworth box with endowment at A's bundle (2,8). Indifference curves through the endowment enclose a lens of mutually beneficial allocations. The diagonal contract curve crosses this lens between (4,4) and (6,6), forming the core."><figcaption>Illustrative example with \(u_A=\sqrt{x_{A1}x_{A2}}\), \(u_B=\sqrt{x_{B1}x_{B2}}\), and total endowment \((10,10)\). The green segment is the core.</figcaption></figure>
+      <h3>Gains from trade</h3>
+      <p>The indifference curves through the initial endowment enclose a lens where both consumers are at least as well off. Interior points of this lens make both strictly better off; boundary points may leave one indifferent.</p>
+      <h3>The contract curve</h3>
+      <p>The <strong>contract curve</strong> contains the Pareto-efficient allocations. With smooth, convex preferences at an interior allocation, efficiency requires equal marginal rates of substitution:</p>
+      <div class="math emphasis">\[MRS_{12}^{A}=MRS_{12}^{B}.\]</div>
+      <p>If the two rates differ, a small exchange can benefit both consumers. At an interior efficient point, the indifference curves are tangent. Boundary allocations and nonsmooth preferences require checking feasible improvements directly; tangency is not a universal test.</p>
+      <h3>Barter outcomes and the core</h3>
+      <p>In this two-consumer economy, an unblocked barter outcome must be feasible, individually rational relative to the endowment, and Pareto efficient. The <strong>core</strong> is therefore the part of the contract curve inside the weakly preferred lens, including its endpoints.</p>
+      <div class="remark"><strong>Scope.</strong> With more than two consumers, individual rationality and Pareto efficiency are not sufficient for membership in the core: no coalition may be able to improve by reallocating its own endowments.</div>
+    </section>
+
+    <section id="budgets">
+      <div class="part-banner"><span class="part-pill">03 · Prices &amp; budgets</span><span class="part-line"></span></div>
+      <h2>Reintroducing Prices</h2>
+      <p>Let \(p\gg0\), meaning every good has a strictly positive price. Consumer \(i\)'s wealth is the market value of their endowment, \(m_i=p\cdot\omega_i\). Their problem is:</p>
+      <div class="math emphasis">\[
+        x_i(p,m_i)\in\arg\max_{x_i\geq0}u_i(x_i)
+        \quad\text{s.t.}\quad p\cdot x_i\leq m_i,
+        \qquad m_i=p\cdot\omega_i.
+      \]</div>
+      <p>It is as if the consumer sold their endowment and then purchased a preferred bundle. The notation \(x_i(p,m_i)\) always takes <strong>wealth</strong> as its second argument.</p>
+      <h3>A common budget line in the Edgeworth box</h3>
+      <p>Consumer \(A\)'s binding budget is:</p>
+      <div class="math">\[
+        p_1x_{A1}+p_2x_{A2}
+        =p_1\omega_{A1}+p_2\omega_{A2}.
+      \]</div>
+      <p>This line passes through \(\omega\) and has slope \(-p_1/p_2\). Since \(x_B=\bar\omega-x_A\), consumer \(B\)'s budget inequality becomes:</p>
+      <div class="math">\[
+        p\cdot(\bar\omega-x_A)\leq p\cdot\omega_B
+        \quad\Longleftrightarrow\quad
+        p\cdot x_A\geq p\cdot\omega_A.
+      \]</div>
+      <div class="key-note"><strong>Opposite affordable sides.</strong> \(A\) can afford points on or below the line; \(B\) can afford points on or above it, using \(A\)'s coordinates. Among allocations in the box, both budgets are satisfied exactly on the common line.</div>
+      <figure class="course-figure"><img src="images/edgeworth-equilibrium.svg" alt="The budget line x A1 plus x A2 equals 10 passes through the initial endowment (2,8) and the equilibrium (5,5). At the equilibrium it is tangent to both consumers' indifference curves."><figcaption>At equal prices in this example, both consumers choose \((5,5)\). Their demands fit together at the same point in the box.</figcaption></figure>
+      <div class="remark"><strong>Binding is not the same as optimal.</strong> \(A\)'s budget binds at every point on the line. A tangency identifies an interior optimum under the usual smoothness and convexity assumptions; it does not define budget exhaustion.</div>
+    </section>
+
+    <section id="excess-demand">
+      <div class="part-banner"><span class="part-pill">04 · Excess demand</span><span class="part-line"></span></div>
+      <h2>From Individual Choices to Market Clearing</h2>
+      <p>Individual excess demand is desired consumption minus the initial endowment:</p>
+      <div class="math emphasis">\[
+        z_{in}(p)=x_{in}(p,p\cdot\omega_i)-\omega_{in},
+        \qquad z_n(p)=\sum_{i=1}^{I}z_{in}(p).\tag{1}
+      \]</div>
+      <div class="cards">
+        <article class="card"><h3>\(z_n(p)&gt;0\)</h3><p>Aggregate desired purchases exceed available sales: the market has excess demand.</p></article>
+        <article class="card"><h3>\(z_n(p)&lt;0\)</h3><p>Aggregate desired sales exceed purchases: the market has excess supply.</p></article>
+      </div>
+      <p>When \(z_n(p)=0\) for every good, the consumers' optimal bundles are jointly feasible. In an Edgeworth box, their preferred allocations coincide at a single point representing both bundles.</p>
+      <h3>Properties of aggregate excess demand</h3>
+      <div class="cards">
+        <article class="card"><h3>Continuity</h3><p>With continuous, strictly convex preferences and positive endowments, demand is single-valued and continuous at strictly positive prices. Aggregate excess demand is then continuous too.</p></article>
+        <article class="card"><h3>Homogeneity of degree zero</h3><p>Scaling all prices scales endowment wealth in the same proportion, leaving budget sets and demands unchanged:</p><div class="math">\[z(\lambda p)=z(p),\qquad\lambda&gt;0.\]</div></article>
+      </div>
+      <h3>Walras' law</h3>
+      <p>With locally nonsatiated preferences, each consumer exhausts their budget. Adding \(p\cdot x_i=p\cdot\omega_i\) across consumers gives:</p>
+      <div class="math emphasis">\[p\cdot z(p)=\sum_{n=1}^{N}p_nz_n(p)=0.\tag{2}\]</div>
+      <p>This is true at every strictly positive price vector for which demands are defined, <strong>including prices that do not clear markets</strong>.</p>
+      <div class="cards">
+        <article class="card"><h3>Two goods</h3><p>If \(z_1(p)&gt;0\), then \(z_2(p)&lt;0\): the value of excess demand in one market is offset by excess supply in the other.</p></article>
+        <article class="card"><h3>\(N\) goods</h3><p>If \(N-1\) markets clear and the remaining good has a positive price, Walras' law implies that its market clears as well.</p></article>
+      </div>
+    </section>
+
+    <section id="walrasian-equilibrium">
+      <div class="part-banner"><span class="part-pill">05 · Walrasian equilibrium</span><span class="part-line"></span></div>
+      <h2>Equilibrium, Existence, and Uniqueness</h2>
+      <p>An allocation \(x^*\) and prices \(p^*\) form a <strong>Walrasian equilibrium</strong> when every consumer optimizes and all markets clear:</p>
+      <div class="math emphasis">\[
+        x_i^*\in\arg\max_{x_i\geq0}
+        \{u_i(x_i):p^*\cdot x_i\leq p^*\cdot\omega_i\}
+        \quad\text{for every }i,
+      \]</div>
+      <div class="math emphasis">\[
+        \sum_i x_{in}^*=\sum_i\omega_{in}
+        \quad\text{for every good }n.\tag{3}
+      \]</div>
+      <h3>Existence</h3>
+      <p>A standard sufficient version of the Arrow–Debreu existence result for a finite pure exchange economy assumes consumption sets \(\mathbb R_+^N\) and, for every consumer \(i\):</p>
+      <ul class="list">
+        <li>\(u_i\) is continuous and strictly increasing in each good;</li>
+        <li>\(u_i\) is strictly concave, ensuring convex preferences and a unique demand at positive prices;</li>
+        <li>\(\omega_i\gg0\): <em>each consumer</em> initially owns a positive amount of every good.</li>
+      </ul>
+      <p>These are sufficient assumptions, not necessary ones. They provide a benchmark in which a competitive allocation and supporting prices exist.</p>
+      <h3>Only relative prices are determined</h3>
+      <p>If \((x^*,p^*)\) is an equilibrium, then \((x^*,\lambda p^*)\) is also an equilibrium for every \(\lambda&gt;0\). <strong>The allocation stays unchanged.</strong> Scaling prices does not create additional goods.</p>
+      <div class="math">\[
+        p^*\sim\lambda p^*,
+        \qquad
+        \text{with good 1 as numeraire: }
+        \left(1,\frac{p_2^*}{p_1^*},\ldots,\frac{p_N^*}{p_1^*}\right).
+      \]</div>
+      <h3>Uniqueness is a separate question</h3>
+      <p>Even after a price normalization, general equilibrium need not be unique. Different relative prices can make all demands compatible at different allocations. Convex preferences and existence alone do not guarantee a unique equilibrium.</p>
+    </section>
+
+    <section id="first-welfare-theorem">
+      <div class="part-banner"><span class="part-pill">06 · First welfare theorem</span><span class="part-line"></span></div>
+      <h2>Competitive Equilibrium Implies Pareto Efficiency</h2>
+      <p class="lead">In this private-goods exchange economy, with locally nonsatiated preferences, every Walrasian equilibrium allocation is Pareto efficient. Continuous, strictly increasing utility is a sufficient preference assumption.</p>
+      <div class="math emphasis">\[
+        \text{Walrasian equilibrium}
+        \quad\Longrightarrow\quad
+        \text{Pareto efficiency}.
+      \]</div>
+      <div class="key-note"><strong>Intuition.</strong> At the common prices, each consumer already chooses their best affordable bundle. Making everyone at least as well off and someone strictly better off would require bundles whose combined value exceeds the value of the available resources.</div>
+      <details class="course-details"><summary>Proof by contradiction</summary><div class="detail-body">
+        <h3>Suppose a feasible improvement exists</h3>
+        <p>Let \(\hat x\) Pareto improve on the equilibrium allocation \(x^*\). For every consumer, \(u_i(\hat x_i)\geq u_i(x_i^*)\), with strict inequality for at least one.</p>
+        <h3>Compare the cost of the bundles</h3>
+        <p>A strictly preferred bundle must be unaffordable, or \(x_i^*\) would not maximize utility. A weakly preferred bundle cannot cost less than wealth: local nonsatiation would then allow a nearby strictly preferred bundle within the remaining budget.</p>
+        <div class="math">\[
+          p^*\cdot\hat x_i\geq p^*\cdot\omega_i
+          \quad\text{for every }i,
+        \]</div>
+        <p>with a strict inequality for at least one consumer. Summing gives:</p>
+        <div class="math">\[\sum_i p^*\cdot\hat x_i&gt;\sum_i p^*\cdot\omega_i.\]</div>
+        <h3>Use feasibility good by good</h3>
+        <p>Feasibility requires \(\sum_i\hat x_{in}\leq\sum_i\omega_{in}\) for every good \(n\). Multiplying each inequality by its nonnegative price and adding yields:</p>
+        <div class="math">\[\sum_i p^*\cdot\hat x_i\leq\sum_i p^*\cdot\omega_i.\]</div>
+        <p>This contradicts the strict inequality. No feasible Pareto improvement exists.</p>
+      </div></details>
+      <div class="remark"><strong>What the theorem does not say.</strong> It does not establish fairness, equilibrium existence, or the speed of price adjustment. Convexity is not required for this direction, but the competitive private-goods framework and local nonsatiation matter.</div>
+    </section>
+
+    <section id="second-welfare-theorem">
+      <div class="part-banner"><span class="part-pill">07 · Second welfare theorem</span><span class="part-line"></span></div>
+      <h2>Supporting an Efficient Allocation with Redistribution</h2>
+      <p class="lead">The converse requires more structure. With continuous, strongly monotone, convex preferences, an <strong>interior</strong> Pareto-efficient allocation can be supported as a competitive equilibrium after suitable lump-sum transfers of wealth.</p>
+      <div class="math emphasis">\[
+        \text{Pareto-efficient allocation}
+        \quad+\quad\text{appropriate wealth transfers}
+        \quad\Longrightarrow\quad
+        \text{competitive equilibrium}.
+      \]</div>
+      <p>At a smooth interior efficient allocation, the common tangent to the indifference curves provides supporting prices. Convexity makes the chosen bundles globally optimal at those prices. Redistribution places each consumer's budget line through the target bundle.</p>
+      <h3>Write the transfers explicitly</h3>
+      <p>For a target allocation \(x^*\) and supporting prices \(p^*\), let \(T_i\) be consumer \(i\)'s transfer measured in value:</p>
+      <div class="math">\[
+        T_i=p^*\cdot x_i^*-p^*\cdot\omega_i,
+        \qquad \sum_i T_i=0.
+      \]</div>
+      <p>A positive \(T_i\) is a receipt; a negative \(T_i\) is a payment. The new budget is:</p>
+      <div class="math emphasis">\[p^*\cdot x_i\leq p^*\cdot\omega_i+T_i.\]</div>
+      <p>Equivalently, goods can be redistributed as new endowments \(\omega_i'\), preserving the aggregate endowment and giving each consumer the required wealth \(p^*\cdot\omega_i'=p^*\cdot x_i^*\).</p>
+      <div class="remark"><strong>The qualification matters.</strong> The theorem does not say every efficient allocation is an equilibrium for the original endowments. The interior formulation avoids boundary complications; more general versions first establish a price quasi-equilibrium and require further conditions for full consumer optimality.</div>
+      <p class="small">For the theorem statements and transfer formulation, see <a href="https://marcelogallardob.github.io/files/courses/Microeconomics-II/EG_lecture_notes.pdf">Gallardo, <em>Lecture Notes in General Equilibrium</em>, sections 4–5</a>.</p>
+    </section>
+    </div>
+  </main>
+  <script>function toggleSidebar(){const sidebar=document.getElementById('sidebar'),main=document.getElementById('main-wrap');if(window.matchMedia('(max-width:800px)').matches){sidebar.classList.toggle('open')}else{const collapsed=sidebar.classList.toggle('collapsed');main.classList.toggle('expanded',collapsed)}}</script>
+</body>
+</html>

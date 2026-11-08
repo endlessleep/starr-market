@@ -1,0 +1,147 @@
+/* Part IV uses the same cards, section banners and reading bar as Part III. */
+.main-content > section {
+  scroll-margin-top: 100px;
+}
+.main-content > section > .lead {
+  margin-bottom: 16px;
+}
+.main-content a {
+  color: var(--blue);
+  text-underline-offset: 3px;
+}
+.main-content a:hover,
+.main-content a:focus-visible {
+  color: var(--text);
+}
+.main-content .cards + p,
+.main-content .term-grid + p,
+.main-content .study-grid + p {
+  margin-top: 16px;
+}
+.main-content h2:not(:first-child) {
+  margin-top: 12px;
+}
+.cards > *,
+.term-grid > *,
+.study-grid > * {
+  min-width: 0;
+}
+.term-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.term {
+  padding: 19px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.term h3 {
+  margin: 0 0 7px;
+  color: var(--blue);
+  font-size: .94rem;
+}
+.term p {
+  font-size: .9rem;
+}
+.math {
+  max-width: 100%;
+}
+.math mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 3px 0;
+}
+.course-figure {
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.course-figure img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: auto;
+  border-radius: 8px;
+  background: #fff;
+}
+.course-figure figcaption {
+  margin-top: 12px;
+  color: var(--text-3);
+  font-size: .86rem;
+  line-height: 1.6;
+  text-align: center;
+}
+.course-block {
+  min-width: 0;
+  margin: 22px 0;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--blue);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.course-block > h3 {
+  margin: 0 0 12px;
+  color: var(--blue);
+}
+.course-details {
+  margin: 20px 0;
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius);
+  background: var(--green-muted);
+  overflow: hidden;
+}
+.course-details summary {
+  padding: 14px 17px;
+  color: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+}
+.course-details summary:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: -4px;
+}
+.course-details[open] summary {
+  border-bottom: 1px solid var(--green-border);
+}
+.detail-body {
+  padding: 18px;
+}
+.detail-body h3:first-child {
+  margin-top: 0;
+}
+.study-ref {
+  margin-top: 16px;
+}
+.breadcrumb {
+  min-width: 0;
+  line-height: 1.35;
+}
+.topbar-toggle {
+  flex-shrink: 0;
+}
+@media (max-width: 800px) {
+  .term-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .course-block, .detail-body {
+    padding: 16px 12px;
+  }
+  .course-figure {
+    padding: 10px;
+  }
+  .topbar {
+    height: auto;
+    min-height: 64px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
