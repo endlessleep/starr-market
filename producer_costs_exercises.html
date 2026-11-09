@@ -398,8 +398,38 @@
           &=p z_2^{\rho-1}(z_1^\rho+z_2^\rho)^{(1-\rho)/\rho}-w_2=0.
       \end{aligned}$$</div>
     </div>
+    <div class="step" id="ex3-ces-concavity">
+      <h4>3. Second derivatives and concavity</h4>
+      <p>To check that the objective is concave, differentiate profit with respect to the <strong>inputs</strong>, holding $p,w_1,w_2$ fixed. Write $S=z_1^\rho+z_2^\rho$. For $z_1,z_2&gt;0$ and $0&lt;\rho&lt;1$, differentiate $\partial\pi/\partial z_1=pz_1^{\rho-1}S^{1/\rho-1}-w_1$ using the product and chain rules:</p>
+      <div class="math">$$\begin{aligned}
+        \frac{\partial^2\pi}{\partial z_1^2}
+          &=p(\rho-1)z_1^{\rho-2}S^{1/\rho-1}\\
+          &\quad+p(1-\rho)z_1^{2\rho-2}S^{1/\rho-2}\\
+          &=p(\rho-1)z_1^{\rho-2}S^{1/\rho-2}
+            \bigl(S-z_1^\rho\bigr).
+      \end{aligned}$$</div>
+      <p>Since $S-z_1^\rho=z_2^\rho$, this simplifies to:</p>
+      <div class="math">$$\boxed{\frac{\partial^2\pi}{\partial z_1^2}
+        =-p(1-\rho)z_1^{\rho-2}z_2^\rho S^{1/\rho-2}&lt;0.}$$</div>
+      <p>Every factor after the minus sign is positive. Similarly:</p>
+      <div class="math">$$\boxed{\frac{\partial^2\pi}{\partial z_2^2}
+        =-p(1-\rho)z_2^{\rho-2}z_1^\rho S^{1/\rho-2}&lt;0.}$$</div>
+      <p>These signs show concavity in each input separately. To establish <strong>joint concavity</strong>, also compute the cross derivative:</p>
+      <div class="math">$$\frac{\partial^2\pi}{\partial z_1\partial z_2}
+        =p(1-\rho)z_1^{\rho-1}z_2^{\rho-1}S^{1/\rho-2}&gt;0.$$</div>
+      <p>Factor out the positive coefficient $A=p(1-\rho)z_1^{\rho-2}z_2^{\rho-2}S^{1/\rho-2}$. The Hessian is:</p>
+      <div class="math">$$H_\pi=A
+        \begin{pmatrix}
+          -z_2^2 &amp; z_1z_2\\
+          z_1z_2 &amp; -z_1^2
+        \end{pmatrix},
+        \qquad
+        \det H_\pi=A^2\bigl(z_1^2z_2^2-(z_1z_2)^2\bigr)=0.$$</div>
+      <p>Its diagonal entries are negative and its determinant is zero, so the Hessian is <strong>negative semidefinite</strong>. Profit is therefore concave in $(z_1,z_2)$; continuity extends this conclusion to the boundary where an input is zero. Production is concave too, since input costs are linear and $H_\pi=pH_f$.</p>
+      <div class="key-note"><strong>Concave, but not strictly concave.</strong> Under constant returns to scale, profit is linear when both inputs are scaled together. An interior point satisfying the FOCs is therefore a global maximum if such a point exists, but concavity does not guarantee a unique scale or a finite maximum. The price cases below determine whether the firm shuts down, is indifferent across scales, or can expand profit without bound.</div>
+    </div>
     <div class="step">
-      <h4>3. Optimal input proportions</h4>
+      <h4>4. Optimal input proportions</h4>
       <p>Divide the two conditions to cancel the common factors:</p>
       <div class="math">$$\begin{aligned}
         \frac{w_1}{w_2}&=\left(\frac{z_1}{z_2}\right)^{\rho-1},\\
@@ -412,7 +442,7 @@
       <p>This determines the optimal <strong>proportions</strong>, not the production scale. The same ratio follows from cost minimization, where $MP_1/MP_2=w_1/w_2$. For positive output and $0&lt;\rho&lt;1$, both inputs are used: the marginal product of an absent input becomes arbitrarily large as its quantity approaches zero.</p>
     </div>
     <div class="step">
-      <h4>4. Conditional input demands</h4>
+      <h4>5. Conditional input demands</h4>
       <p>For a given output target $\bar q&gt;0$, substitute $z_1=xz_2$ into the production constraint:</p>
       <div class="math">$$\begin{aligned}
         \bar q&=(z_1^\rho+z_2^\rho)^{1/\rho}\\
@@ -425,7 +455,7 @@
       <div class="key-note">These are <strong>conditional cost-minimizing input demands</strong> for a specified output target. They also give zero inputs when $\bar q=0$. Profit maximization still requires choosing the output level.</div>
     </div>
     <div class="step">
-      <h4>5. Cost function and unit cost</h4>
+      <h4>6. Cost function and unit cost</h4>
       <p>Substitute the conditional demands into total input expenditure:</p>
       <div class="math">$$\begin{aligned}
         C(w,\bar q)&=w_1z_1^c+w_2z_2^c\\
@@ -437,7 +467,7 @@
         \qquad\boxed{C(w,\bar q)=c(w)\bar q}.$$</div>
     </div>
     <div class="step">
-      <h4>6. Profit maximization under constant returns to scale</h4>
+      <h4>7. Profit maximization under constant returns to scale</h4>
       <p>Multiplying both inputs by $t&gt;0$ multiplies output by $t$:</p>
       <div class="math">$$\begin{aligned}
         f(tz_1,tz_2)
@@ -461,7 +491,7 @@
       <div class="remark"><strong>Why the FOCs do not determine a unique scale.</strong> A finite positive profit-maximizing bundle can satisfy the interior FOCs only at $p=c(w)$. Below unit cost, the optimum is zero; above it, profit is unbounded.</div>
     </div>
     <div class="step">
-      <h4>7. Boundary case: $\rho=1$</h4>
+      <h4>8. Boundary case: $\rho=1$</h4>
       <div class="math">$$f(z_1,z_2)=z_1+z_2.$$</div>
       <p>The inputs are perfect substitutes. Cost minimization uses only the cheaper input, or any split when prices are equal, so unit cost is $c(w)=\min(w_1,w_2)$.</p>
       <p>The same three price cases apply: below this unit cost the firm produces zero; at equality any scale is optimal using the cheapest input(s); above it profit is unbounded. Unlike Question 1's square-root technology, this linear technology has constant returns to scale.</p>
