@@ -14,16 +14,14 @@
   color: var(--text);
 }
 .main-content .cards + p,
-.main-content .term-grid + p,
-.main-content .study-grid + p {
+.main-content .term-grid + p {
   margin-top: 16px;
 }
 .main-content h2:not(:first-child) {
   margin-top: 12px;
 }
 .cards > *,
-.term-grid > *,
-.study-grid > * {
+.term-grid > * {
   min-width: 0;
 }
 .term-grid {
@@ -115,9 +113,6 @@
 }
 .detail-body h3:first-child {
   margin-top: 0;
-}
-.study-ref {
-  margin-top: 16px;
 }
 .breadcrumb {
   min-width: 0;

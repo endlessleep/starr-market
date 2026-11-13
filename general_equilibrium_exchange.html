@@ -9,7 +9,7 @@
   <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
   <style>
     :root{--sidebar-bg:#13020A;--sidebar-width:280px;--bg:#0f1117;--card:#161922;--red:#e11d48;--red-bright:#ff2d55;--red-muted:rgba(225,29,72,.1);--red-border:rgba(225,29,72,.3);--blue:#60a5fa;--blue-muted:rgba(59,130,246,.1);--blue-border:rgba(59,130,246,.3);--green:#34d399;--green-muted:rgba(16,185,129,.09);--green-border:rgba(16,185,129,.3);--purple:#c084fc;--purple-muted:rgba(168,85,247,.1);--purple-border:rgba(168,85,247,.3);--amber:#fbbf24;--amber-muted:rgba(245,158,11,.09);--amber-border:rgba(245,158,11,.3);--text:#f8fafc;--text-2:#cbd5e1;--text-3:#94a3b8;--border:rgba(255,255,255,.07);--radius:10px;--font:'Outfit',sans-serif}
-    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font);display:flex;line-height:1.65}.sidebar{width:var(--sidebar-width);position:fixed;inset:0 auto 0 0;z-index:20;display:flex;flex-direction:column;overflow:hidden;background:var(--sidebar-bg);border-right:1px solid var(--border);transition:transform .25s}.sidebar.collapsed{transform:translateX(-100%)}.sidebar-brand{display:flex;justify-content:space-between;align-items:center;padding:22px 20px 16px;border-bottom:1px solid var(--border)}.sidebar-brand h1{font-size:1.3rem;letter-spacing:1px}.sidebar-brand h1 span{color:var(--red)}.sidebar-close{border:0;background:none;color:var(--text-3);font-size:1.3rem;cursor:pointer}.sidebar-nav{flex:1;overflow-y:auto;padding:12px 0}.sidebar-link,.sidebar-sublink{display:flex;padding:9px 22px;color:var(--text-3);text-decoration:none;font-size:.85rem;font-weight:600;border-left:3px solid transparent}.sidebar-link{padding:11px 22px;font-weight:700}.sidebar-sublink{padding-left:36px}.sidebar-link:hover,.sidebar-sublink:hover{background:rgba(255,255,255,.04);color:var(--text)}.sidebar-sublink.active{background:var(--red-muted);border-left-color:var(--red);color:var(--red-bright)}.sidebar-group{display:flex;flex-direction:column;gap:2px;margin-top:4px}.sidebar-group-title{padding:10px 22px 4px;color:var(--text-3);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px}.sidebar-footer{padding:14px 16px;border-top:1px solid var(--border)}.sidebar-user{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);background:rgba(255,255,255,.04)}.user-avatar{position:relative;width:44px;height:44px}.user-dot{position:absolute;right:-2px;bottom:-2px;width:8px;height:8px;border:2px solid var(--sidebar-bg);border-radius:50%;background:#10b981}.user-name{font-size:.82rem;font-weight:700}.main-wrap{min-width:0;flex:1;margin-left:var(--sidebar-width);transition:margin-left .25s}.main-wrap.expanded{margin-left:0}.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:16px;height:64px;padding:0 28px;border-bottom:1px solid var(--border);background:rgba(15,17,23,.92);backdrop-filter:blur(12px)}.topbar-toggle{width:38px;height:38px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}.breadcrumb{color:var(--text-3);font-size:.88rem}.breadcrumb strong{color:var(--text)}.topbar-pill{margin-left:auto;padding:5px 14px;border:1px solid var(--red-border);border-radius:999px;background:var(--red-muted);color:var(--red-bright);font-size:.78rem;font-weight:700}.main-content{width:100%;max-width:980px;margin:0 auto;padding:40px 44px 76px}.page-title{padding-bottom:24px;border-bottom:1px solid var(--border)}.page-label{margin-bottom:8px;color:var(--red);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px}.page-title h1{font-size:2.1rem;line-height:1.2}.page-title p{margin-top:8px;color:var(--text-3)}section{margin-top:44px}.part-banner{display:flex;align-items:center;gap:14px;margin-bottom:20px}.part-pill{padding:6px 15px;border:1px solid var(--blue-border);border-radius:999px;background:var(--blue-muted);color:var(--blue);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px}.part-line{height:1px;flex:1;background:var(--border)}h2{font-size:1.38rem;margin-bottom:12px}h3{font-size:1.05rem;margin:26px 0 12px;color:var(--text)}h4{font-size:.84rem;color:var(--purple);margin:0 0 7px;text-transform:uppercase;letter-spacing:.5px}p{color:var(--text-2);font-size:.94rem}p+p{margin-top:10px}.lead{font-size:1rem;line-height:1.75}.key-note,.remark,.question,.verify{margin:16px 0;padding:14px 17px;border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;background:var(--blue-muted);color:var(--text-2)}.remark{border-left-color:var(--amber);background:var(--amber-muted)}.question{border-left-color:var(--purple);background:var(--purple-muted)}.verify{border:1px dashed var(--amber-border);background:var(--amber-muted);color:var(--amber)}.key-note strong,.remark strong,.question strong,.verify strong{color:var(--text)}.math{margin:14px 0;padding:14px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:#11151e;text-align:center}.math.emphasis{border-color:var(--blue-border);background:var(--blue-muted)}.cards,.term-grid,.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card,.term,.step{padding:19px 20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.card h3,.term h3,.step h3{margin:0 0 7px;font-size:.94rem;color:var(--blue)}.card p,.term p{font-size:.9rem}.card.full{grid-column:1/-1}.list{list-style:none;display:grid;gap:10px;margin:13px 0}.list li{color:var(--text-2);font-size:.92rem}.list li::before{content:'—';color:var(--blue);font-weight:800;margin-right:8px}.figure-placeholder{display:flex;align-items:center;justify-content:center;min-height:112px;margin:18px 0;padding:20px;border:1px dashed var(--amber-border);border-radius:var(--radius);background:var(--amber-muted);color:var(--amber);font-size:.84rem;font-weight:700;text-align:center}.sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:16px 0}.sequence .card h3{color:var(--green)}.proof{margin:18px 0;padding:20px;border:1px solid var(--purple-border);border-radius:var(--radius);background:var(--purple-muted)}.proof h3{margin:0 0 9px;color:var(--purple)}.proof-step{margin-top:14px;padding:15px;border:1px solid var(--border);border-radius:8px;background:rgba(15,17,23,.48)}.proof-step h4{color:var(--purple)}@media(max-width:800px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main-wrap{margin-left:0}.main-content{padding:30px 20px 55px}.topbar{padding:0 18px}.cards,.term-grid,.steps,.sequence{grid-template-columns:1fr}.topbar-pill{display:none}}@media(max-width:520px){.main-content{padding:24px 14px 48px}.topbar{height:58px;padding:0 12px}.breadcrumb{font-size:.76rem}.page-title h1{font-size:1.75rem}.math{padding:10px 6px;font-size:.85rem}}
+    *{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font);display:flex;line-height:1.65}.sidebar{width:var(--sidebar-width);position:fixed;inset:0 auto 0 0;z-index:20;display:flex;flex-direction:column;overflow:hidden;background:var(--sidebar-bg);border-right:1px solid var(--border);transition:transform .25s}.sidebar.collapsed{transform:translateX(-100%)}.sidebar-brand{display:flex;justify-content:space-between;align-items:center;padding:22px 20px 16px;border-bottom:1px solid var(--border)}.sidebar-brand h1{font-size:1.3rem;letter-spacing:1px}.sidebar-brand h1 span{color:var(--red)}.sidebar-close{border:0;background:none;color:var(--text-3);font-size:1.3rem;cursor:pointer}.sidebar-nav{flex:1;overflow-y:auto;padding:12px 0}.sidebar-link,.sidebar-sublink{display:flex;padding:9px 22px;color:var(--text-3);text-decoration:none;font-size:.85rem;font-weight:600;border-left:3px solid transparent}.sidebar-link{padding:11px 22px;font-weight:700}.sidebar-sublink{padding-left:36px}.sidebar-link:hover,.sidebar-sublink:hover{background:rgba(255,255,255,.04);color:var(--text)}.sidebar-sublink.active{background:var(--red-muted);border-left-color:var(--red);color:var(--red-bright)}.sidebar-group{display:flex;flex-direction:column;gap:2px;margin-top:4px}.sidebar-group-title{padding:10px 22px 4px;color:var(--text-3);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px}.sidebar-footer{padding:14px 16px;border-top:1px solid var(--border)}.sidebar-user{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius);background:rgba(255,255,255,.04)}.user-avatar{position:relative;width:44px;height:44px}.user-dot{position:absolute;right:-2px;bottom:-2px;width:8px;height:8px;border:2px solid var(--sidebar-bg);border-radius:50%;background:#10b981}.user-name{font-size:.82rem;font-weight:700}.main-wrap{min-width:0;flex:1;margin-left:var(--sidebar-width);transition:margin-left .25s}.main-wrap.expanded{margin-left:0}.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:16px;height:64px;padding:0 28px;border-bottom:1px solid var(--border);background:rgba(15,17,23,.92);backdrop-filter:blur(12px)}.topbar-toggle{width:38px;height:38px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.06);color:var(--text);cursor:pointer}.breadcrumb{color:var(--text-3);font-size:.88rem}.breadcrumb strong{color:var(--text)}.topbar-pill{margin-left:auto;padding:5px 14px;border:1px solid var(--red-border);border-radius:999px;background:var(--red-muted);color:var(--red-bright);font-size:.78rem;font-weight:700}.main-content{width:100%;max-width:980px;margin:0 auto;padding:40px 44px 76px}.page-title{padding-bottom:24px;border-bottom:1px solid var(--border)}.page-label{margin-bottom:8px;color:var(--red);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px}.page-title h1{font-size:2.1rem;line-height:1.2}.page-title p{margin-top:8px;color:var(--text-3)}section{margin-top:44px}.part-banner{display:flex;align-items:center;gap:14px;margin-bottom:20px}.part-pill{padding:6px 15px;border:1px solid var(--blue-border);border-radius:999px;background:var(--blue-muted);color:var(--blue);font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px}.part-line{height:1px;flex:1;background:var(--border)}h2{font-size:1.38rem;margin-bottom:12px}h3{font-size:1.05rem;margin:26px 0 12px;color:var(--text)}h4{font-size:.84rem;color:var(--purple);margin:0 0 7px;text-transform:uppercase;letter-spacing:.5px}p{color:var(--text-2);font-size:.94rem}p+p{margin-top:10px}.lead{font-size:1rem;line-height:1.75}.key-note,.remark,.question{margin:16px 0;padding:14px 17px;border-left:3px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;background:var(--blue-muted);color:var(--text-2)}.remark{border-left-color:var(--amber);background:var(--amber-muted)}.question{border-left-color:var(--purple);background:var(--purple-muted)}.key-note strong,.remark strong,.question strong{color:var(--text)}.math{margin:14px 0;padding:14px 18px;overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:#11151e;text-align:center}.math.emphasis{border-color:var(--blue-border);background:var(--blue-muted)}.cards,.term-grid,.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card,.term,.step{padding:19px 20px;border:1px solid var(--border);border-radius:var(--radius);background:var(--card)}.card h3,.term h3,.step h3{margin:0 0 7px;font-size:.94rem;color:var(--blue)}.card p,.term p{font-size:.9rem}.card.full{grid-column:1/-1}.list{list-style:none;display:grid;gap:10px;margin:13px 0}.list li{color:var(--text-2);font-size:.92rem}.list li::before{content:'—';color:var(--blue);font-weight:800;margin-right:8px}.sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:16px 0}.sequence .card h3{color:var(--green)}.proof{margin:18px 0;padding:20px;border:1px solid var(--purple-border);border-radius:var(--radius);background:var(--purple-muted)}.proof h3{margin:0 0 9px;color:var(--purple)}.proof-step{margin-top:14px;padding:15px;border:1px solid var(--border);border-radius:8px;background:rgba(15,17,23,.48)}.proof-step h4{color:var(--purple)}@media(max-width:800px){.sidebar{transform:translateX(-100%)}.sidebar.open{transform:translateX(0)}.main-wrap{margin-left:0}.main-content{padding:30px 20px 55px}.topbar{padding:0 18px}.cards,.term-grid,.steps,.sequence{grid-template-columns:1fr}.topbar-pill{display:none}}@media(max-width:520px){.main-content{padding:24px 14px 48px}.topbar{height:58px;padding:0 12px}.breadcrumb{font-size:.76rem}.page-title h1{font-size:1.75rem}.math{padding:10px 6px;font-size:.85rem}}
   </style>
 <link rel="stylesheet" href="midterm-nav.css">
 <link rel="stylesheet" href="reading-progress.css">
@@ -32,7 +32,7 @@
   <main class="main-wrap" id="main-wrap">
     <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>2. General Equilibrium in the Exchange Economy</strong></div><div class="topbar-pill">Part IV</div></div>
     <div class="main-content">
-<header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>2. General Equilibrium in the Exchange Economy</h1><p>Feasible trades, the Edgeworth box, competitive prices, and welfare theorems.</p></header>
+    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>2. General Equilibrium in the Exchange Economy</h1><p>Feasible trades, the Edgeworth box, competitive prices, and welfare theorems.</p></header>
 
     <section id="feasibility-efficiency">
       <div class="part-banner"><span class="part-pill">01 · Foundations</span><span class="part-line"></span></div>
@@ -52,14 +52,15 @@
       <h3>Pareto improvements and Pareto efficiency</h3>
       <p>A feasible allocation \(x'\) is a <strong>Pareto improvement</strong> over \(x\) if nobody is worse off and at least one consumer is strictly better off:</p>
       <div class="math">\[
-        u_i(x_i')\geq u_i(x_i)\ \text{for every }i,
-        \qquad
-        u_j(x_j')&gt;u_j(x_j)\ \text{for at least one }j.
+        \begin{gathered}
+          u_i(x_i')\geq u_i(x_i)\ \text{for every }i,\\
+          u_j(x_j')&gt;u_j(x_j)\ \text{for at least one }j.
+        \end{gathered}
       \]</div>
       <p>An allocation is <strong>Pareto efficient</strong> if no feasible Pareto improvement exists. Pareto comparisons are incomplete: if a change helps one consumer but hurts another, neither allocation Pareto dominates the other.</p>
       <div class="remark"><strong>Efficiency does not settle equity.</strong> A highly unequal allocation can be Pareto efficient. The criterion asks whether anyone can be helped without harming someone else, not whether the distribution is fair.</div>
       <h3>Pareto efficiency and total surplus</h3>
-      <p>In the quasilinear, transferable-numeraire benchmark, with no externalities and no restrictions on compensating transfers, maximizing total surplus identifies efficient trade. An increase in total surplus creates scope for compensation, but is not itself a Pareto improvement.</p>
+      <p>With quasilinear utility, one good serves as money: its quantity enters utility linearly. If there are no externalities and this good can be transferred freely between consumers, maximizing total surplus identifies efficient trade. An increase in total surplus creates scope to compensate those who lose, but is not itself a Pareto improvement.</p>
       <div class="key-note"><strong>Why?</strong> Some consumers or producers may lose from a change even when the total gain is positive. Compensation must actually leave everyone at least as well off for the change to be a Pareto improvement. Outside this benchmark, consumer surplus is not a general substitute for utility-based welfare comparisons.</div>
     </section>
 
@@ -79,7 +80,7 @@
       <h3>Gains from trade</h3>
       <p>The indifference curves through the initial endowment enclose a lens where both consumers are at least as well off. Interior points of this lens make both strictly better off; boundary points may leave one indifferent.</p>
       <h3>The contract curve</h3>
-      <p>The <strong>contract curve</strong> contains the Pareto-efficient allocations. With smooth, convex preferences at an interior allocation, efficiency requires equal marginal rates of substitution:</p>
+      <p>The <strong>contract curve</strong> contains the Pareto-efficient allocations. With smooth, increasing, convex preferences and positive marginal utilities at an interior allocation, efficiency requires equal marginal rates of substitution:</p>
       <div class="math emphasis">\[MRS_{12}^{A}=MRS_{12}^{B}.\]</div>
       <p>If the two rates differ, a small exchange can benefit both consumers. At an interior efficient point, the indifference curves are tangent. Boundary allocations and nonsmooth preferences require checking feasible improvements directly; tangency is not a universal test.</p>
       <h3>Barter outcomes and the core</h3>
@@ -92,9 +93,11 @@
       <h2>Reintroducing Prices</h2>
       <p>Let \(p\gg0\), meaning every good has a strictly positive price. Consumer \(i\)'s wealth is the market value of their endowment, \(m_i=p\cdot\omega_i\). Their problem is:</p>
       <div class="math emphasis">\[
-        x_i(p,m_i)\in\arg\max_{x_i\geq0}u_i(x_i)
-        \quad\text{s.t.}\quad p\cdot x_i\leq m_i,
-        \qquad m_i=p\cdot\omega_i.
+        \begin{gathered}
+          x_i(p,m_i)\in\arg\max_{x_i\geq0}u_i(x_i)\\
+          \text{s.t.}\quad p\cdot x_i\leq m_i,
+          \qquad m_i=p\cdot\omega_i.
+        \end{gathered}
       \]</div>
       <p>It is as if the consumer sold their endowment and then purchased a preferred bundle. The notation \(x_i(p,m_i)\) always takes <strong>wealth</strong> as its second argument.</p>
       <h3>A common budget line in the Edgeworth box</h3>
@@ -105,9 +108,10 @@
       \]</div>
       <p>This line passes through \(\omega\) and has slope \(-p_1/p_2\). Since \(x_B=\bar\omega-x_A\), consumer \(B\)'s budget inequality becomes:</p>
       <div class="math">\[
-        p\cdot(\bar\omega-x_A)\leq p\cdot\omega_B
-        \quad\Longleftrightarrow\quad
-        p\cdot x_A\geq p\cdot\omega_A.
+        \begin{gathered}
+          p\cdot(\bar\omega-x_A)\leq p\cdot\omega_B\\
+          \Longleftrightarrow\quad p\cdot x_A\geq p\cdot\omega_A.
+        \end{gathered}
       \]</div>
       <div class="key-note"><strong>Opposite affordable sides.</strong> \(A\) can afford points on or below the line; \(B\) can afford points on or above it, using \(A\)'s coordinates. Among allocations in the box, both budgets are satisfied exactly on the common line.</div>
       <figure class="course-figure"><img src="images/edgeworth-equilibrium.svg" alt="The budget line x A1 plus x A2 equals 10 passes through the initial endowment (2,8) and the equilibrium (5,5). At the equilibrium it is tangent to both consumers' indifference curves."><figcaption>At equal prices in this example, both consumers choose \((5,5)\). Their demands fit together at the same point in the box.</figcaption></figure>
@@ -119,8 +123,10 @@
       <h2>From Individual Choices to Market Clearing</h2>
       <p>Individual excess demand is desired consumption minus the initial endowment:</p>
       <div class="math emphasis">\[
-        z_{in}(p)=x_{in}(p,p\cdot\omega_i)-\omega_{in},
-        \qquad z_n(p)=\sum_{i=1}^{I}z_{in}(p).\tag{1}
+        \begin{gathered}
+          z_{in}(p)=x_{in}(p,p\cdot\omega_i)-\omega_{in},\\
+          z_n(p)=\sum_{i=1}^{I}z_{in}(p).
+        \end{gathered}\tag{1}
       \]</div>
       <div class="cards">
         <article class="card"><h3>\(z_n(p)&gt;0\)</h3><p>Aggregate desired purchases exceed available sales: the market has excess demand.</p></article>
@@ -133,6 +139,7 @@
         <article class="card"><h3>Homogeneity of degree zero</h3><p>Scaling all prices scales endowment wealth in the same proportion, leaving budget sets and demands unchanged:</p><div class="math">\[z(\lambda p)=z(p),\qquad\lambda&gt;0.\]</div></article>
       </div>
       <h3>Walras' law</h3>
+      <p><strong>Local nonsatiation</strong> means that, however close we stay to a given bundle, a strictly preferred bundle is available in the consumption set. Continuous, strictly increasing utility satisfies this condition.</p>
       <p>With locally nonsatiated preferences, each consumer exhausts their budget. Adding \(p\cdot x_i=p\cdot\omega_i\) across consumers gives:</p>
       <div class="math emphasis">\[p\cdot z(p)=\sum_{n=1}^{N}p_nz_n(p)=0.\tag{2}\]</div>
       <p>This is true at every strictly positive price vector for which demands are defined, <strong>including prices that do not clear markets</strong>.</p>
@@ -164,11 +171,9 @@
       </ul>
       <p>These are sufficient assumptions, not necessary ones. They provide a benchmark in which a competitive allocation and supporting prices exist.</p>
       <h3>Only relative prices are determined</h3>
-      <p>If \((x^*,p^*)\) is an equilibrium, then \((x^*,\lambda p^*)\) is also an equilibrium for every \(\lambda&gt;0\). <strong>The allocation stays unchanged.</strong> Scaling prices does not create additional goods.</p>
+      <p>If \((x^*,p^*)\) is an equilibrium, then \((x^*,\lambda p^*)\) is also an equilibrium for every \(\lambda&gt;0\). <strong>The allocation stays unchanged.</strong> Choosing good 1 as the <strong>numeraire</strong> means dividing every price by \(p_1^*\), so its normalized price equals 1:</p>
       <div class="math">\[
-        p^*\sim\lambda p^*,
-        \qquad
-        \text{with good 1 as numeraire: }
+        \frac{p^*}{p_1^*}=
         \left(1,\frac{p_2^*}{p_1^*},\ldots,\frac{p_N^*}{p_1^*}\right).
       \]</div>
       <h3>Uniqueness is a separate question</h3>
@@ -180,9 +185,11 @@
       <h2>Competitive Equilibrium Implies Pareto Efficiency</h2>
       <p class="lead">In this private-goods exchange economy, with locally nonsatiated preferences, every Walrasian equilibrium allocation is Pareto efficient. Continuous, strictly increasing utility is a sufficient preference assumption.</p>
       <div class="math emphasis">\[
-        \text{Walrasian equilibrium}
-        \quad\Longrightarrow\quad
-        \text{Pareto efficiency}.
+        \begin{gathered}
+          \text{Walrasian equilibrium}\\
+          \Downarrow\\
+          \text{Pareto efficiency}.
+        \end{gathered}
       \]</div>
       <div class="key-note"><strong>Intuition.</strong> At the common prices, each consumer already chooses their best affordable bundle. Making everyone at least as well off and someone strictly better off would require bundles whose combined value exceeds the value of the available resources.</div>
       <details class="course-details"><summary>Proof by contradiction</summary><div class="detail-body">
@@ -209,13 +216,16 @@
       <h2>Supporting an Efficient Allocation with Redistribution</h2>
       <p class="lead">The converse requires more structure. With continuous, strongly monotone, convex preferences, an <strong>interior</strong> Pareto-efficient allocation can be supported as a competitive equilibrium after suitable lump-sum transfers of wealth.</p>
       <div class="math emphasis">\[
-        \text{Pareto-efficient allocation}
-        \quad+\quad\text{appropriate wealth transfers}
-        \quad\Longrightarrow\quad
-        \text{competitive equilibrium}.
+        \begin{gathered}
+          \text{Pareto-efficient allocation}\\
+          +\ \text{appropriate wealth transfers}\\
+          \Downarrow\\
+          \text{competitive equilibrium}.
+        \end{gathered}
       \]</div>
       <p>At a smooth interior efficient allocation, the common tangent to the indifference curves provides supporting prices. Convexity makes the chosen bundles globally optimal at those prices. Redistribution places each consumer's budget line through the target bundle.</p>
       <h3>Write the transfers explicitly</h3>
+      <p>A <strong>lump-sum transfer</strong> is fixed independently of the consumer's purchases or sales. It changes wealth while leaving relative prices unchanged.</p>
       <p>For a target allocation \(x^*\) and supporting prices \(p^*\), let \(T_i\) be consumer \(i\)'s transfer measured in value:</p>
       <div class="math">\[
         T_i=p^*\cdot x_i^*-p^*\cdot\omega_i,
@@ -225,7 +235,6 @@
       <div class="math emphasis">\[p^*\cdot x_i\leq p^*\cdot\omega_i+T_i.\]</div>
       <p>Equivalently, goods can be redistributed as new endowments \(\omega_i'\), preserving the aggregate endowment and giving each consumer the required wealth \(p^*\cdot\omega_i'=p^*\cdot x_i^*\).</p>
       <div class="remark"><strong>The qualification matters.</strong> The theorem does not say every efficient allocation is an equilibrium for the original endowments. The interior formulation avoids boundary complications; more general versions first establish a price quasi-equilibrium and require further conditions for full consumer optimality.</div>
-      <p class="small">For the theorem statements and transfer formulation, see <a href="https://marcelogallardob.github.io/files/courses/Microeconomics-II/EG_lecture_notes.pdf">Gallardo, <em>Lecture Notes in General Equilibrium</em>, sections 4–5</a>.</p>
     </section>
     </div>
   </main>
