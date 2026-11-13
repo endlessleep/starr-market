@@ -16,9 +16,10 @@
 <link rel="stylesheet" href="midterm-nav.css">
 <link rel="stylesheet" href="reading-progress.css">
 <link rel="stylesheet" href="equilibrium.css">
+<link rel="stylesheet" href="partial-equilibrium.css">
 <script defer src="reading-progress.js"></script>
 </head>
-<body>
+<body class="partial-equilibrium">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
     <nav class="sidebar-nav" aria-label="Course navigation">
@@ -27,111 +28,193 @@
       <div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div>
       <div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div>
       <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a><a href="producer_costs_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-2</a></div>
-      <div class="sidebar-group"><div class="sidebar-group-title">📂 4 — Equilibrium &amp; Welfare</div><a href="partial_equilibrium.html" class="sidebar-sublink active" aria-current="page">1 · Partial Equilibrium</a><a href="general_equilibrium_exchange.html" class="sidebar-sublink">2 · General Equilibrium in the Exchange Economy</a><a href="general_equilibrium_productive.html" class="sidebar-sublink">3 · General Equilibrium in the Productive Economy</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 4 — Equilibrium &amp; Welfare</div><a href="partial_equilibrium.html" class="sidebar-sublink active" aria-current="page">1 · Partial Equilibrium</a>
+      <a href="partial_equilibrium_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 4-1</a><a href="general_equilibrium_exchange.html" class="sidebar-sublink">2 · General Equilibrium in the Exchange Economy</a><a href="general_equilibrium_productive.html" class="sidebar-sublink">3 · General Equilibrium in the Productive Economy</a></div>
     </nav>
     <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div>
   </aside>
   <main class="main-wrap" id="main-wrap">
     <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>1. Partial Equilibrium</strong></div><div class="topbar-pill">Part IV</div></div>
     <div class="main-content">
-    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>1. Partial Equilibrium</h1><p>Competitive prices, market clearing, existence, uniqueness, and surplus.</p></header>
+    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>1. Partial Equilibrium</h1><p>One market · Competitive equilibrium · Existence &amp; uniqueness · Surplus</p></header>
 
     <section id="competition">
       <div class="part-banner"><span class="part-pill">01 · Market structures</span><span class="part-line"></span></div>
       <h2>Perfect Competition</h2>
-      <p class="lead">Market structures differ in how much influence individual agents have over prices. This chapter studies <strong>perfect competition</strong>: consumers and firms take market prices as given.</p>
+      <p class="lead"><strong>Price-taking:</strong> no individual buyer or seller can influence the market price.</p>
       <div class="cards">
-        <article class="card"><h3>Price-taking consumers</h3><p>Each consumer chooses a utility-maximizing bundle within their budget. An individual purchase does not affect the market price.</p></article>
-        <article class="card"><h3>Price-taking producers</h3><p>Each firm chooses a profit-maximizing production plan within its technology. An individual firm's output does not affect the market price.</p></article>
+        <article class="card"><h3>Consumers</h3><p>Maximize <strong>utility</strong> subject to their budget, taking prices as given.</p></article>
+        <article class="card"><h3>Producers</h3><p>Maximize <strong>profit</strong> subject to their technology, taking prices as given.</p></article>
       </div>
-      <p>Monopoly, duopoly, and oligopoly instead allow sellers to influence prices; monopsony gives market power to a buyer.</p>
+      <p class="equation-note"><strong>Other structures:</strong> monopoly (one seller), duopoly (two sellers), oligopoly (a few sellers), monopsony (one buyer).</p>
     </section>
 
     <section id="market-demand-supply">
       <div class="part-banner"><span class="part-pill">02 · One market at a time</span><span class="part-line"></span></div>
-      <h2>Partial Equilibrium</h2>
-      <p class="lead">Partial equilibrium studies one market while holding other prices and consumers' incomes fixed. It is useful when feedback from the rest of the economy is small.</p>
-      <div class="key-note"><strong>The approximation.</strong> If expenditure on the good is a small share of the budget, income effects may be limited. If this market is small relative to related markets, its changes may have little effect on other prices. Substitution in response to the good's own price still matters.</div>
-      <h3>Market demand</h3>
-      <p>At each price \(p\), add the quantities demanded by all consumers:</p>
-      <div class="math emphasis">\[Q^d(p)=\sum_{i\in I}q_i(p,p_{-x},m_i).\tag{1}\]</div>
-      <div class="term-grid">
-        <article class="term"><h3>\(I\) and \(q_i\)</h3><p>\(I\) is the set of consumers; \(q_i\) is consumer \(i\)'s utility-maximizing demand for the good.</p></article>
-        <article class="term"><h3>\(p_{-x}\) and \(m_i\)</h3><p>\(p_{-x}\) contains all other goods' prices; \(m_i\) is consumer \(i\)'s income. Both are held fixed when drawing \(Q^d(p)\).</p></article>
-      </div>
-      <p>Market demand generally depends on both total income and its distribution. Scaling <em>all</em> prices and every consumer's income by the same positive factor leaves demand unchanged: demand is homogeneous of degree zero in prices and incomes jointly.</p>
-      <h3>Market supply</h3>
-      <p>At each output price \(p\), add firms' profit-maximizing quantities, taking input prices \(w\) as given:</p>
+      <h2>Market Demand and Supply</h2>
+      <div class="key-note"><strong>Partial equilibrium:</strong> study a single market in isolation, holding other prices and consumers' incomes fixed.</div>
+      <ul class="list">
+        <li><strong>Small budget share</strong> → income effects are limited.</li>
+        <li><strong>Small market</strong> → changes in this market leave other goods' prices approximately unchanged.</li>
+      </ul>
+      <h3>Market demand = sum of individual demands</h3>
+      <div class="math emphasis">\[Q^d(p)=\sum_{i\in I}q_i(p,p_{-x},y_i).\tag{1}\]</div>
+      <dl class="notation-list">
+        <div><dt>\(I,\ q_i\)</dt><dd>Consumers and their utility-maximizing demands.</dd></div>
+        <div><dt>\(p\)</dt><dd>Price of the good studied.</dd></div>
+        <div><dt>\(p_{-x},\ y_i\)</dt><dd>Other prices and consumer \(i\)'s income, held fixed.</dd></div>
+      </dl>
+      <ul class="list">
+        <li>Demand depends on <strong>total income and its distribution</strong>.</li>
+        <li><strong>Homogeneous of degree zero</strong> in all prices and incomes jointly: no money illusion.</li>
+      </ul>
+      <div class="math">\[
+        \begin{gathered}
+          Q^d(\lambda p,\lambda p_{-x},\lambda y)=Q^d(p,p_{-x},y),\\
+          \lambda&gt;0,\qquad y=(y_i)_{i\in I}.
+        \end{gathered}
+      \]</div>
+      <p class="equation-note">This scaling property changes <em>all</em> nominal prices and incomes together. Along \(Q^d(p)\), only the good's own price varies.</p>
+      <h3>Market supply = sum of individual supplies</h3>
       <div class="math emphasis">\[Q^s(p)=\sum_{j\in J}q_j(p,w).\tag{2}\]</div>
+      <dl class="notation-list">
+        <div><dt>\(J,\ q_j\)</dt><dd>Potential producers and their profit-maximizing supplies.</dd></div>
+        <div><dt>\(w\)</dt><dd>Input-price vector, held fixed.</dd></div>
+      </dl>
       <div class="cards">
-        <article class="card"><h3>Short run</h3><p>The set \(J\) of existing firms is fixed. A firm can adjust its output or shut down, subject to its short-run costs.</p></article>
-        <article class="card"><h3>Long run</h3><p>Firms can enter or exit. Market supply must account for how the number of active firms responds to profitability.</p></article>
+        <article class="card"><h3>Short run</h3><p><strong>Fixed set of firms.</strong> Existing firms choose their output and may shut down.</p></article>
+        <article class="card"><h3>Long run</h3><p><strong>Variable number of firms.</strong> New firms can enter; existing firms can exit.</p></article>
       </div>
     </section>
 
     <section id="competitive-equilibrium">
       <div class="part-banner"><span class="part-pill">03 · Market clearing</span><span class="part-line"></span></div>
       <h2>Competitive Equilibrium</h2>
-      <h3>Short-run equilibrium</h3>
-      <p>A competitive equilibrium price \(p^*\) makes buyers' and sellers' optimal choices compatible:</p>
+      <h3>Short run: optimal choices + market clearing</h3>
       <div class="math emphasis">\[Q^d(p^*)=Q^s(p^*)=Q^*.\tag{3}\]</div>
-      <p>Each consumer and firm is already choosing optimally at that price, and the total quantity buyers want equals the total quantity sellers offer. No agent has a profitable unilateral change of quantity <strong>taking the price as given</strong>.</p>
-      <h3>Long-run equilibrium with free entry</h3>
-      <p>With free entry and identical firms that can replicate the same technology, a long-run equilibrium combines market clearing with zero economic profit for active firms:</p>
-      <div class="math emphasis">\[
-        \begin{gathered}
-          Q^d(\widehat p)=\sum_{j\in J_{LR}}q_j(\widehat p,w),\\
-          \pi_j(\widehat p)=0\quad(j\in J_{LR}).
-        \end{gathered}\tag{4}
-      \]</div>
-      <div class="cards">
-        <article class="card"><h3>Positive maximum profit attracts entry</h3><p>If some output \(q&gt;0\) gives \(p&gt;AC(q)\), an entrant can earn positive economic profit. Entry expands market supply.</p></article>
-        <article class="card"><h3>Losses at every positive output lead to exit</h3><p>If \(p&lt;\min_{q&gt;0}AC(q)\), no positive output covers total cost. A firm exits once all costs are avoidable.</p></article>
+      <ul class="list">
+        <li>Each consumer buys their <strong>optimal quantity</strong> at \(p^*\).</li>
+        <li>Each firm sells its <strong>optimal quantity</strong> at \(p^*\).</li>
+        <li>Demand equals supply: <strong>no agent wishes to change their quantity at that price</strong>.</li>
+      </ul>
+      <h3>Long run: market clearing + zero economic profit</h3>
+      <p>With free entry and identical firms using the same replicable technology:</p>
+      <div class="math emphasis">\[Q^d(\widehat p)=\sum_{j\in\widehat J_{LR}}q_j(\widehat p,w).\tag{4}\]</div>
+      <div class="math emphasis">\[\pi_j(\widehat p)=0\qquad(j\in\widehat J_{LR}).\tag{5}\]</div>
+      <div class="entry-grid">
+        <article class="card"><h3>Positive maximum profit</h3><p><strong>Entry</strong> increases market supply.</p></article>
+        <article class="card"><h3>Loss at every positive output</h3><p><strong>Exit</strong> once all costs are avoidable.</p></article>
+        <article class="card"><h3>Zero maximum profit</h3><p><strong>No strict incentive</strong> to enter or exit.</p></article>
       </div>
-      <div class="math">\[\widehat p=\min_{q&gt;0}AC(q).\tag{5}\]</div>
-      <p>At the minimum of average cost, an active firm breaks even. If this minimum occurs at an interior output and cost is differentiable, \(\widehat p=AC(q^*)=MC(q^*)\). Market demand then determines the number of firms needed at that output.</p>
-      <div class="remark"><strong>Scope of the zero-profit result.</strong> It concerns economic profit, including opportunity costs, in the free-entry benchmark. Scarce inputs, barriers to entry, or differences between firms can support rents. Making a loss at one arbitrary output is not enough to justify exit: compare the best available output with exiting.</div>
+      <div class="key-note"><strong>Two unknowns:</strong> the equilibrium price \(\widehat p\) and the number of active firms \(\widehat N_{LR}=|\widehat J_{LR}|\) must be determined jointly.</div>
+      <h3>Why does price equal minimum average cost?</h3>
+      <div class="math">\[\widehat p=\min_{q&gt;0}AC(q).\]</div>
+      <ul class="list">
+        <li>\(p&gt;\min AC\) → some output earns positive profit → <strong>entry</strong>.</li>
+        <li>\(p&lt;\min AC\) → every positive output makes a loss → <strong>exit</strong>.</li>
+        <li>\(p=\min AC\) → an active firm <strong>breaks even</strong> at its optimal output.</li>
+      </ul>
+      <p class="equation-note">At a differentiable interior minimum, \(\widehat p=AC(q_{LR})=MC(q_{LR})\). Market demand then determines how many firms are needed at that output.</p>
+      <div class="remark"><strong>Economic profit</strong> includes opportunity costs. Zero profit relies on free entry; barriers to entry or scarce inputs can sustain rents.</div>
     </section>
 
     <section id="existence-uniqueness">
       <div class="part-banner"><span class="part-pill">04 · Existence &amp; uniqueness</span><span class="part-line"></span></div>
-      <h2>Does an Equilibrium Exist?</h2>
-      <p>Define excess demand \(Z(p)=Q^d(p)-Q^s(p)\). If demand and supply are continuous on a price interval, with excess demand at its lower end and excess supply at its upper end, the intermediate value theorem guarantees a price where \(Z(p)=0\).</p>
-      <div class="math">\[
-        \begin{gathered}
-          Z(p_L)&gt;0,\qquad Z(p_H)&lt;0\\
-          \Longrightarrow\quad
-          \exists\,p^*\in(p_L,p_H):Z(p^*)=0.
-        \end{gathered}
-      \]</div>
-      <div class="question"><strong>What if quantities are indivisible?</strong> Suppose that at a candidate price a buyer wants 2 units, while a seller optimally supplies either 0 or 3. Their choices do not clear the market at that price.</div>
-      <p>This mismatch alone does not rule out equilibrium at every other price. Nor does discontinuity always prevent clearing: three buyers demanding 2 units each can trade with two sellers supplying 3 units each, provided these are their optimal choices at a common price.</p>
-      <h3>Is the equilibrium unique?</h3>
-      <p>If excess demand is strictly decreasing in price, it can cross zero at most once. For example, strictly decreasing demand and nondecreasing supply are sufficient for uniqueness, if an equilibrium exists.</p>
-      <div class="remark"><strong>Weak monotonicity is not enough for a unique price.</strong> Flat segments can produce several clearing prices. Upward-sloping demand, as can occur for a Giffen good, may also allow multiple intersections with supply; it does not automatically imply multiple equilibria.</div>
+      <h2>Does an Equilibrium Exist? Is It Unique?</h2>
+      <p>Let excess demand be \(Z(p)=Q^d(p)-Q^s(p)\). Market clearing means \(Z(p^*)=0\).</p>
+      <div class="cards conditions-grid">
+        <article class="card"><h3>Existence: at least one price</h3>
+          <ul class="list">
+            <li>Demand and supply are <strong>continuous</strong> on \([p_L,p_H]\).</li>
+            <li>At low prices: <strong>demand &gt; supply</strong>.</li>
+            <li>At high prices: <strong>supply &gt; demand</strong>.</li>
+          </ul>
+          <p>The intermediate value theorem gives a clearing price between \(p_L\) and \(p_H\).</p>
+        </article>
+        <article class="card"><h3>Uniqueness: at most one price</h3>
+          <ul class="list">
+            <li>Demand is <strong>nonincreasing</strong> in price.</li>
+            <li>Supply is <strong>nondecreasing</strong> in price.</li>
+            <li>At least <strong>one is strictly monotone</strong>.</li>
+          </ul>
+          <p>Then \(Z\) is strictly decreasing: <strong>if an equilibrium exists</strong>, its price is unique.</p>
+        </article>
+      </div>
+      <div class="remark"><strong>Multiple equilibria:</strong> upward-sloping demand over some ranges (e.g. Giffen behavior) can produce several intersections with supply. Flat overlapping segments can also give several clearing prices.</div>
+      <details class="course-details"><summary>Can discontinuous quantities still clear the market?</summary><div class="detail-body">
+        <p><strong>Possible mismatch:</strong> at a given price, one buyer wants 2 units while one firm optimally supplies either 0 or 3. The market does not clear <em>at that price</em>; ruling out equilibrium altogether requires checking all prices.</p>
+        <p><strong>A larger market may clear:</strong> at a common price, three buyers demanding 2 units each can trade with two firms supplying 3 units each:</p>
+        <div class="math">\[Q^d=3\times2=6=2\times3=Q^s.\]</div>
+        <p>Continuity is a <strong>sufficient condition</strong> for the existence argument above, not a necessary condition for equilibrium.</p>
+      </div></details>
     </section>
 
     <section id="surplus">
       <div class="part-banner"><span class="part-pill">05 · Welfare measures</span><span class="part-line"></span></div>
       <h2>Consumer and Producer Surplus</h2>
-      <figure class="course-figure"><img src="images/equilibrium-surplus.svg" alt="A downward-sloping demand curve meets an upward-sloping supply curve at Q star and p star. Consumer surplus is above the price and below demand; producer surplus is below the price and above supply."><figcaption>Illustrative competitive market: the two shaded areas are the gains from trade at \(Q^*\).</figcaption></figure>
-      <h3>Consumer surplus</h3>
-      <p>Consumer surplus measures willingness to pay above the amount actually paid. For market demand \(Q^d(p)\), with a choke price \(p_{\max}\) at which demand becomes zero:</p>
-      <div class="math emphasis">\[CS(p)=\int_p^{p_{\max}}Q^d(s)\,ds.\]</div>
-      <div class="cards">
-        <article class="card"><h3>A price increase: \(p_1&gt;p_0\)</h3><p>Consumer surplus falls. The size of the loss is:</p><div class="math">\[\begin{gathered}CS(p_0)-CS(p_1)\\=\int_{p_0}^{p_1}Q^d(s)\,ds.\end{gathered}\tag{6}\]</div></article>
-        <article class="card"><h3>A price decrease: \(p_1&lt;p_0\)</h3><p>Consumer surplus rises. The size of the gain is:</p><div class="math">\[\begin{gathered}CS(p_1)-CS(p_0)\\=\int_{p_1}^{p_0}Q^d(s)\,ds.\end{gathered}\tag{7}\]</div></article>
-      </div>
-      <p>Both expressions are positive when demand is positive over the relevant interval. Equivalently, the signed change is \(\Delta CS=-\int_{p_0}^{p_1}Q^d(s)\,ds\).</p>
-      <div class="remark"><strong>Income effects matter.</strong> Marshallian consumer surplus is an exact money measure of welfare changes under quasilinear preferences, with no income effect on this good. Otherwise it is generally an approximation; compensating and equivalent variation provide the exact expenditure-based measures studied earlier.</div>
-      <h3>Producer surplus</h3>
-      <p>Producer surplus is revenue above the variable cost of supplying the units sold. With inverse supply \(P^s(Q)\), representing marginal cost over the relevant range:</p>
-      <div class="math emphasis">\[
-        PS(p^*)=p^*Q^*-\int_0^{Q^*}P^s(Q)\,dQ.
-      \]</div>
-      <p>If supply is zero below a nonnegative minimum price, this is also the area \(\int_0^{p^*}Q^s(p)\,dp\). For a firm with \(VC(0)=0\), producer surplus equals \(pq-VC(q)\), so:</p>
-      <div class="math">\[PS=\pi+FC.\]</div>
-      <div class="key-note"><strong>Surplus and profit differ.</strong> In the short run, fixed cost is paid even when output is zero. A firm can therefore have positive producer surplus while making an economic loss.</div>
+      <article class="surplus-panel">
+        <h3>Consumer surplus · \(CS\)</h3>
+        <div class="surplus-layout">
+          <div class="surplus-copy">
+            <p><strong>Benefit:</strong> willingness to pay minus the amount actually paid.</p>
+            <p><strong>On the graph:</strong> area <strong>below demand</strong> and <strong>above the price</strong> \(p^*\).</p>
+            <div class="math emphasis">\[CS(p^*)=\int_{p^*}^{\infty}Q^d(t)\,dt.\]</div>
+            <p class="equation-note">If demand is zero above a choke price \(p_{\max}\), the upper bound can be replaced by \(p_{\max}\). Otherwise, the integral must converge.</p>
+          </div>
+          <figure class="slide-figure">
+            <img src="images/partial-consumer-surplus.png" width="452" height="420" alt="Consumer surplus shaded red below the downward-sloping demand curve and above price p star, up to quantity q star.">
+            <figcaption>The slide writes demand as \(x(p,y)\); here it is \(Q^d(p)\), holding income fixed.</figcaption>
+          </figure>
+        </div>
+      </article>
+      <div class="remark"><strong>Welfare interpretation:</strong> consumer surplus measures welfare changes exactly when there are no income effects (e.g. quasilinear utility). Otherwise it is generally an approximation.</div>
+      <article class="surplus-panel">
+        <h3>How does a price change affect \(CS\)?</h3>
+        <div class="surplus-layout">
+          <div class="surplus-copy">
+            <h4>Price increase · \(p'&gt;p\)</h4>
+            <p>The <strong>loss</strong> is the red band between the two prices:</p>
+            <div class="math">\[
+              \begin{gathered}
+                \Delta^-CS=CS(p)-CS(p')\\
+                =\int_p^{p'}Q^d(t)\,dt&gt;0.
+              \end{gathered}\tag{6}
+            \]</div>
+            <h4>Price decrease · \(p'&lt;p\)</h4>
+            <p>The <strong>gain</strong> is the area between the two prices:</p>
+            <div class="math">\[
+              \begin{gathered}
+                \Delta^+CS=CS(p')-CS(p)\\
+                =\int_{p'}^p Q^d(t)\,dt&gt;0.
+              \end{gathered}\tag{7}
+            \]</div>
+            <p class="equation-note">Both magnitudes are positive if demand is positive over the price interval.</p>
+          </div>
+          <figure class="slide-figure">
+            <img src="images/partial-consumer-surplus-loss.png" width="502" height="442" alt="A rise in price from p to p prime removes a red band of consumer surplus between the two horizontal price lines and the demand curve.">
+            <figcaption>A rise from \(p\) to \(p'\) reduces consumer surplus; \(\Delta^-CS\) denotes the positive size of that loss.</figcaption>
+          </figure>
+        </div>
+      </article>
+      <div class="key-note"><strong>Sign check:</strong> \(\Delta CS=CS(p')-CS(p)\) is <strong>negative for a price rise</strong> and <strong>positive for a price fall</strong>.</div>
+      <article class="surplus-panel">
+        <h3>Producer surplus · \(PS\)</h3>
+        <div class="surplus-layout">
+          <div class="surplus-copy">
+            <p><strong>Benefit:</strong> price received above the minimum price producers are willing to accept.</p>
+            <p><strong>On the graph:</strong> area <strong>above supply</strong> and <strong>below the price</strong> \(p^*\).</p>
+            <div class="math emphasis">\[PS(p^*)=\int_0^{p^*}Q^s(t)\,dt.\]</div>
+            <p class="equation-note">For nonnegative prices, with supply zero below its minimum supply price.</p>
+            <p><strong>For a firm:</strong> revenue minus variable cost, so fixed costs separate surplus from profit:</p>
+            <div class="math">\[PS=pq-VC(q)=\pi+FC.\]</div>
+          </div>
+          <figure class="slide-figure">
+            <img src="images/partial-producer-surplus.png" width="522" height="486" alt="Producer surplus shaded blue above the upward-sloping supply curve and below price p star, up to quantity q star.">
+            <figcaption>The slide labels supply \(v\); here it is \(Q^s\). The blue area is producer surplus.</figcaption>
+          </figure>
+        </div>
+      </article>
+      <div class="remark"><strong>Do not confuse surplus and profit:</strong> a firm can have positive producer surplus while making a loss if its fixed costs are larger than its surplus.</div>
     </section>
     </div>
   </main>

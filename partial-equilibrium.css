@@ -1,0 +1,109 @@
+/* Compact revision layout for Part IV, lecture 1. */
+.partial-equilibrium .equation-note {
+  margin-top: 10px;
+  color: var(--text-3);
+  font-size: .86rem;
+  line-height: 1.6;
+}
+.partial-equilibrium .notation-list {
+  margin: 12px 0 18px;
+  color: var(--text-2);
+  font-size: .9rem;
+}
+.partial-equilibrium .notation-list > div {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.partial-equilibrium .notation-list dt {
+  color: var(--blue);
+}
+.partial-equilibrium .notation-list dd {
+  min-width: 0;
+}
+.partial-equilibrium .entry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+.partial-equilibrium .entry-grid .card {
+  padding: 16px;
+}
+.partial-equilibrium .entry-grid h3 {
+  color: var(--green);
+}
+.partial-equilibrium .conditions-grid {
+  margin-top: 18px;
+}
+.partial-equilibrium .conditions-grid .list {
+  margin: 12px 0;
+}
+.partial-equilibrium .surplus-panel {
+  margin: 22px 0;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--blue);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.partial-equilibrium .surplus-panel > h3 {
+  margin: 0 0 18px;
+  color: var(--blue);
+}
+.partial-equilibrium .surplus-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+.partial-equilibrium .surplus-copy,
+.partial-equilibrium .slide-figure {
+  min-width: 0;
+}
+.partial-equilibrium .surplus-copy h4 {
+  margin: 20px 0 8px;
+  color: var(--amber);
+}
+.partial-equilibrium .surplus-copy h4:first-child {
+  margin-top: 0;
+}
+.partial-equilibrium .slide-figure img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: auto;
+  border-radius: 6px;
+  background: white;
+}
+.partial-equilibrium .slide-figure figcaption {
+  max-width: 360px;
+  margin: 12px auto 0;
+  color: var(--text-3);
+  font-size: .82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+@media (max-width: 1100px) {
+  .partial-equilibrium .surplus-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+@media (max-width: 800px) {
+  .partial-equilibrium .entry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .partial-equilibrium .notation-list > div {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .partial-equilibrium .surplus-panel {
+    padding: 16px 12px;
+  }
+}

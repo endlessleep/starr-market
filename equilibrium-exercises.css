@@ -1,0 +1,76 @@
+/* Part IV exercises reuse the existing correction controls and course theme. */
+.equilibrium-exercises .main-wrap,
+.equilibrium-exercises .solution,
+.equilibrium-exercises .step {
+  min-width: 0;
+}
+.equilibrium-exercises .exercise-card h3 {
+  margin: 22px 0 10px;
+  color: var(--text);
+  font-size: 1rem;
+}
+.equilibrium-exercises .exercise-card p + p,
+.equilibrium-exercises .hint {
+  margin-top: 12px;
+}
+.equilibrium-exercises .hint {
+  color: var(--text-3);
+  font-size: .9rem;
+}
+.equilibrium-exercises .math {
+  max-width: 100%;
+}
+.equilibrium-exercises .math mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+}
+.equilibrium-exercises .equilibrium-figure {
+  margin: 18px 0 0;
+}
+.equilibrium-exercises .equilibrium-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: white;
+}
+.equilibrium-exercises .equilibrium-figure figcaption {
+  margin-top: 12px;
+  color: var(--text-3);
+  font-size: .88rem;
+  text-align: center;
+}
+.equilibrium-exercises .equilibrium-figure a {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--blue);
+  text-underline-offset: 3px;
+}
+.equilibrium-exercises .breadcrumb {
+  min-width: 0;
+  line-height: 1.35;
+}
+.equilibrium-exercises .topbar-toggle {
+  flex-shrink: 0;
+}
+.equilibrium-exercises .toggle:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .equilibrium-exercises .topbar {
+    height: auto;
+    min-height: 64px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .equilibrium-exercises .exercise-card,
+  .equilibrium-exercises .solution {
+    padding: 16px 12px;
+  }
+  .equilibrium-exercises .step {
+    padding: 14px 10px;
+  }
+}

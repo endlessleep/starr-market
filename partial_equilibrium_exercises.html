@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MICRO — Exercises Part 4-1 · Partial Equilibrium</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<link rel="stylesheet" href="producer-exercises.css">
+<link rel="stylesheet" href="equilibrium-exercises.css">
+<link rel="stylesheet" href="midterm-nav.css">
+<link rel="stylesheet" href="reading-progress.css">
+<script defer src="reading-progress.js"></script>
+</head>
+<body class="equilibrium-exercises">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
+    <nav class="sidebar-nav" aria-label="Course navigation">
+    <a href="midterm.html" class="sidebar-link">Midterm Sheet</a>
+      <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a><a href="producer_costs_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 4 — Equilibrium &amp; Welfare</div><a href="partial_equilibrium.html" class="sidebar-sublink">1 · Partial Equilibrium</a>
+      <a href="partial_equilibrium_exercises.html" class="sidebar-sublink active" aria-current="page" style="color:#f59e0b">✦ Exercises Part 4-1</a><a href="general_equilibrium_exchange.html" class="sidebar-sublink">2 · General Equilibrium in the Exchange Economy</a><a href="general_equilibrium_productive.html" class="sidebar-sublink">3 · General Equilibrium in the Productive Economy</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div>
+  </aside>
+<main class="main-wrap" id="main-wrap">
+  <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>Exercises Part 4-1</strong></div><div class="topbar-pill">Part IV</div></div>
+  <div class="main-content">
+    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>Exercises Part 4-1</h1><p>Partial equilibrium · Individual and market supply · Entry and exit</p></header>
+
+<section class="subsection" id="exercise-1" aria-labelledby="exercise-1-title">
+  <div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-1-title">Exercise 1. Partial Equilibrium — Cobb-Douglas</h2>
+    <p>Consider the production function:</p>
+    <div class="math">\[f(z_1,z_2)=z_1^\alpha z_2^{1-\alpha},\qquad0&lt;\alpha&lt;1.\]</div>
+    <h3>Short run</h3>
+    <p>Input \(z_1\) is variable; \(z_2=\bar z_2&gt;0\) is fixed. The input prices are \(w_1&gt;0\) and \(\bar w_2&gt;0\); output sells at \(p&gt;0\).</p>
+    <ol class="questions">
+      <li>Find the optimal input \(z_1^*\) and the profit function in terms of \(p,\alpha,w_1,\bar w_2,\bar z_2\).<br><em>Hint:</em> \(\alpha^{1/(1-\alpha)}=\alpha\,\alpha^{\alpha/(1-\alpha)}\).</li>
+      <li>Find individual supply using Hotelling's lemma.</li>
+      <li>There are 48 identical firms, with \(\alpha=1/2\), \(w_1=4\), \(\bar w_2=1\), and \(\bar z_2=1\). Find market supply.</li>
+      <li>Market demand is \(Q^d(p)=294/p\). Find the equilibrium price and market quantity.</li>
+      <li>Compute each firm's equilibrium profit.</li>
+      <li>Illustrate the market equilibrium in a diagram.</li>
+    </ol>
+    <h3>Long run</h3>
+    <ol class="questions" start="7">
+      <li>With \(\alpha=1/2\), \(w_1=4\), \(w_2=1\), find the equilibrium price and the number of firms under free entry. Use the stated firm-size normalization \(\widehat z_2=1\), and distinguish this from unrestricted firm size.</li>
+    </ol>
+    <p class="hint">For a CRS Cobb-Douglas technology, the unit cost is:</p>
+    <div class="math">\[c(w)=\frac{w_1^\alpha w_2^{1-\alpha}}{\alpha^\alpha(1-\alpha)^{1-\alpha}}.\]</div>
+  </article>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 1" onclick="toggleAnswer(this,'ex1-q1')" aria-controls="ex1-q1" aria-expanded="false">Show correction — Exercise 1 · Question 1 ▾</button>
+<div class="solution" id="ex1-q1">
+  <h3>Optimal variable input and profit</h3>
+
+  <div class="step">
+    <h4>1. Profit maximization</h4>
+    <div class="math">\[\max_{z_1\geq0}\;p z_1^\alpha\bar z_2^{1-\alpha}-w_1z_1-\bar w_2\bar z_2.\]</div>
+    <p>The fixed-input cost does not enter the first-order condition:</p>
+    <div class="math">\[\alpha p z_1^{\alpha-1}\bar z_2^{1-\alpha}=w_1.\]</div>
+    <div class="math">\[\boxed{z_1^*=\left(\frac{\alpha p}{w_1}\right)^{1/(1-\alpha)}\bar z_2.}\]</div>
+    <p>The second derivative confirms that this is the unique maximum:</p>
+    <div class="math">\[\frac{\partial^2\pi}{\partial z_1^2}=\alpha(\alpha-1)p z_1^{\alpha-2}\bar z_2^{1-\alpha}&lt;0.\]</div>
+  </div>
+  <div class="step result">
+    <h4>2. Simplify profit using the first-order condition</h4>
+    <p>Multiply the condition by \(z_1^*\): variable input expenditure is \(w_1z_1^*=\alpha p q^s\). Hence:</p>
+    <div class="math">\[\pi^*=(1-\alpha)pq^s-\bar w_2\bar z_2.\]</div>
+    <p>Substituting the optimal input into production gives the profit function:</p>
+    <div class="math">\[
+      \begin{aligned}
+        \pi(p)={}&amp;(1-\alpha)p^{1/(1-\alpha)}\\
+        &amp;\times\left(\frac{\alpha}{w_1}\right)^{\alpha/(1-\alpha)}\bar z_2\\
+        &amp;-\bar w_2\bar z_2.
+      \end{aligned}
+    \]</div>
+    <p>The fixed-input cost affects profit, but not the optimal variable input.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 2" onclick="toggleAnswer(this,'ex1-q2')" aria-controls="ex1-q2" aria-expanded="false">Show correction — Exercise 1 · Question 2 ▾</button>
+<div class="solution" id="ex1-q2">
+  <h3>Individual supply — Hotelling’s lemma</h3>
+
+  <div class="step">
+    <p>Differentiate maximized profit with respect to the output price:</p>
+    <div class="math">\[\begin{aligned}
+      q^s(p)&amp;=\frac{\partial\pi(p)}{\partial p}\\
+      &amp;=p^{\alpha/(1-\alpha)}
+        \left(\frac{\alpha}{w_1}\right)^{\alpha/(1-\alpha)}\bar z_2.
+    \end{aligned}\]</div>
+    <p>The factor \(1-\alpha\) cancels the exponent \(1/(1-\alpha)\) brought down by differentiation.</p>
+    <div class="math">\[\boxed{q^s(p)=\left(\frac{\alpha p}{w_1}\right)^{\alpha/(1-\alpha)}\bar z_2.}\]</div>
+    <p>This is also \(f(z_1^*,\bar z_2)\), a direct check of Hotelling's lemma.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 3" onclick="toggleAnswer(this,'ex1-q3')" aria-controls="ex1-q3" aria-expanded="false">Show correction — Exercise 1 · Question 3 ▾</button>
+<div class="solution" id="ex1-q3">
+  <h3>Market supply with 48 firms</h3>
+
+  <div class="step">
+    <p>Here \(\alpha/(1-\alpha)=1\). Each firm's supply is:</p>
+    <div class="math">\[q_j^s(p)=\left(\frac{p/2}{4}\right)\times1=\frac p8.\]</div>
+    <p>Sum the 48 identical supplies:</p>
+    <div class="math">\[\boxed{Q^s(p)=48\frac p8=6p.}\]</div>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 4" onclick="toggleAnswer(this,'ex1-q4')" aria-controls="ex1-q4" aria-expanded="false">Show correction — Exercise 1 · Question 4 ▾</button>
+<div class="solution" id="ex1-q4">
+  <h3>Short-run equilibrium</h3>
+
+  <div class="step result">
+    <div class="math">\[\begin{aligned}
+      Q^s(p)&amp;=Q^d(p)\\
+      6p&amp;=\frac{294}{p}\\
+      p^2&amp;=49.
+    \end{aligned}\]</div>
+    <p>Keep the positive price:</p>
+    <div class="math">\[\boxed{p^*=7},\qquad\boxed{Q^*=42}.\]</div>
+    <p>Each firm produces \(q_j^*=42/48=7/8\). Use \(Q\) for total market output and \(q_j\) for one firm's output.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 5" onclick="toggleAnswer(this,'ex1-q5')" aria-controls="ex1-q5" aria-expanded="false">Show correction — Exercise 1 · Question 5 ▾</button>
+<div class="solution" id="ex1-q5">
+  <h3>Equilibrium profit per firm</h3>
+
+  <div class="step">
+    <p>With the numerical parameters, Question 1 gives:</p>
+    <div class="math">\[\pi_j(p)=\frac{p^2}{16}-1.\]</div>
+    <div class="math">\[\boxed{\pi_j^*=\frac{49}{16}-1=\frac{33}{16}=2.0625.}\]</div>
+    <p>Check by subtracting input costs from revenue:</p>
+    <div class="math">\[z_{1j}^*=\left(\frac78\right)^2=\frac{49}{64}.\]</div>
+    <div class="math">\[\pi_j^*=7\frac78-4\frac{49}{64}-1=\frac{33}{16}.\]</div>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 6" onclick="toggleAnswer(this,'ex1-q6')" aria-controls="ex1-q6" aria-expanded="false">Show correction — Exercise 1 · Question 6 ▾</button>
+<div class="solution" id="ex1-q6">
+  <h3>Market equilibrium diagram</h3>
+
+  <div class="step">
+    <h4>Put price on the vertical axis</h4>
+    <p>Invert the market functions before plotting:</p>
+    <div class="math">\[\begin{gathered}
+      p=\frac Q6\quad\text{(supply)},\\
+      p=\frac{294}{Q}\quad\text{(demand)}.
+    \end{gathered}\]</div>
+    <figure class="equilibrium-figure">
+      <img src="images/partial-exercise-market-equilibrium.svg" width="760" height="530" alt="Market inverse supply p equals Q divided by 6 meets inverse demand p equals 294 divided by Q at Q equals 42 and p equals 7. The blue triangle above supply and below p equals 7 is producer surplus, equal to 147.">
+      <figcaption>Short-run equilibrium: \(Q^*=42\), \(p^*=7\). The blue triangle is aggregate <strong>producer surplus</strong>. <a href="images/partial-exercise-market-equilibrium.svg" target="_blank" rel="noopener">Open the full-size diagram ↗</a></figcaption>
+    </figure>
+  </div>
+  <div class="step result">
+    <h4>Producer surplus and profit are different</h4>
+    <div class="math">\[PS=\frac12\times42\times7=147.\]</div>
+    <p>The 48 firms each pay fixed cost \(\bar w_2\bar z_2=1\). Therefore:</p>
+    <div class="math">\[\boxed{\sum_{j=1}^{48}\pi_j=147-48=99.}\]</div>
+    <p>This agrees with \(48\times33/16=99\). Labeling the blue area as total profit would omit fixed costs.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 7" onclick="toggleAnswer(this,'ex1-q7')" aria-controls="ex1-q7" aria-expanded="false">Show correction — Exercise 1 · Question 7 ▾</button>
+<div class="solution" id="ex1-q7">
+  <h3>Long-run price, output, and firm size</h3>
+
+  <div class="step">
+    <h4>1. Constant returns give constant unit cost</h4>
+    <div class="math">\[\widehat p=c=\frac{\sqrt4\sqrt1}{\sqrt{1/2}\sqrt{1/2}}=4.\]</div>
+    <p>At \(p&lt;c\), firms do not produce; at \(p&gt;c\), CRS firms would want to expand without bound. Positive finite output is compatible with free-entry equilibrium at \(p=c\), with zero profit.</p>
+    <div class="math">\[\boxed{\widehat p=4},\qquad\boxed{\widehat Q=\frac{294}{4}=73.5}.\]</div>
+  </div>
+  <div class="step result">
+    <h4>2. Use the stated normalization \(\widehat z_2=1\)</h4>
+    <p>Cost minimization equates the marginal-product ratio to the input-price ratio:</p>
+    <div class="math">\[\frac{MP_1}{MP_2}=\frac{z_2}{z_1}=\frac{w_1}{w_2}=4.\]</div>
+    <p>Thus \(\widehat z_1=1/4\), and each normalized firm produces:</p>
+    <div class="math">\[\widehat q_j=\sqrt{\frac14\times1}=\frac12.\]</div>
+    <div class="math">\[\boxed{\widehat N=\frac{\widehat Q}{\widehat q_j}=\frac{73.5}{0.5}=147.}\]</div>
+    <p>Profit is \(4(1/2)-4(1/4)-1=0\). Positive short-run profit attracts entry: the normalized number of firms rises from 48 to 147.</p>
+  </div>
+  <div class="remark"><strong>Firm size matters.</strong> With unrestricted scale under CRS, \(\widehat p=4\) and \(\widehat Q=73.5\) are determined, but the number of firms is not: firms can split total output in many ways. The value 147 uses \(\widehat z_2=1\) for every firm. Rounding market output 73.5 to obtain 75 firms is not justified.</div>
+</div>
+</section>
+
+<section class="subsection" id="exercise-2" aria-labelledby="exercise-2-title">
+  <div class="part-banner"><span class="part-pill">Exercise 2</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-2-title">Exercise 2. Partial Equilibrium — Entry Costs</h2>
+    <p>Good \(x\) is sold at price \(p\) per unit. There are 15 consumers: ten have income \(m_i=5\), and five have income \(m_i=10\). Each has utility \(u_i(x)=4x\).</p>
+    <p>There are initially 9 identical firms with technology:</p>
+    <div class="math">\[f_j(z_1,z_2)=(z_1-1)^{1/3}(z_2-1)^{1/3}.\]</div>
+    <p>Input prices are \(w_1,w_2&gt;0\). Positive production requires \(z_1,z_2&gt;1\). Assume the short-run equilibrium price makes production profitable for all nine firms.</p>
+    <div class="key-note"><strong>Short run here means a fixed number of firms.</strong> Both inputs are variable. In the long run, firms can enter or exit.</div>
+    <h3>Short run</h3>
+    <ol class="questions">
+      <li>Find market demand.</li>
+      <li>Find market supply: first minimize each firm's costs, then maximize profit and apply Hotelling's lemma.</li>
+      <li>Find the short-run equilibrium price.</li>
+    </ol>
+    <h3>Long run</h3>
+    <ol class="questions">
+      <li>Find individual supply functions. <em>Hint:</em> find minimum average cost.</li>
+      <li>Find the equilibrium price and the number of firms. <em>Hint:</em> \(p=AC(q)\) at a free-entry equilibrium.</li>
+    </ol>
+  </article>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Short run · Question 1" onclick="toggleAnswer(this,'ex2-sr-q1')" aria-controls="ex2-sr-q1" aria-expanded="false">Show correction — Exercise 2 · Short run · Question 1 ▾</button>
+<div class="solution" id="ex2-sr-q1">
+  <h3>Market demand</h3>
+
+  <div class="step result">
+    <p>Utility is increasing in \(x\), so each consumer spends all income on the only good:</p>
+    <div class="math">\[px_i=m_i\quad\Longrightarrow\quad x_i^*=\frac{m_i}{p}.\]</div>
+    <div class="math">\[\boxed{Q^d(p)=10\frac5p+5\frac{10}{p}=\frac{100}{p}.}\]</div>
+    <p>The coefficient 4 in utility does not change demand: it does not change which affordable quantity is best.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Short run · Question 2" onclick="toggleAnswer(this,'ex2-sr-q2')" aria-controls="ex2-sr-q2" aria-expanded="false">Show correction — Exercise 2 · Short run · Question 2 ▾</button>
+<div class="solution" id="ex2-sr-q2">
+  <h3>From input choices to market supply</h3>
+
+  <div class="step">
+    <h4>1. Cost minimization for \(q&gt;0\)</h4>
+    <div class="math">\[\begin{gathered}
+      \min_{z_1,z_2&gt;1}\;w_1z_1+w_2z_2\\
+      \text{s.t.}\quad(z_1-1)(z_2-1)=q^3.
+    \end{gathered}\]</div>
+    <p>Using the logarithm of the production constraint:</p>
+    <div class="math">\[\begin{aligned}
+      \mathcal L={}&amp;w_1z_1+w_2z_2\\
+        &amp;+\lambda\left[3\ln q-\ln(z_1-1)-\ln(z_2-1)\right].
+    \end{aligned}\]</div>
+    <div class="math">\[\begin{gathered}
+      w_1-\frac{\lambda}{z_1-1}=0,\qquad w_2-\frac{\lambda}{z_2-1}=0,\\
+      \frac{z_1-1}{z_2-1}=\frac{w_2}{w_1}.
+    \end{gathered}\]</div>
+    <p>Substitute the input ratio into the production constraint:</p>
+    <div class="math">\[q^3=\frac{w_2}{w_1}(z_2-1)^2.\]</div>
+    <div class="math">\[\begin{gathered}
+      \boxed{z_1^c(q)=1+\sqrt{\frac{w_2}{w_1}}q^{3/2}},\\
+      \boxed{z_2^c(q)=1+\sqrt{\frac{w_1}{w_2}}q^{3/2}}.
+    \end{gathered}\]</div>
+  </div>
+  <div class="step">
+    <h4>2. Minimized total cost</h4>
+    <p>Multiply the input demands by their prices and add:</p>
+    <div class="math">\[\boxed{C(q)=w_1+w_2+2\sqrt{w_1w_2}\,q^{3/2}.}\]</div>
+    <p>Write \(F=w_1+w_2\) and \(A=\sqrt{w_1w_2}\). Then \(C(q)=F+2Aq^{3/2}\) for positive output. The term \(F\) is the cost of the baseline input units needed to operate, even though both inputs are variable.</p>
+  </div>
+  <div class="step">
+    <h4>3. Profit-maximizing output</h4>
+    <div class="math">\[\pi(q)=pq-F-2Aq^{3/2}.\]</div>
+    <div class="math">\[\pi'(q)=p-3A\sqrt q=0.\]</div>
+    <div class="math">\[\boxed{q_j^s(p)=\frac{p^2}{9w_1w_2}.}\]</div>
+    <p>This is the unique optimum conditional on producing, since:</p>
+    <div class="math">\[\pi''(q)=-\frac{3A}{2\sqrt q}&lt;0.\]</div>
+    <p>Substitute optimal output into profit:</p>
+    <div class="math">\[\begin{aligned}
+      \pi_j^*(p)&amp;=\frac{p^3}{9w_1w_2}-F-\frac{2p^3}{27w_1w_2}\\
+      &amp;=\boxed{\frac{p^3}{27w_1w_2}-(w_1+w_2)}.
+    \end{aligned}\]</div>
+    <p>Both baseline input costs are subtracted. The active branch applies because the exercise assumes all nine firms find production profitable.</p>
+  </div>
+  <div class="step result">
+    <h4>4. Hotelling's lemma and aggregation</h4>
+    <div class="math">\[\frac{\partial\pi_j^*(p)}{\partial p}=\frac{p^2}{9w_1w_2}=q_j^s(p).\]</div>
+    <div class="math">\[\boxed{Q^s(p)=9q_j^s(p)=\frac{p^2}{w_1w_2}.}\]</div>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Short run · Question 3" onclick="toggleAnswer(this,'ex2-sr-q3')" aria-controls="ex2-sr-q3" aria-expanded="false">Show correction — Exercise 2 · Short run · Question 3 ▾</button>
+<div class="solution" id="ex2-sr-q3">
+  <h3>Short-run equilibrium price</h3>
+
+  <div class="step result">
+    <div class="math">\[\begin{aligned}
+      \frac{p^2}{w_1w_2}&amp;=\frac{100}{p}\\
+      p^3&amp;=100w_1w_2.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{p_{SR}=(100w_1w_2)^{1/3}}.\]</div>
+    <div class="math">\[Q_{SR}=\frac{100}{p_{SR}},\qquad q_{j,SR}=\frac{Q_{SR}}9.\]</div>
+  </div>
+  <div class="remark"><strong>Check the assumption:</strong> equilibrium profit is \(\pi_{j,SR}=100/27-(w_1+w_2)\). Strictly profitable production by all nine firms requires \(w_1+w_2&lt;100/27\).</div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Long run · Question 1" onclick="toggleAnswer(this,'ex2-lr-q1')" aria-controls="ex2-lr-q1" aria-expanded="false">Show correction — Exercise 2 · Long run · Question 1 ▾</button>
+<div class="solution" id="ex2-lr-q1">
+  <h3>Minimum average cost and individual supply</h3>
+
+  <div class="step">
+    <h4>1. Find the efficient operating scale</h4>
+    <p>Using \(F=w_1+w_2\) and \(A=\sqrt{w_1w_2}\):</p>
+    <div class="math">\[AC(q)=\frac Fq+2A\sqrt q.\]</div>
+    <div class="math">\[\begin{aligned}
+      AC'(q)&amp;=-\frac F{q^2}+\frac A{\sqrt q}=0\\
+      Aq^{3/2}&amp;=F.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{q_{LR}=\left(\frac{w_1+w_2}{\sqrt{w_1w_2}}\right)^{2/3}}.\]</div>
+    <p>Since \(AC'(q)=(Aq^{3/2}-F)/q^2\), average cost decreases before this output and increases after it: this is its unique minimum.</p>
+    <div class="math">\[AC''(q_{LR})=\frac{3F}{2q_{LR}^3}&gt;0.\]</div>
+  </div>
+  <div class="step result">
+    <h4>2. Compare producing with staying out</h4>
+    <p>A firm can avoid the operating cost by not entering. Let \(\bar p=\min AC=3(Fw_1w_2)^{1/3}\). Individual long-run supply is:</p>
+    <div class="math">\[q_j^s(p)=\begin{cases}
+      0,&amp;p&lt;\bar p,\\
+      \{0,q_{LR}\},&amp;p=\bar p,\\
+      \dfrac{p^2}{9w_1w_2},&amp;p&gt;\bar p.
+    \end{cases}\]</div>
+    <p>At the break-even price, the firm is indifferent between staying out and producing \(q_{LR}\). Above it, positive profit attracts entry.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Long run · Question 2" onclick="toggleAnswer(this,'ex2-lr-q2')" aria-controls="ex2-lr-q2" aria-expanded="false">Show correction — Exercise 2 · Long run · Question 2 ▾</button>
+<div class="solution" id="ex2-lr-q2">
+  <h3>Long-run equilibrium price and number of firms</h3>
+
+  <div class="step">
+    <h4>1. Price equals minimum average cost</h4>
+    <p>At the minimum, \(F/q_{LR}=A\sqrt{q_{LR}}\). Therefore:</p>
+    <div class="math">\[\begin{aligned}
+      p_{LR}&amp;=AC(q_{LR})\\
+      &amp;=3A\sqrt{q_{LR}}\\
+      &amp;=\boxed{3(w_1+w_2)^{1/3}(w_1w_2)^{1/3}}.
+    \end{aligned}\]</div>
+    <p>This also equals \(MC(q_{LR})\), and each active firm earns zero profit.</p>
+  </div>
+  <div class="step result">
+    <h4>2. Divide market demand by output per firm</h4>
+    <div class="math">\[Q_{LR}=\frac{100}{p_{LR}},\qquad N_{LR}=\frac{Q_{LR}}{q_{LR}}.\]</div>
+    <p>Use \(p_{LR}q_{LR}=3Aq_{LR}^{3/2}=3F\):</p>
+    <div class="math">\[\boxed{N_{LR}=\frac{100}{3(w_1+w_2)}}.\]</div>
+    <p>Under the short-run strict-profit assumption, \(w_1+w_2&lt;100/27\), so \(N_{LR}&gt;9\): entry lowers price until profit is zero.</p>
+  </div>
+  <div class="remark"><strong>Integer firms:</strong> this is the usual continuous-number benchmark. With indivisible firms, an exact price-taking free-entry equilibrium of this form requires \(N_{LR}\) to be an integer. Arbitrary rounding generally breaks market clearing or the zero-profit condition.</div>
+</div>
+</section>
+
+  </div>
+</main>
+<script src="producer-exercises.js"></script>
+</body>
+</html>
