@@ -234,18 +234,28 @@
     <h4>1. Cost minimization for \(q&gt;0\)</h4>
     <div class="math">\[\begin{gathered}
       \min_{z_1,z_2&gt;1}\;w_1z_1+w_2z_2\\
-      \text{s.t.}\quad(z_1-1)(z_2-1)=q^3.
+      \text{s.t.}\quad(z_1-1)^{1/3}(z_2-1)^{1/3}=q.
     \end{gathered}\]</div>
-    <p>Using the logarithm of the production constraint:</p>
+    <p>Write the Lagrangian directly from the production constraint:</p>
     <div class="math">\[\begin{aligned}
       \mathcal L={}&amp;w_1z_1+w_2z_2\\
-        &amp;+\lambda\left[3\ln q-\ln(z_1-1)-\ln(z_2-1)\right].
+        &amp;+\lambda\left[q-(z_1-1)^{1/3}(z_2-1)^{1/3}\right].
     \end{aligned}\]</div>
+    <p>Differentiate with respect to each input and set the derivatives equal to zero:</p>
     <div class="math">\[\begin{gathered}
-      w_1-\frac{\lambda}{z_1-1}=0,\qquad w_2-\frac{\lambda}{z_2-1}=0,\\
-      \frac{z_1-1}{z_2-1}=\frac{w_2}{w_1}.
+      w_1=\frac{\lambda}{3}(z_1-1)^{-2/3}(z_2-1)^{1/3},\\
+      w_2=\frac{\lambda}{3}(z_1-1)^{1/3}(z_2-1)^{-2/3}.
     \end{gathered}\]</div>
-    <p>Substitute the input ratio into the production constraint:</p>
+    <p>Divide the two conditions to eliminate \(\lambda/3\). Subtract the exponents of each input:</p>
+    <div class="math">\[\begin{aligned}
+      \frac{w_1}{w_2}
+        &amp;=(z_1-1)^{-2/3-1/3}(z_2-1)^{1/3+2/3}\\
+        &amp;=\frac{z_2-1}{z_1-1}.
+    \end{aligned}\]</div>
+    <div class="math">\[
+      \frac{z_1-1}{z_2-1}=\frac{w_2}{w_1}.
+    \]</div>
+    <p>Cube the production constraint to get \(q^3=(z_1-1)(z_2-1)\), then substitute \(z_1-1=(w_2/w_1)(z_2-1)\):</p>
     <div class="math">\[q^3=\frac{w_2}{w_1}(z_2-1)^2.\]</div>
     <div class="math">\[\begin{gathered}
       \boxed{z_1^c(q)=1+\sqrt{\frac{w_2}{w_1}}q^{3/2}},\\
@@ -256,18 +266,19 @@
     <h4>2. Minimized total cost</h4>
     <p>Multiply the input demands by their prices and add:</p>
     <div class="math">\[\boxed{C(q)=w_1+w_2+2\sqrt{w_1w_2}\,q^{3/2}.}\]</div>
-    <p>Write \(F=w_1+w_2\) and \(A=\sqrt{w_1w_2}\). Then \(C(q)=F+2Aq^{3/2}\) for positive output. The term \(F\) is the cost of the baseline input units needed to operate, even though both inputs are variable.</p>
+    <p>The term \(w_1+w_2\) is the cost of the two baseline input units needed to operate, even though both inputs are variable.</p>
   </div>
   <div class="step">
     <h4>3. Profit-maximizing output</h4>
-    <div class="math">\[\pi(q)=pq-F-2Aq^{3/2}.\]</div>
-    <div class="math">\[\pi'(q)=p-3A\sqrt q=0.\]</div>
+    <div class="math">\[\pi(q)=pq-(w_1+w_2)-2\sqrt{w_1w_2}\,q^{3/2}.\]</div>
+    <div class="math">\[\pi'(q)=p-3\sqrt{w_1w_2}\sqrt q=0.\]</div>
     <div class="math">\[\boxed{q_j^s(p)=\frac{p^2}{9w_1w_2}.}\]</div>
     <p>This is the unique optimum conditional on producing, since:</p>
-    <div class="math">\[\pi''(q)=-\frac{3A}{2\sqrt q}&lt;0.\]</div>
+    <div class="math">\[\pi''(q)=-\frac{3\sqrt{w_1w_2}}{2\sqrt q}&lt;0.\]</div>
     <p>Substitute optimal output into profit:</p>
     <div class="math">\[\begin{aligned}
-      \pi_j^*(p)&amp;=\frac{p^3}{9w_1w_2}-F-\frac{2p^3}{27w_1w_2}\\
+      \pi_j^*(p)&amp;=\frac{p^3}{9w_1w_2}-\frac{2p^3}{27w_1w_2}\\
+      &amp;\quad-(w_1+w_2)\\
       &amp;=\boxed{\frac{p^3}{27w_1w_2}-(w_1+w_2)}.
     \end{aligned}\]</div>
     <p>Both baseline input costs are subtracted. The active branch applies because the exercise assumes all nine firms find production profitable.</p>
@@ -300,19 +311,23 @@
 
   <div class="step">
     <h4>1. Find the efficient operating scale</h4>
-    <p>Using \(F=w_1+w_2\) and \(A=\sqrt{w_1w_2}\):</p>
-    <div class="math">\[AC(q)=\frac Fq+2A\sqrt q.\]</div>
+    <p>Divide total cost by output, keeping the input prices explicit:</p>
+    <div class="math">\[AC(q)=\frac{w_1+w_2}{q}+2\sqrt{w_1w_2}\sqrt q.\]</div>
     <div class="math">\[\begin{aligned}
-      AC'(q)&amp;=-\frac F{q^2}+\frac A{\sqrt q}=0\\
-      Aq^{3/2}&amp;=F.
+      AC'(q)&amp;=-\frac{w_1+w_2}{q^2}+\frac{\sqrt{w_1w_2}}{\sqrt q}=0\\
+      \sqrt{w_1w_2}\,q^{3/2}&amp;=w_1+w_2.
     \end{aligned}\]</div>
     <div class="math">\[\boxed{q_{LR}=\left(\frac{w_1+w_2}{\sqrt{w_1w_2}}\right)^{2/3}}.\]</div>
-    <p>Since \(AC'(q)=(Aq^{3/2}-F)/q^2\), average cost decreases before this output and increases after it: this is its unique minimum.</p>
-    <div class="math">\[AC''(q_{LR})=\frac{3F}{2q_{LR}^3}&gt;0.\]</div>
+    <p>To see the sign of the derivative, put both terms over the same denominator:</p>
+    <div class="math">\[AC'(q)=\frac{\sqrt{w_1w_2}\,q^{3/2}-(w_1+w_2)}{q^2}.\]</div>
+    <p>Average cost decreases before \(q_{LR}\) and increases after it: this is its unique minimum. The second derivative at that output confirms it:</p>
+    <div class="math">\[AC''(q_{LR})=\frac{3(w_1+w_2)}{2q_{LR}^3}&gt;0.\]</div>
   </div>
   <div class="step result">
     <h4>2. Compare producing with staying out</h4>
-    <p>A firm can avoid the operating cost by not entering. Let \(\bar p=\min AC=3(Fw_1w_2)^{1/3}\). Individual long-run supply is:</p>
+    <p>A firm can avoid the operating cost by not entering. The break-even price is:</p>
+    <div class="math">\[\bar p=\min AC=3\bigl[(w_1+w_2)w_1w_2\bigr]^{1/3}.\]</div>
+    <p>Individual long-run supply is:</p>
     <div class="math">\[q_j^s(p)=\begin{cases}
       0,&amp;p&lt;\bar p,\\
       \{0,q_{LR}\},&amp;p=\bar p,\\
@@ -328,10 +343,12 @@
 
   <div class="step">
     <h4>1. Price equals minimum average cost</h4>
-    <p>At the minimum, \(F/q_{LR}=A\sqrt{q_{LR}}\). Therefore:</p>
+    <p>The first-order condition for minimum average cost gives:</p>
+    <div class="math">\[\frac{w_1+w_2}{q_{LR}}=\sqrt{w_1w_2}\sqrt{q_{LR}}.\]</div>
+    <p>Substitute this equality into average cost:</p>
     <div class="math">\[\begin{aligned}
       p_{LR}&amp;=AC(q_{LR})\\
-      &amp;=3A\sqrt{q_{LR}}\\
+      &amp;=3\sqrt{w_1w_2}\sqrt{q_{LR}}\\
       &amp;=\boxed{3(w_1+w_2)^{1/3}(w_1w_2)^{1/3}}.
     \end{aligned}\]</div>
     <p>This also equals \(MC(q_{LR})\), and each active firm earns zero profit.</p>
@@ -339,7 +356,11 @@
   <div class="step result">
     <h4>2. Divide market demand by output per firm</h4>
     <div class="math">\[Q_{LR}=\frac{100}{p_{LR}},\qquad N_{LR}=\frac{Q_{LR}}{q_{LR}}.\]</div>
-    <p>Use \(p_{LR}q_{LR}=3Aq_{LR}^{3/2}=3F\):</p>
+    <p>Multiply the equilibrium price by output per firm and use the condition \(\sqrt{w_1w_2}\,q_{LR}^{3/2}=w_1+w_2\):</p>
+    <div class="math">\[\begin{aligned}
+      p_{LR}q_{LR}&amp;=3\sqrt{w_1w_2}\,q_{LR}^{3/2}\\
+      &amp;=3(w_1+w_2).
+    \end{aligned}\]</div>
     <div class="math">\[\boxed{N_{LR}=\frac{100}{3(w_1+w_2)}}.\]</div>
     <p>Under the short-run strict-profit assumption, \(w_1+w_2&lt;100/27\), so \(N_{LR}&gt;9\): entry lowers price until profit is zero.</p>
   </div>
