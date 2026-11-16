@@ -1,0 +1,37 @@
+/* The Part 4-2 corrections keep diagrams compact and independently expandable. */
+.general-equilibrium-exercises .compact-figure {
+  max-width: 280px;
+  margin: 20px auto;
+}
+.general-equilibrium-exercises .compact-figure > a {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: auto;
+}
+.general-equilibrium-exercises .compact-figure img {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+}
+.general-equilibrium-exercises .diagram-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 280px));
+  justify-content: center;
+  gap: 18px;
+}
+.general-equilibrium-exercises .solution-list {
+  margin: 14px 0 14px 20px;
+}
+.general-equilibrium-exercises .solution-list li + li {
+  margin-top: 10px;
+}
+@media (max-width: 600px) {
+  .general-equilibrium-exercises .diagram-pair {
+    grid-template-columns: minmax(0, 280px);
+    gap: 0;
+  }
+  .general-equilibrium-exercises .compact-figure img {
+    width: 200px;
+  }
+}

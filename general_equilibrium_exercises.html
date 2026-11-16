@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MICRO — Exercises Part 4-2 · General Equilibrium</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<link rel="stylesheet" href="producer-exercises.css">
+<link rel="stylesheet" href="equilibrium-exercises.css">
+<link rel="stylesheet" href="general-equilibrium-exercises.css">
+<link rel="stylesheet" href="midterm-nav.css">
+<link rel="stylesheet" href="reading-progress.css">
+<script defer src="reading-progress.js"></script>
+</head>
+<body class="equilibrium-exercises general-equilibrium-exercises">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
+    <nav class="sidebar-nav" aria-label="Course navigation">
+    <a href="midterm.html" class="sidebar-link">Midterm Sheet</a>
+      <a href="index.html" class="sidebar-link">📂 0 — Introduction</a>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 1 — Choice Theory</div><a href="lecture1.html" class="sidebar-sublink">1 · Preferences</a><a href="utility.html" class="sidebar-sublink">2 · Utility</a><a href="choice.html" class="sidebar-sublink">3 · Choice</a><a href="exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-1</a><a href="consumer_preferences.html" class="sidebar-sublink">4 · Consumer Preferences</a><a href="revealed_preferences.html" class="sidebar-sublink">5 · Revealed Preferences</a><a href="consumer_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 1-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 2 — Consumer Theory</div><a href="consumer_theory.html" class="sidebar-sublink">1 · Consumer’s Preferences</a><a href="consumer_behavior.html" class="sidebar-sublink">2 · Consumer’s Behavior</a><a href="consumer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-1</a><a href="income_price_effects.html" class="sidebar-sublink">3 · Income and Price Effects</a><a href="income_price_effects_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 2-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 3 — Producer Theory</div><a href="producer_theory.html" class="sidebar-sublink">1 · Technology &amp; Production</a><a href="producer_theory_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-1</a><a href="producer_profit.html" class="sidebar-sublink">2 · Profit Maximization</a><a href="producer_costs.html" class="sidebar-sublink">3 · Cost Minimization &amp; Costs</a><a href="producer_efficiency.html" class="sidebar-sublink">4 · Efficiency</a><a href="producer_costs_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 3-2</a></div>
+      <div class="sidebar-group"><div class="sidebar-group-title">📂 4 — Equilibrium &amp; Welfare</div><a href="partial_equilibrium.html" class="sidebar-sublink">1 · Partial Equilibrium</a>
+      <a href="partial_equilibrium_exercises.html" class="sidebar-sublink" style="color:#f59e0b">✦ Exercises Part 4-1</a><a href="general_equilibrium_exchange.html" class="sidebar-sublink">2 · General Equilibrium in the Exchange Economy</a><a href="general_equilibrium_productive.html" class="sidebar-sublink">3 · General Equilibrium in the Productive Economy</a>
+      <a href="general_equilibrium_exercises.html" class="sidebar-sublink active" aria-current="page" style="color:#f59e0b">✦ Exercises Part 4-2</a></div>
+    </nav>
+    <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar"><img src="images/avatar.png" alt="STAR NOVA" style="width:100%;height:100%;border-radius:8px;object-fit:cover"><span class="user-dot"></span></div><div class="user-name">STAR NOVA</div></div></div>
+  </aside>
+<main class="main-wrap" id="main-wrap">
+  <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>Exercises Part 4-2</strong></div><div class="topbar-pill">Part IV</div></div>
+  <div class="main-content">
+    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>Exercises Part 4-2</h1><p>General equilibrium · Exchange · Production · Welfare theorems</p></header>
+
+<section class="subsection" id="exercise-1" aria-labelledby="exercise-1-title">
+  <div class="part-banner"><span class="part-pill">Exercise 1</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-1-title">Exercise 1. General Equilibrium</h2>
+    <p>Thomas and Juliette consume radishes \(R\) and carrots \(C\). Their utility functions are:</p>
+    <div class="math">\[\begin{gathered}
+      u_t(R,C)=R^\alpha C^{1-\alpha},\qquad0&lt;\alpha&lt;1,\\
+      u_j(R,C)=R^\beta C^{1-\beta},\qquad0&lt;\beta&lt;1.
+    \end{gathered}\]</div>
+    <p>Initially, Thomas has 1 radish and 9 carrots, while Juliette has 9 radishes and 1 carrot:</p>
+    <div class="math">\[\begin{gathered}
+      (\overline R_t,\overline C_t)=(1,9),\\
+      (\overline R_j,\overline C_j)=(9,1).
+    \end{gathered}\]</div>
+    <h3>Questions</h3>
+    <ol class="questions">
+      <li>What are the initial utility levels of Thomas and Juliette?</li>
+      <li>Draw an Edgeworth box representing Thomas' and Juliette's indifference curves and the endowment allocation. <strong>For this question only, assume \(\alpha=\beta=1/2\).</strong> Shade the allocations that would be Pareto improvements over the endowment allocation.</li>
+      <li>Thomas and Juliette sell or buy vegetables at prices \(p_R\) and \(p_C\). What relative price \(p^*=p_C/p_R\) clears both markets?</li>
+      <li>Assume \(\alpha=\beta\) and normalize prices so that \(p_R^*=1\) and \(p_C^*=p_C/p_R=p^*\). Show that allowing trade leads to a Pareto improvement compared with the initial situation.
+        <p class="hint"><strong>Hint:</strong> for \(0&lt;\alpha=\beta&lt;1\),</p>
+        <div class="math">\[\begin{gathered}
+          9-8\alpha&gt;9^{1-\alpha},\\
+          8\beta+1&gt;9^\beta.
+        \end{gathered}\]</div>
+      </li>
+      <li>Still assuming \(\alpha=\beta\), describe the change in the normalized equilibrium price \(p_C^*\) and equilibrium demands when \(\alpha=\beta\) increases. What is the intuition for these changes?</li>
+      <li>Now assume \(\alpha\neq\beta\) and change the initial endowments: Thomas has 9 radishes and 9 carrots, while Juliette has 1 radish and 1 carrot. Does allowing trade lead to a Pareto improvement?</li>
+    </ol>
+  </article>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 1" onclick="toggleAnswer(this,'ex1-q1')" aria-controls="ex1-q1" aria-expanded="false">Show correction — Exercise 1 · Question 1 ▾</button>
+<div class="solution" id="ex1-q1">
+  <h3>Initial utility levels</h3>
+
+  <div class="step result">
+    <p>Substitute each consumer's own endowment into their utility function:</p>
+    <div class="math">\[\begin{aligned}
+      u_t(1,9)&amp;=1^\alpha9^{1-\alpha}=\boxed{9^{1-\alpha}},\\
+      u_j(9,1)&amp;=9^\beta1^{1-\beta}=\boxed{9^\beta}.
+    \end{aligned}\]</div>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 2" onclick="toggleAnswer(this,'ex1-q2')" aria-controls="ex1-q2" aria-expanded="false">Show correction — Exercise 1 · Question 2 ▾</button>
+<div class="solution" id="ex1-q2">
+  <h3>The Edgeworth box and gains from trade</h3>
+
+  <div class="step">
+    <p>With \(\alpha=\beta=1/2\), both consumers initially obtain utility \(3\). Total resources are 10 radishes and 10 carrots.</p>
+    <p>Thomas' origin is at the bottom-left; Juliette's is at the top-right. A point \((R_t,C_t)\) gives Juliette \((10-R_t,10-C_t)\).</p>
+    <p>The indifference curves through the endowment satisfy:</p>
+    <div class="math">\[\begin{gathered}
+      R_tC_t=9\quad\Longrightarrow\quad C_t=\frac9{R_t},\\
+      (10-R_t)(10-C_t)=9\\
+      \Longrightarrow\quad C_t=10-\frac9{10-R_t}.
+    \end{gathered}\]</div>
+  </div>
+<figure class="equilibrium-figure compact-figure"><a href="images/general-ex1-pareto-lens.svg" target="_blank" rel="noopener" aria-label="Enlarge diagram: Edgeworth box for Thomas and Juliette, with the initial allocation at (1,9) and the Pareto-improvement lens shaded green."><img src="images/general-ex1-pareto-lens.svg" width="520" height="470" alt="Edgeworth box for Thomas and Juliette, with the initial allocation at (1,9) and the Pareto-improvement lens shaded green."></a><figcaption>The green lens lies above Thomas’ initial indifference curve and below Juliette’s, in Thomas’ coordinates.<br><a href="images/general-ex1-pareto-lens.svg" target="_blank" rel="noopener">Enlarge ↗</a></figcaption></figure>
+  <div class="step result">
+    <p>A Pareto improvement is a feasible allocation satisfying:</p>
+    <div class="math">\[\begin{gathered}
+      \sqrt{R_tC_t}\geq3,\\
+      \sqrt{(10-R_t)(10-C_t)}\geq3,
+    \end{gathered}\]</div>
+    <p>with <strong>at least one strict inequality</strong>. Both consumers strictly gain inside the lens. Its two intersection points, \((1,9)\) and \((9,1)\), leave both utilities unchanged.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 3" onclick="toggleAnswer(this,'ex1-q3')" aria-controls="ex1-q3" aria-expanded="false">Show correction — Exercise 1 · Question 3 ▾</button>
+<div class="solution" id="ex1-q3">
+  <h3>Demands and the equilibrium relative price</h3>
+
+  <div class="step">
+    <h4>1. Thomas: utility maximization</h4>
+    <p>Use the original Cobb–Douglas utility directly:</p>
+    <div class="math">\[\begin{aligned}
+      \mathcal L_t={}&amp;R_t^\alpha C_t^{1-\alpha}\\
+      &amp;+\lambda_t(p_R+9p_C-p_RR_t-p_CC_t).
+    \end{aligned}\]</div>
+    <p>The first-order conditions are:</p>
+    <div class="math">\[\begin{gathered}
+      \alpha R_t^{\alpha-1}C_t^{1-\alpha}=\lambda_t p_R,\\
+      (1-\alpha)R_t^\alpha C_t^{-\alpha}=\lambda_t p_C.
+    \end{gathered}\]</div>
+    <p>Divide the second condition by the first:</p>
+    <div class="math">\[\frac{p_C}{p_R}=\frac{1-\alpha}{\alpha}\frac{R_t}{C_t}.\]</div>
+    <p>Thus \(p_CC_t=\frac{1-\alpha}{\alpha}p_RR_t\). Substitution into the binding budget gives:</p>
+    <div class="math">\[\frac{p_RR_t}{\alpha}=p_R+9p_C.\]</div>
+    <div class="math">\[\begin{gathered}
+      \boxed{R_t(p_R,p_C)=\alpha\left(1+9\frac{p_C}{p_R}\right)},\\
+      \boxed{C_t(p_R,p_C)=(1-\alpha)\left(\frac{p_R}{p_C}+9\right)}.
+    \end{gathered}\]</div>
+  </div>
+  <div class="step">
+    <h4>2. Juliette: the same method with her own endowment</h4>
+    <p>Her budget is \(p_RR_j+p_CC_j=9p_R+p_C\). The first-order conditions give:</p>
+    <div class="math">\[p_CC_j=\frac{1-\beta}{\beta}p_RR_j.\]</div>
+    <p>Therefore:</p>
+    <div class="math">\[\begin{gathered}
+      \boxed{R_j(p_R,p_C)=\beta\left(9+\frac{p_C}{p_R}\right)},\\
+      \boxed{C_j(p_R,p_C)=(1-\beta)\left(9\frac{p_R}{p_C}+1\right)}.
+    \end{gathered}\]</div>
+    <p>Positive prices and exponents strictly between 0 and 1 imply interior, unique optimal bundles.</p>
+  </div>
+  <div class="step result">
+    <h4>3. Clear the radish market</h4>
+    <div class="math">\[\begin{aligned}
+      R_t+R_j&amp;=10,\\
+      \alpha+9\beta+(9\alpha+\beta)\frac{p_C}{p_R}&amp;=10.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{p^*=\frac{p_C}{p_R}=\frac{10-\alpha-9\beta}{9\alpha+\beta}}.\]</div>
+    <p>Both numerator and denominator are positive. The carrot market also clears by Walras' law. Directly:</p>
+    <div class="math">\[\begin{aligned}
+      C_t+C_j&amp;=\frac{10-\alpha-9\beta}{p^*}+10-9\alpha-\beta\\
+      &amp;=(9\alpha+\beta)+(10-9\alpha-\beta)=10.
+    \end{aligned}\]</div>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 4" onclick="toggleAnswer(this,'ex1-q4')" aria-controls="ex1-q4" aria-expanded="false">Show correction — Exercise 1 · Question 4 ▾</button>
+<div class="solution" id="ex1-q4">
+  <h3>Equal preferences: both consumers gain</h3>
+
+  <div class="step">
+    <h4>1. Normalize prices and use \(\alpha=\beta\)</h4>
+    <div class="math">\[p_R^*=1,\qquad p_C^*=\frac{10(1-\alpha)}{10\alpha}=\frac{1-\alpha}{\alpha}.\]</div>
+    <p>Substitute into the demands from Question 3:</p>
+    <div class="math">\[\begin{aligned}
+      R_t^*&amp;=\alpha+9(1-\alpha)=9-8\alpha,\\
+      C_t^*&amp;=\alpha+9(1-\alpha)=9-8\alpha,\\
+      R_j^*&amp;=9\alpha+(1-\alpha)=1+8\alpha,\\
+      C_j^*&amp;=9\alpha+(1-\alpha)=1+8\alpha.
+    \end{aligned}\]</div>
+    <p>For each good, the two demands add to 10.</p>
+  </div>
+  <div class="step result">
+    <h4>2. Compare equilibrium and initial utilities</h4>
+    <p>Since each consumer consumes equal amounts of both goods, the exponents add to one:</p>
+    <div class="math">\[\begin{aligned}
+      u_t^*&amp;=(9-8\alpha)^\alpha(9-8\alpha)^{1-\alpha}\\
+      &amp;=9-8\alpha&gt;9^{1-\alpha}=u_t(1,9),\\
+      u_j^*&amp;=(1+8\alpha)^\alpha(1+8\alpha)^{1-\alpha}\\
+      &amp;=1+8\alpha&gt;9^\alpha=u_j(9,1).
+    \end{aligned}\]</div>
+    <p>The strict inequalities are the supplied hints. <strong>Trade makes both consumers strictly better off.</strong></p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 5" onclick="toggleAnswer(this,'ex1-q5')" aria-controls="ex1-q5" aria-expanded="false">Show correction — Exercise 1 · Question 5 ▾</button>
+<div class="solution" id="ex1-q5">
+  <h3>A stronger preference for radishes</h3>
+
+  <div class="step">
+    <p>Increase the common preference parameter, keeping \(\alpha=\beta\). Using \(\alpha\) to write this common value:</p>
+    <div class="math">\[p_C^*=\frac1\alpha-1\quad\Longrightarrow\quad\boxed{\frac{d p_C^*}{d\alpha}=-\frac1{\alpha^2}&lt;0}.\]</div>
+    <p>Question 4 also gives:</p>
+    <div class="math">\[\begin{gathered}
+      R_t^*=C_t^*=9-8\alpha,\qquad
+      \frac{dR_t^*}{d\alpha}=\frac{dC_t^*}{d\alpha}=-8,\\
+      R_j^*=C_j^*=1+8\alpha,\qquad
+      \frac{dR_j^*}{d\alpha}=\frac{dC_j^*}{d\alpha}=8.
+    \end{gathered}\]</div>
+  </div>
+  <div class="key-note"><strong>Intuition.</strong> Both consumers put more weight on radishes, so carrots become cheaper relative to radishes. Thomas owns mostly carrots and loses purchasing power; Juliette owns mostly radishes and gains purchasing power. Thomas consumes less of both goods, Juliette more; aggregate consumption stays at 10 units of each good.</div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 1 · Question 6" onclick="toggleAnswer(this,'ex1-q6')" aria-controls="ex1-q6" aria-expanded="false">Show correction — Exercise 1 · Question 6 ▾</button>
+<div class="solution" id="ex1-q6">
+  <h3>Different preferences and proportional endowments</h3>
+
+  <div class="step">
+    <h4>1. Derive the contract curve</h4>
+    <p>At a smooth interior efficient allocation, the two consumers have the same marginal rate of substitution:</p>
+    <div class="math">\[\frac{1-\alpha}{\alpha}\frac{R_t}{C_t}
+      =\frac{1-\beta}{\beta}\frac{10-R_t}{10-C_t}.\]</div>
+    <p>Cross-multiply and collect the terms in \(R_t\), keeping the full coefficients:</p>
+    <div class="math">\[\begin{gathered}
+      \beta(1-\alpha)R_t(10-C_t)\\
+      =\alpha(1-\beta)(10-R_t)C_t,\\[6pt]
+      R_t\big[10\beta(1-\alpha)+(\alpha-\beta)C_t\big]\\
+      =10\alpha(1-\beta)C_t.
+    \end{gathered}\]</div>
+    <div class="math">\[\boxed{R_t=\frac{10\alpha(1-\beta)C_t}{10\beta(1-\alpha)+(\alpha-\beta)C_t}}.\]</div>
+    <p>At the initial bundles \((9,9)\) and \((1,1)\), both ratios \(R/C\) equal one, but:</p>
+    <div class="math">\[\frac{1-\alpha}{\alpha}\neq\frac{1-\beta}{\beta}.\]</div>
+    <p>The initial allocation is therefore not Pareto efficient: mutually beneficial trades exist.</p>
+  </div>
+  <div class="step result">
+    <h4>2. Show that competitive trade makes both strictly better off</h4>
+    <p>Normalize \(p_R=1\). With the new endowments, radish-market clearing is:</p>
+    <div class="math">\[9\alpha(1+p_C)+\beta(1+p_C)=10.\]</div>
+    <div class="math">\[\boxed{p_C^*=\frac{10-9\alpha-\beta}{9\alpha+\beta}}.\]</div>
+    <p>When \(\alpha\neq\beta\), this price lies strictly between \((1-\alpha)/\alpha\) and \((1-\beta)/\beta\). Thus neither initial bundle satisfies its consumer's optimality condition at the equilibrium prices.</p>
+    <p>Both initial bundles remain affordable. Since each consumer has a unique optimum and chooses a different bundle, <strong>both achieve strictly higher utility</strong>. Trade is a strict Pareto improvement.</p>
+  </div>
+</div>
+</section>
+
+<section class="subsection" id="exercise-2" aria-labelledby="exercise-2-title">
+  <div class="part-banner"><span class="part-pill">Exercise 2</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-2-title">Exercise 2. General Equilibrium</h2>
+    <p>Consider a two-person, two-good exchange economy. Alice's and Benjamin's preferences over their consumption bundles \((x_1,x_2)\) are represented by:</p>
+    <div class="math">\[\begin{gathered}
+      u^A(x_1^A,x_2^A)=x_1^A+\ln(x_2^A),\\
+      u^B(x_1^B,x_2^B)=x_1^B+2\ln(x_2^B).
+    \end{gathered}\]</div>
+    <p>There are initially <strong>5 units of good 1</strong> and <strong>3 units of good 2</strong>. The initial distribution of these goods between Alice and Benjamin is unknown.</p>
+    <h3>Questions</h3>
+    <ol class="questions">
+      <li>Determine the set of interior Pareto-optimal allocations.</li>
+      <li>Show that any interior Pareto-optimal allocation \(x&gt;0\) is a general equilibrium associated with a price vector \(p\) and initial endowments \(\omega\).
+        <p class="hint"><strong>Hint:</strong> normalize \(p_1=1\).</p>
+      </li>
+      <li>Determine the Pareto-optimal allocation \(x\) for which the distribution of endowments is egalitarian, \(\omega^A=\omega^B\), assuming that the allocation is supported as a general equilibrium with normalized prices.</li>
+      <li>Now suppose Alice has 4 units of good 1 and 2 units of good 2, while Benjamin has 1 unit of each good. What income transfer from Alice to Benjamin leads to the egalitarian equilibrium?</li>
+    </ol>
+  </article>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Question 1" onclick="toggleAnswer(this,'ex2-q1')" aria-controls="ex2-q1" aria-expanded="false">Show correction — Exercise 2 · Question 1 ▾</button>
+<div class="solution" id="ex2-q1">
+  <h3>Interior Pareto-optimal allocations</h3>
+
+  <div class="step">
+    <h4>1. Equate the slopes of the indifference curves</h4>
+    <p>Holding utility constant gives:</p>
+    <div class="math">\[\begin{gathered}
+      du^A=dx_1^A+\frac{dx_2^A}{x_2^A}=0\\
+      \Longrightarrow\quad-\left.\frac{dx_2}{dx_1}\right|_A=x_2^A,\\[6pt]
+      du^B=dx_1^B+\frac{2\,dx_2^B}{x_2^B}=0\\
+      \Longrightarrow\quad-\left.\frac{dx_2}{dx_1}\right|_B=\frac{x_2^B}{2}.
+    \end{gathered}\]</div>
+    <p>At an interior optimum, \(MRS^A=MRS^B\). Combine this with feasibility:</p>
+    <div class="math">\[\begin{gathered}
+      x_2^A=\frac{x_2^B}{2},\qquad x_2^A+x_2^B=3,\\
+      3x_2^A=3\quad\Longrightarrow\quad\boxed{x_2^A=1,\quad x_2^B=2}.
+    \end{gathered}\]</div>
+  </div>
+  <div class="step result">
+    <h4>2. Share good 1 while keeping both bundles interior</h4>
+    <div class="math">\[\begin{gathered}
+      x^{A*}=(x_1^A,1),\\
+      x^{B*}=(5-x_1^A,2),\qquad0&lt;x_1^A&lt;5.
+    \end{gathered}\]</div>
+    <p>These are all the interior Pareto optima. Preferences are increasing and convex, so the common tangency supports efficiency.</p>
+  </div>
+<figure class="equilibrium-figure compact-figure"><a href="images/general-ex2-contract-curve.svg" target="_blank" rel="noopener" aria-label="Enlarge diagram: Edgeworth box of width 5 and height 3 with the interior contract curve at Alice’s consumption of good 2 equal to 1."><img src="images/general-ex2-contract-curve.svg" width="520" height="470" alt="Edgeworth box of width 5 and height 3 with the interior contract curve at Alice’s consumption of good 2 equal to 1."></a><figcaption>The interior contract curve is horizontal: Alice receives 1 unit of good 2, Benjamin 2. The endpoints are excluded from the interior set.<br><a href="images/general-ex2-contract-curve.svg" target="_blank" rel="noopener">Enlarge ↗</a></figcaption></figure>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Question 2" onclick="toggleAnswer(this,'ex2-q2')" aria-controls="ex2-q2" aria-expanded="false">Show correction — Exercise 2 · Question 2 ▾</button>
+<div class="solution" id="ex2-q2">
+  <h3>Support every interior optimum as an equilibrium</h3>
+
+  <div class="step">
+    <h4>1. Alice's demand at \(p_1=1\)</h4>
+    <div class="math">\[\begin{aligned}
+      \mathcal L^A={}&amp;x_1^A+\ln x_2^A\\
+      &amp;+\lambda_A(\omega_1^A+p_2\omega_2^A-x_1^A-p_2x_2^A).
+    \end{aligned}\]</div>
+    <div class="math">\[1-\lambda_A=0,\qquad\frac1{x_2^A}-\lambda_Ap_2=0.\]</div>
+    <p>For an interior optimum, \(\lambda_A=1\), hence:</p>
+    <div class="math">\[\boxed{x_2^A=\frac1{p_2}},\qquad\boxed{x_1^A=\omega_1^A+p_2\omega_2^A-1}.\]</div>
+  </div>
+  <div class="step">
+    <h4>2. Benjamin's demand</h4>
+    <div class="math">\[\begin{aligned}
+      \mathcal L^B={}&amp;x_1^B+2\ln x_2^B\\
+      &amp;+\lambda_B(\omega_1^B+p_2\omega_2^B-x_1^B-p_2x_2^B).
+    \end{aligned}\]</div>
+    <div class="math">\[1-\lambda_B=0,\qquad\frac2{x_2^B}-\lambda_Bp_2=0.\]</div>
+    <div class="math">\[\boxed{x_2^B=\frac2{p_2}},\qquad\boxed{x_1^B=\omega_1^B+p_2\omega_2^B-2}.\]</div>
+    <p>These expressions apply when the resulting demands for good 1 are positive, as required for the interior allocations considered here.</p>
+  </div>
+  <div class="step result">
+    <h4>3. Clear markets and choose supporting endowments</h4>
+    <div class="math">\[\frac1{p_2}+\frac2{p_2}=3\quad\Longrightarrow\quad\boxed{p^*=(1,1)}.\]</div>
+    <p>For any target from Question 1, choose endowments equal to that target:</p>
+    <div class="math">\[\begin{gathered}
+      \omega^A=(x_1^A,1),\\
+      \omega^B=(5-x_1^A,2),\qquad0&lt;x_1^A&lt;5.
+    \end{gathered}\]</div>
+    <p>The demand formulas return exactly those bundles: Alice spends \(x_1^A+1\), Benjamin \(7-x_1^A\). Both markets clear and both consumers optimize, so this is a Walrasian equilibrium.</p>
+    <p>The claim allows us to <strong>choose the endowments</strong>; it does not say that every efficient allocation is an equilibrium for the same original endowments.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Question 3" onclick="toggleAnswer(this,'ex2-q3')" aria-controls="ex2-q3" aria-expanded="false">Show correction — Exercise 2 · Question 3 ▾</button>
+<div class="solution" id="ex2-q3">
+  <h3>Equilibrium with equal initial endowments</h3>
+
+  <div class="step">
+    <p>Divide each total endowment equally:</p>
+    <div class="math">\[\omega^A=\omega^B=\left(\frac52,\frac32\right).\]</div>
+    <p>At \(p^*=(1,1)\), each consumer's wealth is \(5/2+3/2=4\). Substituting into the interior demands:</p>
+    <div class="math">\[\begin{aligned}
+      x_2^{A*}&amp;=1,&amp;\quad x_1^{A*}&amp;=4-1=3,\\
+      x_2^{B*}&amp;=2,&amp;\quad x_1^{B*}&amp;=4-2=2.
+    \end{aligned}\]</div>
+  </div>
+  <div class="step result">
+    <div class="math">\[\boxed{x^{A*}=(3,1)},\qquad\boxed{x^{B*}=(2,2)}.\]</div>
+    <p>Both bundles are interior, and \((3,1)+(2,2)=(5,3)\). <strong>Equal endowments give equal wealth, not identical consumption:</strong> Benjamin values good 2 more strongly.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 2 · Question 4" onclick="toggleAnswer(this,'ex2-q4')" aria-controls="ex2-q4" aria-expanded="false">Show correction — Exercise 2 · Question 4 ▾</button>
+<div class="solution" id="ex2-q4">
+  <h3>The income transfer from Alice to Benjamin</h3>
+
+  <div class="step">
+    <h4>1. Compare initial wealth with the target wealth</h4>
+    <p>At the target prices \(p^*=(1,1)\), initial endowments \((4,2)\) and \((1,1)\) are worth:</p>
+    <div class="math">\[\begin{aligned}
+      \text{Alice: }&amp;4+2=6,\\
+      \text{Benjamin: }&amp;1+1=2.
+    \end{aligned}\]</div>
+    <p>The target equilibrium requires wealth 4 for each:</p>
+    <div class="math">\[T_A=4-6=-2,\qquad T_B=4-2=2.\]</div>
+  </div>
+  <div class="step result">
+    <p><strong>Alice transfers 2 units of income to Benjamin.</strong> Transfers sum to zero. After the transfer, both face a budget of 4 and choose the equilibrium bundles from Question 3:</p>
+    <div class="math">\[x^{A*}=(3,1),\qquad x^{B*}=(2,2).\]</div>
+    <p>At these prices, transferring 2 units of good 1 has the same wealth effect. Redistributing the endowments to \((5/2,3/2)\) each is another implementation.</p>
+  </div>
+  <div class="diagram-pair">
+<figure class="equilibrium-figure compact-figure"><a href="images/general-ex2-initial-lens.svg" target="_blank" rel="noopener" aria-label="Enlarge diagram: Alice and Benjamin’s Edgeworth box with initial endowments (4,2) and (1,1), the improvement lens, and the target (3,1)."><img src="images/general-ex2-initial-lens.svg" width="520" height="470" alt="Alice and Benjamin’s Edgeworth box with initial endowments (4,2) and (1,1), the improvement lens, and the target (3,1)."></a><figcaption>The equal-wealth target lies outside the Pareto-improvement lens of the original endowment.<br><a href="images/general-ex2-initial-lens.svg" target="_blank" rel="noopener">Enlarge ↗</a></figcaption></figure><figure class="equilibrium-figure compact-figure"><a href="images/general-ex2-transfer.svg" target="_blank" rel="noopener" aria-label="Enlarge diagram: At prices (1,1), Alice’s budget line shifts from wealth 6 through (4,2) to wealth 4 through the target (3,1)."><img src="images/general-ex2-transfer.svg" width="520" height="470" alt="At prices (1,1), Alice’s budget line shifts from wealth 6 through (4,2) to wealth 4 through the target (3,1)."></a><figcaption>At the target prices, Alice’s budget shifts inward by 2 units of income; Benjamin receives those 2 units.<br><a href="images/general-ex2-transfer.svg" target="_blank" rel="noopener">Enlarge ↗</a></figcaption></figure>
+  </div>
+  <div class="remark"><strong>Redistribution is not a Pareto improvement here.</strong> Alice's utility changes from \(4+\ln2\) to \(3\), while Benjamin's rises from \(1\) to \(2+2\ln2\). Equalizing wealth is a distributional choice.</div>
+</div>
+</section>
+
+<section class="subsection" id="exercise-3" aria-labelledby="exercise-3-title">
+  <div class="part-banner"><span class="part-pill">Exercise 3</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-3-title">Exercise 3. General Equilibrium with Production</h2>
+    <p>Consider an economy with two consumers \(i\in\{A,B\}\), one firm, and two goods \(n\in\{1,2\}\). Utilities and endowments are:</p>
+    <h3>Consumer A</h3>
+    <div class="math">\[\begin{gathered}
+      u^A(x_1^A,x_2^A)=\ln(x_1^A)+\ln(x_2^A),\\
+      \omega^A=\left(\frac12,\frac12\right).
+    \end{gathered}\]</div>
+    <h3>Consumer B</h3>
+    <div class="math">\[\begin{gathered}
+      u^B(x_1^B,x_2^B)=(x_1^B)^{1/4}(x_2^B)^{3/4},\\
+      \omega^B=\left(\frac12,\frac12\right).
+    \end{gathered}\]</div>
+    <h3>The firm</h3>
+    <p>The firm produces good 2 using good 1 as an input:</p>
+    <div class="math">\[y_2=\sqrt{y_1}.\]</div>
+    <p><strong>Consumer B owns the firm.</strong> Here, \(y_1\geq0\) denotes the amount of good 1 used as an input, and \(y_2\) the output of good 2.</p>
+    <h3>Questions</h3>
+    <ol class="questions">
+      <li>Determine the demand for good 1 of each consumer and of the firm.</li>
+      <li><strong>From now on, normalize \(p_2=1\).</strong> Determine the equilibrium price \(p_1\).</li>
+      <li>For this question, replace the production function by \(y_2=y_1\), with constant returns to scale. Determine the equilibrium price \(p_1\) and allocation \((x,y)\).</li>
+      <li>For this question, consider the <strong>exchange economy without production</strong> consisting of consumers A and B. Determine the equilibrium price and allocation.</li>
+    </ol>
+  </article>
+
+<button type="button" class="toggle" data-label="Exercise 3 · Question 1" onclick="toggleAnswer(this,'ex3-q1')" aria-controls="ex3-q1" aria-expanded="false">Show correction — Exercise 3 · Question 1 ▾</button>
+<div class="solution" id="ex3-q1">
+  <h3>Consumers’ demands and the firm’s input demand</h3>
+
+  <div class="step">
+    <h4>1. Consumer A</h4>
+    <p>A receives no profit, so the budget is \(p_1x_1^A+p_2x_2^A=\frac12(p_1+p_2)\).</p>
+    <div class="math">\[\begin{aligned}
+      \mathcal L^A={}&amp;\ln x_1^A+\ln x_2^A\\
+      &amp;+\lambda_A\left[\frac12(p_1+p_2)-p_1x_1^A-p_2x_2^A\right].
+    \end{aligned}\]</div>
+    <div class="math">\[\frac1{x_1^A}=\lambda_Ap_1,\qquad\frac1{x_2^A}=\lambda_Ap_2.\]</div>
+    <p>The two expenditures are equal. Substituting into the budget:</p>
+    <div class="math">\[p_1x_1^A=p_2x_2^A,\qquad2p_1x_1^A=\frac12(p_1+p_2).\]</div>
+    <div class="math">\[\begin{gathered}
+      \boxed{x_1^A(p_1,p_2)=\frac14\left(1+\frac{p_2}{p_1}\right)},\\
+      x_2^A(p_1,p_2)=\frac14\left(1+\frac{p_1}{p_2}\right).
+    \end{gathered}\]</div>
+  </div>
+  <div class="step">
+    <h4>2. Consumer B</h4>
+    <p>B receives the firm's entire maximized profit \(\Pi(p_1,p_2)\). Use the original Cobb–Douglas utility:</p>
+    <div class="math">\[\begin{aligned}
+      \mathcal L^B={}&amp;(x_1^B)^{1/4}(x_2^B)^{3/4}\\
+      &amp;+\lambda_B\left[\frac12(p_1+p_2)+\Pi(p_1,p_2)\right.\\
+      &amp;\hspace{3.5em}\left.-p_1x_1^B-p_2x_2^B\right].
+    \end{aligned}\]</div>
+    <div class="math">\[\begin{gathered}
+      \frac14(x_1^B)^{-3/4}(x_2^B)^{3/4}=\lambda_Bp_1,\\
+      \frac34(x_1^B)^{1/4}(x_2^B)^{-1/4}=\lambda_Bp_2.
+    \end{gathered}\]</div>
+    <p>Divide the first condition by the second:</p>
+    <div class="math">\[\frac{p_1}{p_2}=\frac{x_2^B}{3x_1^B}\quad\Longrightarrow\quad p_2x_2^B=3p_1x_1^B.\]</div>
+    <p>Substitute into B's budget:</p>
+    <div class="math">\[4p_1x_1^B=\frac12(p_1+p_2)+\Pi(p_1,p_2).\]</div>
+    <div class="math">\[\begin{aligned}
+      x_1^B(p_1,p_2)&amp;=\frac18\left(1+\frac{p_2}{p_1}\right)+\frac{\Pi(p_1,p_2)}{4p_1},\\
+      x_2^B(p_1,p_2)&amp;=\frac38\left(1+\frac{p_1}{p_2}\right)+\frac{3\Pi(p_1,p_2)}{4p_2}.
+    \end{aligned}\]</div>
+  </div>
+  <div class="step">
+    <h4>3. The firm's input demand and output supply</h4>
+    <div class="math">\[\max_{y_1\geq0}\;p_2\sqrt{y_1}-p_1y_1.\]</div>
+    <p>For positive prices, the first-order condition gives:</p>
+    <div class="math">\[\frac{p_2}{2\sqrt{y_1}}-p_1=0\quad\Longrightarrow\quad\boxed{y_1(p_1,p_2)=\frac{p_2^2}{4p_1^2}}.\]</div>
+    <p>The second derivative is negative, confirming the unique maximum:</p>
+    <div class="math">\[\frac{d^2\Pi}{dy_1^2}=-\frac{p_2}{4y_1^{3/2}}&lt;0\quad(y_1&gt;0).\]</div>
+    <div class="math">\[y_2(p_1,p_2)=\sqrt{y_1(p_1,p_2)}=\frac{p_2}{2p_1}.\]</div>
+    <p>Maximum profit is:</p>
+    <div class="math">\[\begin{aligned}
+      \Pi(p_1,p_2)&amp;=p_2\frac{p_2}{2p_1}-p_1\frac{p_2^2}{4p_1^2}\\
+      &amp;=\boxed{\frac{p_2^2}{4p_1}}.
+    \end{aligned}\]</div>
+  </div>
+  <div class="step result">
+    <h4>4. Collect all demands for good 1</h4>
+    <p>Substitute profit into B's demand:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^A(p_1,p_2)&amp;=\frac14\left(1+\frac{p_2}{p_1}\right),\\
+      x_1^B(p_1,p_2)&amp;=\frac18\left(1+\frac{p_2}{p_1}\right)+\frac{p_2^2}{16p_1^2},\\
+      y_1(p_1,p_2)&amp;=\frac{p_2^2}{4p_1^2}.
+    \end{aligned}\]</div>
+    <p>The firm's demand uses good 1 as an input; it must be added to consumer demand when clearing that market.</p>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 3 · Question 2" onclick="toggleAnswer(this,'ex3-q2')" aria-controls="ex3-q2" aria-expanded="false">Show correction — Exercise 3 · Question 2 ▾</button>
+<div class="solution" id="ex3-q2">
+  <h3>The equilibrium price when \(p_2=1\)</h3>
+
+  <div class="step">
+    <h4>1. Clear the market for good 1</h4>
+    <p>The total endowment of good 1 is \(1/2+1/2=1\). Consumers and the firm share it:</p>
+    <div class="math">\[x_1^A+x_1^B+y_1=1.\]</div>
+    <p>Set \(p_2=1\) in the demands from Question 1:</p>
+    <div class="math">\[\begin{aligned}
+      &amp;\frac14\left(1+\frac1{p_1}\right)
+      +\frac18\left(1+\frac1{p_1}\right)\\
+      &amp;\qquad+\frac1{16p_1^2}+\frac1{4p_1^2}=1.
+    \end{aligned}\]</div>
+    <p>Collect the constant, reciprocal-price, and squared reciprocal-price terms:</p>
+    <div class="math">\[\frac38+\frac3{8p_1}+\frac5{16p_1^2}=1.\]</div>
+    <p>Multiplying by \(16p_1^2\) gives:</p>
+    <div class="math">\[6p_1^2+6p_1+5=16p_1^2.\]</div>
+    <div class="math">\[10p_1^2-6p_1-5=0.\]</div>
+  </div>
+  <div class="step result">
+    <h4>2. Keep the positive root</h4>
+    <div class="math">\[p_1=\frac{6\pm\sqrt{36+200}}{20}.\]</div>
+    <div class="math">\[\boxed{p_1^*=\frac{3+\sqrt{59}}{10}\approx1.0681},\qquad p_2^*=1.\]</div>
+    <p>The other root is negative. Walras' law ensures that good 2 clears as well.</p>
+    <p>For a direct check, substitute \(p_1^*\) into:</p>
+    <div class="math">\[\underbrace{\frac58(1+p_1^*)+\frac3{16p_1^*}}_{x_2^{A*}+x_2^{B*}}
+      =\underbrace{1+\frac1{2p_1^*}}_{1+y_2^*}.\]</div>
+  </div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 3 · Question 3" onclick="toggleAnswer(this,'ex3-q3')" aria-controls="ex3-q3" aria-expanded="false">Show correction — Exercise 3 · Question 3 ▾</button>
+<div class="solution" id="ex3-q3">
+  <h3>Constant returns to scale</h3>
+
+  <div class="step">
+    <h4>1. The firm's problem pins down prices</h4>
+    <p>Now \(y_2=y_1\), with \(p_2=1\), so:</p>
+    <div class="math">\[\Pi=(1-p_1)y_1.\]</div>
+    <ul class="solution-list">
+      <li>If \(p_1&lt;1\), profit increases without bound as production rises: there is no finite optimum.</li>
+      <li>If \(p_1&gt;1\), the firm chooses \(y_1=0\). Consumer demand for good 1 is then \(\frac38(1+1/p_1)&lt;1\), so that market cannot clear.</li>
+      <li>If \(p_1=1\), every production scale yields zero profit. Market clearing determines the scale.</li>
+    </ul>
+    <div class="math">\[\boxed{p_1^*=p_2^*=1},\qquad\boxed{\Pi^*=0}.\]</div>
+  </div>
+  <div class="step">
+    <h4>2. Compute consumption</h4>
+    <p>Each consumer's endowment is worth 1, and B receives zero profit. Applying the spending shares:</p>
+    <div class="math">\[\boxed{x^{A*}=\left(\frac12,\frac12\right)},\qquad
+      \boxed{x^{B*}=\left(\frac14,\frac34\right)}.\]</div>
+    <p>Total consumption is \((3/4,5/4)\).</p>
+  </div>
+  <div class="step result">
+    <h4>3. Choose the production scale that clears both markets</h4>
+    <div class="math">\[\begin{aligned}
+      \frac34+y_1^*&amp;=1\quad\Longrightarrow\quad y_1^*=\frac14,\\
+      y_2^*&amp;=y_1^*=\frac14,\\
+      x_2^{A*}+x_2^{B*}&amp;=\frac54=1+y_2^*.
+    \end{aligned}\]</div>
+    <p>The firm uses <strong>1/4 unit of good 1</strong> and produces <strong>1/4 unit of good 2</strong>. In the lecture's net-output convention, its production vector is \((-1/4,1/4)\).</p>
+  </div>
+  <div class="remark"><strong>Zero profit does not imply zero production.</strong> At equal prices, the firm is indifferent over scales; only the scale \(1/4\) clears the markets.</div>
+</div>
+
+<button type="button" class="toggle" data-label="Exercise 3 · Question 4" onclick="toggleAnswer(this,'ex3-q4')" aria-controls="ex3-q4" aria-expanded="false">Show correction — Exercise 3 · Question 4 ▾</button>
+<div class="solution" id="ex3-q4">
+  <h3>The pure exchange economy</h3>
+
+  <div class="step">
+    <h4>1. Remove production and profit income</h4>
+    <p>Each consumer still owns \((1/2,1/2)\). With no firm, the demands are:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^A&amp;=\frac14\left(1+\frac{p_2}{p_1}\right),&amp;
+      x_2^A&amp;=\frac14\left(1+\frac{p_1}{p_2}\right),\\
+      x_1^B&amp;=\frac18\left(1+\frac{p_2}{p_1}\right),&amp;
+      x_2^B&amp;=\frac38\left(1+\frac{p_1}{p_2}\right).
+    \end{aligned}\]</div>
+  </div>
+  <div class="step">
+    <h4>2. Clear good 1</h4>
+    <div class="math">\[\begin{aligned}
+      x_1^A+x_1^B&amp;=1,\\
+      \frac38\left(1+\frac{p_2}{p_1}\right)&amp;=1,\\
+      \frac{p_2}{p_1}&amp;=\frac53.
+    \end{aligned}\]</div>
+    <p>With \(p_2=1\):</p>
+    <div class="math">\[\boxed{p_1^*=\frac35},\qquad\boxed{p^*=\left(\frac35,1\right)}.\]</div>
+  </div>
+  <div class="step result">
+    <h4>3. Compute the equilibrium allocation</h4>
+    <div class="math">\[\begin{aligned}
+      x_1^{A*}&amp;=\frac14\left(1+\frac53\right)=\frac23,\\
+      x_2^{A*}&amp;=\frac14\left(1+\frac35\right)=\frac25,\\
+      x_1^{B*}&amp;=\frac18\left(1+\frac53\right)=\frac13,\\
+      x_2^{B*}&amp;=\frac38\left(1+\frac35\right)=\frac35.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{x^{A*}=\left(\frac23,\frac25\right)},\qquad
+      \boxed{x^{B*}=\left(\frac13,\frac35\right)}.\]</div>
+    <p>The bundles add to \((1,1)\), exactly the total endowment.</p>
+  </div>
+</div>
+</section>
+
+<section class="subsection" id="exercise-4" aria-labelledby="exercise-4-title">
+  <div class="part-banner"><span class="part-pill">Exercise 4</span><span class="part-line"></span></div>
+  <article class="exercise-card">
+    <h2 id="exercise-4-title">Exercise 4. First Welfare Theorem with Production</h2>
+    <div class="key-note"><strong>First Welfare Theorem.</strong> Let utility functions \(u\) be continuous and strictly increasing in \(x\). If an allocation \((x,y)\) and a price vector \(p\) form a Walrasian equilibrium, then \((x,y)\) is Pareto efficient.</div>
+    <h3>Question</h3>
+    <ol class="questions">
+      <li>Taking inspiration from the proof in the slides for the exchange economy, prove the First Welfare Theorem in the productive economy.</li>
+    </ol>
+  </article>
+
+<button type="button" class="toggle" data-label="Exercise 4 · Question 1" onclick="toggleAnswer(this,'ex4-q1')" aria-controls="ex4-q1" aria-expanded="false">Show correction — Exercise 4 · Question 1 ▾</button>
+<div class="solution" id="ex4-q1">
+  <h3>Proof of the First Welfare Theorem with production</h3>
+
+  <div class="step">
+    <h4>1. Suppose a feasible Pareto improvement exists</h4>
+    <p>Let \((x^*,y^*,p^*)\) be a Walrasian equilibrium. Suppose another feasible pair \((\widetilde x,\widetilde y)\) satisfies:</p>
+    <div class="math">\[\begin{gathered}
+      u_i(\widetilde x_i)\geq u_i(x_i^*)\quad\text{for every }i,\\
+      u_{i_0}(\widetilde x_{i_0})&gt;u_{i_0}(x_{i_0}^*)\quad\text{for at least one }i_0.
+    \end{gathered}\]</div>
+  </div>
+  <div class="step">
+    <h4>2. Use consumer optimization</h4>
+    <p>Consumer \(i\)'s equilibrium wealth is the value of their endowment plus their share of each firm's profit:</p>
+    <div class="math">\[p^*\cdot\omega_i+\sum_k\theta_{ki}\Pi_k^*,\qquad\Pi_k^*=p^*\cdot y_k^*.\]</div>
+    <p>A strictly preferred bundle must cost more than that wealth, or it would have been chosen. A weakly preferred bundle cannot cost less: the remaining budget and strict monotonicity would allow a strictly better affordable bundle.</p>
+    <div class="math">\[\begin{gathered}
+      p^*\cdot\widetilde x_i\geq p^*\cdot\omega_i+\sum_k\theta_{ki}\Pi_k^*
+      \quad\text{for every }i,\\
+      p^*\cdot\widetilde x_{i_0}&gt;p^*\cdot\omega_{i_0}+\sum_k\theta_{ki_0}\Pi_k^*.
+    \end{gathered}\]</div>
+  </div>
+  <div class="step">
+    <h4>3. Sum across consumers</h4>
+    <p>At least one inequality is strict. Since \(\sum_i\theta_{ki}=1\) for each firm, all profit is distributed:</p>
+    <div class="math">\[\begin{aligned}
+      \sum_i p^*\cdot\widetilde x_i
+      &amp;&gt;\sum_i p^*\cdot\omega_i+\sum_i\sum_k\theta_{ki}\Pi_k^*\\
+      &amp;=\sum_i p^*\cdot\omega_i+\sum_k\Pi_k^*.
+    \end{aligned}\]</div>
+  </div>
+  <div class="step">
+    <h4>4. Use firm profit maximization</h4>
+    <p>For every alternative feasible production plan \(\widetilde y_k\), profit maximization implies:</p>
+    <div class="math">\[\Pi_k^*=p^*\cdot y_k^*\geq p^*\cdot\widetilde y_k.\]</div>
+    <p>Combine this inequality with the strict inequality from Step 3:</p>
+    <div class="math">\[\begin{aligned}
+      p^*\cdot\sum_i\widetilde x_i
+      &amp;&gt;p^*\cdot\sum_i\omega_i+\sum_k\Pi_k^*\\
+      &amp;\geq p^*\cdot\left(\sum_i\omega_i+\sum_k\widetilde y_k\right).
+    \end{aligned}\]</div>
+  </div>
+  <div class="step result">
+    <h4>5. Contradict feasibility</h4>
+    <p>Feasibility requires, component by component:</p>
+    <div class="math">\[\sum_i\widetilde x_i\leq\sum_i\omega_i+\sum_k\widetilde y_k.\]</div>
+    <p>Multiplying by the nonnegative equilibrium prices and summing gives:</p>
+    <div class="math">\[p^*\cdot\sum_i\widetilde x_i
+      \leq p^*\cdot\left(\sum_i\omega_i+\sum_k\widetilde y_k\right).\]</div>
+    <p>This contradicts Step 4. No feasible Pareto improvement exists, so <strong>the equilibrium allocation and production plan are Pareto efficient.</strong></p>
+  </div>
+  <div class="key-note"><strong>The extra step relative to pure exchange:</strong> firm profit maximization bounds the value of any alternative production plan. The contradiction compares values at the same prices; it does not infer a componentwise quantity inequality from a value inequality.</div>
+</div>
+</section>
+
+  </div>
+</main>
+<script src="producer-exercises.js"></script>
+</body>
+</html>
