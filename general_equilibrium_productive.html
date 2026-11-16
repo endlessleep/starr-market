@@ -14,9 +14,10 @@
 <link rel="stylesheet" href="midterm-nav.css">
 <link rel="stylesheet" href="reading-progress.css">
 <link rel="stylesheet" href="equilibrium.css">
+<link rel="stylesheet" href="general-equilibrium.css">
 <script defer src="reading-progress.js"></script>
 </head>
-<body>
+<body class="general-equilibrium">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
     <nav class="sidebar-nav" aria-label="Course navigation">
@@ -33,160 +34,147 @@
   <main class="main-wrap" id="main-wrap">
     <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>3. General Equilibrium in the Productive Economy</strong></div><div class="topbar-pill">Part IV</div></div>
     <div class="main-content">
-    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>3. General Equilibrium in the Productive Economy</h1><p>Production plans, profit income, market clearing, and efficiency.</p></header>
+    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>3. General Equilibrium in the Productive Economy</h1><p>Production · Ownership · Consumer budgets · Market clearing · Efficiency</p></header>
 
     <section id="productive-economy">
       <div class="part-banner"><span class="part-pill">01 · Adding production</span><span class="part-line"></span></div>
       <h2>Consumers, Firms, and Goods</h2>
-      <p class="lead">The economy now contains \(N\) goods, \(I\) consumers, and \(K\) firms. Firms transform inputs into outputs, so total consumption can differ from the initial endowment.</p>
-      <div class="term-grid">
-        <article class="term"><h3>Consumers</h3><p>Consumer \(i\) has utility \(u_i\), endowment \(\omega_i\), and consumption bundle \(x_i\geq0\).</p></article>
-        <article class="term"><h3>Firms</h3><p>Firm \(k\) chooses a net-output vector \(y_k\) from its production set \(Y_k\).</p></article>
+      <p class="lead">The economy contains \(N\) goods, \(I\) consumers, and \(K\) firms. Production changes the quantities available for consumption.</p>
+      <div class="cards">
+        <article class="card"><h3>Consumers</h3><p>Consumer \(i\) has utility \(u_i\), endowment \(\omega_i\), and consumption bundle \(x_i\geq0\).</p></article>
+        <article class="card"><h3>Firms</h3><p>Firm \(k\) chooses a net-output vector \(y_k\) in its feasible production set \(Y_k\).</p></article>
       </div>
-      <div class="key-note"><strong>Read the signs.</strong> A positive component \(y_{kn}\) is an output of good \(n\); a negative component is an input. For example, \(y_k=(-2,3)\) uses 2 units of good 1 to produce 3 units of good 2.</div>
-      <p>At prices \(p\), profit is revenue minus input expenditure, both included in the dot product:</p>
-      <div class="math emphasis">\[
-        \begin{gathered}
-          \pi_k(p)=\max_{y_k\in Y_k}p\cdot y_k,\\
-          y_k(p)\in\arg\max_{y_k\in Y_k}p\cdot y_k.
-        \end{gathered}
-      \]</div>
+      <div class="key-note"><strong>Net output:</strong> \(y_{kn}&gt;0\) is an output; \(y_{kn}&lt;0\) is an input. For example, \(y_k=(-2,3)\) uses 2 units of good 1 to produce 3 units of good 2.</div>
+      <h3>Profit maximization</h3>
+      <div class="math emphasis">\[\begin{gathered}
+        \pi_k(p)=\max_{y_k\in Y_k}p\cdot y_k,\\
+        y_k(p)\in\arg\max_{y_k\in Y_k}p\cdot y_k.
+      \end{gathered}\]</div>
+      <p>The dot product includes output revenues and input expenditures. Inputs already carry a negative sign in \(y_k\).</p>
     </section>
 
     <section id="profit-income">
       <div class="part-banner"><span class="part-pill">02 · Ownership &amp; income</span><span class="part-line"></span></div>
-      <h2>How Are Profits Distributed?</h2>
-      <p>Consumers own the firms. Let \(\theta_{ki}\) be consumer \(i\)'s ownership share in firm \(k\), and therefore their share of its profit:</p>
-      <div class="math">\[
-        \theta_{ki}\geq0,
-        \qquad \sum_{i=1}^{I}\theta_{ki}=1
-        \quad\text{for every firm }k.
-      \]</div>
+      <h2>Profits Belong to Consumers</h2>
+      <p>\(\theta_{ki}\) is consumer \(i\)'s ownership share in firm \(k\), hence their share of its <strong>profit</strong>.</p>
+      <div class="math">\[\theta_{ki}\geq0,\qquad\sum_{i=1}^{I}\theta_{ki}=1\quad\text{for every }k.\]</div>
       <div class="cards">
-        <article class="card"><h3>Full ownership</h3><p>If \(\theta_{ki}=1\), consumer \(i\) owns all of firm \(k\); all other consumers have zero shares in that firm.</p></article>
-        <article class="card"><h3>Equal ownership</h3><p>If \(\theta_{ki}=1/I\) for every \(i\), each consumer receives the same share of firm \(k\)'s profit.</p></article>
+        <article class="card"><h3>\(\theta_{ki}=1\)</h3><p>Consumer \(i\) owns the entire firm and receives all its profit.</p></article>
+        <article class="card"><h3>\(\theta_{ki}=1/I\) for every \(i\)</h3><p>All consumers own equal shares and receive equal portions of the firm's profit.</p></article>
       </div>
-      <p>Wealth includes both the value of the initial endowment and distributed profits:</p>
-      <div class="math emphasis">\[
-        \begin{gathered}
-          m_i(p)=p\cdot\omega_i+\sum_{k=1}^{K}\theta_{ki}\pi_k(p),\\
-          p\cdot x_i\leq m_i(p).
-        \end{gathered}\tag{4}
-      \]</div>
-      <div class="remark"><strong>Ownership concerns profit, not gross output.</strong> The firm must pay for its inputs before distributing profit. The budget therefore uses \(\theta_{ki}\pi_k(p)\), not a share of sales revenue.</div>
+      <h3>The consumer's budget</h3>
+      <p>Wealth = value of the initial endowment + distributed profit:</p>
+      <div class="math emphasis">\[p\cdot x_i\leq p\cdot\omega_i+\sum_{k=1}^{K}\theta_{ki}\pi_k(p).\tag{4}\]</div>
+      <div class="remark"><strong>Shares of profit, not sales revenue.</strong> Firms pay for their inputs before distributing profit to their owners.</div>
     </section>
 
     <section id="equilibrium-production">
       <div class="part-banner"><span class="part-pill">03 · Walrasian equilibrium</span><span class="part-line"></span></div>
-      <h2>Optimization and Market Clearing</h2>
-      <p>An allocation \(x^*\), production plans \(y^*\), and a nonzero price vector \(p^*\geq0\) form a Walrasian equilibrium when all three conditions hold.</p>
-      <article class="course-block"><h3>Firm optimization</h3><p>Each firm chooses a feasible plan that maximizes profit:</p>
-        <div class="math emphasis">\[
-          y_k^*\in\arg\max_{y_k\in Y_k}p^*\cdot y_k
-          \quad\text{for every }k.
-        \]</div>
+      <h2>Three Conditions for Equilibrium</h2>
+      <p>Allocation \(x^*\), production plans \(y^*\), and a nonzero price vector \(p^*\geq0\) form a Walrasian equilibrium when:</p>
+      <article class="course-block"><h3>1. Every firm maximizes profit</h3>
+        <div class="math">\[y_k^*\in\arg\max_{y_k\in Y_k}p^*\cdot y_k\quad\text{for every }k.\]</div>
       </article>
-      <article class="course-block"><h3>Consumer optimization</h3><p>Each consumer chooses their best bundle at the wealth generated by endowments and equilibrium profits:</p>
-        <div class="math emphasis">\[
-          \begin{gathered}
-            x_i^*\in\arg\max_{x_i\geq0}u_i(x_i)\\
-            \text{s.t.}\quad p^*\cdot x_i\leq p^*\cdot\omega_i+
-            \sum_k\theta_{ki}\,p^*\cdot y_k^*.
-          \end{gathered}
-        \]</div>
+      <article class="course-block"><h3>2. Every consumer maximizes utility</h3>
+        <div class="math">\[\begin{gathered}
+          x_i^*\in\arg\max_{x_i\geq0}u_i(x_i)\\
+          \text{s.t.}\quad p^*\cdot x_i\leq p^*\cdot\omega_i+\sum_k\theta_{ki}\pi_k(p^*).
+        \end{gathered}\]</div>
       </article>
-      <article class="course-block"><h3>Market clearing</h3><p>For each good, consumption equals the initial endowment plus net production:</p>
-        <div class="math emphasis">\[
-          \sum_i x_{in}^*=\sum_i\omega_{in}+\sum_k y_{kn}^*
-          \quad(n=1,\ldots,N).
-        \]</div>
-        <p>Equivalently, aggregate net purchases equal aggregate net output: \(\sum_i(x_i^*-\omega_i)=\sum_k y_k^*\).</p>
+      <article class="course-block"><h3>3. Every market clears</h3>
+        <div class="math">\[\sum_i x_{in}^*=\sum_i\omega_{in}+\sum_k y_{kn}^*\quad(n=1,\ldots,N).\]</div>
+        <p>Equivalently, aggregate net purchases equal aggregate net production:</p>
+        <div class="math">\[\sum_i(x_i^*-\omega_i)=\sum_k y_k^*.\]</div>
       </article>
-      <h3>Aggregate excess demand</h3>
-      <p>Using demand at the full wealth \(m_i(p)\), including profit income:</p>
-      <div class="math">\[
-        \begin{aligned}
-          z_n(p)&amp;=\sum_i x_{in}(p,m_i(p))\\
-          &amp;\quad-\sum_i\omega_{in}-\sum_k y_{kn}(p).
-        \end{aligned}\tag{5}
-      \]</div>
-      <p>If preferences are locally nonsatiated and all profits are distributed, Walras' law remains valid:</p>
-      <div class="math">\[
-        p\cdot z(p)
-        =\sum_i m_i(p)-p\cdot\sum_i\omega_i-\sum_k\pi_k(p)=0.
-      \]</div>
+      <h3>Aggregate excess demand with production</h3>
+      <p>Subtract both initial resources and firms' net output from total desired consumption:</p>
+      <div class="math emphasis">\[\begin{aligned}
+        z_n(p)&amp;=\sum_i x_{in}\!\left(p,\,p\cdot\omega_i+\sum_k\theta_{ki}\pi_k(p)\right)\\
+        &amp;\quad-\sum_i\omega_{in}-\sum_k y_{kn}(p).
+      \end{aligned}\tag{5}\]</div>
+      <p class="equation-note">The second argument of demand is the consumer's full wealth, including profit income. Market clearing means \(z_n(p^*)=0\) for every good.</p>
+      <details class="course-details"><summary>Why does Walras' law still hold?</summary><div class="detail-body">
+        <p>With locally nonsatiated preferences, each budget binds. Since ownership shares sum to one for every firm, all profit is distributed:</p>
+        <div class="math">\[\sum_i p\cdot x_i=p\cdot\sum_i\omega_i+\sum_k\pi_k(p).\]</div>
+        <p>Profit-maximizing production gives \(\pi_k(p)=p\cdot y_k(p)\). Therefore:</p>
+        <div class="math">\[\begin{aligned}
+          p\cdot z(p)&amp;=\sum_i p\cdot x_i-p\cdot\sum_i\omega_i\\
+          &amp;\quad-\sum_k p\cdot y_k(p)=0.
+        \end{aligned}\]</div>
+      </div></details>
     </section>
 
     <section id="existence-production">
       <div class="part-banner"><span class="part-pill">04 · Existence</span><span class="part-line"></span></div>
-      <h2>Conditions for Equilibrium</h2>
-      <p>Existence requires assumptions on both preferences and technology. A convenient, restrictive sufficient benchmark for a finite economy is:</p>
+      <h2>Assumptions on Preferences and Technology</h2>
+      <p>The lecture's sufficient benchmark combines:</p>
       <ul class="list">
-        <li>Consumption sets are \(\mathbb R_+^N\); every \(u_i\) is continuous, strictly increasing, and strictly concave.</li>
-        <li>Every consumer has a strictly positive endowment, \(\omega_i\gg0\).</li>
-        <li>Each production set \(Y_k\) is nonempty, closed, bounded, and convex, and contains the no-production plan \(0\).</li>
-        <li>Ownership shares are nonnegative and sum to one for each firm.</li>
+        <li><strong>Preferences:</strong> every \(u_i\) is continuous, strictly increasing in every good, and strictly concave.</li>
+        <li><strong>Endowments:</strong> each consumer has positive amounts of every good, \(\omega_i\gg0\).</li>
+        <li><strong>Technology:</strong> production sets are closed, bounded, and strictly convex.</li>
       </ul>
+      <p class="equation-note">Use nonempty production sets containing \(0\), consumption sets \(\mathbb R_+^N\), and nonnegative ownership shares summing to one for each firm.</p>
       <div class="cards">
-        <article class="card"><h3>Closed and bounded production sets</h3><p>Compactness ensures that the continuous profit objective attains a finite maximum. Convexity supports the equilibrium existence argument.</p></article>
-        <article class="card"><h3>Positive endowments and \(0\in Y_k\)</h3><p>Consumers can finance some consumption, and firms can choose not to produce. Maximum profit is therefore nonnegative.</p></article>
+        <article class="card"><h3>Closed + bounded</h3><p>Production sets are compact. The continuous profit objective attains a finite maximum.</p></article>
+        <article class="card"><h3>Convex technology</h3><p>Mixtures of feasible production plans remain feasible. This supports the equilibrium existence argument.</p></article>
       </div>
-      <div class="remark"><strong>A sufficient benchmark.</strong> Strict convexity of technology is not needed. More general existence theorems allow unbounded production sets under suitable restrictions on feasible production and resources; free disposal, for example, makes production sets unbounded in negative directions.</div>
+      <div class="key-note"><strong>The no-production option:</strong> \(0\in Y_k\) lets a firm earn zero by not producing, so its maximum profit cannot be negative.</div>
+      <details class="course-details"><summary>How restrictive are these assumptions?</summary><div class="detail-body">
+        <p>These are sufficient conditions. Strict convexity is stronger than required in the compact-production benchmark; convexity suffices for the existence argument.</p>
+        <p>More general theorems allow unbounded production sets with appropriate resource restrictions. Free disposal, for example, makes sets unbounded in negative directions.</p>
+      </div></details>
     </section>
 
     <section id="efficiency-production">
       <div class="part-banner"><span class="part-pill">05 · Feasibility &amp; efficiency</span><span class="part-line"></span></div>
-      <h2>Feasible Consumption and Production</h2>
-      <p>An allocation and production plan \((x,y)\) is feasible when \(x_i\geq0\), \(y_k\in Y_k\), and, for every good:</p>
-      <div class="math emphasis">\[
-        \sum_i x_{in}\leq\sum_i\omega_{in}+\sum_k y_{kn}
-        \qquad(n=1,\ldots,N).
-      \]</div>
-      <p>The inequality permits disposal of available goods. Inputs already enter \(y_k\) negatively, so they must not be subtracted a second time.</p>
+      <h2>Include Production in Feasibility</h2>
+      <p>A pair \((x,y)\) is feasible if \(x_i\geq0\), \(y_k\in Y_k\), and, for every good:</p>
+      <div class="math emphasis">\[\sum_i x_{in}\leq\sum_i\omega_{in}+\sum_k y_{kn}.\]</div>
+      <p>In vector form:</p>
+      <div class="math">\[\sum_i(x_i-\omega_i)\leq\sum_k y_k.\]</div>
+      <p>The inequality allows disposal. Since inputs enter net production negatively, <strong>do not subtract them again</strong>.</p>
       <h3>Pareto efficiency</h3>
-      <p>A feasible \((x,y)\) is Pareto efficient if there is no other feasible pair \((x',y')\) for which:</p>
-      <div class="math">\[
-        \begin{gathered}
-          u_i(x_i')\geq u_i(x_i)\ \text{for every }i,\\
-          u_j(x_j')&gt;u_j(x_j)\ \text{for some }j.
-        \end{gathered}
-      \]</div>
-      <div class="key-note"><strong>Production can change too.</strong> To assess efficiency, consider both reallocating existing goods and choosing different feasible production plans. Firms' profits affect consumer wealth, but consumer utilities determine the Pareto comparison.</div>
+      <p>A feasible \((x,y)\) is Pareto efficient if no other feasible \((x',y')\) satisfies:</p>
+      <div class="math">\[\begin{gathered}
+        u_i(x_i')\geq u_i(x_i)\quad\text{for every }i,\\
+        u_j(x_j')&gt;u_j(x_j)\quad\text{for at least one }j.
+      \end{gathered}\]</div>
+      <div class="key-note"><strong>Both choices can change:</strong> how goods are produced and how they are allocated. Consumer utilities determine the Pareto comparison; firms' profits enter through consumer wealth.</div>
     </section>
 
     <section id="welfare-production">
       <div class="part-banner"><span class="part-pill">06 · Welfare theorems</span><span class="part-line"></span></div>
-      <h2>Efficiency with Production</h2>
-      <article class="course-block"><h3>First welfare theorem</h3>
-        <p>In the competitive private-goods economy, with locally nonsatiated preferences, every Walrasian equilibrium \((x^*,y^*,p^*)\) is Pareto efficient.</p>
-        <p>A Pareto improvement would require consumption whose value exceeds total equilibrium wealth. But feasibility and profit maximization imply that no alternative production plans can provide a greater total value at the equilibrium prices.</p>
-        <div class="math">\[
-          \begin{aligned}
-            \sum_i p^*\cdot x_i'
-            &amp;\leq p^*\cdot\sum_i\omega_i+\sum_k p^*\cdot y_k'\\
+      <h2>The Welfare Theorems with Production</h2>
+      <article class="course-block"><h3>First theorem: equilibrium → efficiency</h3>
+        <p>With continuous, strictly increasing utility in the competitive private-goods economy, every Walrasian equilibrium \((x^*,y^*,p^*)\) is Pareto efficient.</p>
+        <p><strong>Intuition:</strong> consumers already choose their best affordable bundles, and firms maximize the value of production at the same prices.</p>
+        <details class="course-details"><summary>Proof idea: compare the value of resources</summary><div class="detail-body">
+          <p>A Pareto improvement would require consumption worth strictly more than total equilibrium wealth. Yet feasibility and profit maximization imply:</p>
+          <div class="math">\[\begin{aligned}
+            \sum_i p^*\cdot x_i'&amp;\leq p^*\cdot\sum_i\omega_i+\sum_k p^*\cdot y_k'\\
             &amp;\leq p^*\cdot\sum_i\omega_i+\sum_k\pi_k(p^*).
-          \end{aligned}
-        \]</div>
-        <p>This contradicts the value required for a Pareto improvement. Convexity of production is not needed for this direction.</p>
+          \end{aligned}\]</div>
+          <p>Contradiction. Local nonsatiation suffices for the preference argument; convexity of production is not needed for this direction.</p>
+        </div></details>
       </article>
-      <article class="course-block"><h3>Second welfare theorem</h3>
-        <p>With continuous, strongly monotone, convex preferences and closed, convex production sets, an efficient allocation with interior consumption can be supported by prices and suitable lump-sum wealth transfers.</p>
-        <p>At the supporting prices, firms maximize profit. Transfers give consumers the wealth required to choose the target bundles:</p>
-        <div class="math">\[
-          \begin{gathered}
-            p^*\cdot x_i\leq p^*\cdot\omega_i+
-            \sum_k\theta_{ki}\pi_k(p^*)+T_i,\\
-            \sum_i T_i=0.
-          \end{gathered}
-        \]</div>
-        <p>For a target \((x^*,y^*)\), the required transfer is:</p>
-        <div class="math">\[
-          T_i=p^*\cdot x_i^*-p^*\cdot\omega_i
-          -\sum_k\theta_{ki}\pi_k(p^*).
-        \]</div>
-        <p>Feasibility at the efficient allocation and full profit distribution make these transfers sum to zero.</p>
+      <article class="course-block"><h3>Second theorem: efficiency + redistribution → equilibrium</h3>
+        <p>With continuous, strictly increasing, concave utility and closed, convex production sets, an efficient allocation with interior consumption can be supported by prices after suitable wealth redistribution.</p>
+        <p>At the supporting prices, firms maximize profit. Lump-sum transfers give each consumer the wealth needed for the target bundle:</p>
+        <div class="math">\[\begin{gathered}
+          p^*\cdot x_i\leq p^*\cdot\omega_i+\sum_k\theta_{ki}\pi_k(p^*)+T_i,\\
+          \sum_i T_i=0.
+        \end{gathered}\]</div>
+        <p>The transfer required for target \((x^*,y^*)\) is:</p>
+        <div class="math">\[T_i=p^*\cdot x_i^*-p^*\cdot\omega_i-\sum_k\theta_{ki}\pi_k(p^*).\]</div>
+        <p>Feasibility at the efficient allocation and full profit distribution ensure that the transfers sum to zero.</p>
       </article>
-      <div class="remark"><strong>Changing ownership alone need not be enough.</strong> Redistributing shares changes profit income, but cannot generate every required wealth distribution when profits are zero or too small. The general second welfare theorem allows wealth transfers or a redistribution of endowments, rather than relying only on ownership shares.</div>
+      <h3>Where does redistribution of ownership fit?</h3>
+      <p>Changing ownership shares redistributes profit income. It supports a target allocation only if feasible shares \(\theta'_{ki}\) can finance every target bundle:</p>
+      <div class="math">\[\begin{gathered}
+        p^*\cdot x_i^*=p^*\cdot\omega_i+\sum_k\theta'_{ki}\pi_k(p^*),\\
+        \theta'_{ki}\geq0,\qquad\sum_i\theta'_{ki}=1.
+      \end{gathered}\]</div>
+      <div class="remark"><strong>Ownership alone is not always enough.</strong> If all profits are zero, changing shares changes no one's wealth. The general second theorem therefore allows transfers or redistribution of endowments; ownership changes implement it only when they generate the required wealth distribution.</div>
     </section>
     </div>
   </main>

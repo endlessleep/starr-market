@@ -1,0 +1,122 @@
+/* Compact reading layout for the two general-equilibrium lectures. */
+.general-equilibrium .diagram-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 280px));
+  justify-content: center;
+  align-items: start;
+  gap: 18px;
+  margin: 22px 0;
+}
+.general-equilibrium .diagram-card {
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.general-equilibrium .diagram-card h3 {
+  margin: 0 0 12px;
+  color: var(--blue);
+  font-size: .94rem;
+  text-align: center;
+}
+.general-equilibrium .diagram-card > a {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: auto;
+  border-radius: 6px;
+}
+.general-equilibrium .diagram-card img {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background: #fff;
+}
+.general-equilibrium .diagram-card figcaption {
+  margin-top: 12px;
+  color: var(--text-3);
+  font-size: .84rem;
+  line-height: 1.55;
+  text-align: center;
+}
+.general-equilibrium .diagram-card figcaption a {
+  display: block;
+  width: fit-content;
+  margin: 7px auto 0;
+}
+.general-equilibrium .diagram-card a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+.general-equilibrium .concept-list {
+  display: grid;
+  gap: 0;
+  margin: 18px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.general-equilibrium .concept-list > div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px 18px;
+}
+.general-equilibrium .concept-list > div + div {
+  border-top: 1px solid var(--border);
+}
+.general-equilibrium .concept-list dt {
+  color: var(--blue);
+  font-size: .92rem;
+  font-weight: 700;
+}
+.general-equilibrium .concept-list dd {
+  margin: 0;
+  color: var(--text-2);
+  font-size: .92rem;
+}
+.general-equilibrium .numbered-list {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+  padding-left: 25px;
+  color: var(--text-2);
+  font-size: .94rem;
+}
+.general-equilibrium .numbered-list li {
+  padding-left: 5px;
+}
+.general-equilibrium .numbered-list li::marker {
+  color: var(--blue);
+  font-weight: 700;
+}
+.general-equilibrium .equation-note {
+  margin: 12px 0;
+  color: var(--text-3);
+  font-size: .86rem;
+}
+.general-equilibrium .course-block {
+  margin: 18px 0;
+  padding: 20px;
+}
+@media (max-width: 600px) {
+  .general-equilibrium .diagram-grid {
+    grid-template-columns: minmax(0, 280px);
+    gap: 14px;
+  }
+  .general-equilibrium .diagram-card img {
+    width: 200px;
+  }
+  .general-equilibrium .concept-list > div {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 14px;
+  }
+  .general-equilibrium .course-block {
+    padding: 16px 12px;
+  }
+}

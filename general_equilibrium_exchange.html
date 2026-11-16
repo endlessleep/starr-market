@@ -14,9 +14,10 @@
 <link rel="stylesheet" href="midterm-nav.css">
 <link rel="stylesheet" href="reading-progress.css">
 <link rel="stylesheet" href="equilibrium.css">
+<link rel="stylesheet" href="general-equilibrium.css">
 <script defer src="reading-progress.js"></script>
 </head>
-<body>
+<body class="general-equilibrium">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-brand"><h1>MICRO<span>.</span></h1><button class="sidebar-close" onclick="toggleSidebar()" aria-label="Toggle navigation">✕</button></div>
     <nav class="sidebar-nav" aria-label="Course navigation">
@@ -33,209 +34,272 @@
   <main class="main-wrap" id="main-wrap">
     <div class="topbar"><button class="topbar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button><div class="breadcrumb">MICRO &nbsp;›&nbsp; Equilibrium &amp; Welfare &nbsp;›&nbsp; <strong>2. General Equilibrium in the Exchange Economy</strong></div><div class="topbar-pill">Part IV</div></div>
     <div class="main-content">
-    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>2. General Equilibrium in the Exchange Economy</h1><p>Feasible trades, the Edgeworth box, competitive prices, and welfare theorems.</p></header>
+    <header class="page-title"><div class="page-label">Part IV — Equilibrium &amp; Welfare</div><h1>2. General Equilibrium in the Exchange Economy</h1><p>Allocations · Gains from trade · Prices · Market clearing · Welfare</p></header>
 
     <section id="feasibility-efficiency">
       <div class="part-banner"><span class="part-pill">01 · Foundations</span><span class="part-line"></span></div>
       <h2>From One Market to the Whole Economy</h2>
       <div class="cards">
-        <article class="card"><h3>Partial equilibrium</h3><p>Study one market, holding other prices and incomes fixed. This simplifies the analysis when feedback from other markets is limited.</p></article>
-        <article class="card"><h3>General equilibrium</h3><p>Determine prices and allocations across markets together. One good's price changes purchasing power and demand for other goods.</p></article>
+        <article class="card"><h3>Partial equilibrium</h3><p>One market in isolation; other prices and incomes are fixed. Simpler when feedback from other markets is limited.</p></article>
+        <article class="card"><h3>General equilibrium</h3><p>Several markets together. Prices, purchasing power, and demands are determined jointly.</p></article>
       </div>
-      <p>Which model is useful depends on the question. Predicting an equilibrium is a <strong>positive</strong> exercise; evaluating its efficiency or distribution is a <strong>normative</strong> exercise.</p>
+      <p class="equation-note">The choice of model depends on the question: simplicity and realism involve a trade-off.</p>
+      <div class="key-note"><strong>Positive analysis:</strong> predict the market outcome. <strong>Normative analysis:</strong> assess its efficiency, welfare, or distribution.</div>
       <h3>Feasibility in a pure exchange economy</h3>
-      <p>There are \(I\) consumers and \(N\) goods, with no production. Consumer \(i\) starts with endowment \(\omega_i=(\omega_{i1},\ldots,\omega_{iN})\) and receives consumption bundle \(x_i\geq0\). Feasibility requires, good by good:</p>
-      <div class="math emphasis">\[
-        \sum_{i=1}^{I}x_{in}\leq\sum_{i=1}^{I}\omega_{in}
-        \qquad(n=1,\ldots,N).
-      \]</div>
-      <p>The inequality allows disposal. If all available goods are allocated, it holds with equality.</p>
-      <h3>Pareto improvements and Pareto efficiency</h3>
-      <p>A feasible allocation \(x'\) is a <strong>Pareto improvement</strong> over \(x\) if nobody is worse off and at least one consumer is strictly better off:</p>
-      <div class="math">\[
-        \begin{gathered}
-          u_i(x_i')\geq u_i(x_i)\ \text{for every }i,\\
-          u_j(x_j')&gt;u_j(x_j)\ \text{for at least one }j.
-        \end{gathered}
-      \]</div>
-      <p>An allocation is <strong>Pareto efficient</strong> if no feasible Pareto improvement exists. Pareto comparisons are incomplete: if a change helps one consumer but hurts another, neither allocation Pareto dominates the other.</p>
-      <div class="remark"><strong>Efficiency does not settle equity.</strong> A highly unequal allocation can be Pareto efficient. The criterion asks whether anyone can be helped without harming someone else, not whether the distribution is fair.</div>
-      <h3>Pareto efficiency and total surplus</h3>
-      <p>With quasilinear utility, one good serves as money: its quantity enters utility linearly. If there are no externalities and this good can be transferred freely between consumers, maximizing total surplus identifies efficient trade. An increase in total surplus creates scope to compensate those who lose, but is not itself a Pareto improvement.</p>
-      <div class="key-note"><strong>Why?</strong> Some consumers or producers may lose from a change even when the total gain is positive. Compensation must actually leave everyone at least as well off for the change to be a Pareto improvement. Outside this benchmark, consumer surplus is not a general substitute for utility-based welfare comparisons.</div>
+      <p>There are \(I\) consumers, \(N\) goods, and <strong>no production</strong>. Consumer \(i\) starts with endowment \(\omega_i\) and consumes \(x_i\geq0\).</p>
+      <div class="math emphasis">\[\sum_{i=1}^{I}x_{in}\leq\sum_{i=1}^{I}\omega_{in}\qquad(n=1,\ldots,N).\]</div>
+      <p><strong>Consumed ≤ available</strong>, for each good. Equality means that all goods are allocated; inequality allows disposal.</p>
+      <h3>Pareto improvement and Pareto efficiency</h3>
+      <p>A feasible allocation \(x'\) <strong>Pareto improves</strong> on \(x\) when:</p>
+      <div class="math">\[\begin{gathered}
+        u_i(x_i')\geq u_i(x_i)\quad\text{for every }i,\\
+        u_j(x_j')&gt;u_j(x_j)\quad\text{for at least one }j.
+      \end{gathered}\]</div>
+      <div class="cards">
+        <article class="card"><h3>Pareto efficient</h3><p>No feasible Pareto improvement exists: helping someone necessarily harms someone else.</p></article>
+        <article class="card"><h3>An incomplete comparison</h3><p>If a change benefits one consumer and harms another, neither allocation Pareto dominates the other.</p></article>
+      </div>
+      <div class="remark"><strong>Efficiency ≠ fairness.</strong> Even an allocation giving everything to one consumer can be Pareto efficient.</div>
+      <h3>Link with total surplus</h3>
+      <p>In the quasilinear benchmark, with no externalities and freely transferable money, welfare changes can be measured in money:</p>
+      <ul class="list">
+        <li><strong>Pareto improvement → higher total surplus:</strong> at least one gain and no loss.</li>
+        <li><strong>Higher total surplus ⇏ Pareto improvement:</strong> some people may lose. Compensation must actually leave everyone at least as well off.</li>
+        <li>Maximizing surplus identifies efficient trade <strong>under these assumptions</strong>; it is not a general replacement for utility-based Pareto comparisons.</li>
+      </ul>
     </section>
 
     <section id="edgeworth-box">
       <div class="part-banner"><span class="part-pill">02 · Exchange without prices</span><span class="part-line"></span></div>
-      <h2>The Edgeworth Box</h2>
-      <p class="lead">With two consumers, \(A\) and \(B\), and two goods, all allocations that use the entire endowment fit into a rectangle of width \(\bar\omega_1\) and height \(\bar\omega_2\), where \(\bar\omega_n=\omega_{An}+\omega_{Bn}\).</p>
-      <div class="math">\[
+      <h2>Read the Edgeworth Box</h2>
+      <p class="lead">Two consumers, \(A\) and \(B\), share two goods. The box represents allocations that distribute the entire initial endowment.</p>
+      <div class="math">\[\begin{gathered}
+        \bar\omega_n=\omega_{An}+\omega_{Bn},\\
         x_{An}+x_{Bn}=\bar\omega_n,\qquad n=1,2.
-      \]</div>
+      \end{gathered}\]</div>
       <div class="cards">
-        <article class="card"><h3>Read from \(A\)'s origin</h3><p>The bottom-left corner is \(A\)'s origin. Moving right increases \(x_{A1}\); moving up increases \(x_{A2}\).</p></article>
-        <article class="card"><h3>Read from \(B\)'s origin</h3><p>The top-right corner is \(B\)'s origin. Moving left increases \(x_{B1}\); moving down increases \(x_{B2}\).</p></article>
+        <article class="card"><h3>Consumer \(A\): bottom-left origin</h3><p>Right → more good 1. Up → more good 2. Increasing utility means preferring the northeast.</p></article>
+        <article class="card"><h3>Consumer \(B\): top-right origin</h3><p>Left → more good 1. Down → more good 2. Increasing utility means preferring the southwest.</p></article>
       </div>
-      <p>Every point specifies both consumers' bundles. The endowment point \(\omega\) is the allocation before trade. Consumer \(i\)'s <strong>net purchase</strong> of good \(n\) is \(x_{in}-\omega_{in}\): positive for a purchase, negative for a sale.</p>
-      <figure class="course-figure"><img src="images/edgeworth-gains.svg" alt="An Edgeworth box with endowment at A's bundle (2,8). Indifference curves through the endowment enclose a lens of mutually beneficial allocations. The diagonal contract curve crosses this lens between (4,4) and (6,6), forming the core."><figcaption>Illustrative example with \(u_A=\sqrt{x_{A1}x_{A2}}\), \(u_B=\sqrt{x_{B1}x_{B2}}\), and total endowment \((10,10)\). The green segment is the core.</figcaption></figure>
-      <h3>Gains from trade</h3>
-      <p>The indifference curves through the initial endowment enclose a lens where both consumers are at least as well off. Interior points of this lens make both strictly better off; boundary points may leave one indifferent.</p>
-      <h3>The contract curve</h3>
-      <p>The <strong>contract curve</strong> contains the Pareto-efficient allocations. With smooth, increasing, convex preferences and positive marginal utilities at an interior allocation, efficiency requires equal marginal rates of substitution:</p>
+      <p>The box has width \(\bar\omega_1\) and height \(\bar\omega_2\). One point specifies <strong>both bundles</strong>; \(\omega\) marks the allocation before trade.</p>
+      <p class="equation-note">In the figures, \(x_n^A\) and \(x_n^B\) are the same components written here as \(x_{An}\) and \(x_{Bn}\).</p>
+      <div class="key-note"><strong>Net purchase:</strong> \(x_{in}-\omega_{in}\). Positive → net buyer; negative → net seller; zero → no net trade in that good.</div>
+      <div class="diagram-grid">
+        <figure class="diagram-card">
+        <h3>Gains from trade</h3>
+        <a href="images/edgeworth-pareto-lens.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Gains from trade"><img src="images/edgeworth-pareto-lens.png" width="520" height="386" alt="An Edgeworth box with blue and red indifference curves through the endowment. Their overlap forms a green lens of mutually beneficial allocations."></a>
+        <figcaption>The lens contains allocations that both consumers weakly prefer to the initial endowment. <a href="images/edgeworth-pareto-lens.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
+        <figure class="diagram-card">
+        <h3>The contract curve</h3>
+        <a href="images/edgeworth-contract-curve.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: The contract curve"><img src="images/edgeworth-contract-curve.png" width="438" height="394" alt="An Edgeworth box with three tangencies between blue and red indifference curves along a dashed contract curve."></a>
+        <figcaption>The dashed curve joins Pareto-efficient tangency points. <a href="images/edgeworth-contract-curve.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
+      </div>
+      <h3>Lens, contract curve, and core</h3>
+      <dl class="concept-list">
+        <div><dt>The lens</dt><dd>Allocations both consumers weakly prefer to the endowment. Its interior makes both strictly better off. <strong>A point in the lens need not be efficient.</strong></dd></div>
+        <div><dt>Contract curve</dt><dd>The set of Pareto-efficient allocations. At a smooth interior point, the two indifference curves are tangent.</dd></div>
+        <div><dt>The core</dt><dd>In this two-consumer economy, the part of the contract curve within the weakly preferred lens, including its endpoints.</dd></div>
+      </dl>
       <div class="math emphasis">\[MRS_{12}^{A}=MRS_{12}^{B}.\]</div>
-      <p>If the two rates differ, a small exchange can benefit both consumers. At an interior efficient point, the indifference curves are tangent. Boundary allocations and nonsmooth preferences require checking feasible improvements directly; tangency is not a universal test.</p>
-      <h3>Barter outcomes and the core</h3>
-      <p>In this two-consumer economy, an unblocked barter outcome must be feasible, individually rational relative to the endowment, and Pareto efficient. The <strong>core</strong> is therefore the part of the contract curve inside the weakly preferred lens, including its endpoints.</p>
-      <div class="remark"><strong>Scope.</strong> With more than two consumers, individual rationality and Pareto efficiency are not sufficient for membership in the core: no coalition may be able to improve by reallocating its own endowments.</div>
+      <p>With smooth, increasing, convex preferences and positive marginal utilities, this is the interior efficiency condition. If the rates differ, a small exchange can benefit both consumers.</p>
+      <div class="key-note"><strong>To identify the core:</strong> check feasibility, no consumer worse off than at the endowment, and Pareto efficiency.</div>
+      <details class="course-details"><summary>Qualifications: corners and more than two consumers</summary><div class="detail-body">
+        <p>At a boundary allocation or with nonsmooth preferences, test feasible improvements directly: tangency is not a universal criterion.</p>
+        <p>With more than two consumers, core membership also requires that <strong>no coalition</strong> can improve by reallocating its own endowments. Individual rationality and Pareto efficiency alone are not enough.</p>
+      </div></details>
     </section>
 
     <section id="budgets">
       <div class="part-banner"><span class="part-pill">03 · Prices &amp; budgets</span><span class="part-line"></span></div>
       <h2>Reintroducing Prices</h2>
-      <p>Let \(p\gg0\), meaning every good has a strictly positive price. Consumer \(i\)'s wealth is the market value of their endowment, \(m_i=p\cdot\omega_i\). Their problem is:</p>
-      <div class="math emphasis">\[
-        \begin{gathered}
-          x_i(p,m_i)\in\arg\max_{x_i\geq0}u_i(x_i)\\
-          \text{s.t.}\quad p\cdot x_i\leq m_i,
-          \qquad m_i=p\cdot\omega_i.
-        \end{gathered}
-      \]</div>
-      <p>It is as if the consumer sold their endowment and then purchased a preferred bundle. The notation \(x_i(p,m_i)\) always takes <strong>wealth</strong> as its second argument.</p>
-      <h3>A common budget line in the Edgeworth box</h3>
-      <p>Consumer \(A\)'s binding budget is:</p>
-      <div class="math">\[
-        p_1x_{A1}+p_2x_{A2}
-        =p_1\omega_{A1}+p_2\omega_{A2}.
-      \]</div>
-      <p>This line passes through \(\omega\) and has slope \(-p_1/p_2\). Since \(x_B=\bar\omega-x_A\), consumer \(B\)'s budget inequality becomes:</p>
-      <div class="math">\[
-        \begin{gathered}
+      <p>At strictly positive prices \(p\gg0\), consumer \(i\)'s wealth is the value of their endowment: \(p\cdot\omega_i\).</p>
+      <div class="math emphasis">\[\begin{gathered}
+        \max_{x_i\geq0}u_i(x_i)\\
+        \text{s.t.}\quad p\cdot x_i\leq p\cdot\omega_i.
+      \end{gathered}\]</div>
+      <p>It is as if the consumer first sold their endowment and then bought a preferred bundle with the proceeds.</p>
+      <h3>One common budget line</h3>
+      <div class="math">\[p_1x_{A1}+p_2x_{A2}=p_1\omega_{A1}+p_2\omega_{A2}.\]</div>
+      <ul class="list">
+        <li>It passes through the <strong>initial endowment</strong> \(\omega\).</li>
+        <li>Its slope in \(A\)'s coordinates is <strong>\(-p_1/p_2\)</strong>.</li>
+        <li>\(A\) can afford the side <strong>on or below</strong> the line; \(B\), the side <strong>on or above</strong>.</li>
+        <li>The allocations <strong>both can afford</strong> lie on the line segment inside the box.</li>
+      </ul>
+      <details class="course-details"><summary>Why do the two binding budgets coincide?</summary><div class="detail-body">
+        <p>Because both goods are fully allocated, \(x_A=\bar\omega-x_B\) and \(\bar\omega=\omega_A+\omega_B\). Substitute into \(A\)'s budget:</p>
+        <div class="math">\[\begin{aligned}
+          p\cdot(\bar\omega-x_B)&amp;=p\cdot\omega_A\\
+          p\cdot x_B&amp;=p\cdot(\bar\omega-\omega_A)\\
+          &amp;=p\cdot\omega_B.
+        \end{aligned}\]</div>
+        <p>This is \(B\)'s binding budget. For the affordable side, \(B\)'s inequality gives:</p>
+        <div class="math">\[\begin{gathered}
           p\cdot(\bar\omega-x_A)\leq p\cdot\omega_B\\
           \Longleftrightarrow\quad p\cdot x_A\geq p\cdot\omega_A.
-        \end{gathered}
-      \]</div>
-      <div class="key-note"><strong>Opposite affordable sides.</strong> \(A\) can afford points on or below the line; \(B\) can afford points on or above it, using \(A\)'s coordinates. Among allocations in the box, both budgets are satisfied exactly on the common line.</div>
-      <figure class="course-figure"><img src="images/edgeworth-equilibrium.svg" alt="The budget line x A1 plus x A2 equals 10 passes through the initial endowment (2,8) and the equilibrium (5,5). At the equilibrium it is tangent to both consumers' indifference curves."><figcaption>At equal prices in this example, both consumers choose \((5,5)\). Their demands fit together at the same point in the box.</figcaption></figure>
-      <div class="remark"><strong>Binding is not the same as optimal.</strong> \(A\)'s budget binds at every point on the line. A tangency identifies an interior optimum under the usual smoothness and convexity assumptions; it does not define budget exhaustion.</div>
+        \end{gathered}\]</div>
+      </div></details>
+      <div class="diagram-grid">
+        <figure class="diagram-card">
+        <h3>A common budget line</h3>
+        <a href="images/edgeworth-budget-line.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: A common budget line"><img src="images/edgeworth-budget-line.png" width="404" height="394" alt="An orange budget line passes through the green endowment point in an Edgeworth box. Other orange points lie on the same line."></a>
+        <figcaption>The line passes through the endowment; its slope is the negative price ratio. <a href="images/edgeworth-budget-line.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
+        <figure class="diagram-card">
+        <h3>An optimal bundle</h3>
+        <a href="images/edgeworth-optimal-bundle.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: An optimal bundle"><img src="images/edgeworth-optimal-bundle.png" width="402" height="376" alt="A black point marks an interior tangency on the orange budget line, among blue and red indifference curves."></a>
+        <figcaption>At a smooth interior optimum, the budget line is tangent to the relevant indifference curve. <a href="images/edgeworth-optimal-bundle.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
+      </div>
+      <div class="remark"><strong>Binding ≠ optimal.</strong> The budget binds at every point on the line. A tangency identifies an interior optimum under smoothness and convexity assumptions.</div>
     </section>
 
     <section id="excess-demand">
       <div class="part-banner"><span class="part-pill">04 · Excess demand</span><span class="part-line"></span></div>
-      <h2>From Individual Choices to Market Clearing</h2>
-      <p>Individual excess demand is desired consumption minus the initial endowment:</p>
-      <div class="math emphasis">\[
-        \begin{gathered}
-          z_{in}(p)=x_{in}(p,p\cdot\omega_i)-\omega_{in},\\
-          z_n(p)=\sum_{i=1}^{I}z_{in}(p).
-        \end{gathered}\tag{1}
-      \]</div>
+      <h2>Do the Desired Trades Fit Together?</h2>
+      <p><strong>Individual excess demand</strong> is desired consumption minus the initial endowment:</p>
+      <div class="math emphasis">\[z_{in}(p)=x_{in}(p,p\cdot\omega_i)-\omega_{in}.\tag{1}\]</div>
+      <p>In this demand notation, the second argument is wealth: \(p\cdot\omega_i\). Add individual excess demands to obtain <strong>aggregate excess demand</strong>:</p>
+      <div class="math emphasis">\[z_n(p)=\sum_{i=1}^{I}z_{in}(p).\tag{2}\]</div>
       <div class="cards">
-        <article class="card"><h3>\(z_n(p)&gt;0\)</h3><p>Aggregate desired purchases exceed available sales: the market has excess demand.</p></article>
-        <article class="card"><h3>\(z_n(p)&lt;0\)</h3><p>Aggregate desired sales exceed purchases: the market has excess supply.</p></article>
+        <article class="card"><h3>\(z_n(p)&gt;0\): excess demand</h3><p>Desired purchases exceed available sales.</p></article>
+        <article class="card"><h3>\(z_n(p)&lt;0\): excess supply</h3><p>Desired sales exceed purchases.</p></article>
       </div>
-      <p>When \(z_n(p)=0\) for every good, the consumers' optimal bundles are jointly feasible. In an Edgeworth box, their preferred allocations coincide at a single point representing both bundles.</p>
-      <h3>Properties of aggregate excess demand</h3>
-      <div class="cards">
-        <article class="card"><h3>Continuity</h3><p>With continuous, strictly convex preferences and positive endowments, demand is single-valued and continuous at strictly positive prices. Aggregate excess demand is then continuous too.</p></article>
-        <article class="card"><h3>Homogeneity of degree zero</h3><p>Scaling all prices scales endowment wealth in the same proportion, leaving budget sets and demands unchanged:</p><div class="math">\[z(\lambda p)=z(p),\qquad\lambda&gt;0.\]</div></article>
+      <div class="diagram-grid">
+        <figure class="diagram-card">
+        <h3>Two different choices</h3>
+        <a href="images/edgeworth-incompatible-demands.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Two different choices"><img src="images/edgeworth-incompatible-demands.png" width="420" height="384" alt="Two distinct points on an orange budget line mark the consumers' desired allocations, blue for A and red for B."></a>
+        <figcaption>The blue and red desired allocations do not coincide at these prices. <a href="images/edgeworth-incompatible-demands.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
+        <figure class="diagram-card">
+        <h3>Read the mismatch</h3>
+        <a href="images/edgeworth-excess-demand.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Read the mismatch"><img src="images/edgeworth-excess-demand.png" width="418" height="402" alt="Blue and red dashed coordinate guides reveal a gap between the two consumers' desired allocations."></a>
+        <figcaption>In this diagram: excess supply of good 1 and excess demand for good 2. <a href="images/edgeworth-excess-demand.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
       </div>
+      <p><strong>Read this example:</strong> \(A\) wants to buy less good 1 than \(B\) wants to sell, so \(z_1(p)&lt;0\). \(B\) wants to buy more good 2 than \(A\) wants to sell, so \(z_2(p)&gt;0\).</p>
+      <div class="key-note"><strong>Market clearing:</strong> \(z_n(p)=0\) for every good. Both desired bundles then fit into one common feasible point in the box.</div>
+      <h3>Homogeneity of degree zero</h3>
+      <div class="math">\[z(\lambda p)=z(p),\qquad\lambda&gt;0.\]</div>
+      <p>Scaling all prices scales endowment wealth by the same factor. Budget sets, demands, and excess demands stay unchanged.</p>
       <h3>Walras' law</h3>
-      <p><strong>Local nonsatiation</strong> means that, however close we stay to a given bundle, a strictly preferred bundle is available in the consumption set. Continuous, strictly increasing utility satisfies this condition.</p>
-      <p>With locally nonsatiated preferences, each consumer exhausts their budget. Adding \(p\cdot x_i=p\cdot\omega_i\) across consumers gives:</p>
-      <div class="math emphasis">\[p\cdot z(p)=\sum_{n=1}^{N}p_nz_n(p)=0.\tag{2}\]</div>
-      <p>This is true at every strictly positive price vector for which demands are defined, <strong>including prices that do not clear markets</strong>.</p>
+      <p>With locally nonsatiated preferences, consumers exhaust their budgets. Strictly increasing utility satisfies this condition: a nearby better bundle is always available.</p>
+      <div class="math emphasis">\[p\cdot z(p)=\sum_{n=1}^{N}p_nz_n(p)=0.\tag{3}\]</div>
+      <p>The <strong>value</strong> of aggregate excess demand is zero at every strictly positive price vector, including prices that do not clear markets.</p>
+      <details class="course-details"><summary>Derive Walras' law from the budgets</summary><div class="detail-body">
+        <div class="math">\[\begin{aligned}
+          p\cdot x_i&amp;=p\cdot\omega_i\\
+          p\cdot(x_i-\omega_i)&amp;=0\\
+          p\cdot\sum_i(x_i-\omega_i)&amp;=0\\
+          p\cdot z(p)&amp;=0.
+        \end{aligned}\]</div>
+      </div></details>
       <div class="cards">
-        <article class="card"><h3>Two goods</h3><p>If \(z_1(p)&gt;0\), then \(z_2(p)&lt;0\): the value of excess demand in one market is offset by excess supply in the other.</p></article>
-        <article class="card"><h3>\(N\) goods</h3><p>If \(N-1\) markets clear and the remaining good has a positive price, Walras' law implies that its market clears as well.</p></article>
+        <article class="card"><h3>Two goods</h3><p>Excess demand for one good must be offset in value by excess supply of the other:</p><div class="math">\[z_1(p)&gt;0\ \Longrightarrow\ z_2(p)&lt;0.\]</div></article>
+        <article class="card"><h3>\(N\) goods</h3><p>If \(N-1\) markets clear, the remaining market clears too, provided its price is positive.</p></article>
       </div>
+      <p class="equation-note"><strong>Continuity:</strong> under continuous, strictly convex preferences and positive endowments, demand is single-valued and continuous at strictly positive prices; aggregate excess demand is continuous too.</p>
     </section>
 
     <section id="walrasian-equilibrium">
       <div class="part-banner"><span class="part-pill">05 · Walrasian equilibrium</span><span class="part-line"></span></div>
-      <h2>Equilibrium, Existence, and Uniqueness</h2>
-      <p>An allocation \(x^*\) and prices \(p^*\) form a <strong>Walrasian equilibrium</strong> when every consumer optimizes and all markets clear:</p>
-      <div class="math emphasis">\[
-        x_i^*\in\arg\max_{x_i\geq0}
-        \{u_i(x_i):p^*\cdot x_i\leq p^*\cdot\omega_i\}
-        \quad\text{for every }i,
-      \]</div>
-      <div class="math emphasis">\[
-        \sum_i x_{in}^*=\sum_i\omega_{in}
-        \quad\text{for every good }n.\tag{3}
-      \]</div>
-      <h3>Existence</h3>
-      <p>A standard sufficient version of the Arrow–Debreu existence result for a finite pure exchange economy assumes consumption sets \(\mathbb R_+^N\) and, for every consumer \(i\):</p>
+      <h2>Equilibrium, Existence, and Relative Prices</h2>
+      <p>An allocation \(x^*\) and prices \(p^*\gg0\) form a <strong>Walrasian equilibrium</strong> when:</p>
+      <ol class="numbered-list">
+        <li><strong>Every consumer optimizes</strong> subject to their budget.</li>
+        <li><strong>Every market clears:</strong> total demand equals the aggregate endowment.</li>
+      </ol>
+      <div class="math emphasis">\[\begin{gathered}
+        x_i^*=x_i(p^*,p^*\cdot\omega_i)\quad\text{for every }i,\\
+        \sum_i x_{in}^*=\sum_i\omega_{in}\quad\text{for every }n.
+      \end{gathered}\]</div>
+      <h3>Existence: the Arrow–Debreu benchmark</h3>
+      <p>For a finite pure exchange economy with consumption sets \(\mathbb R_+^N\), a sufficient set of assumptions is:</p>
       <ul class="list">
-        <li>\(u_i\) is continuous and strictly increasing in each good;</li>
-        <li>\(u_i\) is strictly concave, ensuring convex preferences and a unique demand at positive prices;</li>
-        <li>\(\omega_i\gg0\): <em>each consumer</em> initially owns a positive amount of every good.</li>
+        <li>Every \(u_i\) is <strong>continuous</strong>.</li>
+        <li>Every \(u_i\) is <strong>strictly increasing</strong> in each good.</li>
+        <li>Every \(u_i\) is <strong>strictly concave</strong>.</li>
+        <li>\(\omega_{in}&gt;0\) for all \(i,n\): <strong>everyone has a little of every good</strong>.</li>
       </ul>
-      <p>These are sufficient assumptions, not necessary ones. They provide a benchmark in which a competitive allocation and supporting prices exist.</p>
-      <h3>Only relative prices are determined</h3>
-      <p>If \((x^*,p^*)\) is an equilibrium, then \((x^*,\lambda p^*)\) is also an equilibrium for every \(\lambda&gt;0\). <strong>The allocation stays unchanged.</strong> Choosing good 1 as the <strong>numeraire</strong> means dividing every price by \(p_1^*\), so its normalized price equals 1:</p>
-      <div class="math">\[
-        \frac{p^*}{p_1^*}=
-        \left(1,\frac{p_2^*}{p_1^*},\ldots,\frac{p_N^*}{p_1^*}\right).
-      \]</div>
-      <h3>Uniqueness is a separate question</h3>
-      <p>Even after a price normalization, general equilibrium need not be unique. Different relative prices can make all demands compatible at different allocations. Convex preferences and existence alone do not guarantee a unique equilibrium.</p>
+      <p class="equation-note">These assumptions are sufficient, not necessary. Existence does not imply uniqueness.</p>
+      <div class="diagram-grid">
+        <figure class="diagram-card">
+        <h3>One common allocation</h3>
+        <a href="images/edgeworth-market-clearing.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: One common allocation"><img src="images/edgeworth-market-clearing.png" width="398" height="380" alt="A common black equilibrium point on the orange budget line has horizontal and vertical dashed guides to read the allocation."></a>
+        <figcaption>Both consumers choose bundles represented by the same point: all markets clear. <a href="images/edgeworth-market-clearing.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
+        <figure class="diagram-card">
+        <h3>Several equilibria</h3>
+        <a href="images/edgeworth-multiple-equilibria.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Several equilibria"><img src="images/edgeworth-multiple-equilibria.png" width="414" height="398" alt="Three orange budget lines pass through the same endowment and support different tangencies on the contract curve."></a>
+        <figcaption>Different lines through the same endowment support different equilibrium allocations. <a href="images/edgeworth-multiple-equilibria.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+      </figure>
+      </div>
+      <h3>Uniqueness: not guaranteed</h3>
+      <p>Several relative-price vectors may support different equilibrium allocations. In the second diagram, different budget lines pass through the same endowment and support different common optima.</p>
+      <h3>Price normalization</h3>
+      <p>If \((x^*,p^*)\) is an equilibrium, so is \((x^*,\lambda p^*)\) for any \(\lambda&gt;0\). <strong>Only relative prices are determined; the allocation is unchanged.</strong></p>
+      <p>Choose good 1 as the <strong>numeraire</strong>: divide all prices by \(p_1^*\).</p>
+      <div class="math">\[\begin{gathered}
+        \frac{p^*}{p_1^*}=\left(1,\frac{p_2^*}{p_1^*},\ldots,\frac{p_N^*}{p_1^*}\right),\\
+        \text{with two goods: }\left(1,\frac{p_2^*}{p_1^*}\right).
+      \end{gathered}\]</div>
+      <div class="remark"><strong>Normalization does not resolve multiple equilibria.</strong> Proportional price vectors describe the same relative prices; genuinely different price ratios may still support different equilibria.</div>
     </section>
 
     <section id="first-welfare-theorem">
       <div class="part-banner"><span class="part-pill">06 · First welfare theorem</span><span class="part-line"></span></div>
-      <h2>Competitive Equilibrium Implies Pareto Efficiency</h2>
-      <p class="lead">In this private-goods exchange economy, with locally nonsatiated preferences, every Walrasian equilibrium allocation is Pareto efficient. Continuous, strictly increasing utility is a sufficient preference assumption.</p>
-      <div class="math emphasis">\[
-        \begin{gathered}
-          \text{Walrasian equilibrium}\\
-          \Downarrow\\
-          \text{Pareto efficiency}.
-        \end{gathered}
-      \]</div>
-      <div class="key-note"><strong>Intuition.</strong> At the common prices, each consumer already chooses their best affordable bundle. Making everyone at least as well off and someone strictly better off would require bundles whose combined value exceeds the value of the available resources.</div>
-      <details class="course-details"><summary>Proof by contradiction</summary><div class="detail-body">
-        <h3>Suppose a feasible improvement exists</h3>
-        <p>Let \(\hat x\) Pareto improve on the equilibrium allocation \(x^*\). For every consumer, \(u_i(\hat x_i)\geq u_i(x_i^*)\), with strict inequality for at least one.</p>
-        <h3>Compare the cost of the bundles</h3>
-        <p>A strictly preferred bundle must be unaffordable, or \(x_i^*\) would not maximize utility. A weakly preferred bundle cannot cost less than wealth: local nonsatiation would then allow a nearby strictly preferred bundle within the remaining budget.</p>
-        <div class="math">\[
-          p^*\cdot\hat x_i\geq p^*\cdot\omega_i
-          \quad\text{for every }i,
-        \]</div>
-        <p>with a strict inequality for at least one consumer. Summing gives:</p>
+      <h2>Competition Leads to Pareto Efficiency</h2>
+      <p>In the competitive private-goods exchange economy, with <strong>continuous, strictly increasing utility</strong>, every Walrasian equilibrium allocation is Pareto efficient.</p>
+      <div class="math emphasis">\[\begin{gathered}
+        \text{Walrasian equilibrium}\\\Downarrow\\\text{Pareto efficiency}.
+      \end{gathered}\]</div>
+      <div class="key-note"><strong>Intuition:</strong> all mutually beneficial trades have been exhausted. At the common prices, each consumer already chooses their best affordable bundle.</div>
+      <details class="course-details"><summary>Proof by contradiction — three steps</summary><div class="detail-body">
+        <h3>1. Assume a feasible Pareto improvement</h3>
+        <p>Suppose \(\hat x\) is feasible and \(u_i(\hat x_i)\geq u_i(x_i^*)\) for all consumers, with a strict gain for at least one.</p>
+        <h3>2. Compare the cost of the bundles</h3>
+        <p>A strictly preferred bundle must be unaffordable. A weakly preferred bundle cannot cost less than wealth: otherwise local nonsatiation would allow a nearby strictly better bundle within the budget.</p>
+        <div class="math">\[p^*\cdot\hat x_i\geq p^*\cdot\omega_i\quad\text{for every }i.\]</div>
+        <p>The inequality is strict for at least one consumer. Adding across consumers gives:</p>
         <div class="math">\[\sum_i p^*\cdot\hat x_i&gt;\sum_i p^*\cdot\omega_i.\]</div>
-        <h3>Use feasibility good by good</h3>
-        <p>Feasibility requires \(\sum_i\hat x_{in}\leq\sum_i\omega_{in}\) for every good \(n\). Multiplying each inequality by its nonnegative price and adding yields:</p>
+        <h3>3. Use feasibility</h3>
+        <p>For every good, \(\sum_i\hat x_{in}\leq\sum_i\omega_{in}\). Multiply by prices and sum:</p>
         <div class="math">\[\sum_i p^*\cdot\hat x_i\leq\sum_i p^*\cdot\omega_i.\]</div>
-        <p>This contradicts the strict inequality. No feasible Pareto improvement exists.</p>
+        <p>Contradiction. No feasible Pareto improvement exists.</p>
       </div></details>
-      <div class="remark"><strong>What the theorem does not say.</strong> It does not establish fairness, equilibrium existence, or the speed of price adjustment. Convexity is not required for this direction, but the competitive private-goods framework and local nonsatiation matter.</div>
+      <div class="remark"><strong>Scope:</strong> the theorem establishes efficiency, not fairness, existence, or convergence. Convexity is not required for this direction; local nonsatiation is enough for the preference argument.</div>
     </section>
 
     <section id="second-welfare-theorem">
       <div class="part-banner"><span class="part-pill">07 · Second welfare theorem</span><span class="part-line"></span></div>
-      <h2>Supporting an Efficient Allocation with Redistribution</h2>
-      <p class="lead">The converse requires more structure. With continuous, strongly monotone, convex preferences, an <strong>interior</strong> Pareto-efficient allocation can be supported as a competitive equilibrium after suitable lump-sum transfers of wealth.</p>
-      <div class="math emphasis">\[
-        \begin{gathered}
-          \text{Pareto-efficient allocation}\\
-          +\ \text{appropriate wealth transfers}\\
-          \Downarrow\\
-          \text{competitive equilibrium}.
-        \end{gathered}
-      \]</div>
-      <p>At a smooth interior efficient allocation, the common tangent to the indifference curves provides supporting prices. Convexity makes the chosen bundles globally optimal at those prices. Redistribution places each consumer's budget line through the target bundle.</p>
-      <h3>Write the transfers explicitly</h3>
-      <p>A <strong>lump-sum transfer</strong> is fixed independently of the consumer's purchases or sales. It changes wealth while leaving relative prices unchanged.</p>
-      <p>For a target allocation \(x^*\) and supporting prices \(p^*\), let \(T_i\) be consumer \(i\)'s transfer measured in value:</p>
-      <div class="math">\[
-        T_i=p^*\cdot x_i^*-p^*\cdot\omega_i,
-        \qquad \sum_i T_i=0.
-      \]</div>
-      <p>A positive \(T_i\) is a receipt; a negative \(T_i\) is a payment. The new budget is:</p>
+      <h2>Support Efficiency through Redistribution</h2>
+      <p>With <strong>continuous, strictly increasing, concave utility</strong>, an interior Pareto-efficient allocation can be supported as a competitive equilibrium after suitable redistribution of initial wealth.</p>
+      <div class="math emphasis">\[\begin{gathered}
+        \text{Pareto-efficient allocation}\\
+        +\ \text{appropriate redistribution}\\
+        \Downarrow\\
+        \text{competitive equilibrium}.
+      \end{gathered}\]</div>
+      <ol class="numbered-list">
+        <li><strong>Choose supporting prices:</strong> at a smooth interior efficient point, the common tangent gives the price ratio.</li>
+        <li><strong>Redistribute resources:</strong> place each consumer's budget through the target bundle.</li>
+        <li><strong>Use convex preferences:</strong> each target bundle is then optimal at those prices.</li>
+      </ol>
+      <h3>Transfers of goods</h3>
+      <p>Using the lecture's sign convention, consumer \(i\)'s new endowment is \(\omega_i-t_i^*\):</p>
+      <div class="math">\[\sum_i t_i^*=0,\qquad\omega_i-t_i^*\geq0.\]</div>
+      <p>Transfers preserve the total resources. Positive components of \(t_i^*\) are goods given up; negative components are goods received.</p>
+      <h3>Equivalent wealth transfers</h3>
+      <p>A lump-sum transfer is independent of purchases or sales. For target \(x^*\) and supporting prices \(p^*\), the required value transfer is:</p>
+      <div class="math">\[\begin{gathered}
+        T_i=p^*\cdot x_i^*-p^*\cdot\omega_i,\\
+        \sum_i T_i=0.
+      \end{gathered}\]</div>
       <div class="math emphasis">\[p^*\cdot x_i\leq p^*\cdot\omega_i+T_i.\]</div>
-      <p>Equivalently, goods can be redistributed as new endowments \(\omega_i'\), preserving the aggregate endowment and giving each consumer the required wealth \(p^*\cdot\omega_i'=p^*\cdot x_i^*\).</p>
-      <div class="remark"><strong>The qualification matters.</strong> The theorem does not say every efficient allocation is an equilibrium for the original endowments. The interior formulation avoids boundary complications; more general versions first establish a price quasi-equilibrium and require further conditions for full consumer optimality.</div>
+      <p>Positive \(T_i\) means receiving wealth; negative \(T_i\) means paying. For a goods transfer implementing the same wealth change, \(T_i=-p^*\cdot t_i^*\).</p>
+      <div class="remark"><strong>The redistribution is essential.</strong> An efficient allocation need not be an equilibrium for the original endowments. The interior version avoids boundary complications; more general statements first establish a price quasi-equilibrium.</div>
     </section>
     </div>
   </main>
