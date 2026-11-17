@@ -105,7 +105,7 @@
         &amp;\quad-\sum_i\omega_{in}-\sum_k y_{kn}(p).
       \end{aligned}\tag{5}\]</div>
       <p class="equation-note">The second argument of demand is the consumer's full wealth, including profit income. Market clearing means \(z_n(p^*)=0\) for every good.</p>
-      <details class="course-details"><summary>Why does Walras' law still hold?</summary><div class="detail-body">
+      <details class="course-details"><summary>Proof — Walras’ law with production</summary><div class="detail-body">
         <p>With locally nonsatiated preferences, each budget binds. Since ownership shares sum to one for every firm, all profit is distributed:</p>
         <div class="math">\[\sum_i p\cdot x_i=p\cdot\sum_i\omega_i+\sum_k\pi_k(p).\]</div>
         <p>Profit-maximizing production gives \(\pi_k(p)=p\cdot y_k(p)\). Therefore:</p>
@@ -131,10 +131,8 @@
         <article class="card"><h3>Convex technology</h3><p>Mixtures of feasible production plans remain feasible. This supports the equilibrium existence argument.</p></article>
       </div>
       <div class="key-note"><strong>The no-production option:</strong> \(0\in Y_k\) lets a firm earn zero by not producing, so its maximum profit cannot be negative.</div>
-      <details class="course-details"><summary>How restrictive are these assumptions?</summary><div class="detail-body">
-        <p>These are sufficient conditions. Strict convexity is stronger than required in the compact-production benchmark; convexity suffices for the existence argument.</p>
-        <p>More general theorems allow unbounded production sets with appropriate resource restrictions. Free disposal, for example, makes sets unbounded in negative directions.</p>
-      </div></details>
+      <div class="remark"><p><strong>About these assumptions:</strong> they are enough to guarantee existence, but they are not always necessary. In this model with closed and bounded production sets, convexity is enough; strict convexity is stronger than needed.</p>
+        <p>Other existence theorems allow production sets that are not bounded, with suitable limits on resources. Allowing firms to throw away goods makes their production sets unbounded in negative directions.</p></div>
     </section>
 
     <section id="efficiency-production">
@@ -160,7 +158,7 @@
       <article class="course-block"><h3>First theorem: equilibrium → efficiency</h3>
         <p>With continuous, strictly increasing utility in the competitive private-goods economy, every Walrasian equilibrium \((x^*,y^*,p^*)\) is Pareto efficient.</p>
         <p><strong>Intuition:</strong> consumers already choose their best affordable bundles, and firms maximize the value of production at the same prices.</p>
-        <details class="course-details"><summary>Proof idea: compare the value of resources</summary><div class="detail-body">
+        <details class="course-details"><summary>Proof — First Welfare Theorem with production</summary><div class="detail-body">
           <p>A Pareto improvement would require consumption worth strictly more than total equilibrium wealth. Yet feasibility and profit maximization imply:</p>
           <div class="math">\[\begin{aligned}
             \sum_i p^*\cdot x_i'&amp;\leq p^*\cdot\sum_i\omega_i+\sum_k p^*\cdot y_k'\\
