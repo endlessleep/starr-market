@@ -420,126 +420,174 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 2 · Question 2" onclick="toggleAnswer(this,'ex2-q2')" aria-controls="ex2-q2" aria-expanded="false">Show correction — Exercise 2 · Question 2 ▾</button>
 <div class="solution" id="ex2-q2">
   <h3>Support every interior optimum as an equilibrium</h3>
-  <p><strong>Goal:</strong> Find prices and endowments that make any interior efficient allocation a competitive equilibrium.</p>
-  <p><strong>Start:</strong> Use the efficient set and the MRS from Question 1. Write \(x^A,x^B\) for the target bundles, \(\omega^A,\omega^B\) for endowments, \(x^{A,d},x^{B,d}\) for optimal demands, and \(p^*\) for equilibrium prices.</p>
+  <p><strong>Goal:</strong> Derive equilibrium prices and identify the endowments that support each interior efficient allocation.</p>
+  <p><strong>Start:</strong> Normalize \(p_1=1\), keeping \(p_2&gt;0\) and the initial endowments \(\omega^A,\omega^B\) general. We first solve each consumer’s problem, then clear the markets. A star on consumption denotes the optimal choice at the given prices; \(p^*\) denotes equilibrium prices.</p>
 
   <div class="step">
-    <h4>1. Fix any target and choose supporting prices and endowments</h4>
-    <p>Let \(a\) be Alice’s target quantity of good 1. Question 1 gives:</p>
+    <h4>1. Alice’s Lagrangian and first-order conditions</h4>
+    <p>Alice’s initial endowment is worth \(\omega_1^A+p_2\omega_2^A\). Her Lagrangian is utility plus the multiplier times income minus spending:</p>
     <div class="math">\[\begin{aligned}
-      0&amp;&lt;a&lt;5,\\
-      x^A&amp;=(a,1),\\
-      x^B&amp;=(5-a,2).
+      \mathcal L^A&amp;=x_1^A+\ln(x_2^A)\\
+      &amp;\quad+\lambda\left(\omega_1^A+p_2\omega_2^A-x_1^A-p_2x_2^A\right).
     \end{aligned}\]</div>
-    <p>At every such target, both MRS equal 1. An interior consumer optimum requires \(MRS=p_1/p_2\). Normalize \(p_1=1\), and choose prices with this ratio:</p>
-    <div class="math">\[\boxed{p^*=(1,1)}.\]</div>
-    <p>Give each consumer their target bundle as the initial endowment:</p>
+    <p>For an interior optimum, set the derivatives equal to zero:</p>
     <div class="math">\[\begin{aligned}
-      \omega^A&amp;=(a,1),\\
-      \omega^B&amp;=(5-a,2).
+      \frac{\partial\mathcal L^A}{\partial x_1^A}&amp;=1-\lambda=0,\\
+      \lambda&amp;=1,\\
+      \frac{\partial\mathcal L^A}{\partial x_2^A}&amp;=\frac1{x_2^A}-\lambda p_2=0,\\
+      x_2^{A*}&amp;=\frac1{p_2}.
     \end{aligned}\]</div>
-    <p>We must now check that each person actually chooses this bundle at these prices.</p>
+    <p>Utility increases with consumption, so the budget is fully spent. Substitute the demand for good 2 to find demand for good 1:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{A*}+p_2x_2^{A*}&amp;=\omega_1^A+p_2\omega_2^A,\\
+      x_1^{A*}&amp;=\omega_1^A+p_2\omega_2^A-p_2\frac1{p_2}\\
+      &amp;=\omega_1^A+p_2\omega_2^A-1.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{\begin{aligned}
+      x_1^{A*}&amp;=\omega_1^A+p_2\omega_2^A-1,\\
+      x_2^{A*}&amp;=\frac1{p_2}.
+    \end{aligned}}\]</div>
   </div>
 
   <div class="step">
-    <h4>2. Obtain the optimal demand formulas</h4>
-    <p>At general normalized prices \(p=(1,p_2)\), apply Question 1’s MRS formulas to the optimal demands:</p>
+    <h4>2. Benjamin’s Lagrangian and first-order conditions</h4>
+    <p>Benjamin’s income is \(\omega_1^B+p_2\omega_2^B\). Repeat the calculation with his utility function:</p>
     <div class="math">\[\begin{aligned}
-      x_2^{A,d}&amp;=\frac{1}{p_2},\\
-      \frac{x_2^{B,d}}{2}&amp;=\frac{1}{p_2},\\
-      x_2^{B,d}&amp;=\frac{2}{p_2}.
+      \mathcal L^B&amp;=x_1^B+2\ln(x_2^B)\\
+      &amp;\quad+\lambda\left(\omega_1^B+p_2\omega_2^B-x_1^B-p_2x_2^B\right).
     \end{aligned}\]</div>
-    <p>Utility increases with both goods, so each budget is fully spent. Subtract spending on good 2 to find demand for good 1:</p>
     <div class="math">\[\begin{aligned}
-      x_1^{A,d}&amp;=\omega_1^A+p_2\omega_2^A-p_2x_2^{A,d}\\
-      &amp;=\omega_1^A+p_2\omega_2^A-1,\\[4pt]
-      x_1^{B,d}&amp;=\omega_1^B+p_2\omega_2^B-p_2x_2^{B,d}\\
+      \frac{\partial\mathcal L^B}{\partial x_1^B}&amp;=1-\lambda=0,\\
+      \lambda&amp;=1,\\
+      \frac{\partial\mathcal L^B}{\partial x_2^B}&amp;=\frac2{x_2^B}-\lambda p_2=0,\\
+      x_2^{B*}&amp;=\frac2{p_2}.
+    \end{aligned}\]</div>
+    <p>Use his binding budget to obtain demand for good 1:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{B*}+p_2x_2^{B*}&amp;=\omega_1^B+p_2\omega_2^B,\\
+      x_1^{B*}&amp;=\omega_1^B+p_2\omega_2^B-p_2\frac2{p_2}\\
       &amp;=\omega_1^B+p_2\omega_2^B-2.
     \end{aligned}\]</div>
-    <p>These formulas apply when both good-1 demands are positive. Concavity of utility makes the MRS and budget conditions sufficient for optimality.</p>
+    <div class="math">\[\boxed{\begin{aligned}
+      x_1^{B*}&amp;=\omega_1^B+p_2\omega_2^B-2,\\
+      x_2^{B*}&amp;=\frac2{p_2}.
+    \end{aligned}}\]</div>
+    <p>These are interior demands: Alice’s income must exceed 1 and Benjamin’s must exceed 2. Concavity of the utility functions makes these first-order conditions sufficient for optimality.</p>
   </div>
 
   <div class="step">
-    <h4>3. Verify Alice’s demand</h4>
-    <p>Evaluate her demand at \(p^*=(1,1)\) and \(\omega^A=(a,1)\):</p>
+    <h4>3. Clear the markets to find equilibrium prices</h4>
+    <p>There are 3 units of good 2. Add the demands just derived and equate their sum to this supply:</p>
     <div class="math">\[\begin{aligned}
-      x_1^{A,d}&amp;=\omega_1^A+\omega_2^A-1\\
-      &amp;=a+1-1=a,\\
-      x_2^{A,d}&amp;=1.
+      x_2^{A*}+x_2^{B*}&amp;=3,\\
+      \frac1{p_2}+\frac2{p_2}&amp;=3,\\
+      \frac3{p_2}&amp;=3,\\
+      p_2^*&amp;=1.
     \end{aligned}\]</div>
-    <div class="math">\[\boxed{x^{A,d}=(a,1)=\omega^A=x^A}.\]</div>
-  </div>
-
-  <div class="step">
-    <h4>4. Verify Benjamin’s demand</h4>
-    <p>Evaluate his demand at the same prices and \(\omega^B=(5-a,2)\):</p>
+    <div class="math">\[\boxed{p^*=(1,1)}.\]</div>
+    <p>At these prices, total endowment wealth is \(5+3=8\). Good 1 also clears:</p>
     <div class="math">\[\begin{aligned}
-      x_1^{B,d}&amp;=\omega_1^B+\omega_2^B-2\\
-      &amp;=(5-a)+2-2=5-a,\\
-      x_2^{B,d}&amp;=2.
+      x_1^{A*}+x_1^{B*}
+      &amp;=(\omega_1^A+\omega_2^A-1)\\
+      &amp;\quad+(\omega_1^B+\omega_2^B-2)\\
+      &amp;=5+3-1-2=5.
     \end{aligned}\]</div>
-    <div class="math">\[\boxed{x^{B,d}=(5-a,2)=\omega^B=x^B}.\]</div>
-    <p>Since \(0&lt;a&lt;5\), both good-1 demands are positive, as required by the interior solution.</p>
   </div>
 
   <div class="step result">
-    <h4>5. Verify market clearing and conclude</h4>
-    <p>Add the optimal demands and compare them with the total endowments:</p>
+    <h4>4. Relate endowment wealth to any efficient allocation</h4>
+    <p>Write any interior efficient allocation from Question 1 as:</p>
     <div class="math">\[\begin{aligned}
-      x_1^{A,d}+x_1^{B,d}&amp;=a+(5-a)=5,\\
-      x_2^{A,d}+x_2^{B,d}&amp;=1+2=3.
+      x^{A*}&amp;=(z,1),\\
+      x^{B*}&amp;=(5-z,2),\qquad z\in(0,5).
     \end{aligned}\]</div>
-    <p><strong>Individual optimality and market clearing are satisfied.</strong> Thus \(p^*=(1,1)\), together with the chosen endowments, supports the target allocation as a competitive equilibrium. Here optimal demands equal endowments, so no trade is needed. Because \(a\) was arbitrary in \((0,5)\), this construction works for every interior efficient allocation from Question 1.</p>
+    <p>At \(p^*=(1,1)\), Alice needs income \(z+1\) and Benjamin needs income \((5-z)+2=7-z\) to purchase these bundles. Thus suitable initial endowments must satisfy:</p>
+    <div class="math">\[\begin{aligned}
+      \omega_1^A+\omega_2^A&amp;=z+1,\\
+      \omega_1^B+\omega_2^B&amp;=7-z.
+    \end{aligned}\]</div>
+    <p>The endowments must also be nonnegative and sum to the economy’s resources:</p>
+    <div class="math">\[\begin{aligned}
+      \omega_1^A+\omega_1^B&amp;=5,\\
+      \omega_2^A+\omega_2^B&amp;=3.
+    \end{aligned}\]</div>
+    <p>The required incomes add to 8 and can be assigned by distributing the initial goods. They exceed the interior thresholds because \(0&lt;z&lt;5\). Substitution into the demand equations gives:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{A*}&amp;=(z+1)-1=z,\\
+      x_2^{A*}&amp;=1,\\
+      x_1^{B*}&amp;=(7-z)-2=5-z,\\
+      x_2^{B*}&amp;=2.
+    \end{aligned}\]</div>
+    <p><strong>Every interior efficient allocation can therefore be supported as a competitive equilibrium at \(p^*=(1,1)\), with endowments giving each consumer the required wealth.</strong> Initial endowments determine the budgets; they need not equal final consumption.</p>
   </div>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 2 · Question 3" onclick="toggleAnswer(this,'ex2-q3')" aria-controls="ex2-q3" aria-expanded="false">Show correction — Exercise 2 · Question 3 ▾</button>
 <div class="solution" id="ex2-q3">
   <h3>Equilibrium with equal initial endowments</h3>
-<p><strong>Goal:</strong> Find the equilibrium consumption bundles when initial endowments are equal.</p>
-<p><strong>Start:</strong> Keep \(p_1=1\) and use the interior demand functions from Question 2.</p>
+  <p><strong>Goal:</strong> Find equilibrium consumption when each consumer starts with half of each good.</p>
+  <p><strong>Start:</strong> Use the prices \(p^*=(1,1)\) and the demand equations derived in Question 2.</p>
 
   <div class="step">
-    <p>Equal endowments means splitting each good equally between the two people. It does not yet tell us what they choose to consume:</p>
+    <h4>1. Calculate income from equal endowments</h4>
     <div class="math">\[\omega^A=\omega^B=\left(\frac52,\frac32\right).\]</div>
-    <p>The good-2 demands from Question 2 add to \(3/p_2\). Equating this to the available 3 units gives \(p_2=1\). Each person’s wealth is then \(5/2+3/2=4\). A star denotes the optimal demand evaluated at equilibrium prices. Alice spends 1 on good 2, Benjamin spends 2, and the rest buys good 1:</p>
+    <p>At the equilibrium prices, each initial bundle is worth 4:</p>
     <div class="math">\[\begin{aligned}
-      x_1^{A*}&amp;=4-1=3,\\
-      x_2^{A*}&amp;=1,\\
-      x_1^{B*}&amp;=4-2=2,\\
-      x_2^{B*}&amp;=2.
+      p^*\cdot\omega^A&amp;=\frac52+\frac32=4,\\
+      p^*\cdot\omega^B&amp;=\frac52+\frac32=4.
     \end{aligned}\]</div>
   </div>
   <div class="step result">
-    <div class="math">\[\boxed{x^{A*}=(3,1)},\qquad\boxed{x^{B*}=(2,2)}.\]</div>
-    <p>Both bundles are interior, and \((3,1)+(2,2)=(5,3)\). <strong>Equal endowments give equal wealth, not identical consumption:</strong> Benjamin values good 2 more strongly.</p>
-<p>We can now name this particular equilibrium <strong>\(E=(3,1)\) in Alice’s coordinates</strong>. Read from Benjamin’s opposite origin, the same point gives \((5-3,3-1)=(2,2)\). The diagrams in Question 4 use this point as their target.</p>
+    <h4>2. Substitute into the demands from Question 2</h4>
+    <p>Alice spends 1 on good 2 and Benjamin spends 2. The rest of each income buys good 1:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{A*}&amp;=\frac52+1\cdot\frac32-1=3,\\
+      x_2^{A*}&amp;=\frac11=1,\\
+      x_1^{B*}&amp;=\frac52+1\cdot\frac32-2=2,\\
+      x_2^{B*}&amp;=\frac21=2.
+    \end{aligned}\]</div>
+    <div class="math">\[\begin{aligned}
+      x^{A*}&amp;=\boxed{(3,1)},\\
+      x^{B*}&amp;=\boxed{(2,2)}.
+    \end{aligned}\]</div>
+    <p>Both bundles are interior and add to \((5,3)\). <strong>Equal endowments give equal incomes, not identical consumption:</strong> the consumers have different preferences.</p>
+    <p>Call this equilibrium \(E=(3,1)\) in Alice’s coordinates. From Benjamin’s opposite origin, the same point gives \((5-3,3-1)=(2,2)\).</p>
   </div>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 2 · Question 4" onclick="toggleAnswer(this,'ex2-q4')" aria-controls="ex2-q4" aria-expanded="false">Show correction — Exercise 2 · Question 4 ▾</button>
 <div class="solution" id="ex2-q4">
   <h3>The income transfer from Alice to Benjamin</h3>
-<p><strong>Goal:</strong> Find the income transfer that leads to the equal-wealth equilibrium from Question 3.</p>
-<p><strong>Start:</strong> Value the original endowments at the target prices \(p^*=(1,1)\), then compare each wealth with 4.</p>
+  <p><strong>Goal:</strong> Find the transfer that leads to the egalitarian-endowment equilibrium from Question 3.</p>
+  <p><strong>Start:</strong> Compare income from the new endowments with the required income of 4 for each consumer, at \(p^*=(1,1)\).</p>
 
   <div class="step">
-    <h4>1. Compare initial wealth with the target wealth</h4>
-    <p>At the target prices \(p^*=(1,1)\), initial endowments \((4,2)\) and \((1,1)\) are worth:</p>
+    <h4>1. Calculate initial incomes</h4>
+    <p>The initial endowments in this question are:</p>
+    <div class="math">\[\begin{aligned}
+      \omega^A&amp;=(4,2),\\
+      \omega^B&amp;=(1,1).
+    \end{aligned}\]</div>
+    <p>Value them at the equilibrium prices:</p>
     <div class="math">\[\begin{aligned}
       p^*\cdot\omega^A&amp;=4+2=6,\\
       p^*\cdot\omega^B&amp;=1+1=2.
     \end{aligned}\]</div>
-    <p>The total wealth is \(6+2=8\). The target from Question 3 gives each person half, so each needs wealth 4. A positive transfer means income received, and a negative one means income paid:</p>
-    <div class="math">\[\begin{aligned}
-      T_A&amp;=4-p^*\cdot\omega^A=4-6=-2,\\
-      T_B&amp;=4-p^*\cdot\omega^B=4-2=2.
-    \end{aligned}\]</div>
   </div>
   <div class="step result">
-    <p><strong>Alice transfers 2 units of income to Benjamin.</strong> The transfer balances: \(-2+2=0\). Alice’s budget becomes \(6-2=4\), and Benjamin’s becomes \(2+2=4\). Their constraints are now \(x_1^A+x_2^A\leq4\) and \(x_1^B+x_2^B\leq4\). Applying their demands gives the bundles from Question 3:</p>
-    <div class="math">\[x^{A*}=(3,1),\qquad x^{B*}=(2,2).\]</div>
-    <p><strong>This redistribution is not a Pareto improvement over the original endowment.</strong> Alice moves from \((4,2)\) to \((3,1)\), so she has less of both goods and loses utility. Benjamin moves from \((1,1)\) to \((2,2)\), so he gains. An efficient final allocation need not benefit everyone relative to the initial allocation.</p>
+    <h4>2. Transfer income to reach 4 for each consumer</h4>
+    <p>Let \(T\) be the amount Alice pays to Benjamin. To obtain the incomes used in Question 3:</p>
+    <div class="math">\[\begin{aligned}
+      6-T&amp;=4,\\
+      2+T&amp;=4.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{T=2}.\]</div>
+    <p><strong>Alice transfers 2 units of income to Benjamin.</strong> Both then have income 4, so the demand equations from Question 2 give:</p>
+    <div class="math">\[\begin{aligned}
+      x^{A*}&amp;=(3,1),\\
+      x^{B*}&amp;=(2,2).
+    \end{aligned}\]</div>
+    <p>This reproduces the equilibrium consumption from Question 3. Relative to the original endowment, Alice moves from \((4,2)\) to \((3,1)\) and loses utility, while Benjamin moves from \((1,1)\) to \((2,2)\) and gains. <strong>The redistribution is not a Pareto improvement over the original allocation.</strong></p>
   </div>
   <div class="graph-sequence">
 <div class="graph-reading" aria-label="Read the diagram — gains from trade versus redistribution">
