@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="midterm-nav.css">
 <link rel="stylesheet" href="reading-progress.css">
 <link rel="stylesheet" href="equilibrium.css">
-<link rel="stylesheet" href="general-equilibrium.css">
+<link rel="stylesheet" href="general-equilibrium.css?v=20261117-graphs">
 <script defer src="reading-progress.js"></script>
 </head>
 <body class="general-equilibrium">
@@ -45,7 +45,7 @@
         <article class="card"><h3>Consumers</h3><p>Consumer \(i\) has utility \(u_i\), endowment \(\omega_i\), and consumption bundle \(x_i\geq0\).</p></article>
         <article class="card"><h3>Firms</h3><p>Firm \(k\) chooses a net-output vector \(y_k\) in its feasible production set \(Y_k\).</p></article>
       </div>
-      <div class="key-note"><strong>Net output:</strong> \(y_{kn}&gt;0\) is an output; \(y_{kn}&lt;0\) is an input. For example, \(y_k=(-2,3)\) uses 2 units of good 1 to produce 3 units of good 2.</div>
+      <div class="key-note"><strong>Net output:</strong> \(y_{kn}&gt;0\) is an output; \(y_{kn}&lt;0\) is an input. A negative component records goods used up; a positive component records goods made available.</div>
       <h3>Profit maximization</h3>
       <div class="math emphasis">\[\begin{gathered}
         \pi_k(p)=\max_{y_k\in Y_k}p\cdot y_k,\\
@@ -67,6 +67,17 @@
       <p>Wealth = value of the initial endowment + distributed profit:</p>
       <div class="math emphasis">\[p\cdot x_i\leq p\cdot\omega_i+\sum_{k=1}^{K}\theta_{ki}\pi_k(p).\tag{4}\]</div>
       <div class="remark"><strong>Shares of profit, not sales revenue.</strong> Firms pay for their inputs before distributing profit to their owners.</div>
+      <article class="course-block">
+        <h3>Link with the graphs in Course 2</h3>
+        <p>Keep the distinction between <strong>the slope of a budget</strong>, <strong>its position</strong>, and <strong>the resources available</strong>:</p>
+        <ol class="numbered-list">
+          <li><strong>The slope still comes from prices.</strong> In a consumer’s own two-good coordinates, the budget line has slope \(-p_1/p_2\). Its tangency with an indifference curve still describes a smooth interior optimum.</li>
+          <li><strong>Profit income changes the position.</strong> At given prices and endowments, a positive profit payment moves the consumer’s budget outward in parallel. The line need no longer pass through the initial endowment: the consumer can spend both its value and the distributed profit.</li>
+          <li><strong>Production changes the feasible totals.</strong> The fixed exchange box from Course 2 cannot simply be reused with the original dimensions. Once production is chosen, the goods available for consumption are the initial resources plus net output: inputs reduce availability and outputs increase it.</li>
+          <li><strong>Equilibrium also requires firms to optimize.</strong> Matching consumer choices is no longer the whole check. At the same prices, firms must choose profit-maximizing plans, and consumption must match the resources remaining after production.</li>
+        </ol>
+        <p class="equation-note">A parallel shift isolates an income change at fixed prices. Comparing two full productive equilibria may also change relative prices, production, and the budget slope.</p>
+      </article>
     </section>
 
     <section id="equilibrium-production">

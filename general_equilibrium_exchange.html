@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="midterm-nav.css">
 <link rel="stylesheet" href="reading-progress.css">
 <link rel="stylesheet" href="equilibrium.css">
-<link rel="stylesheet" href="general-equilibrium.css">
+<link rel="stylesheet" href="general-equilibrium.css?v=20261117-graphs">
 <script defer src="reading-progress.js"></script>
 </head>
 <body class="general-equilibrium">
@@ -85,17 +85,42 @@
       <p>The box has width \(\bar\omega_1\) and height \(\bar\omega_2\). One point specifies <strong>both bundles</strong>; \(\omega\) marks the allocation before trade.</p>
       <p class="equation-note">In the figures, \(x_n^A\) and \(x_n^B\) are the same components written here as \(x_{An}\) and \(x_{Bn}\).</p>
       <div class="key-note"><strong>Net purchase:</strong> \(x_{in}-\omega_{in}\). Positive → net buyer; negative → net seller; zero → no net trade in that good.</div>
+      <p class="diagram-key"><strong>Colour guide:</strong> blue = consumer A; red = consumer B. Read A from the bottom-left and B from the top-right. In the price diagrams, orange = budget line and the green point = initial endowment.</p>
       <div class="diagram-grid">
-        <figure class="diagram-card">
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>Gains from trade</h3>
         <a href="images/edgeworth-pareto-lens.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Gains from trade"><img src="images/edgeworth-pareto-lens.png" width="520" height="386" alt="An Edgeworth box with blue and red indifference curves through the endowment. Their overlap forms a green lens of mutually beneficial allocations."></a>
         <figcaption>The lens contains allocations that both consumers weakly prefer to the initial endowment. <a href="images/edgeworth-pareto-lens.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
-        <figure class="diagram-card">
+          <div class="diagram-commentary">
+            <h3>From the endowment to mutually beneficial trade</h3>
+            <ol class="diagram-steps">
+              <li><strong>Locate the starting allocation.</strong> The point labelled \(X\) is the initial endowment. Its dashed projections give \(A\)’s quantities from the bottom-left origin; the remaining distances to the top and right edges give \(B\)’s quantities.</li>
+              <li><strong>Read the two reference curves.</strong> The blue curve keeps A at the initial utility level; the red curve does the same for B. A prefers the side above the blue curve. B prefers the side below the red curve because B’s origin is at the top-right.</li>
+              <li><strong>Read the shaded lens.</strong> Inside the overlap, both consumers strictly gain. On a boundary belonging to only one of the curves, that consumer is indifferent and the other gains. At the two intersections, both keep their initial utility.</li>
+              <li><strong>Follow the direction of exchange.</strong> Moving from X into the lens gives A more good 1 and less good 2; B receives the opposite changes. A buys good 1 and sells good 2. The overlap shows possible gains, but does not select a unique trade or guarantee efficiency.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> The shaded region answers “can both improve?”; efficiency requires a separate check.</p>
+          </div>
+        </article>
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>The contract curve</h3>
         <a href="images/edgeworth-contract-curve.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: The contract curve"><img src="images/edgeworth-contract-curve.png" width="438" height="394" alt="An Edgeworth box with three tangencies between blue and red indifference curves along a dashed contract curve."></a>
         <figcaption>The dashed curve joins Pareto-efficient tangency points. <a href="images/edgeworth-contract-curve.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
+          <div class="diagram-commentary">
+            <h3>Why tangencies form the contract curve</h3>
+            <ol class="diagram-steps">
+              <li><strong>Identify each black point.</strong> A blue and a red indifference curve touch there with the same slope. Each consumer values a marginal exchange between the goods at the same rate.</li>
+              <li><strong>Compare with crossing curves.</strong> When the curves cross, a lens of mutually beneficial nearby allocations can remain. At an interior tangency with convex preferences, this opportunity disappears: improving one consumer’s utility requires lowering the other’s.</li>
+              <li><strong>Follow the dashed curve.</strong> It connects the efficient allocations, each associated with its own pair of indifference curves. It is not a budget line: no market price has been introduced in this diagram.</li>
+              <li><strong>Separate efficiency from the starting point.</strong> The whole contract curve records efficiency. Only the part that both consumers weakly prefer to their initial endowment belongs to the core. An efficient allocation can still be unacceptable to someone starting from that endowment.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> The contract curve identifies efficient distributions; the endowment determines which are individually acceptable.</p>
+          </div>
+        </article>
       </div>
       <h3>Lens, contract curve, and core</h3>
       <dl class="concept-list">
@@ -143,16 +168,40 @@
         \end{gathered}\]</div>
       </div></details>
       <div class="diagram-grid">
-        <figure class="diagram-card">
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>A common budget line</h3>
         <a href="images/edgeworth-budget-line.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: A common budget line"><img src="images/edgeworth-budget-line.png" width="404" height="394" alt="An orange budget line passes through the green endowment point in an Edgeworth box. Other orange points lie on the same line."></a>
         <figcaption>The line passes through the endowment; its slope is the negative price ratio. <a href="images/edgeworth-budget-line.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
-        <figure class="diagram-card">
+          <div class="diagram-commentary">
+            <h3>What the common budget line allows</h3>
+            <ol class="diagram-steps">
+              <li><strong>Start from the green point.</strong> The orange line goes through \(\omega\): each consumer can always keep the initial bundle. Prices value that bundle and determine how much can be bought by selling goods.</li>
+              <li><strong>Read the slope.</strong> In A’s coordinates, the slope is \(-p_1/p_2\). Moving right along the line means A acquires good 1 by giving up good 2 at the market exchange rate; B makes the opposite trade.</li>
+              <li><strong>Identify the affordable sides.</strong> A can afford points on or below the line. B can afford points on or above it, since B’s quantities are measured from the opposite origin. Within the box, both budgets can therefore be satisfied together only on the line.</li>
+              <li><strong>Interpret the orange points.</strong> They are affordable allocations that exhaust both budgets. They need not be optimal: to identify a choice, compare the indifference curves that each consumer can reach. The portions of the orange line outside the box do not represent feasible allocations.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> The line describes the trades allowed by prices and wealth; preferences determine the desired trade.</p>
+          </div>
+        </article>
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>An optimal bundle</h3>
         <a href="images/edgeworth-optimal-bundle.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: An optimal bundle"><img src="images/edgeworth-optimal-bundle.png" width="402" height="376" alt="A black point marks an interior tangency on the orange budget line, among blue and red indifference curves."></a>
         <figcaption>At a smooth interior optimum, the budget line is tangent to the relevant indifference curve. <a href="images/edgeworth-optimal-bundle.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
+          <div class="diagram-commentary">
+            <h3>How A chooses the best affordable bundle</h3>
+            <ol class="diagram-steps">
+              <li><strong>Look at A’s blue curves.</strong> Higher utility for A is in the northeast direction. Starting from the affordable region below the orange line, look for the highest blue indifference curve that can still be reached.</li>
+              <li><strong>Locate the black tangency.</strong> At this smooth interior optimum, the orange line just touches A’s blue curve. A would prefer a higher curve, but every point on it costs more than the available wealth.</li>
+              <li><strong>Interpret the matching slopes.</strong> The tangency gives \(MRS_{12}^{A}=p_1/p_2\): A’s marginal willingness to exchange the goods equals the rate offered by the market. Other points on the budget spend the same wealth but give A lower utility.</li>
+              <li><strong>Read the trade from the endowment.</strong> The black point is right and below \(\omega\), so A buys good 1 and sells good 2. To establish a market equilibrium, B must also choose the complementary bundle at that same point; A’s optimization alone is not enough.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> A tangency explains an individual optimum; equilibrium also requires the two choices to agree.</p>
+          </div>
+        </article>
       </div>
       <div class="remark"><strong>Binding ≠ optimal.</strong> The budget binds at every point on the line. A tangency identifies an interior optimum under smoothness and convexity assumptions.</div>
     </section>
@@ -169,18 +218,42 @@
         <article class="card"><h3>\(z_n(p)&lt;0\): excess supply</h3><p>Desired sales exceed purchases.</p></article>
       </div>
       <div class="diagram-grid">
-        <figure class="diagram-card">
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>Two different choices</h3>
         <a href="images/edgeworth-incompatible-demands.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Two different choices"><img src="images/edgeworth-incompatible-demands.png" width="420" height="384" alt="Two distinct points on an orange budget line mark the consumers' desired allocations, blue for A and red for B."></a>
         <figcaption>The blue and red desired allocations do not coincide at these prices. <a href="images/edgeworth-incompatible-demands.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
-        <figure class="diagram-card">
+          <div class="diagram-commentary">
+            <h3>Why two individually optimal choices can conflict</h3>
+            <ol class="diagram-steps">
+              <li><strong>Read the blue point for A.</strong> It is where A chooses on the orange budget line. Its coordinates from the bottom-left give A’s desired consumption, while its position relative to the endowment shows A’s desired purchases and sales.</li>
+              <li><strong>Read the red point for B.</strong> It is B’s own optimal choice, read from the top-right. The bottom-left coordinates at this red point describe what would remain for A if B obtained that bundle; they are not B’s quantities.</li>
+              <li><strong>Compare the two points.</strong> They are distinct. The remainder left by B’s desired choice differs from what A wants. Although each point separately represents a feasible allocation, the two independently desired bundles do not fit together into one allocation.</li>
+              <li><strong>Interpret the orange line correctly.</strong> Both choices satisfy the individual budgets at the same prices. Budget feasibility does not make aggregate demand equal aggregate supply. These prices therefore fail to clear the markets.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> Two points on one budget line can represent two incompatible desired trades.</p>
+          </div>
+        </article>
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>Read the mismatch</h3>
         <a href="images/edgeworth-excess-demand.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Read the mismatch"><img src="images/edgeworth-excess-demand.png" width="418" height="402" alt="Blue and red dashed coordinate guides reveal a gap between the two consumers' desired allocations."></a>
         <figcaption>In this diagram: excess supply of good 1 and excess demand for good 2. <a href="images/edgeworth-excess-demand.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
+          <div class="diagram-commentary">
+            <h3>Use the projections to read excess demand and supply</h3>
+            <ol class="diagram-steps">
+              <li><strong>Read the horizontal gap.</strong> The blue vertical guide is to the left of the red one. A wants less good 1 than would remain after satisfying B. Together, their desired consumption of good 1 falls short of the total available.</li>
+              <li><strong>Translate the gap into trade.</strong> A wants to buy less good 1 than B wants to sell. There is excess supply of good 1: \(z_1(p)&lt;0\). The gap between the vertical guides represents the unsold amount.</li>
+              <li><strong>Read the vertical gap.</strong> The blue horizontal guide is above the red one. A wants to keep more good 2 than would remain after satisfying B. B wants to buy more good 2 than A wants to sell: \(z_2(p)&gt;0\). The gap represents the shortage.</li>
+              <li><strong>Relate the two markets.</strong> The gaps concern quantities of different goods, so their lengths need not match. Walras’ law says that excess supply and excess demand offset in value at the prevailing prices. Market clearing requires both gaps to disappear.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> Read the same pair of desired choices on both axes: unsold good 1 and a shortage of good 2.</p>
+          </div>
+        </article>
       </div>
-      <p><strong>Read this example:</strong> \(A\) wants to buy less good 1 than \(B\) wants to sell, so \(z_1(p)&lt;0\). \(B\) wants to buy more good 2 than \(A\) wants to sell, so \(z_2(p)&gt;0\).</p>
+      <p><strong>Read this diagram:</strong> \(A\) wants to buy less good 1 than \(B\) wants to sell, so \(z_1(p)&lt;0\). \(B\) wants to buy more good 2 than \(A\) wants to sell, so \(z_2(p)&gt;0\).</p>
       <div class="key-note"><strong>Market clearing:</strong> \(z_n(p)=0\) for every good. Both desired bundles then fit into one common feasible point in the box.</div>
       <h3>Homogeneity of degree zero</h3>
       <div class="math">\[z(\lambda p)=z(p),\qquad\lambda&gt;0.\]</div>
@@ -226,16 +299,40 @@
       </ul>
       <p class="equation-note">These assumptions are sufficient, not necessary. Existence does not imply uniqueness.</p>
       <div class="diagram-grid">
-        <figure class="diagram-card">
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>One common allocation</h3>
         <a href="images/edgeworth-market-clearing.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: One common allocation"><img src="images/edgeworth-market-clearing.png" width="398" height="380" alt="A common black equilibrium point on the orange budget line has horizontal and vertical dashed guides to read the allocation."></a>
         <figcaption>Both consumers choose bundles represented by the same point: all markets clear. <a href="images/edgeworth-market-clearing.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
-        <figure class="diagram-card">
+          <div class="diagram-commentary">
+            <h3>How to recognize an equilibrium in the box</h3>
+            <ol class="diagram-steps">
+              <li><strong>Locate the common black point.</strong> Both consumers choose the bundles represented by this one point. The blue and red indifference curves share the orange supporting budget line at their interior tangency.</li>
+              <li><strong>Use the dashed projections.</strong> Read A’s good 1 on the bottom axis and good 2 on the left. Read B’s quantities as the remaining distances from the top-right origin. These are complementary bundles, not identical bundles.</li>
+              <li><strong>Read the completed trade.</strong> The point lies right and below \(\omega\): A buys good 1 and sells good 2, while B does the reverse. What one wants to buy is exactly what the other wants to sell, so neither market has a mismatch.</li>
+              <li><strong>Check both equilibrium conditions.</strong> The point lies on the budget through the original endowment, and both bundles are optimal at its slope. A common feasible point alone would not suffice. Here, optimization and market clearing hold together.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> One point, two optimal complementary bundles, and no excess demand in either market.</p>
+          </div>
+        </article>
+        <article class="diagram-reading">
+          <figure class="diagram-card">
         <h3>Several equilibria</h3>
         <a href="images/edgeworth-multiple-equilibria.png" target="_blank" rel="noopener" aria-label="Enlarge diagram: Several equilibria"><img src="images/edgeworth-multiple-equilibria.png" width="414" height="398" alt="Three orange budget lines pass through the same endowment and support different tangencies on the contract curve."></a>
         <figcaption>Different lines through the same endowment support different equilibrium allocations. <a href="images/edgeworth-multiple-equilibria.png" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
+          <div class="diagram-commentary">
+            <h3>How several equilibria can share the same endowment</h3>
+            <ol class="diagram-steps">
+              <li><strong>Keep the green point fixed.</strong> Every orange line passes through the same \(\omega\). The initial distribution is unchanged; the diagrams on this single box consider different market price ratios.</li>
+              <li><strong>Compare the slopes.</strong> Each line has slope \(-p_1/p_2\). A steeper line means good 1 is more expensive relative to good 2. Changing the price ratio rotates the budget through the endowment; it does not produce a parallel wealth shift.</li>
+              <li><strong>Read each black point separately.</strong> Each is a common optimum supported by its own orange line: at those prices, the blue and red curves are tangent to that line and both desired bundles coincide. The marked points represent alternative equilibria, not successive steps of a trade.</li>
+              <li><strong>Distinguish multiplicity from normalization.</strong> Multiplying all prices by the same positive factor leaves the slope, budget set, and choices unchanged. The different slopes shown here correspond to genuinely different relative prices and can support different allocations.</li>
+            </ol>
+            <p class="diagram-takeaway"><strong>What to remember:</strong> Existence ensures at least one equilibrium under the stated assumptions; it does not ensure uniqueness.</p>
+          </div>
+        </article>
       </div>
       <h3>Uniqueness: not guaranteed</h3>
       <p>Several relative-price vectors may support different equilibrium allocations. In the second diagram, different budget lines pass through the same endowment and support different common optima.</p>

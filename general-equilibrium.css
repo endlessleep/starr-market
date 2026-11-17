@@ -1,19 +1,63 @@
 /* Compact reading layout for the two general-equilibrium lectures. */
 .general-equilibrium .diagram-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 280px));
-  justify-content: center;
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: 18px;
   margin: 22px 0;
 }
-.general-equilibrium .diagram-card {
-  min-width: 0;
-  margin: 0;
-  padding: 14px;
+.general-equilibrium .diagram-reading {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--card);
+}
+.general-equilibrium .diagram-commentary {
+  min-width: 0;
+}
+.general-equilibrium .diagram-commentary h3 {
+  margin: 0 0 14px;
+  color: var(--blue);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.general-equilibrium .diagram-steps {
+  display: grid;
+  gap: 14px;
+  padding-left: 22px;
+  color: var(--text-2);
+  font-size: .91rem;
+  line-height: 1.7;
+}
+.general-equilibrium .diagram-steps li {
+  padding-left: 3px;
+}
+.general-equilibrium .diagram-steps li::marker {
+  color: var(--blue);
+  font-weight: 700;
+}
+.general-equilibrium .diagram-steps strong {
+  color: var(--text);
+}
+.general-equilibrium .diagram-takeaway {
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid var(--border);
+  color: var(--text-3);
+  font-size: .85rem;
+}
+.general-equilibrium .diagram-key {
+  margin-top: 20px;
+  color: var(--text-3);
+  font-size: .88rem;
+}
+.general-equilibrium .diagram-card {
+  min-width: 0;
+  margin: 0;
 }
 .general-equilibrium .diagram-card h3 {
   margin: 0 0 12px;
@@ -103,10 +147,20 @@
   margin: 18px 0;
   padding: 20px;
 }
+@media (min-width: 801px) and (max-width: 1100px), (max-width: 700px) {
+  .general-equilibrium .diagram-reading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .general-equilibrium .diagram-card {
+    width: 260px;
+    max-width: 100%;
+    margin: auto;
+  }
+}
 @media (max-width: 600px) {
-  .general-equilibrium .diagram-grid {
-    grid-template-columns: minmax(0, 280px);
-    gap: 14px;
+  .general-equilibrium .diagram-reading {
+    padding: 18px 14px;
   }
   .general-equilibrium .diagram-card img {
     width: 200px;
