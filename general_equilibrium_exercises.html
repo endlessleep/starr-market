@@ -9,7 +9,7 @@
 <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
 <link rel="stylesheet" href="producer-exercises.css">
 <link rel="stylesheet" href="equilibrium-exercises.css">
-<link rel="stylesheet" href="general-equilibrium-exercises.css">
+<link rel="stylesheet" href="general-equilibrium-exercises.css?v=20261117">
 <link rel="stylesheet" href="midterm-nav.css">
 <link rel="stylesheet" href="reading-progress.css">
 <script defer src="reading-progress.js"></script>
@@ -68,9 +68,12 @@
 <button type="button" class="toggle" data-label="Exercise 1 · Question 1" onclick="toggleAnswer(this,'ex1-q1')" aria-controls="ex1-q1" aria-expanded="false">Show correction — Exercise 1 · Question 1 ▾</button>
 <div class="solution" id="ex1-q1">
   <h3>Initial utility levels</h3>
+<p><strong>Goal:</strong> Find each person’s utility before trade.</p>
+<p><strong>Start:</strong> Use each utility function with that person’s own initial endowment.</p>
+
 
   <div class="step result">
-    <p>Before trade, each person consumes the goods they already own. Put Thomas’ radishes and carrots into Thomas’ utility function, then do the same for Juliette:</p>
+    <p>Thomas starts with (1,9), while Juliette starts with (9,1):</p>
     <div class="math">\[\begin{aligned}
       u_t(1,9)&amp;=1^\alpha9^{1-\alpha}=\boxed{9^{1-\alpha}},\\
       u_j(9,1)&amp;=9^\beta1^{1-\beta}=\boxed{9^\beta}.
@@ -82,23 +85,33 @@
 <button type="button" class="toggle" data-label="Exercise 1 · Question 2" onclick="toggleAnswer(this,'ex1-q2')" aria-controls="ex1-q2" aria-expanded="false">Show correction — Exercise 1 · Question 2 ▾</button>
 <div class="solution" id="ex1-q2">
   <h3>The Edgeworth box and gains from trade</h3>
+<p><strong>Goal:</strong> Draw the initial allocation and shade the trades that improve on it.</p>
+<p><strong>Start:</strong> For this question only, \(\alpha=\beta=1/2\), so utility is \(\sqrt{RC}\).</p>
+
 
   <div class="step">
-    <p>With \(\alpha=\beta=1/2\), both consumers initially obtain utility \(3\). Total resources are 10 radishes and 10 carrots.</p>
-    <p>Thomas' origin is at the bottom-left; Juliette's is at the top-right. A point \((R_t,C_t)\) gives Juliette \((10-R_t,10-C_t)\).</p>
-    <p>An indifference curve keeps utility constant. Here, \(u=R^{1/2}C^{1/2}=\sqrt{RC}\). At the starting point, \(\sqrt{1\times9}=3\). Set utility equal to 3, then square both sides to get \(RC=9\):</p>
+    <p>Total resources are 10 radishes and 10 carrots, so the box has width 10 and height 10. Both starting utilities equal \(\sqrt{1\times9}=3\). <strong>The number 3 is a utility level, not a coordinate in the box.</strong></p>
+    <p>Thomas’s origin \(O_t\) is at the bottom-left. Juliette’s origin \(O_j\) is at the top-right. Every point represents two bundles: \((R_t,C_t)\) for Thomas and \((10-R_t,10-C_t)\) for Juliette.</p>
+    <p>To draw the two initial indifference curves, set each person’s utility equal to 3. Squaring gives \(RC=9\). Write both curves using Thomas’s coordinates:</p>
     <div class="math">\[\begin{gathered}
       R_tC_t=9\quad\Longrightarrow\quad C_t=\frac9{R_t},\\
       (10-R_t)(10-C_t)=9\\
       \Longrightarrow\quad C_t=10-\frac9{10-R_t}.
     \end{gathered}\]</div>
   </div>
+  <div class="step"><h4>Read the two intersections from the correct origin</h4>
+    <table class="compact-table"><thead><tr><th scope="col">Point</th><th scope="col">Thomas — from \(O_t\)</th><th scope="col">Juliette — from \(O_j\)</th></tr></thead><tbody>
+      <tr><th scope="row">Initial \(\omega\)</th><td>\((1,9)\)</td><td>\((9,1)\)</td></tr>
+      <tr><th scope="row">Other intersection \(Z\)</th><td>\((9,1)\)</td><td>\((1,9)\)</td></tr>
+    </tbody></table>
+    <p>Juliette’s initial bundle \((9,1)\) is read from her origin. The label \(Z=(9,1)\) is read from Thomas’s origin. They are <strong>different allocations</strong>, even though the written pair is the same.</p>
+  </div>
 <div class="graph-reading" aria-label="Read the diagram — Thomas and Juliette">
   <h4 class="graph-heading">Read the diagram — Thomas and Juliette</h4>
   <div class="graph-layout">
     <div class="graph-visual">
       <figure class="equilibrium-figure compact-figure">
-        <a href="images/general-ex1-pareto-lens.svg" target="_blank" rel="noopener" aria-label="Enlarge diagram: An Edgeworth box with the initial endowment omega, two initial indifference curves and the Pareto-improvement lens. Z marks their other intersection."><img src="images/general-ex1-pareto-lens.svg" width="520" height="470" alt="An Edgeworth box with the initial endowment omega, two initial indifference curves and the Pareto-improvement lens. Z marks their other intersection."></a>
+        <a href="images/general-ex1-pareto-lens.svg" target="_blank" rel="noopener" aria-label="Enlarge diagram: An Edgeworth box: omega is (1,9) and Z is (9,1) in Thomas’s coordinates. Juliette reads the opposite bundles from the top-right. Both initial utility levels are 3."><img src="images/general-ex1-pareto-lens.svg" width="520" height="470" alt="An Edgeworth box: omega is (1,9) and Z is (9,1) in Thomas’s coordinates. Juliette reads the opposite bundles from the top-right. Both initial utility levels are 3."></a>
         <figcaption>Read Thomas’ bundle from \(O_t\) and Juliette’s from \(O_j\).<br><a href="images/general-ex1-pareto-lens.svg" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
       <ul class="graph-legend"><li><span class="graph-swatch blue" aria-hidden="true"></span><span>Thomas’ indifference curve through the endowment.</span></li><li><span class="graph-swatch red" aria-hidden="true"></span><span>Juliette’s indifference curve through the endowment.</span></li><li><span class="graph-swatch green-fill" aria-hidden="true"></span><span>Area where neither person is worse off than at the start.</span></li></ul>
@@ -107,7 +120,7 @@
       <li><strong>Read the opposite origins.</strong> Right and up mean more goods for Thomas. Left and down mean more goods for Juliette. Each point represents what both people consume at the same time.</li>
       <li><strong>Use \(\omega\) as the reference.</strong> Both coloured curves pass through the initial endowment. Moving along either curve leaves that consumer’s utility unchanged.</li>
       <li><strong>Read the green lens.</strong> Thomas prefers points above the blue curve; Juliette prefers points below the red curve. Inside the green area, both are better off. On an edge belonging to just one curve, one person gains and the other keeps the same utility.</li>
-      <li><strong>Distinguish improvement from efficiency.</strong> Where the two curves cross, both keep their starting utility. Other points in the green area improve on the starting point, but may still allow further gains from trade.</li>
+      <li><strong>Distinguish improvement from efficiency.</strong> The lens compares utility with the starting point. The contract curve answers a different question: where are no further gains possible? Here it is \(R_t=C_t\), which is not drawn. Only its part inside the lens is both efficient and acceptable from the starting point.</li>
     </ol></div>
   </div>
 </div>
@@ -117,13 +130,16 @@
       \sqrt{R_tC_t}\geq3,\\
       \sqrt{(10-R_t)(10-C_t)}\geq3,
     \end{gathered}\]</div>
-    <p>with <strong>at least one strict inequality</strong>. Both consumers strictly gain inside the lens. Its two intersection points, \((1,9)\) and \((9,1)\), leave both utilities unchanged.</p>
+    <p>with <strong>at least one strict inequality</strong>. Shade the region between the curves from \(\omega\) to \(Z\). Its interior makes both people strictly better off. On either curved edge, one gains and the other keeps the same utility. Exclude \(\omega\) and \(Z\) themselves: both utilities remain 3 there.</p>
   </div>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 1 · Question 3" onclick="toggleAnswer(this,'ex1-q3')" aria-controls="ex1-q3" aria-expanded="false">Show correction — Exercise 1 · Question 3 ▾</button>
 <div class="solution" id="ex1-q3">
 <h3>From the maximization problems to equilibrium prices</h3>
+<p><strong>Goal:</strong> Find the relative price at which both markets clear.</p>
+<p><strong>Start:</strong> Derive the two consumers’ demands from their budgets, then set total demand equal to total resources.</p>
+
 <div class="step"><h4>1. Write Thomas’ choice and budget</h4><p>Thomas chooses how many radishes \(R_t\) and carrots \(C_t\) to consume. He takes the positive prices \(p_R,p_C\) as given. His initial goods are worth \(p_R\times1+p_C\times9=p_R+9p_C\). This value is his budget:</p><div class="math">\[\begin{gathered}
 \max_{R_t,C_t\geq0}\quad R_t^\alpha C_t^{1-\alpha}\\
 \text{subject to}\quad p_RR_t+p_CC_t\leq p_R+9p_C.
@@ -131,7 +147,7 @@
 <div class="step"><h4>2. Build Thomas’ Lagrangian</h4><p>Write utility plus a multiplier times the unused budget. Keep the original utility function:</p><div class="math">\[\begin{aligned}
 \mathcal L_t={}&amp;R_t^\alpha C_t^{1-\alpha}\\
 &amp;+\lambda_t\big(p_R+9p_C-p_RR_t-p_CC_t\big).
-\end{aligned}\]</div><p>The expression in brackets is income minus spending. The multiplier \(\lambda_t\) measures how much extra utility a small increase in the budget would bring at the optimum. It is not another good that Thomas buys.</p><p>For this interior choice, take the derivative with respect to each quantity and to the multiplier, then set them equal to zero:</p><div class="math">\[\begin{aligned}
+\end{aligned}\]</div><p>The expression in brackets is income minus spending. The multiplier \(\lambda_t\) measures how much extra utility a small increase in the budget would bring at the optimum. </p><p>For this interior choice, take the derivative with respect to each quantity and to the multiplier, then set them equal to zero:</p><div class="math">\[\begin{aligned}
 \frac{\partial\mathcal L_t}{\partial R_t}
 &amp;=\alpha R_t^{\alpha-1}C_t^{1-\alpha}-\lambda_t p_R=0,\\
 \frac{\partial\mathcal L_t}{\partial C_t}
@@ -139,7 +155,7 @@
 \frac{\partial\mathcal L_t}{\partial\lambda_t}
 &amp;=p_R+9p_C-p_RR_t-p_CC_t=0.
 \end{aligned}\]</div><p>Use the power rule: the derivative of \(R_t^\alpha\) is \(\alpha R_t^{\alpha-1}\). When differentiating with respect to \(R_t\), hold \(C_t\) fixed, and hold radishes fixed when taking the carrot derivative. The last equation gives the full-budget condition.</p></div>
-<div class="step"><h4>3. Remove the multiplier and find Thomas’ demands</h4><p>Divide the carrot condition by the radish condition. This cancels \(\lambda_t\):</p><div class="math">\[\begin{aligned}
+<div class="step"><h4>3. Remove the multiplier and find Thomas’ demands</h4><p>Divide the carrot condition by the radish condition. This cancels \(\lambda_t\). The ratio is \(MU_C/MU_R\): radishes given up for a little more carrots. This is the MRS convention used again in Question 6:</p><div class="math">\[\begin{aligned}
 \frac{(1-\alpha)R_t^\alpha C_t^{-\alpha}}
 {\alpha R_t^{\alpha-1}C_t^{1-\alpha}}
 &amp;=\frac{\lambda_t p_C}{\lambda_t p_R},\\
@@ -186,31 +202,35 @@ R_t+R_j&amp;=10,\\
 \alpha+9\beta+(9\alpha+\beta)\frac{p_C}{p_R}&amp;=10,\\
 (9\alpha+\beta)\frac{p_C}{p_R}&amp;=10-\alpha-9\beta.
 \end{aligned}\]</div><div class="math">\[\boxed{p^*=\frac{p_C}{p_R}=\frac{10-\alpha-9\beta}{9\alpha+\beta}}.\]</div><p>The denominator is positive. The numerator is also positive because \(\alpha+9\beta&lt;10\). This determines the price of carrots relative to radishes. Multiplying both prices by the same positive number would not change the choices.</p></div>
-<div class="step"><h4>6. Check the carrot market</h4><p>Walras’ law says that, when both budgets are fully spent and prices are positive, clearing one of the two markets also clears the other. We can check this directly:</p><div class="math">\[\begin{aligned}
+<p>Both budgets are fully spent and prices are positive. By Walras’ law, clearing the radish market also clears the carrot market. <strong>The boxed ratio is the equilibrium relative price.</strong></p><details class="optional-proof"><summary>Optional calculation — Check the carrot market</summary><div class="optional-body"><p>Walras’ law says that, when both budgets are fully spent and prices are positive, clearing one of the two markets also clears the other. We can check this directly:</p><div class="math">\[\begin{aligned}
 C_t+C_j
 &amp;=(1-\alpha)\left(\frac1{p^*}+9\right)
  +(1-\beta)\left(\frac9{p^*}+1\right)\\
 &amp;=\frac{10-\alpha-9\beta}{p^*}+10-9\alpha-\beta\\
 &amp;=(9\alpha+\beta)+(10-9\alpha-\beta)=10.
-\end{aligned}\]</div><p>Demand equals the available amount for both vegetables. The relative price therefore clears both markets.</p></div>
-
+\end{aligned}\]</div><p>Demand equals the available amount for both vegetables. The relative price therefore clears both markets.</p></div></details>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 1 · Question 4" onclick="toggleAnswer(this,'ex1-q4')" aria-controls="ex1-q4" aria-expanded="false">Show correction — Exercise 1 · Question 4 ▾</button>
 <div class="solution" id="ex1-q4">
   <h3>Equal preferences: both consumers gain</h3>
+<p><strong>Goal:</strong> Show that each consumer is better off after trade.</p>
+<p><strong>Start:</strong> Use the demands and equilibrium price ratio from Question 3, now with \(\alpha=\beta\).</p>
+
 
   <div class="step">
-    <h4>1. Normalize prices and use \(\alpha=\beta\)</h4>
+    <h4>1. Find the relative price, then normalize</h4>
+<p>Equal parameters mean identical preferences. They do not by themselves mean that trade occurs: we must still compare the chosen bundles with the initial goods. Here, Thomas and Juliette start with different bundles.</p>
+<p>First, put \(\beta=\alpha\) into the market-clearing ratio from Question 3. Then measure prices in units of radishes by setting \(p_R^*=1\):</p>
     <div class="math">\[p_R^*=1,\qquad p_C^*=\frac{10(1-\alpha)}{10\alpha}=\frac{1-\alpha}{\alpha}.\]</div>
-    <p>Normalization means measuring prices in units of radishes. It changes the price units, not what people consume. In Question 3, replace \(\beta\) by \(\alpha\), set \(p_R=1\), and use \(p_C=(1-\alpha)/\alpha\). For the carrot demands, note that \(1/p_C=\alpha/(1-\alpha)\):</p>
+    <p>Normalization only chooses the price units. Market clearing has already determined the ratio. To find consumption after trading is allowed, evaluate each demand at these equilibrium prices. The demand functions give the best affordable bundles, and market clearing makes the two choices fit together. For carrot demands, use \(1/p_C^*=\alpha/(1-\alpha)\):</p>
     <div class="math">\[\begin{aligned}
       R_t^*&amp;=\alpha+9(1-\alpha)=9-8\alpha,\\
       C_t^*&amp;=(1-\alpha)\left(\frac{\alpha}{1-\alpha}+9\right)=9-8\alpha,\\
       R_j^*&amp;=9\alpha+(1-\alpha)=1+8\alpha,\\
       C_j^*&amp;=(1-\alpha)\left(\frac{9\alpha}{1-\alpha}+1\right)=1+8\alpha.
     \end{aligned}\]</div>
-    <p>For each good, the two demands add to 10, so all available vegetables are consumed.</p>
+    <p>The star marks consumption at equilibrium, rather than the initial endowment. For \(0&lt;\alpha&lt;1\), Thomas’s radishes increase from 1 while his carrots fall from 9; Juliette makes the opposite trade. Each good still adds to 10.</p>
   </div>
   <div class="step result">
     <h4>2. Compare equilibrium and initial utilities</h4>
@@ -228,6 +248,9 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 1 · Question 5" onclick="toggleAnswer(this,'ex1-q5')" aria-controls="ex1-q5" aria-expanded="false">Show correction — Exercise 1 · Question 5 ▾</button>
 <div class="solution" id="ex1-q5">
   <h3>A stronger preference for radishes</h3>
+<p><strong>Goal:</strong> Find how the price and each person’s consumption change when the common parameter rises.</p>
+<p><strong>Start:</strong> Differentiate the equilibrium formulas from Question 4 with respect to the common value of α and β.</p>
+
 
   <div class="step">
     <p>Increase the common preference parameter, keeping \(\alpha=\beta\). Using \(\alpha\) to write this common value:</p>
@@ -240,18 +263,21 @@ C_t+C_j
       \frac{dR_j^*}{d\alpha}=\frac{dC_j^*}{d\alpha}=8.
     \end{gathered}\]</div>
   </div>
-  <div class="key-note"><strong>Intuition.</strong> Both consumers put more weight on radishes, so carrots become cheaper relative to radishes. Thomas owns mostly carrots and loses purchasing power; Juliette owns mostly radishes and gains purchasing power. Thomas consumes less of both goods, Juliette more; the total stays at 10 units of each good. A stronger preference for radishes does not create more radishes. The price change affects the value of the goods each person initially owns, so it changes who consumes them.</div>
+  <div class="key-note"><strong>Intuition.</strong> Both consumers put more weight on radishes, so carrots become cheaper relative to radishes. The price change favors Juliette’s radish-rich endowment relative to Thomas’s carrot-rich endowment. At the new equilibrium, Thomas consumes less of both goods and Juliette consumes more. The total stays at 10 units of each: the change in preferences affects prices and the sharing of goods, not the available quantities.</div>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 1 · Question 6" onclick="toggleAnswer(this,'ex1-q6')" aria-controls="ex1-q6" aria-expanded="false">Show correction — Exercise 1 · Question 6 ▾</button>
 <div class="solution" id="ex1-q6">
   <h3>Can trade make Thomas and Juliette better off?</h3>
+<p><strong>Goal:</strong> Determine whether a trade can make both consumers better off.</p>
+<p><strong>Start:</strong> Compare their MRS at the new initial endowments.</p>
+
   <p>In this question, the starting goods have changed:</p>
   <div class="math">\[\omega_t=(9,9),\qquad\omega_j=(1,1),\qquad\alpha\neq\beta.\]</div>
   <p>There are still 10 radishes and 10 carrots in total. Both people start with positive amounts of both goods. We check whether this starting allocation is Pareto efficient: can a trade help both people?</p>
 
   <div class="step">
-    <h4>Method 1 — Compare the MRS directly</h4>
+    <h4>Main method — Compare the initial MRS</h4>
     <p>This is the shortest method. The MRS tells us how a person values a small exchange between the goods.</p>
     <p><strong>Step 1. Write the efficiency condition.</strong> For these smooth preferences, at an efficient point inside the box, the two MRS must be equal:</p>
     <div class="math">\[\boxed{MRS_t=MRS_j}.\]</div>
@@ -282,8 +308,11 @@ C_t+C_j
     <p><strong>Why can both gain?</strong> Choose an exchange rate between their two MRS. The person who values carrots more is willing to give more radishes for them than the other person needs to receive. A small trade at a rate between the two therefore benefits both.</p>
   </div>
 
-  <div class="step">
-    <h4>Method 2 — Check the contract curve</h4>
+  <div class="step result">
+    <h4>Answer to Question 6</h4>
+    <p><strong>Yes, trade can make both Thomas and Juliette better off.</strong> Their starting quantities have the same ratio, but their preferences differ. Their MRS are therefore different, leaving room for gains from trade.</p>
+  </div>
+<details class="optional-proof"><summary>Optional proof — Test (9,9) on the contract curve</summary><div class="optional-body">
     <p>The contract curve contains the Pareto-efficient allocations. This method checks whether the starting point \((R_t,C_t)=(9,9)\) is on that curve.</p>
     <p><strong>Step 1. Write the contract curve.</strong> Since total resources are fixed, Juliette receives what Thomas does not consume:</p>
     <div class="math">\[R_j=10-R_t,\qquad C_j=10-C_t.\]</div>
@@ -319,12 +348,7 @@ C_t+C_j
     <div class="math">\[\boxed{\alpha=\beta}.\]</div>
     <p><strong>Step 3. Interpret.</strong> The starting point could be on the contract curve only if \(\alpha=\beta\). But the question assumes \(\alpha\neq\beta\).</p>
     <p><strong>Conclusion:</strong> the starting point is not on the contract curve, so it is not Pareto efficient. A trade that benefits both people is possible.</p>
-  </div>
-
-  <div class="step result">
-    <h4>Answer to Question 6</h4>
-    <p><strong>Yes, trade can make both Thomas and Juliette better off.</strong> Their starting quantities have the same ratio, but their preferences differ. Their MRS are therefore different, leaving room for gains from trade. Both methods show this same result.</p>
-  </div>
+  </div></details>
 </div>
 </section>
 
@@ -352,22 +376,19 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 2 · Question 1" onclick="toggleAnswer(this,'ex2-q1')" aria-controls="ex2-q1" aria-expanded="false">Show correction — Exercise 2 · Question 1 ▾</button>
 <div class="solution" id="ex2-q1">
   <h3>Interior Pareto-optimal allocations</h3>
+<p><strong>Goal:</strong> Find all interior allocations where no further mutually beneficial trade is possible.</p>
+<p><strong>Start:</strong> Calculate marginal utilities, equate the MRS, and use the total quantities available.</p>
+
 
   <div class="step">
-    <h4>1. Equate the slopes of the indifference curves</h4>
+    <h4>1. Calculate and equate the MRS</h4>
     <p>An interior allocation means that both people consume positive amounts of both goods. Since both utilities increase with consumption, an efficient allocation uses all 5 units of good 1 and all 3 units of good 2. First calculate the marginal utilities:</p>
 <div class="math">\[\begin{aligned}
 \frac{\partial u^A}{\partial x_1^A}&amp;=1,&amp;
 \frac{\partial u^A}{\partial x_2^A}&amp;=\frac1{x_2^A},\\
 \frac{\partial u^B}{\partial x_1^B}&amp;=1,&amp;
 \frac{\partial u^B}{\partial x_2^B}&amp;=\frac2{x_2^B}.
-\end{aligned}\]</div><p>Along an indifference curve, utility does not change. Its slope is minus the marginal utility of good 1 divided by the marginal utility of good 2. This gives:</p>    <div class="math">\[\begin{gathered}
-      du^A=dx_1^A+\frac{dx_2^A}{x_2^A}=0\\
-      \Longrightarrow\quad-\left.\frac{dx_2}{dx_1}\right|_A=x_2^A,\\[6pt]
-      du^B=dx_1^B+\frac{2\,dx_2^B}{x_2^B}=0\\
-      \Longrightarrow\quad-\left.\frac{dx_2}{dx_1}\right|_B=\frac{x_2^B}{2}.
-    \end{gathered}\]</div>
-    <p>At an interior optimum, \(MRS^A=MRS^B\). Combine this with feasibility:</p>
+\end{aligned}\]</div><p>In this exercise, we define \(MRS=MU_1/MU_2\): the amount of good 2 a consumer would give up for a little more good 1. This gives:</p><div class="math">\[MRS^A=\frac{1}{1/x_2^A}=x_2^A,\qquad MRS^B=\frac{1}{2/x_2^B}=\frac{x_2^B}{2}.\]</div><p>At an interior optimum, \(MRS^A=MRS^B\). Combine this with feasibility:</p>
     <div class="math">\[\begin{gathered}
       x_2^A=\frac{x_2^B}{2},\qquad x_2^A+x_2^B=3,\\
       3x_2^A=3\quad\Longrightarrow\quad\boxed{x_2^A=1,\quad x_2^B=2}.
@@ -379,24 +400,25 @@ C_t+C_j
       x^{A*}=(x_1^A,1),\\
       x^{B*}=(5-x_1^A,2),\qquad0&lt;x_1^A&lt;5.
     \end{gathered}\]</div>
-    <p>Good 2 must be shared as 1 for Alice and 2 for Benjamin. Good 1 can be shared in any way that leaves both with a positive amount. This explains the strict bounds on Alice’s good 1. The utilities are concave, so these tangencies give efficient allocations, not just possible candidates.</p>
+    <p>The MRS depend only on good 2, so their equality fixes its allocation: 1 for Alice and 2 for Benjamin. Changing the sharing of good 1 does not change either MRS. Any \(0&lt;x_1^A&lt;5\) therefore gives an interior efficient allocation, with Benjamin receiving the remaining \(5-x_1^A\). The utilities are concave, so the tangency condition and feasibility are sufficient here.</p>
   </div>
 <div class="graph-reading" aria-label="Read the diagram — the interior contract curve">
   <h4 class="graph-heading">Read the diagram — the interior contract curve</h4>
   <div class="graph-layout">
     <div class="graph-visual">
       <figure class="equilibrium-figure compact-figure">
-        <a href="images/general-ex2-contract-curve.svg" target="_blank" rel="noopener" aria-label="Enlarge diagram: An Edgeworth box with a horizontal interior contract curve and two indifference curves tangent at the equilibrium allocation E."><img src="images/general-ex2-contract-curve.svg" width="520" height="470" alt="An Edgeworth box with a horizontal interior contract curve and two indifference curves tangent at the equilibrium allocation E."></a>
-        <figcaption>The dashed green line collects efficient allocations.<br><a href="images/general-ex2-contract-curve.svg" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
+        <a href="images/general-ex2-contract-curve.svg?v=20261117" target="_blank" rel="noopener" aria-label="Enlarge diagram: An Edgeworth box with three pairs of blue and red indifference curves. Their tangencies lie on the horizontal dashed contract curve at Alice’s good 2 equal to 1 and Benjamin’s equal to 2."><img src="images/general-ex2-contract-curve.svg?v=20261117" width="520" height="470" alt="An Edgeworth box with three pairs of blue and red indifference curves. Their tangencies lie on the horizontal dashed contract curve at Alice’s good 2 equal to 1 and Benjamin’s equal to 2."></a>
+        <figcaption>As in the lecture, connect the tangencies. Here the line is horizontal.<br><a href="images/general-ex2-contract-curve.svg?v=20261117" target="_blank" rel="noopener">Enlarge ↗</a></figcaption>
       </figure>
-      <ul class="graph-legend"><li><span class="graph-swatch blue" aria-hidden="true"></span><span>Alice’s indifference curve through E.</span></li><li><span class="graph-swatch red" aria-hidden="true"></span><span>Benjamin’s indifference curve through E.</span></li><li><span class="graph-swatch green-line" aria-hidden="true"></span><span>Interior contract curve.</span></li><li><span class="graph-swatch orange-point" aria-hidden="true"></span><span>E: the equilibrium allocation from the exercise.</span></li></ul>
+      <ul class="graph-legend"><li><span class="graph-swatch blue" aria-hidden="true"></span><span>Alice’s indifference curves, read from the bottom-left.</span></li><li><span class="graph-swatch red" aria-hidden="true"></span><span>Benjamin’s indifference curves, read from the top-right.</span></li><li><span class="graph-swatch contract-line" aria-hidden="true"></span><span>Dashed line: the interior contract curve.</span></li><li><span class="graph-swatch dark-point" aria-hidden="true"></span><span>Black points: three tangencies illustrating the same condition.</span></li></ul>
     </div>
     <div class="graph-guide"><ol class="graph-steps">
-      <li><strong>Read both consumers’ bundles.</strong> Alice’s origin is at the bottom-left, Benjamin’s at the top-right. Giving more of a good to one leaves less for the other.</li>
-      <li><strong>Find where the curves touch at \(E\).</strong> The blue and red curves touch with the same slope. Both people are willing to make a small exchange at the same rate, so a small trade cannot make both better off.</li>
-      <li><strong>Interpret the horizontal shape.</strong> Along the green line, each person keeps the same amount of good 2. Only good 1 is shared differently. At each point, a blue and a red indifference curve touch.</li>
-      <li><strong>Read the endpoints and the distribution.</strong> The empty circles are not part of the interior set: one person would have no good 1 there. Moving along the green line changes who gets the goods. Efficiency alone does not tell us which sharing is fairest.</li>
-    </ol></div>
+<li><strong>Read the box from the two origins.</strong> Alice receives more when we move right or up from \(O_A\). Benjamin receives more when we move left or down from \(O_B\). The width is 5 and the height is 3: these are the economy’s total resources.</li>
+<li><strong>Find the tangencies, as in the lecture.</strong> At each black point, one blue curve and one red curve touch with the same slope. Their MRS are equal, so there is no small exchange that makes both consumers better off. The three points illustrate a whole set; they are not three computed equilibria.</li>
+<li><strong>Connect the tangencies.</strong> Every interior efficient allocation has \(x_2^A=1\) and \(x_2^B=3-1=2\). All tangencies therefore lie at the same height. This is why the contract curve is <strong>horizontal in this exercise</strong>, although the general illustration in the lecture is rising. Its shape depends on the utility functions.</li>
+<li><strong>Move along the dashed line.</strong> Moving right gives Alice more good 1 and leaves Benjamin less. Good 2 stays fixed for both. Each point remains efficient, but the distribution changes. The empty endpoints are excluded because one consumer would have zero good 1.</li>
+<li><strong>Do not select an equilibrium yet.</strong> Question 1 gives the whole interior efficient set. We need prices and initial endowments to select a competitive equilibrium. Question 3 will give those endowments.</li>
+</ol></div>
   </div>
 </div>
 </div>
@@ -404,6 +426,9 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 2 · Question 2" onclick="toggleAnswer(this,'ex2-q2')" aria-controls="ex2-q2" aria-expanded="false">Show correction — Exercise 2 · Question 2 ▾</button>
 <div class="solution" id="ex2-q2">
   <h3>Support every interior optimum as an equilibrium</h3>
+<p><strong>Goal:</strong> Find prices and endowments that support any interior efficient allocation as an equilibrium.</p>
+<p><strong>Start:</strong> Take any allocation from Question 1. We may choose its initial endowments; they are not fixed in this question.</p>
+
 
   <div class="step">
     <h4>1. Alice’s problem at \(p_1=1\)</h4><p>We want to find prices and starting goods that make any allocation from Question 1 an equilibrium. Set the price of good 1 to 1. Alice’s initial goods are worth \(\omega_1^A+p_2\omega_2^A\). Her choice problem is:</p><div class="math">\[\begin{gathered}
@@ -437,9 +462,10 @@ C_t+C_j
 \frac{\partial\mathcal L^B}{\partial x_2^B}&amp;=\frac2{x_2^B}-\lambda_Bp_2=0,\\
 \frac{\partial\mathcal L^B}{\partial\lambda_B}
 &amp;=\omega_1^B+p_2\omega_2^B-x_1^B-p_2x_2^B=0.
-\end{aligned}\]<p>Again, \(\lambda_B=1\). Now \(2/x_2^B=p_2\), so Benjamin spends \(p_2x_2^B=2\) on good 2. The rest of his budget buys good 1:</p></div>
+\end{aligned}\]</div>
+<p>Again, \(\lambda_B=1\). Now \(2/x_2^B=p_2\), so Benjamin spends \(p_2x_2^B=2\) on good 2. The rest of his budget buys good 1:</p>
     <div class="math">\[\boxed{x_2^B=\frac2{p_2}},\qquad\boxed{x_1^B=\omega_1^B+p_2\omega_2^B-2}.\]</div>
-    <p>These formulas describe interior choices only. Alice’s wealth must exceed 1 and Benjamin’s must exceed 2, so their good-1 demands are positive. If not, a corner choice with no good 1 must be considered. The endowments chosen below meet the interior conditions. Using each budget to remove good 1 gives second derivatives \(-1/(x_2^A)^2\) for Alice and \(-2/(x_2^B)^2\) for Benjamin. Both are negative, confirming their unique best choices.</p>
+    <p>These interior demands require Alice’s wealth to exceed 1 and Benjamin’s to exceed 2. The endowments below satisfy these conditions. Concavity of utility makes the first-order conditions sufficient for their best choices.</p>
   </div>
   <div class="step result">
 <h4>3. Clear markets and choose starting endowments</h4><p>There are 3 units of good 2. Add the two interior demands and set their sum equal to 3:</p>
@@ -455,13 +481,16 @@ C_t+C_j
 \text{Benjamin’s good 1 demand}&amp;=(5-x_1^A)+2-2=5-x_1^A,\\
 \text{Benjamin’s good 2 demand}&amp;=2.
 \end{aligned}\]</div><p>Each person chooses exactly the bundle they started with. The demands add to 5 units of good 1 and 3 units of good 2. Both people make their best choice and both markets clear: this is an equilibrium, even though no trade is needed.</p>
-    <p>The claim allows us to <strong>choose the endowments</strong>; it does not say that every efficient allocation is an equilibrium for the same original endowments.</p>
+    <p>The prices <strong>support</strong> the target: given these budgets, both consumers choose it. Efficiency concerns possible gains from reallocating goods. An equilibrium also requires individual choices and market clearing at given prices and endowments. This construction meets all those conditions without trade.</p>
   </div>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 2 · Question 3" onclick="toggleAnswer(this,'ex2-q3')" aria-controls="ex2-q3" aria-expanded="false">Show correction — Exercise 2 · Question 3 ▾</button>
 <div class="solution" id="ex2-q3">
   <h3>Equilibrium with equal initial endowments</h3>
+<p><strong>Goal:</strong> Find the equilibrium consumption bundles when initial endowments are equal.</p>
+<p><strong>Start:</strong> Keep \(p_1=1\) and use the interior demand functions from Question 2.</p>
+
 
   <div class="step">
     <p>Equal endowments means splitting each good equally between the two people. It does not yet tell us what they choose to consume:</p>
@@ -481,6 +510,9 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 2 · Question 4" onclick="toggleAnswer(this,'ex2-q4')" aria-controls="ex2-q4" aria-expanded="false">Show correction — Exercise 2 · Question 4 ▾</button>
 <div class="solution" id="ex2-q4">
   <h3>The income transfer from Alice to Benjamin</h3>
+<p><strong>Goal:</strong> Find the income transfer that leads to the equal-wealth equilibrium from Question 3.</p>
+<p><strong>Start:</strong> Value the original endowments at the target prices \(p^*=(1,1)\), then compare each wealth with 4.</p>
+
 
   <div class="step">
     <h4>1. Compare initial wealth with the target wealth</h4>
@@ -495,7 +527,7 @@ C_t+C_j
   <div class="step result">
     <p><strong>Alice transfers 2 units of income to Benjamin.</strong> The transfer balances: \(-2+2=0\). Alice’s budget becomes \(6-2=4\), and Benjamin’s becomes \(2+2=4\). Their constraints are now \(x_1^A+x_2^A\leq4\) and \(x_1^B+x_2^B\leq4\). Applying their demands gives the bundles from Question 3:</p>
     <div class="math">\[x^{A*}=(3,1),\qquad x^{B*}=(2,2).\]</div>
-    <p>At these prices, transferring 2 units of good 1 has the same wealth effect. Redistributing the endowments to \((5/2,3/2)\) each is another implementation.</p>
+    <p><strong>This redistribution is not a Pareto improvement over the original endowment.</strong> Alice moves from \((4,2)\) to \((3,1)\), so she has less of both goods and loses utility. Benjamin moves from \((1,1)\) to \((2,2)\), so he gains. An efficient final allocation need not benefit everyone relative to the initial allocation.</p>
   </div>
   <div class="graph-sequence">
 <div class="graph-reading" aria-label="Read the diagram — gains from trade versus redistribution">
@@ -569,6 +601,9 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 3 · Question 1" onclick="toggleAnswer(this,'ex3-q1')" aria-controls="ex3-q1" aria-expanded="false">Show correction — Exercise 3 · Question 1 ▾</button>
 <div class="solution" id="ex3-q1">
   <h3>Consumers’ demands and the firm’s input demand</h3>
+<p><strong>Goal:</strong> Find the consumers’ demands for good 1 and the firm’s input demand.</p>
+<p><strong>Start:</strong> Consumers maximize utility within their budgets; the firm maximizes revenue minus input cost. Only B receives its profit.</p>
+
 
   <div class="step">
     <h4>1. Consumer A</h4>
@@ -643,13 +678,16 @@ C_t+C_j
       x_1^B(p_1,p_2)&amp;=\frac18\left(1+\frac{p_2}{p_1}\right)+\frac{p_2^2}{16p_1^2},\\
       y_1(p_1,p_2)&amp;=\frac{p_2^2}{4p_1^2}.
     \end{aligned}\]</div>
-    <p>The firm uses good 1 as an input, while consumers eat or use it directly. Both uses take from the same initial supply. Add the firm’s input demand to the two consumption demands when clearing good 1. The logarithmic and Cobb–Douglas consumer problems give the unique best bundles through the conditions above.</p>
+    <p>Here \(y_1\) is a <strong>positive physical input quantity</strong>. Add it to consumption when measuring total use of good 1. In a <strong>net production vector</strong>, the same input is negative: \((-y_1,y_2)\). These are two ways to record the same production activity.</p>
   </div>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 3 · Question 2" onclick="toggleAnswer(this,'ex3-q2')" aria-controls="ex3-q2" aria-expanded="false">Show correction — Exercise 3 · Question 2 ▾</button>
 <div class="solution" id="ex3-q2">
   <h3>The equilibrium price when \(p_2=1\)</h3>
+<p><strong>Goal:</strong> Find the positive equilibrium price of good 1.</p>
+<p><strong>Start:</strong> Set \(p_2=1\) in Question 1’s demands. Consumption plus the firm’s input must equal the initial stock of good 1.</p>
+
 
   <div class="step">
     <h4>1. Clear the market for good 1</h4>
@@ -672,20 +710,24 @@ C_t+C_j
     <div class="math">\[p_1=\frac{6\pm\sqrt{36+200}}{20}.\]</div>
     <div class="math">\[\boxed{p_1^*=\frac{3+\sqrt{59}}{10}\approx1.0681},\qquad p_2^*=1.\]</div>
     <p>The two roots come from the quadratic formula with coefficients \(10,-6,-5\). Since \(\sqrt{59}&gt;3\), the root \((3-\sqrt{59})/10\) is negative and cannot be a positive equilibrium price. Walras’ law says good 2 clears too.</p>
-    <p>For a direct check, substitute \(p_1^*\) into:</p>
+<details class="optional-proof"><summary>Optional calculation — Check the good-2 market</summary><div class="optional-body">    <p>For a direct check, substitute \(p_1^*\) into:</p>
     <div class="math">\[\underbrace{\frac58(1+p_1^*)+\frac3{16p_1^*}}_{x_2^{A*}+x_2^{B*}}
       =\underbrace{1+\frac1{2p_1^*}}_{1+y_2^*}.\]</div><p>To see why the equality holds, subtract the right side from the left:</p><div class="math">\[\frac{10(p_1^*)^2-6p_1^*-5}{16p_1^*}=0.\]</div><p>The numerator is zero because it is exactly the price equation solved above. Good 2 is consumed from both the initial stock and the firm’s new output.</p>
-  </div>
+</div></details>  </div>
 </div>
 
 <button type="button" class="toggle" data-label="Exercise 3 · Question 3" onclick="toggleAnswer(this,'ex3-q3')" aria-controls="ex3-q3" aria-expanded="false">Show correction — Exercise 3 · Question 3 ▾</button>
 <div class="solution" id="ex3-q3">
   <h3>Constant returns to scale</h3>
+<p><strong>Goal:</strong> Find equilibrium prices, consumption and production with the new technology.</p>
+<p><strong>Start:</strong> Use \(y_2=y_1\) and \(p_2=1\). Consumer preferences are unchanged, but the firm’s problem must be solved again.</p>
+
 
   <div class="step">
     <h4>1. Use the firm’s problem to find the price</h4>
     <p>Now \(y_2=y_1\), with \(p_2=1\), so:</p>
-    <div class="math">\[\max_{y_1\geq0}\quad y_1-p_1y_1=(1-p_1)y_1.\]<p>The technology has changed. Do not reuse the square-root firm’s input or profit formula from Question 1. Now one unit of input produces one unit of output, so check whether the coefficient of production is positive, negative, or zero:</p></div>
+    <div class="math">\[\max_{y_1\geq0}\quad y_1-p_1y_1=(1-p_1)y_1.\]</div>
+<p>The technology has changed. Do not reuse the square-root firm’s input or profit formula from Question 1. Now one unit of input produces one unit of output, so check whether the coefficient of production is positive, negative, or zero:</p>
     <ul class="solution-list">
       <li>If \(p_1&lt;1\), profit increases without bound as production rises: there is no finite optimum.</li>
       <li>If \(p_1&gt;1\), the firm chooses \(y_1=0\). Consumer demand for good 1 is then \(\frac38(1+1/p_1)&lt;1\), so that market cannot clear.</li>
@@ -695,12 +737,7 @@ C_t+C_j
   </div>
   <div class="step">
     <h4>2. Compute consumption</h4>
-    <p>Each consumer’s endowment is worth 1, and B receives zero profit. Their problems become:</p><div class="math">\[\begin{gathered}
-\max_{x_1^A,x_2^A&gt;0}\quad \ln x_1^A+\ln x_2^A\\
-\text{s.t.}\quad x_1^A+x_2^A\leq1,\\
-\max_{x_1^B,x_2^B\geq0}\quad (x_1^B)^{1/4}(x_2^B)^{3/4}\\
-\text{s.t.}\quad x_1^B+x_2^B\leq1.
-\end{gathered}\]</div><p>The consumer conditions from Question 1 still apply: A spends half on each good; B spends one quarter on good 1 and three quarters on good 2. Both prices equal 1, so spending equals the quantity bought:</p>
+    <p>Each consumer’s endowment is worth 1, and B receives zero profit. Both budgets are therefore \(x_1^i+x_2^i\leq1\), for \(i=A,B\).</p><p>The consumer conditions from Question 1 still apply: A spends half on each good; B spends one quarter on good 1 and three quarters on good 2. Both prices equal 1, so spending equals the quantity bought:</p>
     <div class="math">\[\boxed{x^{A*}=\left(\frac12,\frac12\right)},\qquad
       \boxed{x^{B*}=\left(\frac14,\frac34\right)}.\]</div>
     <p>Total consumption is \((3/4,5/4)\).</p>
@@ -720,16 +757,13 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 3 · Question 4" onclick="toggleAnswer(this,'ex3-q4')" aria-controls="ex3-q4" aria-expanded="false">Show correction — Exercise 3 · Question 4 ▾</button>
 <div class="solution" id="ex3-q4">
   <h3>The pure exchange economy</h3>
+<p><strong>Goal:</strong> Find the equilibrium price and consumption allocation without a firm.</p>
+<p><strong>Start:</strong> Keep the same preferences and endowments, but remove input demand and profit income.</p>
+
 
   <div class="step">
     <h4>1. Remove production and profit income</h4>
-    <p>Each consumer still owns \((1/2,1/2)\). There is no firm, no input demand, and no profit payment. Their programs are:</p><div class="math">\[\begin{gathered}
-\max_{x_1^A,x_2^A&gt;0}\quad\ln x_1^A+\ln x_2^A\\
-\text{s.t.}\quad p_1x_1^A+p_2x_2^A\leq\frac12(p_1+p_2),\\[6pt]
-\max_{x_1^B,x_2^B\geq0}\quad(x_1^B)^{1/4}(x_2^B)^{3/4}\\
-\text{s.t.}\quad p_1x_1^B+p_2x_2^B\leq\frac12(p_1+p_2).
-\end{gathered}\]</div><p>These are the consumer problems from Question 1 with profit removed from B’s budget. Their Lagrangian conditions therefore give:</p>
-    <div class="math">\[\begin{aligned}
+    <p>Each consumer owns \((1/2,1/2)\), so each budget is \(p_1x_1^i+p_2x_2^i\leq(p_1+p_2)/2\). Reuse the consumer conditions from Question 1 with \(\Pi=0\): A spends half on each good; B spends one quarter on good 1 and three quarters on good 2.</p>    <div class="math">\[\begin{aligned}
       x_1^A&amp;=\frac14\left(1+\frac{p_2}{p_1}\right),&amp;
       x_2^A&amp;=\frac14\left(1+\frac{p_1}{p_2}\right),\\
       x_1^B&amp;=\frac18\left(1+\frac{p_2}{p_1}\right),&amp;
@@ -774,7 +808,10 @@ C_t+C_j
 
 <button type="button" class="toggle" data-label="Exercise 4 · Question 1" onclick="toggleAnswer(this,'ex4-q1')" aria-controls="ex4-q1" aria-expanded="false">Show correction — Exercise 4 · Question 1 ▾</button>
 <div class="solution" id="ex4-q1">
-<h3>Proof of the First Welfare Theorem with production</h3><p>We use a proof by contradiction. Assume there is a possible change that helps at least one person and hurts nobody. We will show that this change would require goods worth more than the economy can provide, at the equilibrium prices.</p><p>Here, \(y_k\) is a <strong>net production vector</strong>: an input has a negative component and an output has a positive component. Thus \(p^*\cdot y_k\) already means revenue minus input cost. In Exercise 3, the input amount \(y_1\) was written as a positive quantity instead.</p>
+<h3>Proof of the First Welfare Theorem with production</h3>
+<p><strong>Goal:</strong> Prove that a Walrasian equilibrium with production is Pareto efficient.</p>
+<p><strong>Start:</strong> Use consumer optimization, firm profit maximization, and feasibility at the same equilibrium prices.</p>
+<p>The proof is by contradiction: a feasible Pareto improvement would require consumption worth more than the economy can provide.</p><p>Here, \(y_k\) is a <strong>net production vector</strong>: an input has a negative component and an output has a positive component. Thus \(p^*\cdot y_k\) already means revenue minus input cost. In Exercise 3, the input amount \(y_1\) was written as a positive quantity instead.</p>
 
   <div class="step">
     <h4>1. Suppose a feasible Pareto improvement exists</h4>
@@ -792,7 +829,7 @@ C_t+C_j
 \text{s.t.}\quad p^*\cdot x_i\leq p^*\cdot\omega_i+\sum_k\theta_{ki}\Pi_k^*,\\
 \Pi_k^*=p^*\cdot y_k^*.
 \end{gathered}\]</div>
-    <p>The equilibrium bundle is a best affordable choice. So a bundle that gives strictly higher utility must be too expensive. If it were affordable, the equilibrium choice would not be best. A bundle that gives at least the same utility cannot cost less than the budget either: with money left over, the consumer could add a little more of the goods and get strictly higher utility. Therefore:</p>
+    <p>A strictly preferred bundle must cost more than the budget, otherwise the consumer would choose it. A weakly preferred bundle cannot cost less: the remaining income would allow extra consumption and strictly higher utility, contradicting optimality. Therefore:</p>
     <div class="math">\[\begin{gathered}
       p^*\cdot\widetilde x_i\geq p^*\cdot\omega_i+\sum_k\theta_{ki}\Pi_k^*
       \quad\text{for every }i,\\
@@ -828,7 +865,7 @@ C_t+C_j
       \leq p^*\cdot\left(\sum_i\omega_i+\sum_k\widetilde y_k\right).\]</div>
     <p>Step 4 says that consumption is worth strictly more than the available goods. Step 5 says that it is worth no more. Both statements cannot hold. Our assumed Pareto improvement therefore cannot exist, so <strong>the equilibrium allocation and production plan are Pareto efficient.</strong></p>
   </div>
-  <div class="key-note"><strong>The extra step relative to pure exchange:</strong> firms already choose production with the highest value at the equilibrium prices. Changing production cannot provide enough extra value to make the proposed improvement possible. We keep the same prices throughout the proof and compare total values, not the quantities of different goods.</div>
+  <div class="key-note"><strong>The extra step relative to pure exchange is Step 4:</strong> use profit maximization to compare the equilibrium and alternative production plans.</div>
 </div>
 </section>
 
