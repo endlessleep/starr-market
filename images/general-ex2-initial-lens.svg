@@ -8,7 +8,7 @@
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
     <dc:title>Gains from trade and the equal-wealth target</dc:title>
-    <dc:description>At omega=(4,2), Alice has utility 4+ln(2) and Benjamin utility 1. G=(4.5,1.5) improves both; E=(3,1) lowers Alice’s utility, so lies outside the improvement lens.</dc:description>
+    <dc:description>The coloured curves pass through the initial endowment. The target E lies below both initial curves, reducing Alice’s utility and increasing Benjamin’s; it is outside the improvement lens.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -1254,28 +1254,8 @@ z
     </g>
    </g>
    <g id="line2d_17">
-    <path d="M 292.4064 170.892
-" clip-path="url(#p180a288aa5)" style="fill: none; stroke: #ff7f0e; stroke-width: 1.5; stroke-linecap: square"/>
-    <defs>
-     <path id="m8ac8f160b2" d="M 0 3.5
-C 0.928211 3.5 1.81853 3.131218 2.474874 2.474874
-C 3.131218 1.81853 3.5 0.928211 3.5 0
-C 3.5 -0.928211 3.131218 -1.81853 2.474874 -2.474874
-C 1.81853 -3.131218 0.928211 -3.5 0 -3.5
-C -0.928211 -3.5 -1.81853 -3.131218 -2.474874 -2.474874
-C -3.131218 -1.81853 -3.5 -0.928211 -3.5 0
-C -3.5 0.928211 -3.131218 1.81853 -2.474874 2.474874
-C -1.81853 3.131218 -0.928211 3.5 0 3.5
-z
-" style="stroke: #467937"/>
-    </defs>
-    <g clip-path="url(#p180a288aa5)">
-     <use xlink:href="#m8ac8f160b2" x="292.4064" y="170.892" style="fill: #467937; stroke: #467937"/>
-    </g>
-   </g>
-   <g id="line2d_18">
     <path d="M 214.9056 206.424
-" clip-path="url(#p180a288aa5)" style="fill: none; stroke: #2ca02c; stroke-width: 1.5; stroke-linecap: square"/>
+" clip-path="url(#p180a288aa5)" style="fill: none; stroke: #ff7f0e; stroke-width: 1.5; stroke-linecap: square"/>
     <defs>
      <path id="m019b2b5a5d" d="M 0 3.5
 C 0.928211 3.5 1.81853 3.131218 2.474874 2.474874
@@ -1346,49 +1326,6 @@ z
     </g>
    </g>
    <g id="text_20">
-    <!-- $G$ -->
-    <g style="fill: #467937" transform="translate(267.4064 170.148563) scale(0.18 -0.18)">
-     <defs>
-      <path id="STIXGeneral-Italic-47" d="M 4621 2042
-L 4621 1939
-Q 4307 1920 4188 1833
-Q 4070 1747 4000 1478
-L 3686 282
-Q 2976 -115 2170 -115
-Q 1293 -115 806 371
-Q 582 595 457 934
-Q 333 1274 333 1606
-Q 333 2266 653 2848
-Q 973 3430 1504 3802
-Q 2170 4262 2912 4262
-Q 3373 4262 3770 4109
-Q 3936 4045 4051 4045
-Q 4282 4045 4435 4262
-L 4531 4230
-L 4218 2970
-L 4102 2989
-Q 4083 3398 3866 3667
-Q 3558 4045 2963 4045
-Q 2214 4045 1715 3411
-Q 1395 3008 1216 2496
-Q 1037 1984 1037 1459
-Q 1037 826 1376 474
-Q 1715 122 2330 122
-Q 2784 122 3002 339
-Q 3059 397 3104 509
-Q 3149 621 3251 986
-Q 3418 1542 3418 1709
-Q 3418 1894 3117 1920
-L 2912 1939
-L 2912 2042
-L 4621 2042
-z
-" transform="scale(0.015625)"/>
-     </defs>
-     <use xlink:href="#STIXGeneral-Italic-47" transform="translate(0 0.40625)"/>
-    </g>
-   </g>
-   <g id="text_21">
     <!-- $E$ -->
     <g style="fill: #df7a20" transform="translate(196.9056 228.680563) scale(0.18 -0.18)">
      <defs>

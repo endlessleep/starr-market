@@ -89,24 +89,6 @@
   color: var(--blue);
   font-weight: 700;
 }
-.general-equilibrium-exercises .graph-example {
-  margin-top: 20px;
-  padding-top: 17px;
-  border-top: 1px solid var(--border);
-  font-size: .94rem;
-}
-.general-equilibrium-exercises .graph-example h4 {
-  margin-bottom: 10px;
-  color: var(--green);
-  font-size: .96rem;
-}
-.general-equilibrium-exercises .graph-example p + p {
-  margin-top: 10px;
-}
-.general-equilibrium-exercises .graph-table th[scope="row"] {
-  text-transform: none;
-  letter-spacing: 0;
-}
 .general-equilibrium-exercises .solution-list {
   margin: 14px 0 14px 20px;
 }
@@ -126,8 +108,6 @@
 }
 @media (max-width: 600px) {
   .general-equilibrium-exercises .graph-reading { padding: 16px 10px; }
-  .general-equilibrium-exercises .graph-table th,
-  .general-equilibrium-exercises .graph-table td { padding: 10px 5px; font-size: .79rem; }
   .general-equilibrium-exercises .compact-figure img {
     width: 200px;
   }
