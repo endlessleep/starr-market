@@ -245,42 +245,85 @@ C_t+C_j
 
 <button type="button" class="toggle" data-label="Exercise 1 · Question 6" onclick="toggleAnswer(this,'ex1-q6')" aria-controls="ex1-q6" aria-expanded="false">Show correction — Exercise 1 · Question 6 ▾</button>
 <div class="solution" id="ex1-q6">
-  <h3>Different preferences and proportional endowments</h3>
+  <h3>Can trade make Thomas and Juliette better off?</h3>
+  <p>In this question, the starting goods have changed:</p>
+  <div class="math">\[\omega_t=(9,9),\qquad\omega_j=(1,1),\qquad\alpha\neq\beta.\]</div>
+  <p>There are still 10 radishes and 10 carrots in total. Both people start with positive amounts of both goods. We check whether this starting allocation is Pareto efficient: can a trade help both people?</p>
 
   <div class="step">
-    <h4>1. Derive the contract curve</h4>
-    <p>We must use the new starting bundles in this question. First check whether a small trade could benefit both people. At an interior efficient point, the two consumers must value a small exchange at the same rate. Using their marginal utilities gives:</p>
+    <h4>Method 1 — Compare the MRS directly</h4>
+    <p>This is the shortest method. The MRS tells us how a person values a small exchange between the goods.</p>
+    <p><strong>Step 1. Write the efficiency condition.</strong> For these smooth preferences, at an efficient point inside the box, the two MRS must be equal:</p>
+    <div class="math">\[\boxed{MRS_t=MRS_j}.\]</div>
+    <p>Here we use the marginal utility of carrots divided by the marginal utility of radishes. This measures how many radishes a person is willing to give up for a little more carrots:</p>
+    <div class="math">\[\begin{gathered}
+      MRS_t=\frac{\partial u_t/\partial C_t}{\partial u_t/\partial R_t}
+      =\frac{1-\alpha}{\alpha}\frac{R_t}{C_t},\\
+      MRS_j=\frac{\partial u_j/\partial C_j}{\partial u_j/\partial R_j}
+      =\frac{1-\beta}{\beta}\frac{R_j}{C_j}.
+    \end{gathered}\]</div>
+    <p><strong>Step 2. Use the starting quantities.</strong> Thomas has \((9,9)\) and Juliette has \((1,1)\). For both people, the ratio of radishes to carrots equals 1:</p>
+    <div class="math">\[\begin{aligned}
+      MRS_t&amp;=\frac{1-\alpha}{\alpha}\times\frac99
+      =\boxed{\frac{1-\alpha}{\alpha}},\\
+      MRS_j&amp;=\frac{1-\beta}{\beta}\times\frac11
+      =\boxed{\frac{1-\beta}{\beta}}.
+    \end{aligned}\]</div>
+    <p><strong>Step 3. Compare.</strong> These two values could be equal only if:</p>
+    <div class="math">\[\begin{aligned}
+      \frac{1-\alpha}{\alpha}=\frac{1-\beta}{\beta}
+      &amp;\Longleftrightarrow\beta(1-\alpha)=\alpha(1-\beta)\\
+      &amp;\Longleftrightarrow\beta-\alpha\beta=\alpha-\alpha\beta\\
+      &amp;\Longleftrightarrow\beta=\alpha.
+    \end{aligned}\]</div>
+    <p>But the question says \(\alpha\neq\beta\). Therefore:</p>
+    <div class="math">\[\boxed{MRS_t\neq MRS_j}.\]</div>
+    <p><strong>Conclusion:</strong> the starting allocation is not Pareto efficient. Thomas and Juliette value a small exchange differently, so a trade can make both better off.</p>
+    <p><strong>Why can both gain?</strong> Choose an exchange rate between their two MRS. The person who values carrots more is willing to give more radishes for them than the other person needs to receive. A small trade at a rate between the two therefore benefits both.</p>
+  </div>
+
+  <div class="step">
+    <h4>Method 2 — Check the contract curve</h4>
+    <p>The contract curve contains the Pareto-efficient allocations. This method checks whether the starting point \((R_t,C_t)=(9,9)\) is on that curve.</p>
+    <p><strong>Step 1. Write the contract curve.</strong> Since total resources are fixed, Juliette receives what Thomas does not consume:</p>
+    <div class="math">\[R_j=10-R_t,\qquad C_j=10-C_t.\]</div>
+    <p>Put these quantities into the condition \(MRS_t=MRS_j\):</p>
     <div class="math">\[\frac{1-\alpha}{\alpha}\frac{R_t}{C_t}
       =\frac{1-\beta}{\beta}\frac{10-R_t}{10-C_t}.\]</div>
-    <p>Cross-multiply and collect the terms in \(R_t\), keeping the full coefficients:</p>
+    <p>Cross-multiply, then collect all terms containing \(R_t\):</p>
     <div class="math">\[\begin{gathered}
-      \beta(1-\alpha)R_t(10-C_t)\\
-      =\alpha(1-\beta)(10-R_t)C_t,\\[6pt]
-      R_t\big[10\beta(1-\alpha)+(\alpha-\beta)C_t\big]\\
+      \beta(1-\alpha)R_t(10-C_t)
+      =\alpha(1-\beta)(10-R_t)C_t,\\
+      R_t\big[10\beta(1-\alpha)+(\alpha-\beta)C_t\big]
       =10\alpha(1-\beta)C_t.
     \end{gathered}\]</div>
-    <div class="math">\[\boxed{R_t=\frac{10\alpha(1-\beta)C_t}{10\beta(1-\alpha)+(\alpha-\beta)C_t}}.\]</div>
-    <p>At the initial bundles \((9,9)\) and \((1,1)\), both ratios \(R/C\) equal one, but:</p>
-    <div class="math">\[\frac{1-\alpha}{\alpha}\neq\frac{1-\beta}{\beta}.\]</div>
-    <p>The initial allocation is therefore not Pareto efficient: mutually beneficial trades exist.</p>
+    <p>Divide by the term in brackets to get the contract curve:</p>
+    <div class="math">\[\boxed{R_t=
+      \frac{10\alpha(1-\beta)C_t}
+      {10\beta(1-\alpha)+(\alpha-\beta)C_t}}.\]</div>
+    <p><strong>Step 2. Test the starting point.</strong> If \((9,9)\) belongs to this curve, replacing \(R_t\) and \(C_t\) by 9 must satisfy the equation:</p>
+    <div class="math">\[9=
+      \frac{90\alpha(1-\beta)}
+      {10\beta(1-\alpha)+9(\alpha-\beta)}.\]</div>
+    <p>Multiply both sides by the denominator, then divide by 9:</p>
+    <div class="math">\[10\beta(1-\alpha)+9(\alpha-\beta)
+      =10\alpha(1-\beta).\]</div>
+    <p>Expand the brackets:</p>
+    <div class="math">\[10\beta-10\alpha\beta+9\alpha-9\beta
+      =10\alpha-10\alpha\beta.\]</div>
+    <p>The terms \(-10\alpha\beta\) cancel on both sides. On the left, \(10\beta-9\beta=\beta\). We get:</p>
+    <div class="math">\[\begin{aligned}
+      \beta+9\alpha&amp;=10\alpha,\\
+      \beta&amp;=\alpha.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{\alpha=\beta}.\]</div>
+    <p><strong>Step 3. Interpret.</strong> The starting point could be on the contract curve only if \(\alpha=\beta\). But the question assumes \(\alpha\neq\beta\).</p>
+    <p><strong>Conclusion:</strong> the starting point is not on the contract curve, so it is not Pareto efficient. A trade that benefits both people is possible.</p>
   </div>
+
   <div class="step result">
-    <h4>2. Show that competitive trade makes both strictly better off</h4>
-    <p>Normalize \(p_R=1\). Thomas now has wealth \(9+9p_C\), while Juliette has wealth \(1+p_C\). Their problems are the same as in Question 3, with these new budgets:</p><div class="math">\[\begin{gathered}
-\max_{R_t,C_t\geq0}\quad R_t^\alpha C_t^{1-\alpha}\\
-\text{s.t.}\quad R_t+p_CC_t\leq9+9p_C,\\
-\max_{R_j,C_j\geq0}\quad R_j^\beta C_j^{1-\beta}\\
-\text{s.t.}\quad R_j+p_CC_j\leq1+p_C.
-\end{gathered}\]</div><p>The Lagrangian method from Question 3 still gives the same spending shares. Thus \(R_t=9\alpha(1+p_C)\) and \(R_j=\beta(1+p_C)\). Add these demands and set the total equal to 10:</p>
-    <div class="math">\[9\alpha(1+p_C)+\beta(1+p_C)=10.\]</div>
-    <div class="math">\[\boxed{p_C^*=\frac{10-9\alpha-\beta}{9\alpha+\beta}}.\]</div>
-    <p>At the initial bundles, both ratios \(R/C\) equal 1. Thomas would choose to keep his bundle only if \(p_C=(1-\alpha)/\alpha\); Juliette would do so only if \(p_C=(1-\beta)/\beta\). Compare these rates with the equilibrium price:</p><div class="math">\[\begin{aligned}
-p_C^*-\frac{1-\alpha}{\alpha}
-&amp;=\frac{\alpha-\beta}{\alpha(9\alpha+\beta)},\\
-p_C^*-\frac{1-\beta}{\beta}
-&amp;=\frac{9(\beta-\alpha)}{\beta(9\alpha+\beta)}.
-\end{aligned}\]</div><p>Both differences are nonzero when \(\alpha\neq\beta\). So neither initial bundle is that person’s best choice at the equilibrium prices.</p>
-    <p>Both initial bundles remain affordable. Since each consumer has a unique optimum and chooses a different bundle, <strong>both achieve strictly higher utility</strong>. Trade is a strict Pareto improvement.</p>
+    <h4>Answer to Question 6</h4>
+    <p><strong>Yes, trade can make both Thomas and Juliette better off.</strong> Their starting quantities have the same ratio, but their preferences differ. Their MRS are therefore different, leaving room for gains from trade. Both methods show this same result.</p>
   </div>
 </div>
 </section>
