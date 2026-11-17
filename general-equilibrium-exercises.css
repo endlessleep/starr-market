@@ -1,7 +1,29 @@
-/* The Part 4-2 corrections keep diagrams compact and independently expandable. */
+/* Small diagrams stay beside their full-size reading guides. */
+.general-equilibrium-exercises .graph-reading {
+  margin: 22px 0;
+  padding: 18px;
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius);
+  background: rgba(15, 23, 42, .3);
+}
+.general-equilibrium-exercises .graph-heading {
+  margin: 0 0 18px;
+  color: var(--blue);
+  font-size: 1rem;
+}
+.general-equilibrium-exercises .graph-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.general-equilibrium-exercises .graph-visual,
+.general-equilibrium-exercises .graph-guide {
+  min-width: 0;
+}
 .general-equilibrium-exercises .compact-figure {
   max-width: 280px;
-  margin: 20px auto;
+  margin: 0 auto 18px;
 }
 .general-equilibrium-exercises .compact-figure > a {
   display: block;
@@ -14,11 +36,76 @@
   max-width: 100%;
   height: auto;
 }
-.general-equilibrium-exercises .diagram-pair {
+.general-equilibrium-exercises .graph-legend {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 280px));
-  justify-content: center;
-  gap: 18px;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .88rem;
+  line-height: 1.55;
+}
+.general-equilibrium-exercises .graph-legend li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  column-gap: 10px;
+}
+.general-equilibrium-exercises .graph-swatch {
+  width: 22px;
+  height: 0;
+  margin-top: .65em;
+  border-top: 3px solid;
+}
+.general-equilibrium-exercises .graph-swatch.blue { color: #70b3ff; }
+.general-equilibrium-exercises .graph-swatch.red { color: #ff8389; }
+.general-equilibrium-exercises .graph-swatch.green-line { color: #91c87b; border-top-style: dashed; }
+.general-equilibrium-exercises .graph-swatch.gray-line { color: #c1c7cd; border-top-style: dashed; }
+.general-equilibrium-exercises .graph-swatch.orange-line { color: #ffae5f; }
+.general-equilibrium-exercises .graph-swatch.green-fill {
+  height: 12px;
+  margin-top: .3em;
+  border: 1px solid #91c87b;
+  background: rgba(145, 200, 123, .35);
+}
+.general-equilibrium-exercises .graph-swatch.orange-point,
+.general-equilibrium-exercises .graph-swatch.dark-point {
+  width: 9px;
+  height: 9px;
+  margin: .45em 0 0 5px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffae5f;
+}
+.general-equilibrium-exercises .graph-swatch.dark-point { background: #cbd5e1; }
+.general-equilibrium-exercises .graph-steps {
+  display: grid;
+  gap: 15px;
+  margin: 0;
+  padding-left: 22px;
+  font-size: .94rem;
+  line-height: 1.7;
+}
+.general-equilibrium-exercises .graph-steps li::marker {
+  color: var(--blue);
+  font-weight: 700;
+}
+.general-equilibrium-exercises .graph-example {
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid var(--border);
+  font-size: .94rem;
+}
+.general-equilibrium-exercises .graph-example h4 {
+  margin-bottom: 10px;
+  color: var(--green);
+  font-size: .96rem;
+}
+.general-equilibrium-exercises .graph-example p + p {
+  margin-top: 10px;
+}
+.general-equilibrium-exercises .graph-table th[scope="row"] {
+  text-transform: none;
+  letter-spacing: 0;
 }
 .general-equilibrium-exercises .solution-list {
   margin: 14px 0 14px 20px;
@@ -26,11 +113,21 @@
 .general-equilibrium-exercises .solution-list li + li {
   margin-top: 10px;
 }
-@media (max-width: 600px) {
-  .general-equilibrium-exercises .diagram-pair {
-    grid-template-columns: minmax(0, 280px);
-    gap: 0;
+@media (max-width: 1100px) {
+  .general-equilibrium-exercises .graph-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
+  .general-equilibrium-exercises .graph-visual {
+    max-width: 360px;
+    width: 100%;
+    margin: auto;
+  }
+}
+@media (max-width: 600px) {
+  .general-equilibrium-exercises .graph-reading { padding: 16px 10px; }
+  .general-equilibrium-exercises .graph-table th,
+  .general-equilibrium-exercises .graph-table td { padding: 10px 5px; font-size: .79rem; }
   .general-equilibrium-exercises .compact-figure img {
     width: 200px;
   }
