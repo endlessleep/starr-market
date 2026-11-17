@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="374.4pt" height="338.4pt" viewBox="0 0 374.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <title>Gains from trade and the equal-wealth target</title>
+<svg role="img" aria-labelledby="diagram-title diagram-description" xmlns:xlink="http://www.w3.org/1999/xlink" width="374.4pt" height="338.4pt" viewBox="0 0 374.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title id="diagram-title">Gains from trade and the equal-wealth target</title>
+ <desc id="diagram-description">In Alice's coordinates the initial endowment is omega=(4,2), while E=(3,1) is the equal-wealth equilibrium derived in Question 3. Benjamin reads the same allocations as (1,1) and (2,2) from the opposite origin. The initial indifference curves bound the green improvement lens. E is outside it: Alice loses and Benjamin gains.</desc>
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
     <dc:title>Gains from trade and the equal-wealth target</dc:title>
-    <dc:description>The coloured curves pass through the initial endowment. The target E lies below both initial curves, reducing Alice’s utility and increasing Benjamin’s; it is outside the improvement lens.</dc:description>
+    <dc:description>In Alice's coordinates the initial endowment is omega=(4,2), while E=(3,1) is the equal-wealth equilibrium derived in Question 3. Benjamin reads the same allocations as (1,1) and (2,2) from the opposite origin. The initial indifference curves bound the green improvement lens. E is outside it: Alice loses and Benjamin gains.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>

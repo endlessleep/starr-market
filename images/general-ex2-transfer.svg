@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="374.4pt" height="338.4pt" viewBox="0 0 374.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <title>Redistribute first, then trade</title>
+<svg role="img" aria-labelledby="diagram-title diagram-description" xmlns:xlink="http://www.w3.org/1999/xlink" width="374.4pt" height="338.4pt" viewBox="0 0 374.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title id="diagram-title">Redistribute first, then trade</title>
+ <desc id="diagram-description">At the fixed target prices (1,1), Alice's budget before the transfer is x1A+x2A=6 through omega=(4,2). After paying 2 it is x1A+x2A=4 through the equilibrium E=(3,1) derived in Question 3. The black arrow shows the inward parallel shift. Benjamin receives the transfer and has wealth 4 too.</desc>
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
     <dc:title>Redistribute first, then trade</dc:title>
-    <dc:description>The transfer shifts Alice’s budget inward at unchanged relative prices. The black arrow indicates the parallel shift from the grey initial budget to the orange budget containing the target E.</dc:description>
+    <dc:description>At the fixed target prices (1,1), Alice's budget before the transfer is x1A+x2A=6 through omega=(4,2). After paying 2 it is x1A+x2A=4 through the equilibrium E=(3,1) derived in Question 3. The black arrow shows the inward parallel shift. Benjamin receives the transfer and has wealth 4 too.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>

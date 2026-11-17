@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="520" height="470" viewBox="0 0 520 470" role="img" aria-labelledby="title description">
 <title id="title">Interior contract curve — Alice and Benjamin</title>
-<desc id="description">Lecture-style Edgeworth box with three pairs of indifference curves tangent on a horizontal dashed line. Each tangency has x2A equal to 1 and x2B equal to 2. Alice reads from the bottom-left and Benjamin from the top-right. Hollow endpoints are excluded. No unique equilibrium is selected.</desc>
+<desc id="description">The interior efficient set has Alice's good 2 equal to 1: one unit above her bottom-left origin, equivalently two units below Benjamin's top-right origin. Three unlabelled illustrative tangencies lie on this horizontal dashed line. Good 1 ranges strictly between 0 and 5 for Alice. Hollow endpoints are excluded. No point E, chosen good-1 quantity, endowment or unique equilibrium is shown.</desc>
 <defs>
 <marker id="blue-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#2463a4"/></marker>
 <marker id="red-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#d23e46"/></marker>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="374.4pt" height="338.4pt" viewBox="0 0 374.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <title>Thomas and Juliette: read the gains from trade</title>
+<svg role="img" aria-labelledby="diagram-title diagram-description" xmlns:xlink="http://www.w3.org/1999/xlink" width="374.4pt" height="338.4pt" viewBox="0 0 374.4 338.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title id="diagram-title">Thomas and Juliette: read the gains from trade</title>
+ <desc id="diagram-description">Thomas reads from the bottom-left and Juliette from the top-right. In Thomas's coordinates omega is (1,9), while the other intersection Z is (9,1). At omega, Juliette's bundle is (9,1); at Z it is (1,9). Both curves have initial utility 3. Inside the green lens both gain; its intersections leave both indifferent. No contract curve is drawn.</desc>
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
     <dc:title>Thomas and Juliette: read the gains from trade</dc:title>
-    <dc:description>The two origins give opposite readings of the same allocation. The green lens overlaps the preferred sides of the initial indifference curves; both intersections leave utilities unchanged.</dc:description>
+    <dc:description>Thomas reads from the bottom-left and Juliette from the top-right. In Thomas's coordinates omega is (1,9), while the other intersection Z is (9,1). At omega, Juliette's bundle is (9,1); at Z it is (1,9). Both curves have initial utility 3. Inside the green lens both gain; its intersections leave both indifferent. No contract curve is drawn.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
