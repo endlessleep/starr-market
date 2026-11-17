@@ -165,11 +165,10 @@
 &amp;=\frac{p_C}{p_R},\\
 p_CC_t&amp;=\frac{1-\alpha}{\alpha}p_RR_t.
 \end{aligned}\]</div><p>The last line links spending on carrots to spending on radishes. Put it into the budget:</p><div class="math">\[\begin{aligned}
-p_RR_t+\frac{1-\alpha}{\alpha}p_RR_t&amp;=p_R+9p_C,\\
 p_RR_t\left(1+\frac{1-\alpha}{\alpha}\right)&amp;=p_R+9p_C,\\
 \frac{p_RR_t}{\alpha}&amp;=p_R+9p_C,\\
 p_RR_t&amp;=\alpha(p_R+9p_C).
-\end{aligned}\]</div><p>Thomas spends the share \(\alpha\) of his budget on radishes. The remaining share \(1-\alpha\) goes to carrots. Divide spending by the price of each good to get quantities:</p><div class="math">\[\begin{gathered}
+\end{aligned}\]</div><p>Thomas spends the share \(\alpha\) on radishes and \(1-\alpha\) on carrots. Divide by each price to get his optimal demands. In the rest of this question, \(R_t,C_t,R_j,C_j\) denote these price-dependent demands; a star will mark their equilibrium values in Question 4:</p><div class="math">\[\begin{gathered}
 \boxed{R_t=\frac{\alpha(p_R+9p_C)}{p_R}
 =\alpha\left(1+9\frac{p_C}{p_R}\right)},\\
 \boxed{C_t=\frac{(1-\alpha)(p_R+9p_C)}{p_C}
@@ -204,7 +203,7 @@ R_t+R_j&amp;=10,\\
 \alpha+9\beta+(9\alpha+\beta)\frac{p_C}{p_R}&amp;=10,\\
 (9\alpha+\beta)\frac{p_C}{p_R}&amp;=10-\alpha-9\beta.
 \end{aligned}\]</div><div class="math">\[\boxed{p^*=\frac{p_C}{p_R}=\frac{10-\alpha-9\beta}{9\alpha+\beta}}.\]</div><p>The denominator is positive. The numerator is also positive because \(\alpha+9\beta&lt;10\). This determines the price of carrots relative to radishes. Multiplying both prices by the same positive number would not change the choices.</p></div>
-<p>Both budgets are fully spent and prices are positive. By Walras’ law, clearing the radish market also clears the carrot market. <strong>The boxed ratio is the equilibrium relative price.</strong></p><details class="optional-proof"><summary>Optional calculation — Check the carrot market</summary><div class="optional-body"><p>Walras’ law says that, when both budgets are fully spent and prices are positive, clearing one of the two markets also clears the other. We can check this directly:</p><div class="math">\[\begin{aligned}
+<p>Both budgets are fully spent and prices are positive. By Walras’ law, clearing the radish market also clears the carrot market. <strong>The boxed ratio is the equilibrium relative price.</strong></p><details class="optional-proof"><summary>Optional calculation — Check the carrot market</summary><div class="optional-body"><p>Substitute the equilibrium relative price into total carrot demand:</p><div class="math">\[\begin{aligned}
 C_t+C_j
 &amp;=(1-\alpha)\left(\frac1{p^*}+9\right)
  +(1-\beta)\left(\frac9{p^*}+1\right)\\
@@ -343,7 +342,6 @@ C_t+C_j
       \beta+9\alpha&amp;=10\alpha,\\
       \beta&amp;=\alpha.
     \end{aligned}\]</div>
-    <div class="math">\[\boxed{\alpha=\beta}.\]</div>
     <p><strong>Step 3. Interpret.</strong> Membership would require \(\alpha=\beta\), contrary to the question. Thus \((9,9)\) is outside the contract curve, confirming the main answer.</p>
   </div></details>
 </div>
@@ -422,53 +420,76 @@ C_t+C_j
 <button type="button" class="toggle" data-label="Exercise 2 · Question 2" onclick="toggleAnswer(this,'ex2-q2')" aria-controls="ex2-q2" aria-expanded="false">Show correction — Exercise 2 · Question 2 ▾</button>
 <div class="solution" id="ex2-q2">
   <h3>Support every interior optimum as an equilibrium</h3>
-<p><strong>Goal:</strong> Find prices and endowments that support any interior efficient allocation as an equilibrium.</p>
-<p><strong>Start:</strong> Take any allocation from Question 1. We may choose its initial endowments; they are not fixed in this question.</p>
+  <p><strong>Goal:</strong> Find prices and endowments that make any interior efficient allocation a competitive equilibrium.</p>
+  <p><strong>Start:</strong> Use the efficient set and the MRS from Question 1. Write \(x^A,x^B\) for the target bundles, \(\omega^A,\omega^B\) for endowments, \(x^{A,d},x^{B,d}\) for optimal demands, and \(p^*\) for equilibrium prices.</p>
 
   <div class="step">
-    <h4>1. Alice’s problem at \(p_1=1\)</h4><p>We want to find prices and starting goods that make any allocation from Question 1 an equilibrium. Set the price of good 1 to 1. Alice’s initial goods are worth \(\omega_1^A+p_2\omega_2^A\). Her choice problem is:</p><div class="math">\[\begin{gathered}
-\max_{x_1^A\geq0,\;x_2^A&gt;0}\quad x_1^A+\ln x_2^A\\
-\text{s.t.}\quad x_1^A+p_2x_2^A\leq\omega_1^A+p_2\omega_2^A.
-\end{gathered}\]</div><p>Good 2 must be positive because its logarithm must be defined. Utility increases with both goods, so Alice spends her full budget. For the interior choice asked for here, good 1 is positive too. Add the unused budget to utility, multiplied by a Lagrange multiplier:</p>
+    <h4>1. Fix any target and choose supporting prices and endowments</h4>
+    <p>Let \(a\) be Alice’s target quantity of good 1. Question 1 gives:</p>
     <div class="math">\[\begin{aligned}
-      \mathcal L^A={}&amp;x_1^A+\ln x_2^A\\
-      &amp;+\lambda_A(\omega_1^A+p_2\omega_2^A-x_1^A-p_2x_2^A).
+      0&amp;&lt;a&lt;5,\\
+      x^A&amp;=(a,1),\\
+      x^B&amp;=(5-a,2).
     \end{aligned}\]</div>
+    <p>At every such target, both MRS equal 1. An interior consumer optimum requires \(MRS=p_1/p_2\). Normalize \(p_1=1\), and choose prices with this ratio:</p>
+    <div class="math">\[\boxed{p^*=(1,1)}.\]</div>
+    <p>Give each consumer their target bundle as the initial endowment:</p>
     <div class="math">\[\begin{aligned}
-\frac{\partial\mathcal L^A}{\partial x_1^A}&amp;=1-\lambda_A=0,\\
-\frac{\partial\mathcal L^A}{\partial x_2^A}&amp;=\frac1{x_2^A}-\lambda_Ap_2=0,\\
-\frac{\partial\mathcal L^A}{\partial\lambda_A}
-&amp;=\omega_1^A+p_2\omega_2^A-x_1^A-p_2x_2^A=0.
-\end{aligned}\]</div>
-    <p>The first equation gives \(\lambda_A=1\). The second then gives \(1/x_2^A=p_2\), so \(x_2^A=1/p_2\). Spending on good 2 is therefore \(p_2x_2^A=1\). Use the budget to find what remains for good 1:</p>
-    <div class="math">\[\boxed{x_2^A=\frac1{p_2}},\qquad\boxed{x_1^A=\omega_1^A+p_2\omega_2^A-1}.\]</div>
+      \omega^A&amp;=(a,1),\\
+      \omega^B&amp;=(5-a,2).
+    \end{aligned}\]</div>
+    <p>We must now check that each person actually chooses this bundle at these prices.</p>
   </div>
+
   <div class="step">
-    <h4>2. Benjamin’s problem and demand</h4><p>Benjamin has his own budget, and the coefficient on the logarithm is 2:</p><div class="math">\[\begin{gathered}
-\max_{x_1^B\geq0,\;x_2^B&gt;0}\quad x_1^B+2\ln x_2^B\\
-\text{s.t.}\quad x_1^B+p_2x_2^B\leq\omega_1^B+p_2\omega_2^B.
-\end{gathered}\]</div><p>Reuse Alice’s reasoning. Benjamin also has \(MU_1=1\), so the good-1 condition gives \(\lambda_B=1\). Only the good-2 marginal utility changes:</p>
-<div class="math">\[\frac{2}{x_2^B}=\lambda_Bp_2=p_2
-\quad\Longrightarrow\quad p_2x_2^B=2.\]</div>
-<p>He spends 2 on good 2 and the rest of his budget on good 1:</p>
-    <div class="math">\[\boxed{x_2^B=\frac2{p_2}},\qquad\boxed{x_1^B=\omega_1^B+p_2\omega_2^B-2}.\]</div>
-    <p>These interior demands require Alice’s wealth to exceed 1 and Benjamin’s to exceed 2. The endowments below satisfy these conditions. Concavity of utility makes the first-order conditions sufficient for their best choices.</p>
+    <h4>2. Obtain the optimal demand formulas</h4>
+    <p>At general normalized prices \(p=(1,p_2)\), apply Question 1’s MRS formulas to the optimal demands:</p>
+    <div class="math">\[\begin{aligned}
+      x_2^{A,d}&amp;=\frac{1}{p_2},\\
+      \frac{x_2^{B,d}}{2}&amp;=\frac{1}{p_2},\\
+      x_2^{B,d}&amp;=\frac{2}{p_2}.
+    \end{aligned}\]</div>
+    <p>Utility increases with both goods, so each budget is fully spent. Subtract spending on good 2 to find demand for good 1:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{A,d}&amp;=\omega_1^A+p_2\omega_2^A-p_2x_2^{A,d}\\
+      &amp;=\omega_1^A+p_2\omega_2^A-1,\\[4pt]
+      x_1^{B,d}&amp;=\omega_1^B+p_2\omega_2^B-p_2x_2^{B,d}\\
+      &amp;=\omega_1^B+p_2\omega_2^B-2.
+    \end{aligned}\]</div>
+    <p>These formulas apply when both good-1 demands are positive. Concavity of utility makes the MRS and budget conditions sufficient for optimality.</p>
   </div>
+
+  <div class="step">
+    <h4>3. Verify Alice’s demand</h4>
+    <p>Evaluate her demand at \(p^*=(1,1)\) and \(\omega^A=(a,1)\):</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{A,d}&amp;=\omega_1^A+\omega_2^A-1\\
+      &amp;=a+1-1=a,\\
+      x_2^{A,d}&amp;=1.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{x^{A,d}=(a,1)=\omega^A=x^A}.\]</div>
+  </div>
+
+  <div class="step">
+    <h4>4. Verify Benjamin’s demand</h4>
+    <p>Evaluate his demand at the same prices and \(\omega^B=(5-a,2)\):</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{B,d}&amp;=\omega_1^B+\omega_2^B-2\\
+      &amp;=(5-a)+2-2=5-a,\\
+      x_2^{B,d}&amp;=2.
+    \end{aligned}\]</div>
+    <div class="math">\[\boxed{x^{B,d}=(5-a,2)=\omega^B=x^B}.\]</div>
+    <p>Since \(0&lt;a&lt;5\), both good-1 demands are positive, as required by the interior solution.</p>
+  </div>
+
   <div class="step result">
-<h4>3. Clear markets and choose starting endowments</h4><p>There are 3 units of good 2. Add the two interior demands and set their sum equal to 3:</p>
-    <div class="math">\[\frac1{p_2}+\frac2{p_2}=3\quad\Longrightarrow\quad\boxed{p^*=(1,1)}.\]</div>
-    <p>For any target from Question 1, choose endowments equal to that target:</p>
-    <div class="math">\[\begin{gathered}
-      \omega^A=(x_1^A,1),\\
-      \omega^B=(5-x_1^A,2),\qquad0&lt;x_1^A&lt;5.
-    \end{gathered}\]</div>
-    <p>Check the demands at these prices and endowments:</p><div class="math">\[\begin{aligned}
-\text{Alice’s good 1 demand}&amp;=x_1^A+1-1=x_1^A,\\
-\text{Alice’s good 2 demand}&amp;=1,\\
-\text{Benjamin’s good 1 demand}&amp;=(5-x_1^A)+2-2=5-x_1^A,\\
-\text{Benjamin’s good 2 demand}&amp;=2.
-\end{aligned}\]</div><p>Each person chooses exactly their initial bundle. The demands add to \((5,3)\), and both good-1 demands are positive because \(0&lt;x_1^A&lt;5\). Individual optimality and market clearing therefore hold: this is a valid equilibrium with no trade.</p>
-    <p>The prices <strong>support</strong> the target: given these budgets, both consumers choose it. Efficiency concerns possible gains from reallocating goods. An equilibrium also requires individual choices and market clearing at given prices and endowments. This construction meets all those conditions without trade.</p>
+    <h4>5. Verify market clearing and conclude</h4>
+    <p>Add the optimal demands and compare them with the total endowments:</p>
+    <div class="math">\[\begin{aligned}
+      x_1^{A,d}+x_1^{B,d}&amp;=a+(5-a)=5,\\
+      x_2^{A,d}+x_2^{B,d}&amp;=1+2=3.
+    \end{aligned}\]</div>
+    <p><strong>Individual optimality and market clearing are satisfied.</strong> Thus \(p^*=(1,1)\), together with the chosen endowments, supports the target allocation as a competitive equilibrium. Here optimal demands equal endowments, so no trade is needed. Because \(a\) was arbitrary in \((0,5)\), this construction works for every interior efficient allocation from Question 1.</p>
   </div>
 </div>
 
@@ -481,10 +502,12 @@ C_t+C_j
   <div class="step">
     <p>Equal endowments means splitting each good equally between the two people. It does not yet tell us what they choose to consume:</p>
     <div class="math">\[\omega^A=\omega^B=\left(\frac52,\frac32\right).\]</div>
-    <p>The good-2 demands from Question 2 add to \(3/p_2\). Equating this to the available 3 units gives \(p_2=1\). Each person’s wealth is then \(5/2+3/2=4\). Alice spends 1 on good 2, Benjamin spends 2, and the rest buys good 1:</p>
+    <p>The good-2 demands from Question 2 add to \(3/p_2\). Equating this to the available 3 units gives \(p_2=1\). Each person’s wealth is then \(5/2+3/2=4\). A star denotes the optimal demand evaluated at equilibrium prices. Alice spends 1 on good 2, Benjamin spends 2, and the rest buys good 1:</p>
     <div class="math">\[\begin{aligned}
-      x_2^{A*}&amp;=1,&amp;\quad x_1^{A*}&amp;=4-1=3,\\
-      x_2^{B*}&amp;=2,&amp;\quad x_1^{B*}&amp;=4-2=2.
+      x_1^{A*}&amp;=4-1=3,\\
+      x_2^{A*}&amp;=1,\\
+      x_1^{B*}&amp;=4-2=2,\\
+      x_2^{B*}&amp;=2.
     \end{aligned}\]</div>
   </div>
   <div class="step result">
@@ -504,11 +527,14 @@ C_t+C_j
     <h4>1. Compare initial wealth with the target wealth</h4>
     <p>At the target prices \(p^*=(1,1)\), initial endowments \((4,2)\) and \((1,1)\) are worth:</p>
     <div class="math">\[\begin{aligned}
-      \text{Alice: }&amp;4+2=6,\\
-      \text{Benjamin: }&amp;1+1=2.
+      p^*\cdot\omega^A&amp;=4+2=6,\\
+      p^*\cdot\omega^B&amp;=1+1=2.
     \end{aligned}\]</div>
     <p>The total wealth is \(6+2=8\). The target from Question 3 gives each person half, so each needs wealth 4. A positive transfer means income received, and a negative one means income paid:</p>
-    <div class="math">\[T_A=4-6=-2,\qquad T_B=4-2=2.\]</div>
+    <div class="math">\[\begin{aligned}
+      T_A&amp;=4-p^*\cdot\omega^A=4-6=-2,\\
+      T_B&amp;=4-p^*\cdot\omega^B=4-2=2.
+    \end{aligned}\]</div>
   </div>
   <div class="step result">
     <p><strong>Alice transfers 2 units of income to Benjamin.</strong> The transfer balances: \(-2+2=0\). Alice’s budget becomes \(6-2=4\), and Benjamin’s becomes \(2+2=4\). Their constraints are now \(x_1^A+x_2^A\leq4\) and \(x_1^B+x_2^B\leq4\). Applying their demands gives the bundles from Question 3:</p>
@@ -588,7 +614,7 @@ C_t+C_j
 <div class="solution" id="ex3-q1">
   <h3>Consumers’ demands and the firm’s input demand</h3>
 <p><strong>Goal:</strong> Find the consumers’ demands for good 1 and the firm’s input demand.</p>
-<p><strong>Start:</strong> Consumers maximize utility within their budgets; the firm maximizes revenue minus input cost. Only B receives its profit.</p>
+<p><strong>Start:</strong> Consumers maximize utility within their budgets; the firm maximizes revenue minus input cost. Only B receives its profit. Below, \(x^i\) denotes a consumption choice, \(x^{i,d}(p_1,p_2)\) its optimal demand, and \(x^{i*}\) its value at equilibrium prices.</p>
 
   <div class="step">
     <h4>1. Consumer A</h4>
@@ -608,8 +634,8 @@ C_t+C_j
     <p>Divide the first quantity condition by the second: \(x_2^A/x_1^A=p_1/p_2\). Multiply by \(p_2x_1^A\) to get equal spending on both goods. Put this into the budget:</p>
     <div class="math">\[p_1x_1^A=p_2x_2^A,\qquad2p_1x_1^A=\frac12(p_1+p_2).\]</div>
     <div class="math">\[\begin{gathered}
-      \boxed{x_1^A(p_1,p_2)=\frac14\left(1+\frac{p_2}{p_1}\right)},\\
-      x_2^A(p_1,p_2)=\frac14\left(1+\frac{p_1}{p_2}\right).
+      \boxed{x_1^{A,d}(p_1,p_2)=\frac14\left(1+\frac{p_2}{p_1}\right)},\\
+      x_2^{A,d}(p_1,p_2)=\frac14\left(1+\frac{p_1}{p_2}\right).
     \end{gathered}\]</div>
   </div>
   <div class="step">
@@ -637,8 +663,8 @@ C_t+C_j
     <p>The multiplier cancels in the ratio. B spends three times as much on good 2 as on good 1. Replace \(p_2x_2^B\) by \(3p_1x_1^B\) in the budget:</p>
     <div class="math">\[4p_1x_1^B=\frac12(p_1+p_2)+\Pi(p_1,p_2).\]</div>
     <div class="math">\[\begin{aligned}
-      x_1^B(p_1,p_2)&amp;=\frac18\left(1+\frac{p_2}{p_1}\right)+\frac{\Pi(p_1,p_2)}{4p_1},\\
-      x_2^B(p_1,p_2)&amp;=\frac38\left(1+\frac{p_1}{p_2}\right)+\frac{3\Pi(p_1,p_2)}{4p_2}.
+      x_1^{B,d}(p_1,p_2)&amp;=\frac18\left(1+\frac{p_2}{p_1}\right)+\frac{\Pi(p_1,p_2)}{4p_1},\\
+      x_2^{B,d}(p_1,p_2)&amp;=\frac38\left(1+\frac{p_1}{p_2}\right)+\frac{3\Pi(p_1,p_2)}{4p_2}.
     \end{aligned}\]</div>
   </div>
   <div class="step">
@@ -659,8 +685,8 @@ C_t+C_j
     <h4>4. Collect all demands for good 1</h4>
     <p>Substitute profit into B's demand:</p>
     <div class="math">\[\begin{aligned}
-      x_1^A(p_1,p_2)&amp;=\frac14\left(1+\frac{p_2}{p_1}\right),\\
-      x_1^B(p_1,p_2)&amp;=\frac18\left(1+\frac{p_2}{p_1}\right)+\frac{p_2^2}{16p_1^2},\\
+      x_1^{A,d}(p_1,p_2)&amp;=\frac14\left(1+\frac{p_2}{p_1}\right),\\
+      x_1^{B,d}(p_1,p_2)&amp;=\frac18\left(1+\frac{p_2}{p_1}\right)+\frac{p_2^2}{16p_1^2},\\
       y_1(p_1,p_2)&amp;=\frac{p_2^2}{4p_1^2}.
     \end{aligned}\]</div>
     <p>Here \(y_1\) is a <strong>positive physical input quantity</strong>. Add it to consumption when measuring total use of good 1. In a <strong>net production vector</strong>, the same input is negative: \((-y_1,y_2)\). These are two ways to record the same production activity.</p>
@@ -676,7 +702,7 @@ C_t+C_j
   <div class="step">
     <h4>1. Clear the market for good 1</h4>
     <p>The total endowment of good 1 is \(1/2+1/2=1\). Consumers and the firm share it:</p>
-    <div class="math">\[x_1^A+x_1^B+y_1=1.\]</div>
+    <div class="math">\[x_1^{A,d}+x_1^{B,d}+y_1=1.\]</div>
     <p>Set \(p_2=1\) in the demands from Question 1:</p>
     <div class="math">\[\begin{aligned}
       &amp;\frac14\left(1+\frac1{p_1}\right)
@@ -746,16 +772,16 @@ C_t+C_j
   <div class="step">
     <h4>1. Remove production and profit income</h4>
     <p>Each consumer owns \((1/2,1/2)\), so each budget is \(p_1x_1^i+p_2x_2^i\leq(p_1+p_2)/2\). Reuse the consumer conditions from Question 1 with \(\Pi=0\): A spends half on each good; B spends one quarter on good 1 and three quarters on good 2.</p>    <div class="math">\[\begin{aligned}
-      x_1^A&amp;=\frac14\left(1+\frac{p_2}{p_1}\right),&amp;
-      x_2^A&amp;=\frac14\left(1+\frac{p_1}{p_2}\right),\\
-      x_1^B&amp;=\frac18\left(1+\frac{p_2}{p_1}\right),&amp;
-      x_2^B&amp;=\frac38\left(1+\frac{p_1}{p_2}\right).
+      x_1^{A,d}&amp;=\frac14\left(1+\frac{p_2}{p_1}\right),\\
+      x_2^{A,d}&amp;=\frac14\left(1+\frac{p_1}{p_2}\right),\\
+      x_1^{B,d}&amp;=\frac18\left(1+\frac{p_2}{p_1}\right),\\
+      x_2^{B,d}&amp;=\frac38\left(1+\frac{p_1}{p_2}\right).
     \end{aligned}\]</div>
   </div>
   <div class="step">
     <h4>2. Clear good 1</h4><p>Without production, only the two consumers use good 1. Their demands must add to its initial stock of 1:</p>
     <div class="math">\[\begin{aligned}
-      x_1^A+x_1^B&amp;=1,\\
+      x_1^{A,d}+x_1^{B,d}&amp;=1,\\
       \frac38\left(1+\frac{p_2}{p_1}\right)&amp;=1,\\
       \frac{p_2}{p_1}&amp;=\frac53.
     \end{aligned}\]</div>
@@ -797,10 +823,10 @@ C_t+C_j
 
   <div class="step">
     <h4>1. Suppose a feasible Pareto improvement exists</h4>
-    <p>Let \((x^*,y^*,p^*)\) be a Walrasian equilibrium. A star marks the equilibrium choice. Its price vector satisfies \(p^*\geq0\) and \(p^*\neq0\). A tilde marks the alternative we want to test. Assume this alternative is feasible: each production plan is possible, and consumption does not exceed the available goods. Also assume:</p>
+    <p>Let \((x^*,y^*,p^*)\) be a Walrasian equilibrium. A star marks the equilibrium choice. Its price vector satisfies \(p^*\geq0\) and \(p^*\neq0\). A tilde marks the alternative we want to test. Assume this alternative is feasible: each production plan is possible, and consumption does not exceed the available goods. Assume nobody loses utility and at least one consumer, denoted \(i_0\), strictly gains:</p>
     <div class="math">\[\begin{gathered}
-      u_i(\widetilde x_i)\geq u_i(x_i^*)\quad\text{for every }i,\\
-      u_{i_0}(\widetilde x_{i_0})&gt;u_{i_0}(x_{i_0}^*)\quad\text{for at least one }i_0.
+      u_i(\widetilde x_i)\geq u_i(x_i^*)\quad\forall i,\\
+      u_{i_0}(\widetilde x_{i_0})&gt;u_{i_0}(x_{i_0}^*).
     \end{gathered}\]</div>
   </div>
   <div class="step">
@@ -814,13 +840,13 @@ C_t+C_j
     <p>A strictly preferred bundle must cost more than the budget, otherwise the consumer would choose it. A weakly preferred bundle cannot cost less: with money left over, the consumer could afford a small increase in all goods. Strictly increasing utility would make this bundle strictly better, contradicting optimality. Therefore:</p>
     <div class="math">\[\begin{gathered}
       p^*\cdot\widetilde x_i\geq p^*\cdot\omega_i+\sum_k\theta_{ki}\Pi_k^*
-      \quad\text{for every }i,\\
+      \quad\forall i,\\
       p^*\cdot\widetilde x_{i_0}&gt;p^*\cdot\omega_{i_0}+\sum_k\theta_{ki_0}\Pi_k^*.
     \end{gathered}\]</div>
   </div>
   <div class="step">
     <h4>3. Sum across consumers</h4>
-    <p>Add the inequalities for all consumers. No one has a lower value and at least one has a strictly higher value, so the total inequality is strict. For every firm, the ownership shares add to 1: \(\sum_i\theta_{ki}=1\). This means we count the firm’s profit exactly once when adding all incomes:</p>
+    <p>Add the inequalities for all consumers. No one has a lower value and at least one has a strictly higher value, so the total inequality is strict. The ownership shares sum to 1, so each firm’s profit is counted exactly once:</p>
     <div class="math">\[\begin{aligned}
       \sum_i p^*\cdot\widetilde x_i
       &amp;&gt;\sum_i p^*\cdot\omega_i+\sum_i\sum_k\theta_{ki}\Pi_k^*\\
